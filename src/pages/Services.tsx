@@ -145,10 +145,7 @@ const Services = () => {
                     </li>
                   ))}
                 </ul>
-                <Button variant="outline" className="w-full">
-                  Learn More
-                  <ArrowRight className="ml-2" size={16} />
-                </Button>
+
               </Card>
             ))}
           </div>

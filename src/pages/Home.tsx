@@ -49,34 +49,34 @@ const Home = () => {
   ];
 
   const stats = [
-    { number: '50+', label: 'Years of Excellence' },
-    { number: '200+', label: 'Products Developed' },
+    { number: '10+', label: 'Years of Excellence' },
+    { number: '25+', label: 'Products Developed' },
     { number: '15+', label: 'Countries Served' },
-    { number: '1M+', label: 'Lives Improved' },
+    { number: '2M+', label: 'Lives Improved' },
   ];
 
   const testimonials = [
     {
-      name: 'Dr. Sarah Johnson',
-      title: 'Chief Medical Officer',
-      company: 'Metro General Hospital',
+      name: 'Dr. Dushyant Deo',
+      title: 'Cardiologist',
+      company: 'SIIMS Multispeciality Hospital',
       content: 'Sunfi Pharmaceutical has been our trusted partner for over a decade. Their innovative cardiovascular medications have significantly improved our patient outcomes.',
       rating: 5,
       avatar: 'SJ'
     },
     {
-      name: 'Prof. Michael Chen',
-      title: 'Director of Research',
-      company: 'National Institute of Health',
-      content: 'The quality and efficacy of Sunfi\'s neurological treatments are unmatched. Their commitment to research excellence is evident in every product.',
+      name: 'Dr. Ghanshyam Das',
+      title: 'Pediatrician',
+      company: 'Gajra Raj Medical College & Hospital',
+      content: 'The quality and efficacy of Sunfi\'s pediatric treatments are unmatched. Their commitment to research excellence is evident in every product.',
       rating: 5,
       avatar: 'MC'
     },
     {
-      name: 'Dr. Emily Rodriguez',
-      title: 'Oncologist',
+      name: 'Dr. Manoj Kumar',
+      title: 'Orthopedic Surgeon',
       company: 'Cancer Care Center',
-      content: 'Working with Sunfi has transformed our cancer treatment protocols. Their precision oncology medications offer hope to our patients.',
+      content: 'Working with Sunfi has transformed our orthopedic treatment protocols. Their precision orthopedic medications offer hope to our patients.',
       rating: 5,
       avatar: 'ER'
     }
@@ -85,21 +85,21 @@ const Home = () => {
   const latestNews = [
     {
       title: 'Sunfi Pharmaceutical Receives FDA Approval for New Cardiovascular Drug',
-      date: '2024-01-15',
+      date: '2025-09-15',
       category: 'Regulatory',
       excerpt: 'CardioMax Pro receives FDA approval for treating hypertension, marking a significant milestone in cardiovascular care.',
       readTime: '3 min read'
     },
     {
       title: 'Partnership with Leading Research Institute for Alzheimer\'s Treatment',
-      date: '2024-01-10',
+      date: '2025-08-21',
       category: 'Partnership',
       excerpt: 'Collaborative research initiative aims to develop breakthrough treatments for neurodegenerative diseases.',
       readTime: '5 min read'
     },
     {
-      title: 'Sustainability Initiative: Carbon-Neutral Manufacturing by 2025',
-      date: '2024-01-05',
+      title: 'Sustainability Initiative: Carbon-Neutral Manufacturing by 2027',
+      date: '2025-08-05',
       category: 'Sustainability',
       excerpt: 'Sunfi commits to achieving carbon-neutral manufacturing operations across all facilities worldwide.',
       readTime: '4 min read'
