@@ -99,13 +99,13 @@ const Services = () => {
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-subtle">
+      <section className="py-12 bg-gradient-subtle">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+            <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
               Comprehensive Pharmaceutical Services
             </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
               From research and development to manufacturing and regulatory affairs, 
               we provide end-to-end pharmaceutical services to support your success.
             </p>
@@ -114,13 +114,13 @@ const Services = () => {
       </section>
 
       {/* Services Grid */}
-      <section className="py-20">
+      <section className="py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
               Our Service Portfolio
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Comprehensive solutions designed to meet all your pharmaceutical development and commercialization needs.
             </p>
           </div>
@@ -232,12 +232,12 @@ const Services = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-subtle">
+      <section className="py-12 bg-gradient-subtle">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
             Ready to Start Your Project?
           </h2>
-          <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">
             Let's discuss how our pharmaceutical services can accelerate your development 
             timeline and ensure regulatory success.
           </p>

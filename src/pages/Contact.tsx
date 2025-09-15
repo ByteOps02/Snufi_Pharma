@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { MapPin, Phone, Mail, Clock, Send, Building, Users, Globe } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
@@ -8,6 +8,11 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
 const Contact = () => {
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -105,13 +110,13 @@ const Contact = () => {
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-subtle">
+      <section className="py-12 bg-gradient-subtle">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+            <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
               Contact Us
             </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
               Get in touch with our team of pharmaceutical experts. We're here to answer 
               your questions and discuss how we can support your healthcare needs.
             </p>
@@ -120,9 +125,9 @@ const Contact = () => {
       </section>
 
       {/* Contact Form & Info */}
-      <section className="py-20">
+      <section className="py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-3 gap-12">
+          <div className="grid lg:grid-cols-3 gap-8">
             {/* Contact Form */}
             <div className="lg:col-span-2">
               <Card className="p-8">
@@ -263,13 +268,13 @@ const Contact = () => {
       </section>
 
       {/* Office Locations */}
-      <section className="py-20 bg-accent">
+      <section className="py-12 bg-accent">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
               Our Locations
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Find us across major pharmaceutical hubs in India, providing local support and global expertise.
             </p>
           </div>
@@ -299,13 +304,13 @@ const Contact = () => {
       </section>
 
       {/* Map Section Placeholder */}
-      <section className="py-20">
+      <section className="py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
               Visit Our Headquarters
             </h2>
-            <p className="text-xl text-muted-foreground">
+            <p className="text-lg text-muted-foreground">
               Located in the heart of Mumbai's pharmaceutical district
             </p>
           </div>

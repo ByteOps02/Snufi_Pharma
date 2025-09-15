@@ -33,13 +33,13 @@ const About = () => {
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-subtle">
+      <section className="py-12 bg-gradient-subtle">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+            <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
               About Sunfi Pharmaceutical
             </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
               For over five decades, we have been at the forefront of pharmaceutical innovation, 
               dedicated to developing life-changing medicines that make a real difference in people's lives.
             </p>
@@ -48,9 +48,9 @@ const About = () => {
       </section>
 
       {/* Mission, Vision, Values */}
-      <section className="py-20">
+      <section className="py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-6">
             {values.map((value, index) => (
               <Card key={index} className="p-8 text-center hover-lift">
                 <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-6">
@@ -69,11 +69,11 @@ const About = () => {
       </section>
 
       {/* Company Story */}
-      <section className="py-20 bg-accent">
+      <section className="py-12 bg-accent">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
                 Our Story
               </h2>
               <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
@@ -126,12 +126,12 @@ const About = () => {
       </section>
 
       {/* Leadership Message */}
-      <section className="py-20">
+      <section className="py-12">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-8">
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6">
             A Message from Our Leadership
           </h2>
-          <blockquote className="text-xl text-muted-foreground leading-relaxed italic mb-8">
+          <blockquote className="text-lg text-muted-foreground leading-relaxed italic mb-6">
             "At Sunfi Pharmaceutical, we believe that every breakthrough in medicine brings us 
             closer to a healthier world. Our commitment to innovation, quality, and patient care 
             drives everything we do, and we're proud to continue this mission for generations to come."
