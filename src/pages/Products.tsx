@@ -17,8 +17,8 @@ const Products = () => {
     { id: 'all', name: 'All Products', icon: Pill },
     { id: 'cardiovascular', name: 'Cardiovascular', icon: Heart },
     { id: 'neurological', name: 'Neurological', icon: Brain },
-    { id: 'immunology', name: 'Immunology', icon: Shield },
     { id: 'orthology', name: 'Orthology', icon: Bone },
+    { id: 'immunology', name: 'Immunology', icon: Shield },
   ];
 
   const products = [
