@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { ArrowRight, Shield, Microscope, Heart, Brain, Users, Award, ChevronRight, Star, Globe, Building, Leaf, TrendingUp, Calendar, Quote, CheckCircle, Target, Zap } from 'lucide-react';
+import { ArrowRight, Shield, Heart, Brain, Users, Award, ChevronRight, Star, Globe, Building, Leaf, TrendingUp, Calendar, Quote, CheckCircle, Target, Zap, Bone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { useNavigate } from 'react-router-dom';
@@ -32,7 +32,7 @@ const Home = () => {
       description: 'Rigorous testing and quality control processes ensure the highest standards of pharmaceutical excellence.',
     },
     {
-      icon: Microscope,
+      icon: Bone,
       title: 'Research & Innovation',
       description: 'Cutting-edge research facilities and innovative approaches to developing life-changing medications.',
     },
@@ -51,7 +51,7 @@ const Home = () => {
   const stats = [
     { number: '10+', label: 'Years of Excellence' },
     { number: '25+', label: 'Products Developed' },
-    { number: '15+', label: 'Countries Served' },
+    { number: '3+', label: 'Countries Served' },
     { number: '2M+', label: 'Lives Improved' },
   ];
 
@@ -122,11 +122,11 @@ const Home = () => {
       keyProducts: ['NeuroGuard', 'NeuroBalance', 'CogniMax']
     },
     {
-      name: 'Oncology',
-      icon: Microscope,
-      description: 'Precision cancer treatments and supportive care',
+      name: 'Orthology',
+      icon: Bone,
+      description: 'Precision joint disorder treatments and supportive care',
       productCount: 15,
-      keyProducts: ['OncoTarget', 'ChemoShield', 'ImmunoBoost']
+      keyProducts: ['OrthoJoint', 'JointFlex', 'CartilageCare']
     },
     {
       name: 'Immunology',

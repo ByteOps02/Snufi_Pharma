@@ -1,73 +1,140 @@
-# Welcome to your Lovable project
+# Sunfi Pharma
 
-## Project info
+This is a web application for Sunfi Pharma, a comprehensive pharmaceutical services provider. This application showcases the services offered by the company and provides a way for potential clients to get in touch.
 
-**URL**: https://lovable.dev/projects/1d7f6ede-e765-4b1c-b667-6a99490141d3
+## Table of Contents
 
-## How can I edit this code?
+*   [About The Project](#about-the-project)
+*   [Built With](#built-with)
+*   [Getting Started](#getting-started)
+    *   [Prerequisites](#prerequisites)
+    *   [Installation](#installation)
+*   [Usage](#usage)
+*   [Scripts](#scripts)
+*   [File Structure](#file-structure)
+*   [Contributing](#contributing)
+*   [License](#license)
 
-There are several ways of editing your application.
+## About The Project
 
-**Use Lovable**
+This project is a single-page application (SPA) built with React. It is designed to be a modern, responsive, and user-friendly marketing website for Sunfi Pharma.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/1d7f6ede-e765-4b1c-b667-6a99490141d3) and start prompting.
+### Features
 
-Changes made via Lovable will be committed automatically to this repo.
+*   **Home Page:** A landing page that provides an overview of the company and its services.
+*   **Services Page:** A detailed breakdown of the services offered by Sunfi Pharma, including:
+    *   Research & Development
+    *   Contract Manufacturing
+    *   Regulatory Affairs
+    *   Supply Chain Solutions
+    *   Medical Affairs
+    *   Pharmacovigilance
+*   **About Page:** Information about the company's mission, vision, and team.
+*   **Contact Page:** A form for users to get in touch with the company.
+*   **Responsive Design:** The application is fully responsive and works on all devices, from mobile phones to desktops.
 
-**Use your preferred IDE**
+## Built With
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+This project is built with the following technologies:
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+*   [Vite](https://vitejs.dev/) - A next-generation front-end tooling for web projects.
+*   [React](https://reactjs.org/) - A JavaScript library for building user interfaces.
+*   [TypeScript](https://www.typescriptlang.org/) - A typed superset of JavaScript that compiles to plain JavaScript.
+*   [Tailwind CSS](https://tailwindcss.com/) - A utility-first CSS framework for rapid UI development.
+*   [shadcn-ui](https://ui.shadcn.com/) - A collection of re-usable components built with Radix UI and Tailwind CSS.
 
-Follow these steps:
+## Getting Started
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+To get a local copy up and running follow these simple steps.
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+### Prerequisites
 
-# Step 3: Install the necessary dependencies.
-npm i
+You need to have Node.js and npm installed on your machine. You can install them using [nvm (Node Version Manager)](https://github.com/nvm-sh/nvm#installing-and-updating).
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+*   npm
+    ```sh
+    npm install npm@latest -g
+    ```
+
+### Installation
+
+1.  Clone the repo
+    ```sh
+    git clone https://github.com/your_username_/Sunfi_Pharma.git
+    ```
+2.  Install NPM packages
+    ```sh
+    npm install
+    ```
+3.  Start the development server
+    ```sh
+    npm run dev
+    ```
+
+## Usage
+
+The application will be available at `http://localhost:8080`. You can navigate through the different pages to see the content.
+
+## Scripts
+
+In the project directory, you can run the following scripts:
+
+*   `npm run dev`: Runs the app in the development mode.
+*   `npm run build`: Builds the app for production to the `dist` folder.
+*   `npm run lint`: Lints the code for any errors.
+*   `npm run preview`: Serves the production build locally.
+
+## File Structure
+
+Here is the file structure of the project:
+
+```
+Sunfi_Pharma/
+├── public/
+│   ├── favicon.ico
+│   ├── placeholder.svg
+│   └── robots.txt
+├── src/
+│   ├── assets/
+│   │   └── hero-pharmaceutical.jpg
+│   ├── components/
+│   │   ├── layout/
+│   │   │   └── Layout.tsx
+│   │   └── ui/
+│   │       ├── ... (shadcn-ui components)
+│   ├── hooks/
+│   │   ├── use-mobile.tsx
+│   │   └── use-toast.ts
+│   ├── lib/
+│   │   └── utils.ts
+│   ├── pages/
+│   │   ├── About.tsx
+│   │   ├── Contact.tsx
+│   │   ├── Home.tsx
+│   │   ├── Index.tsx
+│   │   ├── NotFound.tsx
+│   │   ├── Products.tsx
+│   │   └── Services.tsx
+│   ├── App.css
+│   ├── App.tsx
+│   ├── index.css
+│   └── main.tsx
+├── .gitignore
+├── package.json
+├── README.md
+└── ... (configuration files)
 ```
 
-**Edit a file directly in GitHub**
+## Contributing
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-**Use GitHub Codespaces**
+1.  Fork the Project
+2.  Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3.  Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4.  Push to the Branch (`git push origin feature/AmazingFeature`)
+5.  Open a Pull Request
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## License
 
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/1d7f6ede-e765-4b1c-b667-6a99490141d3) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Distributed under the MIT License. See `LICENSE` for more information.

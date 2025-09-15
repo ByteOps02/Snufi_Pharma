@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Search, Filter, Pill, Heart, Brain, Shield, Microscope, Download, Award, CheckCircle, Globe } from 'lucide-react';
+import { Search, Filter, Pill, Heart, Brain, Shield, Bone, Download, Award, CheckCircle, Globe } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -18,7 +18,7 @@ const Products = () => {
     { id: 'cardiovascular', name: 'Cardiovascular', icon: Heart },
     { id: 'neurological', name: 'Neurological', icon: Brain },
     { id: 'immunology', name: 'Immunology', icon: Shield },
-    { id: 'oncology', name: 'Oncology', icon: Microscope },
+    { id: 'orthology', name: 'Orthology', icon: Bone },
   ];
 
   const products = [
@@ -54,13 +54,13 @@ const Products = () => {
     },
     {
       id: 4,
-      name: 'OncoTarget',
-      category: 'oncology',
-      description: 'Precision oncology medication targeting specific cancer pathways with personalized treatment approach.',
+      name: 'OrthoJoint',
+      category: 'orthology',
+      description: 'Precision orthology medication targeting specific joint pathways with a personalized treatment approach.',
       strength: '100mg, 200mg',
       form: 'Tablets',
-      indication: 'Various Cancers',
-      status: 'Development',
+      indication: 'Various Joint Disorders',
+      status: 'Available',
     },
     {
       id: 5,
@@ -81,6 +81,26 @@ const Products = () => {
       form: 'Extended Release Tablets',
       indication: 'Parkinson\'s Disease',
       status: 'Available',
+    },
+    {
+      id: 7,
+      name: 'JointFlex',
+      category: 'orthology',
+      description: 'A powerful anti-inflammatory drug for joint pain relief and improved mobility.',
+      strength: '200mg, 400mg',
+      form: 'Capsules',
+      indication: 'Arthritis, Joint Pain',
+      status: 'Available',
+    },
+    {
+      id: 8,
+      name: 'CartilageCare',
+      category: 'orthology',
+      description: 'A regenerative therapy to repair and restore damaged cartilage in joints.',
+      strength: 'N/A',
+      form: 'Injection',
+      indication: 'Cartilage Repair',
+      status: 'Clinical Trial',
     },
   ];
 
@@ -116,11 +136,11 @@ const Products = () => {
       keyProducts: ['NeuroGuard', 'NeuroBalance', 'CogniMax']
     },
     {
-      name: 'Oncology',
-      icon: Microscope,
-      description: 'Precision cancer treatments and supportive care medications',
+      name: 'Orthology',
+      icon: Bone,
+      description: 'Precision joint treatments and supportive care medications',
       productCount: 15,
-      keyProducts: ['OncoTarget', 'ChemoShield', 'ImmunoBoost']
+      keyProducts: ['OrthoJoint', 'JointFlex', 'CartilageCare']
     },
     {
       name: 'Immunology',
@@ -160,7 +180,7 @@ const Products = () => {
     {
       title: 'Research & Development',
       description: 'Continuous innovation with 15% of revenue invested in R&D and cutting-edge research facilities',
-      icon: Microscope
+      icon: Bone
     }
   ];
 

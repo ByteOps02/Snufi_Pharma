@@ -22,12 +22,12 @@ const About = () => {
   ];
 
   const milestones = [
-    { year: '1970', event: 'Founded Sunfi Pharmaceutical with a vision to improve healthcare' },
-    { year: '1985', event: 'Established our first research and development facility' },
-    { year: '1995', event: 'Launched our first breakthrough cardiovascular medication' },
-    { year: '2005', event: 'Expanded operations to international markets' },
-    { year: '2015', event: 'Opened state-of-the-art manufacturing facility' },
-    { year: '2023', event: 'Celebrating over 50 years of pharmaceutical excellence' },
+    { year: '2016', event: 'Founded Sunfi Pharmaceutical with a vision to improve healthcare' },
+    { year: '2017', event: 'Established our first research and development facility' },
+    { year: '2018', event: 'Launched our first breakthrough cardiovascular medication' },
+    { year: '2019', event: 'Expanded operations to international markets' },
+    { year: '2020', event: 'Opened state-of-the-art manufacturing facility' },
+    { year: '2021', event: 'Celebrating over 10 years of pharmaceutical excellence' },
   ];
 
   return (
@@ -89,17 +89,17 @@ const About = () => {
               <div className="grid grid-cols-3 gap-6 mt-8">
                 <div className="text-center">
                   <Building className="w-8 h-8 text-primary mx-auto mb-2" />
-                  <div className="text-2xl font-bold text-primary">50+</div>
+                  <div className="text-2xl font-bold text-primary">10+</div>
                   <div className="text-sm text-muted-foreground">Years</div>
                 </div>
                 <div className="text-center">
                   <Users className="w-8 h-8 text-primary mx-auto mb-2" />
-                  <div className="text-2xl font-bold text-primary">5,000+</div>
+                  <div className="text-2xl font-bold text-primary">5000+</div>
                   <div className="text-sm text-muted-foreground">Employees</div>
                 </div>
                 <div className="text-center">
                   <Globe className="w-8 h-8 text-primary mx-auto mb-2" />
-                  <div className="text-2xl font-bold text-primary">15+</div>
+                  <div className="text-2xl font-bold text-primary">3+</div>
                   <div className="text-sm text-muted-foreground">Countries</div>
                 </div>
               </div>
@@ -137,7 +137,19 @@ const About = () => {
             drives everything we do, and we're proud to continue this mission for generations to come."
           </blockquote>
           <div className="text-foreground font-semibold">
-            Dr. Sarah Johnson, CEO & Founder
+            Saroj, CEO & Founder
+          </div>
+          <blockquote className="text-lg text-muted-foreground leading-relaxed italic mt-8 mb-6">
+            "Our focus on research and development is unwavering. We are dedicated to pushing the boundaries of science to create therapies that address unmet medical needs and improve patient outcomes."
+          </blockquote>
+          <div className="text-foreground font-semibold">
+           Bhagwat Charan Bhargava, Chief Scientific Officer
+          </div>
+          <blockquote className="text-lg text-muted-foreground leading-relaxed italic mt-8 mb-6">
+            "Operational excellence and a commitment to quality are the cornerstones of our manufacturing processes. We strive to deliver safe and effective medicines to patients around the globe."
+          </blockquote>
+          <div className="text-foreground font-semibold">
+            Sumit Kumar Upadhyay, Chief Operating Officer
           </div>
         </div>
       </section>
