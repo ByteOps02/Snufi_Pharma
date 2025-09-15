@@ -1,6 +1,6 @@
 import React from "react";
 import Navigation from "@/components/ui/navigation";
-import { SpeedInsights } from "@vercel/speed-insights/next";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 interface LayoutProps {
   children: React.ReactNode;
