@@ -75,7 +75,7 @@ const Home = () => {
     {
       name: 'Dr. Manoj Kumar',
       title: 'Orthopedic Surgeon',
-      company: 'Cancer Care Center',
+      company: 'Orthopedic Care Center',
       content: 'Working with Sunfi has transformed our orthopedic treatment protocols. Their precision orthopedic medications offer hope to our patients.',
       rating: 5,
       avatar: 'ER'
