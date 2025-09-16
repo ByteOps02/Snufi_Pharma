@@ -1,37 +1,37 @@
-import React from 'react';
-import { Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Link, useNavigate } from 'react-router-dom';
+import React from "react";
+import { Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Link, useNavigate } from "react-router-dom";
 
 const Footer = () => {
   const navigate = useNavigate();
 
   const handleNavigation = (path: string) => {
     navigate(path);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const socialLinks = [
     {
       icon: Facebook,
-      href: 'https://facebook.com/snufipharma',
-      label: 'Facebook'
+      href: "https://facebook.com/snufipharma",
+      label: "Facebook",
     },
     {
       icon: Twitter,
-      href: 'https://twitter.com/snufipharma',
-      label: 'Twitter'
+      href: "https://twitter.com/snufipharma",
+      label: "Twitter",
     },
     {
       icon: Linkedin,
-      href: 'https://linkedin.com/company/snufi-pharmaceutical',
-      label: 'LinkedIn'
+      href: "https://linkedin.com/company/snufi-pharmaceutical",
+      label: "LinkedIn",
     },
     {
       icon: Instagram,
-      href: 'https://instagram.com/snufipharma',
-      label: 'Instagram'
-    }
+      href: "https://instagram.com/snufipharma",
+      label: "Instagram",
+    },
   ];
 
   return (
@@ -41,14 +41,17 @@ const Footer = () => {
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
               <div className="w-10 h-10 bg-gradient-primary rounded-lg flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-xl">S</span>
+                <span className="text-primary-foreground font-bold text-xl">
+                  S
+                </span>
               </div>
               <div className="text-xl font-bold text-gradient-primary">
                 Snufi Pharmaceutical
               </div>
             </div>
             <p className="text-muted-foreground mb-6 max-w-md">
-              Committed to advancing healthcare through innovation and excellence in pharmaceutical manufacturing.
+              Committed to advancing healthcare through innovation and
+              excellence in pharmaceutical manufacturing.
             </p>
             <div className="flex space-x-4">
               {socialLinks.map((social, index) => (
@@ -73,43 +76,45 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="text-sm font-semibold text-foreground mb-4">Quick Links</h4>
+            <h4 className="text-sm font-semibold text-foreground mb-4">
+              Quick Links
+            </h4>
             <ul className="space-y-2">
               <li>
-                <button 
-                  onClick={() => handleNavigation('/')} 
+                <button
+                  onClick={() => handleNavigation("/")}
                   className="text-sm text-muted-foreground hover:text-primary transition-colors"
                 >
                   Home
                 </button>
               </li>
               <li>
-                <button 
-                  onClick={() => handleNavigation('/about')} 
+                <button
+                  onClick={() => handleNavigation("/about")}
                   className="text-sm text-muted-foreground hover:text-primary transition-colors"
                 >
                   About Us
                 </button>
               </li>
               <li>
-                <button 
-                  onClick={() => handleNavigation('/products')} 
+                <button
+                  onClick={() => handleNavigation("/products")}
                   className="text-sm text-muted-foreground hover:text-primary transition-colors"
                 >
                   Products
                 </button>
               </li>
               <li>
-                <button 
-                  onClick={() => handleNavigation('/services')} 
+                <button
+                  onClick={() => handleNavigation("/services")}
                   className="text-sm text-muted-foreground hover:text-primary transition-colors"
                 >
                   Services
                 </button>
               </li>
               <li>
-                <button 
-                  onClick={() => handleNavigation('/contact')} 
+                <button
+                  onClick={() => handleNavigation("/contact")}
                   className="text-sm text-muted-foreground hover:text-primary transition-colors"
                 >
                   Contact
@@ -119,7 +124,9 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="text-sm font-semibold text-foreground mb-4">Contact</h4>
+            <h4 className="text-sm font-semibold text-foreground mb-4">
+              Contact
+            </h4>
             <ul className="space-y-2">
               <li className="text-sm text-muted-foreground">
                 A-18-19, Talavadi Circle, Krishna Park Society, Part II
@@ -139,7 +146,10 @@ const Footer = () => {
 
         <div className="border-t mt-12 pt-8">
           <div className="text-center text-sm text-muted-foreground">
-            <p>© {new Date().getFullYear()} Snufi Pharmaceutical Pvt. Ltd. All rights reserved.</p>
+            <p>
+              © {new Date().getFullYear()} Snufi Pharmaceutical Pvt. Ltd. All
+              rights reserved.
+            </p>
           </div>
         </div>
       </div>

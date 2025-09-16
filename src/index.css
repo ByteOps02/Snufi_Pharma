@@ -51,15 +51,36 @@
     --ring: 15 85% 45%;
 
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(15 85% 45%), hsl(25 80% 50%));
-    --gradient-secondary: linear-gradient(135deg, hsl(150 60% 50%), hsl(160 60% 55%));
-    --gradient-subtle: linear-gradient(135deg, hsl(15 15% 98%), hsl(25 20% 96%));
-    --gradient-hero: linear-gradient(135deg, hsl(15 85% 45%) 0%, hsl(25 80% 50%) 50%, hsl(10 75% 40%) 100%);
+    --gradient-primary: linear-gradient(
+      135deg,
+      hsl(15 85% 45%),
+      hsl(25 80% 50%)
+    );
+    --gradient-secondary: linear-gradient(
+      135deg,
+      hsl(150 60% 50%),
+      hsl(160 60% 55%)
+    );
+    --gradient-subtle: linear-gradient(
+      135deg,
+      hsl(15 15% 98%),
+      hsl(25 20% 96%)
+    );
+    --gradient-hero: linear-gradient(
+      135deg,
+      hsl(15 85% 45%) 0%,
+      hsl(25 80% 50%) 50%,
+      hsl(10 75% 40%) 100%
+    );
 
     /* Shadows */
     --shadow-sm: 0 1px 2px 0 hsl(210 15% 15% / 0.05);
-    --shadow-md: 0 4px 6px -1px hsl(210 15% 15% / 0.1), 0 2px 4px -1px hsl(210 15% 15% / 0.06);
-    --shadow-lg: 0 10px 15px -3px hsl(210 15% 15% / 0.1), 0 4px 6px -2px hsl(210 15% 15% / 0.05);
+    --shadow-md:
+      0 4px 6px -1px hsl(210 15% 15% / 0.1),
+      0 2px 4px -1px hsl(210 15% 15% / 0.06);
+    --shadow-lg:
+      0 10px 15px -3px hsl(210 15% 15% / 0.1),
+      0 4px 6px -2px hsl(210 15% 15% / 0.05);
     --shadow-glow: 0 0 30px hsl(15 85% 45% / 0.2);
 
     /* Spacing & Sizing */
@@ -82,6 +103,20 @@
     --sidebar-border: 220 13% 91%;
 
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Icon Colors */
+    --icon-primary: 210 90% 55%;
+    --icon-secondary: 270 90% 55%;
+    --icon-success: 142 80% 45%;
+    --icon-warning: 45 95% 50%;
+    --icon-info: 195 90% 50%;
+    --icon-error: 0 90% 60%;
+    --icon-violet: 270 90% 65%;
+    --icon-emerald: 160 80% 45%;
+    --icon-amber: 45 95% 55%;
+    --icon-sky: 195 90% 55%;
+    --icon-rose: 330 90% 60%;
+    --icon-indigo: 240 90% 65%;
   }
 
   .dark {
@@ -120,6 +155,20 @@
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Icon Colors - Dark Mode */
+    --icon-primary: 210 90% 70%;
+    --icon-secondary: 270 90% 70%;
+    --icon-success: 142 80% 60%;
+    --icon-warning: 45 95% 65%;
+    --icon-info: 195 90% 65%;
+    --icon-error: 0 90% 70%;
+    --icon-violet: 270 90% 75%;
+    --icon-emerald: 160 80% 60%;
+    --icon-amber: 45 95% 70%;
+    --icon-sky: 195 90% 70%;
+    --icon-rose: 330 90% 75%;
+    --icon-indigo: 240 90% 75%;
   }
 }
 
@@ -134,15 +183,15 @@
   .bg-gradient-primary {
     background: var(--gradient-primary);
   }
-  
+
   .bg-gradient-secondary {
     background: var(--gradient-secondary);
   }
-  
+
   .bg-gradient-subtle {
     background: var(--gradient-subtle);
   }
-  
+
   .bg-gradient-hero {
     background: var(--gradient-hero);
   }
@@ -150,17 +199,22 @@
   .dark .bg-gradient-primary {
     background: linear-gradient(135deg, hsl(15 85% 55%), hsl(25 80% 60%));
   }
-  
+
   .dark .bg-gradient-secondary {
     background: linear-gradient(135deg, hsl(150 60% 45%), hsl(160 60% 50%));
   }
-  
+
   .dark .bg-gradient-subtle {
     background: linear-gradient(135deg, hsl(222 32% 12%), hsl(223 32% 15%));
   }
-  
+
   .dark .bg-gradient-hero {
-    background: linear-gradient(135deg, hsl(15 85% 55%) 0%, hsl(25 80% 60%) 50%, hsl(10 75% 50%) 100%);
+    background: linear-gradient(
+      135deg,
+      hsl(15 85% 55%) 0%,
+      hsl(25 80% 60%) 50%,
+      hsl(10 75% 50%) 100%
+    );
   }
 
   /* Custom shadows */

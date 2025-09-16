@@ -1,9 +1,29 @@
-import React, { useEffect } from 'react';
-import { ArrowRight, Shield, Heart, Brain, Users, Award, ChevronRight, Star, Globe, Building, Leaf, TrendingUp, Calendar, Quote, CheckCircle, Target, Zap, Bone } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
-import { useNavigate } from 'react-router-dom';
-import heroImage from '@/assets/hero-pharmaceutical.jpg';
+import React, { useEffect } from "react";
+import {
+  ArrowRight,
+  Shield,
+  Heart,
+  Brain,
+  Users,
+  Award,
+  ChevronRight,
+  Star,
+  Globe,
+  Building,
+  Leaf,
+  TrendingUp,
+  Calendar,
+  Quote,
+  CheckCircle,
+  Target,
+  Zap,
+  Bone,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { useNavigate } from "react-router-dom";
+import { ColoredIcon } from "@/components/ui/colored-icon";
+import heroImage from "@/assets/hero-pharmaceutical.jpg";
 
 const Home = () => {
   // Scroll to top when component mounts
@@ -14,182 +34,197 @@ const Home = () => {
   const navigate = useNavigate();
 
   const handleExploreProducts = () => {
-    navigate('/products');
+    navigate("/products");
   };
 
   const handleLearnMore = () => {
-    navigate('/about');
+    navigate("/about");
   };
 
   const handleContactUs = () => {
-    navigate('/contact');
+    navigate("/contact");
   };
 
   const features = [
     {
       icon: Shield,
-      title: 'Quality Assurance',
-      description: 'Rigorous testing and quality control processes ensure the highest standards of pharmaceutical excellence.',
+      title: "Quality Assurance",
+      description:
+        "Rigorous testing and quality control processes ensure the highest standards of pharmaceutical excellence.",
     },
     {
       icon: Bone,
-      title: 'Research & Innovation',
-      description: 'Cutting-edge research facilities and innovative approaches to developing life-changing medications.',
+      title: "Research & Innovation",
+      description:
+        "Cutting-edge research facilities and innovative approaches to developing life-changing medications.",
     },
     {
       icon: Heart,
-      title: 'Patient-Centric',
-      description: 'Every decision we make is guided by our commitment to improving patient outcomes and quality of life.',
+      title: "Patient-Centric",
+      description:
+        "Every decision we make is guided by our commitment to improving patient outcomes and quality of life.",
     },
     {
       icon: Users,
-      title: 'Expert Team',
-      description: 'World-class scientists, researchers, and healthcare professionals dedicated to pharmaceutical excellence.',
+      title: "Expert Team",
+      description:
+        "World-class scientists, researchers, and healthcare professionals dedicated to pharmaceutical excellence.",
     },
   ];
 
   const stats = [
-    { number: '10+', label: 'Years of Excellence' },
-    { number: '25+', label: 'Products Developed' },
-    { number: '3+', label: 'Countries Served' },
-    { number: '2M+', label: 'Lives Improved' },
+    { number: "10+", label: "Years of Excellence" },
+    { number: "25+", label: "Products Developed" },
+    { number: "3+", label: "Countries Served" },
+    { number: "2M+", label: "Lives Improved" },
   ];
 
   const testimonials = [
     {
-      name: 'Dr. Dushyant Deo',
-      title: 'Cardiologist',
-      company: 'SIIMS Multispeciality Hospital',
-      content: 'Snufi Pharmaceutical has been our trusted partner for over a decade. Their innovative cardiovascular medications have significantly improved our patient outcomes.',
+      name: "Dr. Dushyant Deo",
+      title: "Cardiologist",
+      company: "SIIMS Multispeciality Hospital",
+      content:
+        "Snufi Pharmaceutical has been our trusted partner for over a decade. Their innovative cardiovascular medications have significantly improved our patient outcomes.",
       rating: 5,
-      avatar: 'SJ'
+      avatar: "SJ",
     },
     {
-      name: 'Dr. Ghanshyam Das',
-      title: 'Pediatrician',
-      company: 'Gajra Raj Medical College & Hospital',
-      content: 'The quality and efficacy of Snufi\'s pediatric treatments are unmatched. Their commitment to research excellence is evident in every product.',
+      name: "Dr. Ghanshyam Das",
+      title: "Pediatrician",
+      company: "Gajra Raj Medical College & Hospital",
+      content:
+        "The quality and efficacy of Snufi's pediatric treatments are unmatched. Their commitment to research excellence is evident in every product.",
       rating: 5,
-      avatar: 'MC'
+      avatar: "MC",
     },
     {
-      name: 'Dr. Manoj Kumar',
-      title: 'Orthopedic Surgeon',
-      company: 'Orthopedic Care Center',
-      content: 'Working with Snufi has transformed our orthopedic treatment protocols. Their precision orthopedic medications offer hope to our patients.',
+      name: "Dr. Manoj Kumar",
+      title: "Orthopedic Surgeon",
+      company: "Orthopedic Care Center",
+      content:
+        "Working with Snufi has transformed our orthopedic treatment protocols. Their precision orthopedic medications offer hope to our patients.",
       rating: 5,
-      avatar: 'ER'
-    }
+      avatar: "ER",
+    },
   ];
 
   const latestNews = [
     {
-      title: 'Snufi Pharmaceutical Receives FDA Approval for New Cardiovascular Drug',
-      date: '2025-09-15',
-      category: 'Regulatory',
-      excerpt: 'CardioMax Pro receives FDA approval for treating hypertension, marking a significant milestone in cardiovascular care.',
-      readTime: '3 min read'
+      title:
+        "Snufi Pharmaceutical Receives FDA Approval for New Cardiovascular Drug",
+      date: "2025-09-15",
+      category: "Regulatory",
+      excerpt:
+        "CardioMax Pro receives FDA approval for treating hypertension, marking a significant milestone in cardiovascular care.",
+      readTime: "3 min read",
     },
     {
-      title: 'Partnership with Leading Research Institute for Alzheimer\'s Treatment',
-      date: '2025-08-21',
-      category: 'Partnership',
-      excerpt: 'Collaborative research initiative aims to develop breakthrough treatments for neurodegenerative diseases.',
-      readTime: '5 min read'
+      title:
+        "Partnership with Leading Research Institute for Alzheimer's Treatment",
+      date: "2025-08-21",
+      category: "Partnership",
+      excerpt:
+        "Collaborative research initiative aims to develop breakthrough treatments for neurodegenerative diseases.",
+      readTime: "5 min read",
     },
     {
-      title: 'Sustainability Initiative: Carbon-Neutral Manufacturing by 2027',
-      date: '2025-08-05',
-      category: 'Sustainability',
-      excerpt: 'Snufi commits to achieving carbon-neutral manufacturing operations across all facilities worldwide.',
-      readTime: '4 min read'
-    }
+      title: "Sustainability Initiative: Carbon-Neutral Manufacturing by 2027",
+      date: "2025-08-05",
+      category: "Sustainability",
+      excerpt:
+        "Snufi commits to achieving carbon-neutral manufacturing operations across all facilities worldwide.",
+      readTime: "4 min read",
+    },
   ];
 
   const therapeuticAreas = [
     {
-      name: 'Cardiovascular',
+      name: "Cardiovascular",
       icon: Heart,
-      description: 'Advanced treatments for heart disease and vascular conditions',
+      description:
+        "Advanced treatments for heart disease and vascular conditions",
       productCount: 12,
-      keyProducts: ['CardioMax Pro', 'CardioFlow', 'VascularGuard']
+      keyProducts: ["CardioMax Pro", "CardioFlow", "VascularGuard"],
     },
     {
-      name: 'Neurological',
+      name: "Neurological",
       icon: Brain,
-      description: 'Innovative solutions for brain and nervous system disorders',
+      description:
+        "Innovative solutions for brain and nervous system disorders",
       productCount: 8,
-      keyProducts: ['NeuroGuard', 'NeuroBalance', 'CogniMax']
+      keyProducts: ["NeuroGuard", "NeuroBalance", "CogniMax"],
     },
     {
-      name: 'Orthology',
+      name: "Orthology",
       icon: Bone,
-      description: 'Precision joint disorder treatments and supportive care',
+      description: "Precision joint disorder treatments and supportive care",
       productCount: 15,
-      keyProducts: ['OrthoJoint', 'JointFlex', 'CartilageCare']
+      keyProducts: ["OrthoJoint", "JointFlex", "CartilageCare"],
     },
     {
-      name: 'Immunology',
+      name: "Immunology",
       icon: Shield,
-      description: 'Immune system modulators and autoimmune treatments',
+      description: "Immune system modulators and autoimmune treatments",
       productCount: 6,
-      keyProducts: ['ImmunoShield', 'AutoImmune Pro', 'ImmuneBalance']
-    }
+      keyProducts: ["ImmunoShield", "AutoImmune Pro", "ImmuneBalance"],
+    },
   ];
 
   const awards = [
     {
-      title: 'Pharmaceutical Excellence Award 2023',
-      organization: 'International Pharma Association',
-      year: '2023',
-      icon: Award
+      title: "Pharmaceutical Excellence Award 2023",
+      organization: "International Pharma Association",
+      year: "2023",
+      icon: Award,
     },
     {
-      title: 'Innovation in Medicine',
-      organization: 'Global Health Foundation',
-      year: '2023',
-      icon: Star
+      title: "Innovation in Medicine",
+      organization: "Global Health Foundation",
+      year: "2023",
+      icon: Star,
     },
     {
-      title: 'Best Manufacturing Practices',
-      organization: 'Quality Assurance Council',
-      year: '2022',
-      icon: CheckCircle
+      title: "Best Manufacturing Practices",
+      organization: "Quality Assurance Council",
+      year: "2022",
+      icon: CheckCircle,
     },
     {
-      title: 'Sustainability Leadership',
-      organization: 'Green Pharma Initiative',
-      year: '2022',
-      icon: Leaf
-    }
+      title: "Sustainability Leadership",
+      organization: "Green Pharma Initiative",
+      year: "2022",
+      icon: Leaf,
+    },
   ];
-
 
   const sustainabilityInitiatives = [
     {
-      title: 'Carbon Neutral Manufacturing',
-      description: 'Achieving net-zero carbon emissions across all production facilities',
+      title: "Carbon Neutral Manufacturing",
+      description:
+        "Achieving net-zero carbon emissions across all production facilities",
       progress: 75,
-      icon: Leaf
+      icon: Leaf,
     },
     {
-      title: 'Water Conservation',
-      description: 'Implementing advanced water recycling systems in manufacturing',
+      title: "Water Conservation",
+      description:
+        "Implementing advanced water recycling systems in manufacturing",
       progress: 90,
-      icon: Globe
+      icon: Globe,
     },
     {
-      title: 'Waste Reduction',
-      description: 'Zero waste to landfill initiative across all operations',
+      title: "Waste Reduction",
+      description: "Zero waste to landfill initiative across all operations",
       progress: 85,
-      icon: Target
+      icon: Target,
     },
     {
-      title: 'Renewable Energy',
-      description: 'Transitioning to 100% renewable energy sources',
+      title: "Renewable Energy",
+      description: "Transitioning to 100% renewable energy sources",
       progress: 60,
-      icon: Zap
-    }
+      icon: Zap,
+    },
   ];
 
   return (
@@ -197,14 +232,14 @@ const Home = () => {
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center bg-gradient-hero overflow-hidden">
         <div className="absolute inset-0">
-          <img 
-            src={heroImage} 
-            alt="Modern pharmaceutical laboratory" 
+          <img
+            src={heroImage}
+            alt="Modern pharmaceutical laboratory"
             className="w-full h-full object-cover mix-blend-overlay opacity-30"
           />
           <div className="absolute inset-0 bg-gradient-hero opacity-80" />
         </div>
-        
+
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
@@ -213,15 +248,26 @@ const Home = () => {
               Innovation
             </h1>
             <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed">
-              Snufi Pharmaceutical is dedicated to developing innovative medicines that improve lives worldwide. 
-              With over five decades of excellence, we continue to push the boundaries of medical science.
+              Snufi Pharmaceutical is dedicated to developing innovative
+              medicines that improve lives worldwide. With over five decades of
+              excellence, we continue to push the boundaries of medical science.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" variant="secondary" className="text-lg px-8 py-4" onClick={handleExploreProducts}>
+              <Button
+                size="lg"
+                variant="secondary"
+                className="text-lg px-8 py-4"
+                onClick={handleExploreProducts}
+              >
                 Explore Products
                 <ArrowRight className="ml-2" size={20} />
               </Button>
-              <Button size="lg" variant="outline" className="text-lg px-8 py-4 border-white text-white hover:bg-white hover:text-primary hover:border-white bg-transparent" onClick={handleLearnMore}>
+              <Button
+                size="lg"
+                variant="outline"
+                className="text-lg px-8 py-4 border-white text-white hover:bg-white hover:text-primary hover:border-white bg-transparent"
+                onClick={handleLearnMore}
+              >
                 Learn More
               </Button>
             </div>
@@ -255,15 +301,28 @@ const Home = () => {
               Why Choose Snufi Pharmaceutical
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Our commitment to excellence, innovation, and patient care sets us apart in the pharmaceutical industry.
+              Our commitment to excellence, innovation, and patient care sets us
+              apart in the pharmaceutical industry.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map((feature, index) => (
               <Card key={index} className="p-6 hover-lift">
-                <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center mb-4">
-                  <feature.icon className="text-primary-foreground" size={24} />
+                <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mb-4 shadow-sm">
+                  <ColoredIcon
+                    Icon={feature.icon}
+                    color={
+                      index === 0
+                        ? "sky"
+                        : index === 1
+                          ? "emerald"
+                          : index === 2
+                            ? "rose"
+                            : "violet"
+                    }
+                    size={24}
+                  />
                 </div>
                 <h3 className="text-xl font-semibold text-foreground mb-3">
                   {feature.title}
@@ -285,16 +344,28 @@ const Home = () => {
               Our Therapeutic Expertise
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              We specialize in developing innovative treatments across multiple therapeutic areas, 
-              addressing critical healthcare needs worldwide.
+              We specialize in developing innovative treatments across multiple
+              therapeutic areas, addressing critical healthcare needs worldwide.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {therapeuticAreas.map((area, index) => (
               <Card key={index} className="p-6 text-center hover-lift">
-                <div className="w-16 h-16 bg-gradient-primary rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <area.icon className="text-primary-foreground" size={32} />
+                <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm">
+                  <ColoredIcon
+                    Icon={area.icon}
+                    color={
+                      area.name === "Cardiovascular"
+                        ? "rose"
+                        : area.name === "Neurological"
+                          ? "indigo"
+                          : area.name === "Orthology"
+                            ? "amber"
+                            : "emerald"
+                    }
+                    size={32}
+                  />
                 </div>
                 <h3 className="text-xl font-bold text-foreground mb-2">
                   {area.name}
@@ -307,7 +378,7 @@ const Home = () => {
                     {area.productCount}+ Products
                   </div>
                   <div className="text-xs text-muted-foreground">
-                    Key: {area.keyProducts.join(', ')}
+                    Key: {area.keyProducts.join(", ")}
                   </div>
                 </div>
               </Card>
@@ -324,7 +395,8 @@ const Home = () => {
               What Our Partners Say
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Trusted by healthcare professionals and institutions worldwide for our commitment to quality and innovation.
+              Trusted by healthcare professionals and institutions worldwide for
+              our commitment to quality and innovation.
             </p>
           </div>
 
@@ -333,7 +405,10 @@ const Home = () => {
               <Card key={index} className="p-6 hover-lift">
                 <div className="flex items-center mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
+                    <Star
+                      key={i}
+                      className="w-5 h-5 text-yellow-400 fill-current"
+                    />
                   ))}
                 </div>
                 <Quote className="w-8 h-8 text-primary mb-4" />
@@ -345,9 +420,15 @@ const Home = () => {
                     {testimonial.avatar}
                   </div>
                   <div>
-                    <h4 className="font-semibold text-foreground">{testimonial.name}</h4>
-                    <p className="text-sm text-muted-foreground">{testimonial.title}</p>
-                    <p className="text-sm text-primary">{testimonial.company}</p>
+                    <h4 className="font-semibold text-foreground">
+                      {testimonial.name}
+                    </h4>
+                    <p className="text-sm text-muted-foreground">
+                      {testimonial.title}
+                    </p>
+                    <p className="text-sm text-primary">
+                      {testimonial.company}
+                    </p>
                   </div>
                 </div>
               </Card>
@@ -364,20 +445,22 @@ const Home = () => {
               Latest News & Updates
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Stay informed about our latest developments, regulatory approvals, and industry insights.
+              Stay informed about our latest developments, regulatory approvals,
+              and industry insights.
             </p>
           </div>
 
           <div className="grid md:grid-cols-4 gap-8">
             {[
               {
-                title: 'Sunfi Pharmaceuticals Rebrands to Snufi Pharma',
-                date: '2025-09-16',
-                category: 'Company News',
-                excerpt: 'We are excited to announce our strategic rebranding from Sunfi Pharmaceuticals to Snufi Pharma, reflecting our evolution and commitment to innovation in the pharmaceutical industry.',
-                readTime: '2 min read'
+                title: "Sunfi Pharmaceuticals Rebrands to Snufi Pharma",
+                date: "2025-09-16",
+                category: "Company News",
+                excerpt:
+                  "We are excited to announce our strategic rebranding from Sunfi Pharmaceuticals to Snufi Pharma, reflecting our evolution and commitment to innovation in the pharmaceutical industry.",
+                readTime: "2 min read",
               },
-              ...latestNews
+              ...latestNews,
             ].map((news, index) => (
               <Card key={index} className="p-6 hover-lift flex flex-col">
                 <div className="flex items-center justify-between mb-4">
@@ -396,7 +479,9 @@ const Home = () => {
                   {news.excerpt}
                 </p>
                 <div className="mt-auto pt-4">
-                  <span className="text-xs text-muted-foreground">{news.readTime}</span>
+                  <span className="text-xs text-muted-foreground">
+                    {news.readTime}
+                  </span>
                 </div>
               </Card>
             ))}
@@ -412,15 +497,28 @@ const Home = () => {
               Awards & Recognition
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Our commitment to excellence has been recognized by leading industry organizations worldwide.
+              Our commitment to excellence has been recognized by leading
+              industry organizations worldwide.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {awards.map((award, index) => (
               <Card key={index} className="p-6 text-center hover-lift">
-                <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center mx-auto mb-4">
-                  <award.icon className="text-primary-foreground" size={24} />
+                <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mx-auto mb-4 shadow-sm">
+                  <ColoredIcon
+                    Icon={award.icon}
+                    color={
+                      index === 0
+                        ? "amber"
+                        : index === 1
+                          ? "sky"
+                          : index === 2
+                            ? "emerald"
+                            : "primary"
+                    }
+                    size={24}
+                  />
                 </div>
                 <h3 className="text-lg font-bold text-foreground mb-2">
                   {award.title}
@@ -435,7 +533,6 @@ const Home = () => {
         </div>
       </section>
 
-
       {/* Sustainability & CSR */}
       <section className="py-12 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -444,15 +541,28 @@ const Home = () => {
               Sustainability & Corporate Responsibility
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Committed to environmental stewardship and social responsibility while advancing healthcare innovation.
+              Committed to environmental stewardship and social responsibility
+              while advancing healthcare innovation.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {sustainabilityInitiatives.map((initiative, index) => (
               <Card key={index} className="p-6 hover-lift">
-                <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center mx-auto mb-4">
-                  <initiative.icon className="text-primary-foreground" size={24} />
+                <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mx-auto mb-4 shadow-sm">
+                  <ColoredIcon
+                    Icon={initiative.icon}
+                    color={
+                      index === 0
+                        ? "emerald"
+                        : index === 1
+                          ? "sky"
+                          : index === 2
+                            ? "violet"
+                            : "amber"
+                    }
+                    size={24}
+                  />
                 </div>
                 <h3 className="text-lg font-bold text-foreground mb-3">
                   {initiative.title}
@@ -463,10 +573,12 @@ const Home = () => {
                 <div className="space-y-2">
                   <div className="flex justify-between text-sm">
                     <span>Progress</span>
-                    <span className="font-semibold">{initiative.progress}%</span>
+                    <span className="font-semibold">
+                      {initiative.progress}%
+                    </span>
                   </div>
                   <div className="w-full bg-gray-200 rounded-full h-2">
-                    <div 
+                    <div
                       className="bg-gradient-primary h-2 rounded-full transition-all duration-300"
                       style={{ width: `${initiative.progress}%` }}
                     ></div>
@@ -485,9 +597,14 @@ const Home = () => {
             Ready to Partner With Us?
           </h2>
           <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">
-            Join thousands of healthcare professionals who trust Snufi Pharmaceutical for quality medicines and innovative solutions.
+            Join thousands of healthcare professionals who trust Snufi
+            Pharmaceutical for quality medicines and innovative solutions.
           </p>
-          <Button size="lg" className="text-lg px-8 py-4" onClick={handleContactUs}>
+          <Button
+            size="lg"
+            className="text-lg px-8 py-4"
+            onClick={handleContactUs}
+          >
             Contact Us Today
             <ChevronRight className="ml-2" size={20} />
           </Button>

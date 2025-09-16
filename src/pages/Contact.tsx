@@ -1,24 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import {
-  MapPin,
-  Phone,
-  Mail,
-  Clock,
-  Send,
-  Building,
-} from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Label } from '@/components/ui/label';
+import React, { useState, useEffect } from "react";
+import { MapPin, Phone, Mail, Clock, Send, Building } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { ColoredIcon } from "@/components/ui/colored-icon";
+import { Card } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select';
+} from "@/components/ui/select";
 
 const Contact = () => {
   useEffect(() => {
@@ -26,100 +20,100 @@ const Contact = () => {
   }, []);
 
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    company: '',
-    inquiryType: '',
-    message: '',
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    company: "",
+    inquiryType: "",
+    message: "",
   });
 
   const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSelectChange = (value: string) => {
-    setFormData(prev => ({ ...prev, inquiryType: value }));
+    setFormData((prev) => ({ ...prev, inquiryType: value }));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+    console.log("Form submitted:", formData);
   };
 
   const contactInfo = [
     {
       icon: MapPin,
-      title: 'Headquarters',
+      title: "Headquarters",
       details: [
-        'Snufi Pharmaceutical Pvt. Ltd.',
-        'A-18-19, Talavadi Circle',
-        'Krishna Park Society, Part II',
-        'Ramol, Ahmedabad, Gujarat 380049',
-        'India',
+        "Snufi Pharmaceutical Pvt. Ltd.",
+        "A-18-19, Talavadi Circle",
+        "Krishna Park Society, Part II",
+        "Ramol, Ahmedabad, Gujarat 380049",
+        "India",
       ],
     },
     {
       icon: Phone,
-      title: 'Phone',
+      title: "Phone",
       details: [
-        '+91 75 6672 4040',
-        '+91 22 1234 5679 (Fax)',
-        'Toll Free: 1800 123 4567',
+        "+91 75 6672 4040",
+        "+91 22 1234 5679 (Fax)",
+        "Toll Free: 1800 123 4567",
       ],
     },
     {
       icon: Mail,
-      title: 'Email',
+      title: "Email",
       details: [
-        'snufipharmaceutical06@gmail.com',
-        'info@snufipharma.com',
-        'sales@snufipharma.com',
-        'support@snufipharma.com',
+        "snufipharmaceutical06@gmail.com",
+        "info@snufipharma.com",
+        "sales@snufipharma.com",
+        "support@snufipharma.com",
       ],
     },
     {
       icon: Clock,
-      title: 'Business Hours',
+      title: "Business Hours",
       details: [
-        'Monday – Friday: 9:00 AM – 6:00 PM',
-        'Saturday: 9:00 AM – 1:00 PM',
-        'Sunday: Closed',
-        'IST (GMT +5:30)',
+        "Monday – Friday: 9:00 AM – 6:00 PM",
+        "Saturday: 9:00 AM – 1:00 PM",
+        "Sunday: Closed",
+        "IST (GMT +5:30)",
       ],
     },
   ];
 
   const offices = [
     {
-      city: 'Ahmedabad',
-      type: 'Headquarters',
+      city: "Ahmedabad",
+      type: "Headquarters",
       address:
-        'A-18-19, Talavadi Circle, Krishna Park Society, Part II, Ramol, Ahmedabad, Gujarat 380049',
-      phone: '+91 75 6672 4040',
+        "A-18-19, Talavadi Circle, Krishna Park Society, Part II, Ramol, Ahmedabad, Gujarat 380049",
+      phone: "+91 75 6672 4040",
     },
     {
-      city: 'Bengaluru',
-      type: 'R&D Center',
-      address: '456 Research Park, Electronic City',
-      phone: '+91 80 2345 6789',
+      city: "Bengaluru",
+      type: "R&D Center",
+      address: "456 Research Park, Electronic City",
+      phone: "+91 80 2345 6789",
     },
     {
-      city: 'Solan, Shimla',
-      type: 'Manufacturing',
-      address: '789 Industrial Area, Genome Valley',
-      phone: '+91 40 3456 7890',
+      city: "Solan, Shimla",
+      type: "Manufacturing",
+      address: "789 Industrial Area, Genome Valley",
+      phone: "+91 40 3456 7890",
     },
     {
-      city: 'Gwalior',
-      type: 'Regional Office',
+      city: "Gwalior",
+      type: "Regional Office",
       address:
-        '05 Vaishno Mansion, Near Vivekanand Nidom, R.S. Puram, Gwalior, Madhya Pradesh 474001',
-      phone: '+91 78 2831 0922',
+        "05 Vaishno Mansion, Near Vivekanand Nidom, R.S. Puram, Gwalior, Madhya Pradesh 474001",
+      phone: "+91 78 2831 0922",
     },
   ];
 
@@ -255,7 +249,12 @@ const Contact = () => {
 
                   <Button type="submit" size="lg" className="w-full md:w-auto">
                     Send Message
-                    <Send className="ml-2" size={16} />
+                    <ColoredIcon
+                      Icon={Send}
+                      color="primary"
+                      size={16}
+                      className="ml-2"
+                    />
                   </Button>
                 </form>
               </Card>
@@ -265,10 +264,19 @@ const Contact = () => {
               {contactInfo.map((info, index) => (
                 <Card key={index} className="p-6">
                   <div className="flex items-start space-x-4">
-                    <div className="w-10 h-10 bg-gradient-primary rounded-lg flex items-center justify-center flex-shrink-0">
-                      <info.icon
-                        className="text-primary-foreground"
+                    <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center flex-shrink-0 shadow-sm">
+                      <ColoredIcon
+                        Icon={info.icon}
                         size={20}
+                        color={
+                          info.title === "Headquarters"
+                            ? "emerald"
+                            : info.title === "Phone"
+                              ? "sky"
+                              : info.title === "Email"
+                                ? "violet"
+                                : "amber"
+                        }
                       />
                     </div>
                     <div>
@@ -312,8 +320,8 @@ const Contact = () => {
                 key={index}
                 className="p-6 text-center hover-lift transition-transform"
               >
-                <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center mx-auto mb-4">
-                  <Building className="text-primary-foreground" size={24} />
+                <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mx-auto mb-4 shadow-sm">
+                  <ColoredIcon Icon={Building} size={24} color="violet" />
                 </div>
                 <h3 className="text-lg font-bold text-foreground mb-2">
                   {office.city}
@@ -343,7 +351,12 @@ const Contact = () => {
           </div>
 
           <div className="bg-gradient-subtle rounded-2xl p-12 text-center">
-            <MapPin className="w-16 h-16 text-primary mx-auto mb-6" />
+            <ColoredIcon
+              Icon={MapPin}
+              color="emerald"
+              size={64}
+              className="mx-auto mb-6"
+            />
             <h3 className="text-2xl font-bold text-foreground mb-4">
               Interactive Map Coming Soon
             </h3>
