@@ -1,6 +1,7 @@
-# Sunfi Pharma
+# Snufi Pharma
 
-This is a web application for Sunfi Pharma, a comprehensive pharmaceutical services provider. This application showcases the services offered by the company and provides a way for potential clients to get in touch.
+## Description
+This is a web application for Snufi Pharma, a comprehensive pharmaceutical services provider. This application showcases the services offered by the company and provides a way for potential clients to get in touch.
 
 ## Table of Contents
 
@@ -17,12 +18,12 @@ This is a web application for Sunfi Pharma, a comprehensive pharmaceutical servi
 
 ## About The Project
 
-This project is a single-page application (SPA) built with React. It is designed to be a modern, responsive, and user-friendly marketing website for Sunfi Pharma.
+This project is a single-page application (SPA) built with React. It is designed to be a modern, responsive, and user-friendly marketing website for Snufi Pharma.
 
 ### Features
 
 *   **Home Page:** A landing page that provides an overview of the company and its services.
-*   **Services Page:** A detailed breakdown of the services offered by Sunfi Pharma, including:
+*   **Services Page:** A detailed breakdown of the services offered by Snufi Pharma, including:
     *   Research & Development
     *   Contract Manufacturing
     *   Regulatory Affairs
@@ -60,7 +61,7 @@ You need to have Node.js and npm installed on your machine. You can install them
 
 1.  Clone the repo
     ```sh
-    git clone https://github.com/your_username_/Sunfi_Pharma.git
+    git clone https://github.com/your_username_/Snufi_Pharma.git
     ```
 2.  Install NPM packages
     ```sh
@@ -89,7 +90,7 @@ In the project directory, you can run the following scripts:
 Here is the file structure of the project:
 
 ```
-Sunfi_Pharma/
+Snufi_Pharma/
 ├── public/
 │   ├── favicon.ico
 │   ├── placeholder.svg

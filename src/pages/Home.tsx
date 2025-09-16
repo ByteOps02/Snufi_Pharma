@@ -60,7 +60,7 @@ const Home = () => {
       name: 'Dr. Dushyant Deo',
       title: 'Cardiologist',
       company: 'SIIMS Multispeciality Hospital',
-      content: 'Sunfi Pharmaceutical has been our trusted partner for over a decade. Their innovative cardiovascular medications have significantly improved our patient outcomes.',
+      content: 'Snufi Pharmaceutical has been our trusted partner for over a decade. Their innovative cardiovascular medications have significantly improved our patient outcomes.',
       rating: 5,
       avatar: 'SJ'
     },
@@ -68,7 +68,7 @@ const Home = () => {
       name: 'Dr. Ghanshyam Das',
       title: 'Pediatrician',
       company: 'Gajra Raj Medical College & Hospital',
-      content: 'The quality and efficacy of Sunfi\'s pediatric treatments are unmatched. Their commitment to research excellence is evident in every product.',
+      content: 'The quality and efficacy of Snufi\'s pediatric treatments are unmatched. Their commitment to research excellence is evident in every product.',
       rating: 5,
       avatar: 'MC'
     },
@@ -76,7 +76,7 @@ const Home = () => {
       name: 'Dr. Manoj Kumar',
       title: 'Orthopedic Surgeon',
       company: 'Orthopedic Care Center',
-      content: 'Working with Sunfi has transformed our orthopedic treatment protocols. Their precision orthopedic medications offer hope to our patients.',
+      content: 'Working with Snufi has transformed our orthopedic treatment protocols. Their precision orthopedic medications offer hope to our patients.',
       rating: 5,
       avatar: 'ER'
     }
@@ -84,7 +84,7 @@ const Home = () => {
 
   const latestNews = [
     {
-      title: 'Sunfi Pharmaceutical Receives FDA Approval for New Cardiovascular Drug',
+      title: 'Snufi Pharmaceutical Receives FDA Approval for New Cardiovascular Drug',
       date: '2025-09-15',
       category: 'Regulatory',
       excerpt: 'CardioMax Pro receives FDA approval for treating hypertension, marking a significant milestone in cardiovascular care.',
@@ -101,7 +101,7 @@ const Home = () => {
       title: 'Sustainability Initiative: Carbon-Neutral Manufacturing by 2027',
       date: '2025-08-05',
       category: 'Sustainability',
-      excerpt: 'Sunfi commits to achieving carbon-neutral manufacturing operations across all facilities worldwide.',
+      excerpt: 'Snufi commits to achieving carbon-neutral manufacturing operations across all facilities worldwide.',
       readTime: '4 min read'
     }
   ];
@@ -213,7 +213,7 @@ const Home = () => {
               Innovation
             </h1>
             <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed">
-              Sunfi Pharmaceutical is dedicated to developing innovative medicines that improve lives worldwide. 
+              Snufi Pharmaceutical is dedicated to developing innovative medicines that improve lives worldwide. 
               With over five decades of excellence, we continue to push the boundaries of medical science.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
@@ -252,7 +252,7 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
-              Why Choose Sunfi Pharmaceutical
+              Why Choose Snufi Pharmaceutical
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Our commitment to excellence, innovation, and patient care sets us apart in the pharmaceutical industry.
@@ -480,7 +480,7 @@ const Home = () => {
             Ready to Partner With Us?
           </h2>
           <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">
-            Join thousands of healthcare professionals who trust Sunfi Pharmaceutical for quality medicines and innovative solutions.
+            Join thousands of healthcare professionals who trust Snufi Pharmaceutical for quality medicines and innovative solutions.
           </p>
           <Button size="lg" className="text-lg px-8 py-4" onClick={handleContactUs}>
             Contact Us Today

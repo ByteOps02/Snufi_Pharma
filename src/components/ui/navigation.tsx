@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Button } from './button';
 import { cn } from '@/lib/utils';
 import { ThemeToggle } from './theme-toggle';
@@ -50,7 +50,7 @@ const Navigation = () => {
             </div>
             <div className="flex flex-col">
               <div className="text-xl font-bold text-gradient-primary">
-                Sunfi Pharmaceutical
+                Snufi Pharmaceutical
               </div>
               <div className="text-xs text-gradient-primary -mt-1 font-medium">
                 Known for cure

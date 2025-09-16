@@ -14,22 +14,22 @@ const Footer = () => {
   const socialLinks = [
     {
       icon: Facebook,
-      href: 'https://facebook.com/sunfipharma',
+      href: 'https://facebook.com/snufipharma',
       label: 'Facebook'
     },
     {
       icon: Twitter,
-      href: 'https://twitter.com/sunfipharma',
+      href: 'https://twitter.com/snufipharma',
       label: 'Twitter'
     },
     {
       icon: Linkedin,
-      href: 'https://linkedin.com/company/sunfi-pharmaceutical',
+      href: 'https://linkedin.com/company/snufi-pharmaceutical',
       label: 'LinkedIn'
     },
     {
       icon: Instagram,
-      href: 'https://instagram.com/sunfipharma',
+      href: 'https://instagram.com/snufipharma',
       label: 'Instagram'
     }
   ];
@@ -44,7 +44,7 @@ const Footer = () => {
                 <span className="text-primary-foreground font-bold text-xl">S</span>
               </div>
               <div className="text-xl font-bold text-gradient-primary">
-                Sunfi Pharmaceutical
+                Snufi Pharmaceutical
               </div>
             </div>
             <p className="text-muted-foreground mb-6 max-w-md">
@@ -128,7 +128,7 @@ const Footer = () => {
                 Ramol, Ahmedabad, Gujarat 380049
               </li>
               <li className="text-sm text-muted-foreground">
-                Email: info@sunfipharma.com
+                Email: info@snufipharma.com
               </li>
               <li className="text-sm text-muted-foreground">
                 Phone: +91 75 6672 4040
@@ -139,7 +139,7 @@ const Footer = () => {
 
         <div className="border-t mt-12 pt-8">
           <div className="text-center text-sm text-muted-foreground">
-            <p>© {new Date().getFullYear()} Sunfi Pharmaceutical Pvt. Ltd. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} Snufi Pharmaceutical Pvt. Ltd. All rights reserved.</p>
           </div>
         </div>
       </div>

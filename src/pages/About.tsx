@@ -22,7 +22,7 @@ const About = () => {
   ];
 
   const milestones = [
-    { year: '2016', event: 'Founded Sunfi Pharmaceutical with a vision to improve healthcare' },
+    { year: '2016', event: 'Founded Snufi Pharmaceutical with a vision to improve healthcare' },
     { year: '2017', event: 'Established our first research and development facility' },
     { year: '2018', event: 'Launched our first breakthrough cardiovascular medication' },
     { year: '2019', event: 'Expanded operations to international markets' },
@@ -37,7 +37,7 @@ const About = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              About Sunfi Pharmaceutical
+              About Snufi Pharmaceutical
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
               For over five decades, we have been at the forefront of pharmaceutical innovation, 
@@ -82,7 +82,7 @@ const About = () => {
                 has grown into a global leader in pharmaceutical development and manufacturing.
               </p>
               <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                Today, Sunfi Pharmaceutical operates in over 3 countries, with state-of-the-art 
+                Today, Snufi Pharmaceutical operates in over 3 countries, with state-of-the-art 
                 research facilities, manufacturing plants, and a dedicated team of over 5,000 
                 professionals worldwide.
               </p>
@@ -132,7 +132,7 @@ const About = () => {
             A Message from Our Leadership
           </h2>
           <blockquote className="text-lg text-muted-foreground leading-relaxed italic mb-6">
-            "At Sunfi Pharmaceutical, we believe that every breakthrough in medicine brings us 
+            "At Snufi Pharmaceutical, we believe that every breakthrough in medicine brings us 
             closer to a healthier world. Our commitment to innovation, quality, and patient care 
             drives everything we do, and we're proud to continue this mission for generations to come."
           </blockquote>

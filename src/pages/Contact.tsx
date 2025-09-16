@@ -56,7 +56,7 @@ const Contact = () => {
       icon: MapPin,
       title: 'Headquarters',
       details: [
-        'Sunfi Pharmaceutical Pvt. Ltd.',
+        'Snufi Pharmaceutical Pvt. Ltd.',
         'A-18-19, Talavadi Circle',
         'Krishna Park Society, Part II',
         'Ramol, Ahmedabad, Gujarat 380049',
@@ -76,10 +76,10 @@ const Contact = () => {
       icon: Mail,
       title: 'Email',
       details: [
-        'sunfipharmaceutical06@gmail.com',
-        'info@sunfipharma.com',
-        'sales@sunfipharma.com',
-        'support@sunfipharma.com',
+        'snufipharmaceutical06@gmail.com',
+        'info@snufipharma.com',
+        'sales@snufipharma.com',
+        'support@snufipharma.com',
       ],
     },
     {
