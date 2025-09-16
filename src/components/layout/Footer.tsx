@@ -45,8 +45,13 @@ const Footer = () => {
                   S
                 </span>
               </div>
-              <div className="text-xl font-bold text-gradient-primary">
-                Snufi Pharmaceutical
+              <div className="flex flex-col">
+                <div className="text-xl font-bold text-gradient-primary">
+                  Snufi Pharmaceutical
+                </div>
+                <div className="text-sm text-gradient-primary">
+                  Known for cure
+                </div>
               </div>
             </div>
             <p className="text-muted-foreground mb-6 max-w-md">
