@@ -1,9 +1,16 @@
 import React from 'react';
 import { Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Footer = () => {
+  const navigate = useNavigate();
+
+  const handleNavigation = (path: string) => {
+    navigate(path);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const socialLinks = [
     {
       icon: Facebook,
@@ -69,24 +76,36 @@ const Footer = () => {
             <h4 className="text-sm font-semibold text-foreground mb-4">Quick Links</h4>
             <ul className="space-y-2">
               <li>
-                <Link to="/about" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                <button 
+                  onClick={() => handleNavigation('/about')} 
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                >
                   About Us
-                </Link>
+                </button>
               </li>
               <li>
-                <Link to="/products" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                <button 
+                  onClick={() => handleNavigation('/products')} 
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                >
                   Products
-                </Link>
+                </button>
               </li>
               <li>
-                <Link to="/services" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                <button 
+                  onClick={() => handleNavigation('/services')} 
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                >
                   Services
-                </Link>
+                </button>
               </li>
               <li>
-                <Link to="/contact" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                <button 
+                  onClick={() => handleNavigation('/contact')} 
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                >
                   Contact
-                </Link>
+                </button>
               </li>
             </ul>
           </div>
