@@ -58,7 +58,7 @@ const Navigation = () => {
             </div>
             <div className="flex flex-col">
               <div className="text-xl font-bold text-gradient-primary">
-                Snufi Pharmaceutical
+                Snufi Pharmaceutical®
               </div>
               <div className="text-xs text-gradient-primary -mt-1 font-medium">
                 Known for cure

@@ -47,7 +47,7 @@ const Footer = () => {
               </div>
               <div className="flex flex-col">
                 <div className="text-xl font-bold text-gradient-primary">
-                  Snufi Pharmaceutical
+                  Snufi Pharmaceutical®
                 </div>
                 <div className="text-sm text-gradient-primary">
                   Known for cure

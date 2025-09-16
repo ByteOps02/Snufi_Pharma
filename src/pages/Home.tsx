@@ -249,7 +249,7 @@ const Home = () => {
             </h1>
             <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed">
               Snufi Pharmaceutical is dedicated to developing innovative
-              medicines that improve lives worldwide. With over five decades of
+              medicines that improve lives worldwide. With over a decade of
               excellence, we continue to push the boundaries of medical science.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
