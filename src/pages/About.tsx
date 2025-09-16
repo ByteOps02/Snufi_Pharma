@@ -77,7 +77,7 @@ const About = () => {
                 Our Story
               </h2>
               <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                Founded in 1970 with a simple yet powerful mission: to improve healthcare through 
+                Founded in 2016 with a simple yet powerful mission: to improve healthcare through 
                 innovative pharmaceutical solutions. What started as a small research-focused company 
                 has grown into a global leader in pharmaceutical development and manufacturing.
               </p>
