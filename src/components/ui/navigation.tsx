@@ -41,8 +41,13 @@ const Navigation = () => {
             <div className="w-10 h-10 bg-gradient-primary rounded-lg flex items-center justify-center">
               <span className="text-primary-foreground font-bold text-xl">S</span>
             </div>
-            <div className="text-xl font-bold text-gradient-primary">
-              Sunfi Pharmaceutical
+            <div className="flex flex-col">
+              <div className="text-xl font-bold text-gradient-primary">
+                Sunfi Pharmaceutical
+              </div>
+              <div className="text-xs text-gradient-primary -mt-1 font-medium">
+                Known for cure
+              </div>
             </div>
           </Link>
 
