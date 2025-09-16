@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { Button } from './button';
 import { cn } from '@/lib/utils';
+import { ThemeToggle } from './theme-toggle';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,6 +28,12 @@ const Navigation = () => {
 
   const isActive = (path: string) => location.pathname === path;
 
+  // Handle scroll to top on navigation
+  const handleNavClick = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setIsOpen(false);
+  };
+
   return (
     <nav className={cn(
       "fixed top-0 left-0 right-0 z-50 transition-smooth",
@@ -37,7 +44,7 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
+          <Link to="/" className="flex items-center space-x-2" onClick={handleNavClick}>
             <div className="w-10 h-10 bg-gradient-primary rounded-lg flex items-center justify-center">
               <span className="text-primary-foreground font-bold text-xl">S</span>
             </div>
@@ -57,6 +64,7 @@ const Navigation = () => {
               <Link
                 key={item.path}
                 to={item.path}
+                onClick={handleNavClick}
                 className={cn(
                   "relative py-2 px-1 text-sm font-medium transition-smooth",
                   isActive(item.path)
@@ -70,7 +78,7 @@ const Navigation = () => {
                 )}
               </Link>
             ))}
-
+            <ThemeToggle />
           </div>
 
           {/* Mobile menu button */}
@@ -100,12 +108,14 @@ const Navigation = () => {
                       ? "text-primary bg-primary/10"
                       : "text-foreground hover:text-primary hover:bg-accent"
                   )}
-                  onClick={() => setIsOpen(false)}
+                  onClick={handleNavClick}
                 >
                   {item.name}
                 </Link>
               ))}
-
+              <div className="px-3 py-2">
+                <ThemeToggle />
+              </div>
             </div>
           </div>
         )}

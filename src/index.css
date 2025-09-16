@@ -2,7 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Sunfi Pharmaceutical Design System - Professional Healthcare Aesthetics */
+/* Sunfi Pharmaceutical Design System - Profession    --sidebar-background: 222.2 84% 4.9%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 15 85% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 217.2 32.6% 17.5%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 217.2 32.6% 17.5%;
+    --sidebar-ring: 15 85% 55%;hcare Aesthetics */
 
 @layer base {
   :root {
@@ -94,14 +101,14 @@
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 15 85% 55%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 150 60% 45%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 215 27.9% 16.9%;
+    --muted-foreground: 217.9 32.6% 65%;
 
     --accent: 217.2 32.6% 17.5%;
     --accent-foreground: 210 40% 98%;
@@ -147,6 +154,22 @@
     background: var(--gradient-hero);
   }
 
+  .dark .bg-gradient-primary {
+    background: linear-gradient(135deg, hsl(15 85% 55%), hsl(25 80% 60%));
+  }
+  
+  .dark .bg-gradient-secondary {
+    background: linear-gradient(135deg, hsl(150 60% 45%), hsl(160 60% 50%));
+  }
+  
+  .dark .bg-gradient-subtle {
+    background: linear-gradient(135deg, hsl(222 32% 12%), hsl(223 32% 15%));
+  }
+  
+  .dark .bg-gradient-hero {
+    background: linear-gradient(135deg, hsl(15 85% 55%) 0%, hsl(25 80% 60%) 50%, hsl(10 75% 50%) 100%);
+  }
+
   /* Custom shadows */
   .shadow-glow {
     box-shadow: var(--shadow-glow);
@@ -160,6 +183,13 @@
   /* Text gradients */
   .text-gradient-primary {
     background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .dark .text-gradient-primary {
+    background: linear-gradient(135deg, hsl(15 85% 65%), hsl(25 80% 70%));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
