@@ -7,27 +7,52 @@ const About = () => {
     {
       icon: Target,
       title: 'Our Mission',
-      description: 'To develop and deliver innovative pharmaceutical solutions that improve the quality of life for patients worldwide.',
+      description:
+        'To develop and deliver innovative pharmaceutical solutions that improve the quality of life for patients worldwide.',
     },
     {
       icon: Eye,
       title: 'Our Vision',
-      description: 'To be a leading global pharmaceutical company recognized for excellence in research, development, and patient care.',
+      description:
+        'To be a leading global pharmaceutical company recognized for excellence in research, development, and patient care.',
     },
     {
       icon: Award,
       title: 'Quality Excellence',
-      description: 'Maintaining the highest standards of quality and safety in all our pharmaceutical products and processes.',
+      description:
+        'Maintaining the highest standards of quality and safety in all our pharmaceutical products and processes.',
     },
   ];
 
   const milestones = [
-    { year: '2016', event: 'Founded Snufi Pharmaceutical with a vision to improve healthcare' },
-    { year: '2017', event: 'Established our first research and development facility' },
-    { year: '2018', event: 'Launched our first breakthrough cardiovascular medication' },
-    { year: '2019', event: 'Expanded operations to international markets' },
-    { year: '2020', event: 'Opened state-of-the-art manufacturing facility' },
-    { year: '2021', event: 'Celebrating over 10 years of pharmaceutical excellence' },
+    {
+      year: 2016,
+      event: 'Company founded as Sunfi Pharmaceuticals with a mission to revolutionize patient care.',
+    },
+    {
+      year: 2017,
+      event: 'Established our first R&D center, focusing on innovative drug discovery.',
+    },
+    {
+      year: 2018,
+      event: 'Successfully launched our flagship cardiovascular medication, Corstelin®.',
+    },
+    {
+      year: 2019,
+      event: 'Achieved international expansion, entering markets in Europe and Asia.',
+    },
+    {
+      year: 2020,
+      event: 'Commissioned a state-of-the-art, FDA-approved manufacturing plant.',
+    },
+    {
+      year: 2021,
+      event: 'Received the "Innovator of the Year" award in the pharmaceutical industry.',
+    },
+    {
+      year: 2025,
+      event: 'Rebranded to Snufi to reflect our evolving vision and broader portfolio.',
+    },
   ];
 
   return (
@@ -40,7 +65,7 @@ const About = () => {
               About Snufi Pharmaceutical
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              For over five decades, we have been at the forefront of pharmaceutical innovation, 
+              For over five decades, we have been at the forefront of pharmaceutical innovation,
               dedicated to developing life-changing medicines that make a real difference in people's lives.
             </p>
           </div>
@@ -56,12 +81,8 @@ const About = () => {
                 <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-6">
                   <value.icon className="text-primary-foreground" size={32} />
                 </div>
-                <h3 className="text-2xl font-bold text-foreground mb-4">
-                  {value.title}
-                </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  {value.description}
-                </p>
+                <h3 className="text-2xl font-bold text-foreground mb-4">{value.title}</h3>
+                <p className="text-muted-foreground leading-relaxed">{value.description}</p>
               </Card>
             ))}
           </div>
@@ -73,17 +94,15 @@ const About = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-8 items-center">
             <div>
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-                Our Story
-              </h2>
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">Our Story</h2>
               <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                Founded in 2016 with a simple yet powerful mission: to improve healthcare through 
-                innovative pharmaceutical solutions. What started as a small research-focused company 
+                Founded in 2016 with a simple yet powerful mission: to improve healthcare through
+                innovative pharmaceutical solutions. What started as a small research-focused company
                 has grown into a global leader in pharmaceutical development and manufacturing.
               </p>
               <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                Today, Snufi Pharmaceutical operates in over 3 countries, with state-of-the-art 
-                research facilities, manufacturing plants, and a dedicated team of over 5,000 
+                Today, Snufi Pharmaceutical operates in over 3 countries, with state-of-the-art
+                research facilities, manufacturing plants, and a dedicated team of over 5,000
                 professionals worldwide.
               </p>
               <div className="grid grid-cols-3 gap-6 mt-8">
@@ -113,9 +132,7 @@ const About = () => {
                       <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
                         <span className="text-primary font-semibold text-sm">{milestone.year}</span>
                       </div>
-                      <p className="text-muted-foreground leading-relaxed pt-2">
-                        {milestone.event}
-                      </p>
+                      <p className="text-muted-foreground leading-relaxed pt-2">{milestone.event}</p>
                     </div>
                   ))}
                 </div>
@@ -132,21 +149,23 @@ const About = () => {
             A Message from Our Leadership
           </h2>
           <blockquote className="text-lg text-muted-foreground leading-relaxed italic mb-6">
-            "At Snufi Pharmaceutical, we believe that every breakthrough in medicine brings us 
-            closer to a healthier world. Our commitment to innovation, quality, and patient care 
+            "At Snufi Pharmaceutical, we believe that every breakthrough in medicine brings us
+            closer to a healthier world. Our commitment to innovation, quality, and patient care
             drives everything we do, and we're proud to continue this mission for generations to come."
           </blockquote>
-          <div className="text-foreground font-semibold">
-            Saroj, CEO & Founder
-          </div>
+          <div className="text-foreground font-semibold">Saroj, CEO & Founder</div>
           <blockquote className="text-lg text-muted-foreground leading-relaxed italic mt-8 mb-6">
-            "Our focus on research and development is unwavering. We are dedicated to pushing the boundaries of science to create therapies that address unmet medical needs and improve patient outcomes."
+            "Our focus on research and development is unwavering. We are dedicated to pushing the
+            boundaries of science to create therapies that address unmet medical needs and improve
+            patient outcomes."
           </blockquote>
           <div className="text-foreground font-semibold">
-           Bhagwat Charan Bhargava, Chief Scientific Officer
+            Bhagwat Charan Bhargava, Chief Scientific Officer
           </div>
           <blockquote className="text-lg text-muted-foreground leading-relaxed italic mt-8 mb-6">
-            "Operational excellence and a commitment to quality are the cornerstones of our manufacturing processes. We strive to deliver safe and effective medicines to patients around the globe."
+            "Operational excellence and a commitment to quality are the cornerstones of our
+            manufacturing processes. We strive to deliver safe and effective medicines to patients
+            around the globe."
           </blockquote>
           <div className="text-foreground font-semibold">
             Sumit Kumar Upadhyay, Chief Operating Officer

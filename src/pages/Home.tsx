@@ -368,9 +368,18 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {latestNews.map((news, index) => (
-              <Card key={index} className="p-6 hover-lift">
+          <div className="grid md:grid-cols-4 gap-8">
+            {[
+              {
+                title: 'Sunfi Pharmaceuticals Rebrands to Snufi Pharma',
+                date: '2025-09-16',
+                category: 'Company News',
+                excerpt: 'We are excited to announce our strategic rebranding from Sunfi Pharmaceuticals to Snufi Pharma, reflecting our evolution and commitment to innovation in the pharmaceutical industry.',
+                readTime: '2 min read'
+              },
+              ...latestNews
+            ].map((news, index) => (
+              <Card key={index} className="p-6 hover-lift flex flex-col">
                 <div className="flex items-center justify-between mb-4">
                   <span className="px-3 py-1 bg-primary/10 text-primary text-xs font-medium rounded-full">
                     {news.category}
@@ -383,10 +392,10 @@ const Home = () => {
                 <h3 className="text-lg font-bold text-foreground mb-3 leading-tight">
                   {news.title}
                 </h3>
-                <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
+                <p className="text-muted-foreground mb-4 text-sm leading-relaxed flex-grow">
                   {news.excerpt}
                 </p>
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between mt-auto pt-4">
                   <span className="text-xs text-muted-foreground">{news.readTime}</span>
                   <Button variant="outline" size="sm">
                     Read More
