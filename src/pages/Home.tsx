@@ -395,12 +395,8 @@ const Home = () => {
                 <p className="text-muted-foreground mb-4 text-sm leading-relaxed flex-grow">
                   {news.excerpt}
                 </p>
-                <div className="flex items-center justify-between mt-auto pt-4">
+                <div className="mt-auto pt-4">
                   <span className="text-xs text-muted-foreground">{news.readTime}</span>
-                  <Button variant="outline" size="sm">
-                    Read More
-                    <ArrowRight className="ml-1" size={14} />
-                  </Button>
                 </div>
               </Card>
             ))}
