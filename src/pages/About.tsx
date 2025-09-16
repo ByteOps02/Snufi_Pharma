@@ -82,7 +82,7 @@ const About = () => {
                 has grown into a global leader in pharmaceutical development and manufacturing.
               </p>
               <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                Today, Sunfi Pharmaceutical operates in over 15 countries, with state-of-the-art 
+                Today, Sunfi Pharmaceutical operates in over 3 countries, with state-of-the-art 
                 research facilities, manufacturing plants, and a dedicated team of over 5,000 
                 professionals worldwide.
               </p>
