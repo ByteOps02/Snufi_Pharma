@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { MapPin, Phone, Mail, Clock, Send, Building } from "lucide-react";
+import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 import { Button } from "@/components/ui/button";
 import { ColoredIcon } from "@/components/ui/colored-icon";
 import { Card } from "@/components/ui/card";
@@ -350,21 +351,18 @@ const Contact = () => {
             </p>
           </div>
 
-          <div className="bg-gradient-subtle rounded-2xl p-12 text-center">
-            <ColoredIcon
-              Icon={MapPin}
-              color="emerald"
-              size={64}
-              className="mx-auto mb-6"
-            />
-            <h3 className="text-2xl font-bold text-foreground mb-4">
-              Interactive Map Coming Soon
-            </h3>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              We're working on integrating an interactive map to help you find
-              our locations easily. In the meantime, please use the address
-              information provided above.
-            </p>
+          <div className="bg-gradient-subtle rounded-2xl p-4 text-center">
+            <LoadScript
+              googleMapsApiKey="AIzaSyB4WXkkkDUBW5AOdN6Cjfuknv0_zUuLFZA"
+            >
+              <GoogleMap
+                mapContainerStyle={{ height: "400px", width: "100%" }}
+                center={{ lat: 22.6430, lng: 72.7762 }}
+                zoom={13}
+              >
+                <Marker position={{ lat: 22.6430, lng: 72.7762 }} />
+              </GoogleMap>
+            </LoadScript>
           </div>
         </div>
       </section>
