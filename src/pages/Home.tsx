@@ -240,8 +240,6 @@ const Home = () => {
             src={heroImage}
             alt="Modern pharmaceutical laboratory"
             className="w-full h-full object-cover mix-blend-overlay opacity-30"
-            loading="lazy"
-            decoding="async"
           />
           <div className="absolute inset-0 bg-gradient-hero opacity-80" />
         </div>
@@ -376,7 +374,7 @@ const Home = () => {
                 <h3 className="text-xl font-bold text-foreground mb-2">
                   {area.name}
                 </h3>
-                <p className="text-muted-foreground mb-4 text-sm leading-relaxed flex-grow">
+                <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
                   {area.description}
                 </p>
                 <div className="space-y-2 mt-auto">
@@ -398,7 +396,7 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
-              What Doctors Say
+              What Our Partners Say
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Trusted by healthcare professionals and institutions worldwide for
@@ -510,7 +508,7 @@ const Home = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {awards.map((award, index) => (
-              <Card key={index} className="p-6 text-center hover-lift flex flex-col">
+              <Card key={index} className="p-6 text-center hover-lift">
                 <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mx-auto mb-4 shadow-sm">
                   <ColoredIcon
                     Icon={award.icon}
@@ -532,10 +530,10 @@ const Home = () => {
                 <p className="text-sm text-muted-foreground mb-2">
                   {award.organization}
                 </p>
-                <p className="text-xs text-muted-foreground mb-2 flex-grow">
+                <p className="text-xs text-muted-foreground mb-2">
                   {award.description}
                 </p>
-                <span className="text-primary font-semibold mt-auto">{award.year}</span>
+                <span className="text-primary font-semibold">{award.year}</span>
               </Card>
             ))}
           </div>
@@ -557,7 +555,7 @@ const Home = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {sustainabilityInitiatives.map((initiative, index) => (
-              <Card key={index} className="p-6 hover-lift flex flex-col">
+              <Card key={index} className="p-6 hover-lift">
                 <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mx-auto mb-4 shadow-sm">
                   <ColoredIcon
                     Icon={initiative.icon}
@@ -576,10 +574,10 @@ const Home = () => {
                 <h3 className="text-lg font-bold text-foreground mb-3">
                   {initiative.title}
                 </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-4 flex-grow">
+                <p className="text-muted-foreground text-sm leading-relaxed mb-4">
                   {initiative.description}
                 </p>
-                <div className="space-y-2 mt-auto">
+                <div className="space-y-2">
                   <div className="flex justify-between text-sm">
                     <span>Progress</span>
                     <span className="font-semibold">
