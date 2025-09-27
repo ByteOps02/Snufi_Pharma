@@ -14,6 +14,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import axios from "axios";
 
 const Contact = () => {
   useEffect(() => {
@@ -30,6 +31,11 @@ const Contact = () => {
     message: "",
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<"success" | "error" | null>(
+    null,
+  );
+
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
@@ -41,9 +47,34 @@ const Contact = () => {
     setFormData((prev) => ({ ...prev, inquiryType: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    try {
+      const response = await axios.post(
+        "http://localhost:3001/api/log-message",
+        formData,
+      );
+      if (response.status === 200) {
+        setSubmitStatus("success");
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          company: "",
+          inquiryType: "",
+          message: "",
+        });
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
@@ -257,6 +288,18 @@ const Contact = () => {
                       className="ml-2"
                     />
                   </Button>
+                  {submitStatus === "success" && (
+                    <p className="text-green-600 mt-4">
+                      Thank you for your message! We'll get back to you shortly.
+                    </p>
+                  )}
+                  {submitStatus === "error" && (
+                    <p className="text-red-600 mt-4">
+                      We're sorry, but something went wrong. Please try again
+                      later.
+                    </p>
+                  )}
+                  
                 </form>
               </Card>
             </div>
