@@ -353,7 +353,7 @@ const Contact = () => {
 
           <div className="bg-gradient-subtle rounded-2xl p-4 text-center">
             <LoadScript
-              googleMapsApiKey="AIzaSyB4WXkkkDUBW5AOdN6Cjfuknv0_zUuLFZA"
+              googleMapsApiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}
             >
               <GoogleMap
                 mapContainerStyle={{ height: "400px", width: "100%" }}
