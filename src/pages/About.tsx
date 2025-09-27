@@ -86,7 +86,7 @@ const About = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-6">
             {values.map((value, index) => (
-              <Card key={index} className="p-8 text-center hover-lift">
+              <Card key={index} className="p-6 text-center hover-lift">
                 <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm">
                   <ColoredIcon
                     Icon={value.icon}
