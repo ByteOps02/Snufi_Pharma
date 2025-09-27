@@ -222,6 +222,55 @@ const About = () => {
           </div>
         </div>
       </section>
+
+      {/* Our Commitment to Sustainability Section */}
+      <section className="py-12 bg-accent">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
+              Our Commitment to Sustainability
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              We are dedicated to operating in a sustainable and socially responsible manner, minimizing our environmental impact and contributing to the well-being of our communities.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <Card className="p-6 hover-lift">
+              <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mb-4 shadow-sm">
+                <ColoredIcon Icon={Globe} color="emerald" size={24} />
+              </div>
+              <h3 className="text-xl font-semibold text-foreground mb-3">
+                Environmental Stewardship
+              </h3>
+              <p className="text-muted-foreground leading-relaxed">
+                We are committed to reducing our carbon footprint, conserving water, and minimizing waste across all our operations.
+              </p>
+            </Card>
+            <Card className="p-6 hover-lift">
+              <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mb-4 shadow-sm">
+                <ColoredIcon Icon={Users} color="violet" size={24} />
+              </div>
+              <h3 className="text-xl font-semibold text-foreground mb-3">
+                Social Responsibility
+              </h3>
+              <p className="text-muted-foreground leading-relaxed">
+                We are dedicated to improving access to healthcare, supporting education, and promoting diversity and inclusion in our workforce.
+              </p>
+            </Card>
+            <Card className="p-6 hover-lift">
+              <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mb-4 shadow-sm">
+                <ColoredIcon Icon={Award} color="amber" size={24} />
+              </div>
+              <h3 className="text-xl font-semibold text-foreground mb-3">
+                Ethical Governance
+              </h3>
+              <p className="text-muted-foreground leading-relaxed">
+                We are committed to upholding the highest ethical standards in all our business practices, ensuring transparency and accountability.
+              </p>
+            </Card>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };

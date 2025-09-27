@@ -293,6 +293,125 @@ const Services = () => {
         </div>
       </section>
 
+      {/* Case Studies Section */}
+      <section className="py-12 bg-background">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
+              Case Studies
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Explore how we have helped our clients achieve their goals through our comprehensive pharmaceutical services.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <Card className="p-6 hover-lift">
+              <h3 className="text-xl font-semibold text-foreground mb-3">
+                Accelerating Drug Development for a Biotech Startup
+              </h3>
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                We partnered with a biotech startup to accelerate the development of their lead drug candidate. Our integrated services, from preclinical studies to clinical trial management, helped them achieve their milestones ahead of schedule.
+              </p>
+              <Button variant="link" className="p-0">
+                Read More <ArrowRight className="ml-2" size={16} />
+              </Button>
+            </Card>
+            <Card className="p-6 hover-lift">
+              <h3 className="text-xl font-semibold text-foreground mb-3">
+                Ensuring Regulatory Compliance for a Global Pharmaceutical Company
+              </h3>
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                We provided expert regulatory guidance to a global pharmaceutical company, helping them navigate complex regulatory requirements and achieve successful product registration in multiple countries.
+              </p>
+              <Button variant="link" className="p-0">
+                Read More <ArrowRight className="ml-2" size={16} />
+              </Button>
+            </Card>
+            <Card className="p-6 hover-lift">
+              <h3 className="text-xl font-semibold text-foreground mb-3">
+                Optimizing the Supply Chain for a Specialty Pharmaceutical Product
+              </h3>
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                We developed a customized supply chain solution for a specialty pharmaceutical product, ensuring reliable and efficient distribution while maintaining product integrity.
+              </p>
+              <Button variant="link" className="p-0">
+                Read More <ArrowRight className="ml-2" size={16} />
+              </Button>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Client Testimonials Section */}
+      <section className="py-12 bg-accent">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
+              Client Testimonials
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Hear what our clients have to say about their experience working with us.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <Card className="p-6 hover-lift">
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                "Snufi Pharmaceutical has been an invaluable partner in our drug development efforts. Their expertise and dedication have been instrumental in our success."
+              </p>
+              <div className="flex items-center">
+                <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center text-primary-foreground font-bold mr-4">
+                  JD
+                </div>
+                <div>
+                  <h4 className="font-semibold text-foreground">
+                    John Doe
+                  </h4>
+                  <p className="text-sm text-muted-foreground">
+                    CEO, Biotech Startup
+                  </p>
+                </div>
+              </div>
+            </Card>
+            <Card className="p-6 hover-lift">
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                "The team at Snufi Pharmaceutical is professional, knowledgeable, and responsive. They have been a true partner in our regulatory affairs activities."
+              </p>
+              <div className="flex items-center">
+                <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center text-primary-foreground font-bold mr-4">
+                  JS
+                </div>
+                <div>
+                  <h4 className="font-semibold text-foreground">
+                    Jane Smith
+                  </h4>
+                  <p className="text-sm text-muted-foreground">
+                    Regulatory Affairs Manager, Global Pharma
+                  </p>
+                </div>
+              </div>
+            </Card>
+            <Card className="p-6 hover-lift">
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                "Snufi Pharmaceutical has helped us optimize our supply chain and reduce costs. Their expertise in cold chain management has been particularly valuable."
+              </p>
+              <div className="flex items-center">
+                <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center text-primary-foreground font-bold mr-4">
+                  MB
+                </div>
+                <div>
+                  <h4 className="font-semibold text-foreground">
+                    Michael Brown
+                  </h4>
+                  <p className="text-sm text-muted-foreground">
+                    Supply Chain Director, Specialty Pharma
+                  </p>
+                </div>
+              </div>
+            </Card>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-12 bg-gradient-subtle">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

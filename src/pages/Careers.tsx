@@ -1,5 +1,5 @@
 import React from "react";
-import { Briefcase, Coffee, Heart, Zap } from "lucide-react";
+import { Briefcase, Coffee, Heart, Zap, Users } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ColoredIcon } from "@/components/ui/colored-icon";
@@ -129,6 +129,50 @@ const Careers = () => {
                 </p>
               </Card>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Life at Snufi Section */}
+      <section className="py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
+            Life at Snufi
+          </h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <Card className="p-6 text-center hover-lift">
+              <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm">
+                <ColoredIcon Icon={Users} color="violet" size={32} />
+              </div>
+              <h3 className="text-2xl font-bold text-foreground mb-4">
+                Collaboration
+              </h3>
+              <p className="text-muted-foreground leading-relaxed">
+                We foster a collaborative and inclusive work environment where every employee is valued and has the opportunity to grow.
+              </p>
+            </Card>
+            <Card className="p-6 text-center hover-lift">
+              <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm">
+                <ColoredIcon Icon={Zap} color="sky" size={32} />
+              </div>
+              <h3 className="text-2xl font-bold text-foreground mb-4">
+                Innovation
+              </h3>
+              <p className="text-muted-foreground leading-relaxed">
+                We encourage our employees to think outside the box and develop innovative solutions that address unmet medical needs.
+              </p>
+            </Card>
+            <Card className="p-6 text-center hover-lift">
+              <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm">
+                <ColoredIcon Icon={Heart} color="rose" size={32} />
+              </div>
+              <h3 className="text-2xl font-bold text-foreground mb-4">
+                Well-being
+              </h3>
+              <p className="text-muted-foreground leading-relaxed">
+                We believe in work-life balance and offer a variety of programs and activities to support our employees' well-being.
+              </p>
+            </Card>
           </div>
         </div>
       </section>

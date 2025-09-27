@@ -143,7 +143,7 @@ const Home = () => {
       name: "Cardiovascular",
       icon: Heart,
       description:
-        "Advanced treatments for heart disease and vascular conditions",
+        "Advanced treatments for heart disease, hypertension, and other vascular conditions. Our focus is on developing innovative therapies that improve cardiovascular outcomes and enhance patient quality of life.",
       productCount: 12,
       keyProducts: ["CardioMax Pro", "CardioFlow", "VascularGuard"],
     },
@@ -151,21 +151,21 @@ const Home = () => {
       name: "Neurological",
       icon: Brain,
       description:
-        "Innovative solutions for brain and nervous system disorders",
+        "Innovative solutions for a wide range of neurological disorders, including Alzheimer's, Parkinson's, and epilepsy. We are committed to advancing neuroscience and improving the lives of patients with brain and nervous system conditions.",
       productCount: 8,
       keyProducts: ["NeuroGuard", "NeuroBalance", "CogniMax"],
     },
     {
       name: "Orthology",
       icon: Bone,
-      description: "Precision joint disorder treatments and supportive care",
+      description: "Precision treatments for joint disorders, arthritis, and other orthopedic conditions. Our goal is to restore mobility, reduce pain, and improve the overall musculoskeletal health of our patients.",
       productCount: 15,
       keyProducts: ["OrthoJoint", "JointFlex", "CartilageCare"],
     },
     {
       name: "Immunology",
       icon: Shield,
-      description: "Immune system modulators and autoimmune treatments",
+      description: "Cutting-edge therapies for autoimmune diseases and immune system modulation. We are dedicated to developing treatments that restore immune balance and improve the lives of patients with complex immune-mediated conditions.",
       productCount: 6,
       keyProducts: ["ImmunoShield", "AutoImmune Pro", "ImmuneBalance"],
     },
@@ -176,24 +176,28 @@ const Home = () => {
       title: "Pharmaceutical Excellence Award 2023",
       organization: "International Pharma Association",
       year: "2023",
+      description: "Recognized for our outstanding contributions to the pharmaceutical industry and our commitment to innovation and excellence.",
       icon: Award,
     },
     {
-      title: "Innovation in Medicine",
+      title: "Innovation in Medicine 2023",
       organization: "Global Health Foundation",
       year: "2023",
+      description: "Awarded for our groundbreaking research and development of new therapies that address unmet medical needs.",
       icon: Star,
     },
     {
-      title: "Best Manufacturing Practices",
+      title: "Best Manufacturing Practices 2022",
       organization: "Quality Assurance Council",
       year: "2022",
+      description: "Honored for our state-of-the-art manufacturing facilities and our adherence to the highest quality standards.",
       icon: CheckCircle,
     },
     {
-      title: "Sustainability Leadership",
+      title: "Sustainability Leadership 2022",
       organization: "Green Pharma Initiative",
       year: "2022",
+      description: "Acknowledged for our commitment to environmental sustainability and our efforts to reduce our carbon footprint.",
       icon: Leaf,
     },
   ];
@@ -351,7 +355,7 @@ const Home = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {therapeuticAreas.map((area, index) => (
-              <Card key={index} className="p-6 text-center hover-lift">
+              <Card key={index} className="p-6 text-center hover-lift flex flex-col">
                 <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm">
                   <ColoredIcon
                     Icon={area.icon}
@@ -373,7 +377,7 @@ const Home = () => {
                 <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
                   {area.description}
                 </p>
-                <div className="space-y-2">
+                <div className="space-y-2 mt-auto">
                   <div className="text-2xl font-bold text-primary">
                     {area.productCount}+ Products
                   </div>
@@ -526,6 +530,9 @@ const Home = () => {
                 <p className="text-sm text-muted-foreground mb-2">
                   {award.organization}
                 </p>
+                <p className="text-xs text-muted-foreground mb-2">
+                  {award.description}
+                </p>
                 <span className="text-primary font-semibold">{award.year}</span>
               </Card>
             ))}
@@ -587,6 +594,75 @@ const Home = () => {
               </Card>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Community Engagement Section */}
+      <section className="py-12 bg-accent">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
+              Community Engagement
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              We are committed to improving the health and well-being of the communities we serve through various health programs and initiatives.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <Card className="p-6 hover-lift">
+              <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mb-4 shadow-sm">
+                <ColoredIcon Icon={Heart} color="rose" size={24} />
+              </div>
+              <h3 className="text-xl font-semibold text-foreground mb-3">
+                Health Check-up Camps
+              </h3>
+              <p className="text-muted-foreground leading-relaxed">
+                We regularly organize free health check-up camps in rural and underserved areas to provide access to basic healthcare services.
+              </p>
+            </Card>
+            <Card className="p-6 hover-lift">
+              <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mb-4 shadow-sm">
+                <ColoredIcon Icon={Users} color="violet" size={24} />
+              </div>
+              <h3 className="text-xl font-semibold text-foreground mb-3">
+                Disease Awareness Programs
+              </h3>
+              <p className="text-muted-foreground leading-relaxed">
+                We conduct awareness programs to educate people about various diseases, their prevention, and treatment options.
+              </p>
+            </Card>
+            <Card className="p-6 hover-lift">
+              <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mb-4 shadow-sm">
+                <ColoredIcon Icon={Globe} color="sky" size={24} />
+              </div>
+              <h3 className="text-xl font-semibold text-foreground mb-3">
+                Global Health Initiatives
+              </h3>
+              <p className="text-muted-foreground leading-relaxed">
+                We partner with global health organizations to support initiatives that aim to improve health outcomes in developing countries.
+              </p>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Join Our Team Section */}
+      <section className="py-12 bg-background">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
+            Join Our Team
+          </h2>
+          <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">
+            We are always looking for passionate and talented individuals to join our team. Explore our open positions and start your career at Snufi Pharmaceutical.
+          </p>
+          <Button
+            size="lg"
+            className="text-lg px-8 py-4"
+            onClick={() => navigate("/careers")}
+          >
+            Explore Careers
+            <ArrowRight className="ml-2" size={20} />
+          </Button>
         </div>
       </section>
 

@@ -234,105 +234,9 @@ const Products = () => {
         </div>
       </section>
 
-      {/* Therapeutic Areas Overview */}
-      <section className="py-12 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
-              Therapeutic Areas
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Our comprehensive product portfolio spans multiple therapeutic
-              areas, addressing critical healthcare needs with innovative
-              solutions.
-            </p>
-          </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {therapeuticAreas.map((area, index) => (
-              <Card key={index} className="p-5 text-center hover-lift">
-                <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center mx-auto mb-3 shadow-sm">
-                  <ColoredIcon
-                    Icon={area.icon}
-                    color={
-                      area.name === "Cardiovascular"
-                        ? "rose"
-                        : area.name === "Neurological"
-                          ? "indigo"
-                          : area.name === "Orthology"
-                            ? "amber"
-                            : "emerald"
-                    }
-                    size={28}
-                  />
-                </div>
-                <h3 className="text-lg font-bold text-foreground mb-2">
-                  {area.name}
-                </h3>
-                <p className="text-muted-foreground mb-3 text-sm leading-relaxed">
-                  {area.description}
-                </p>
-                <div className="space-y-1">
-                  <div className="text-xl font-bold text-primary">
-                    {area.productCount}+ Products
-                  </div>
-                  <div className="text-xs text-muted-foreground">
-                    Key: {area.keyProducts.join(", ")}
-                  </div>
-                </div>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* Regulatory Approvals */}
-      <section className="py-12 bg-accent">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-              Regulatory Approvals & Certifications
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Our products meet the highest international standards with
-              approvals from leading regulatory authorities worldwide.
-            </p>
-          </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-            {regulatoryApprovals.map((approval, index) => (
-              <Card
-                key={index}
-                className="p-4 text-center hover-lift aspect-square flex flex-col justify-center"
-              >
-                <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mx-auto mb-3 shadow-sm">
-                  <ColoredIcon
-                    Icon={approval.icon}
-                    color={
-                      approval.name.includes("FDA")
-                        ? "primary"
-                        : approval.name.includes("EMA")
-                          ? "sky"
-                          : approval.name.includes("WHO")
-                            ? "emerald"
-                            : approval.name.includes("ISO")
-                              ? "violet"
-                              : "success"
-                    }
-                    size={24}
-                  />
-                </div>
-                <h3 className="text-sm font-bold text-foreground mb-2 leading-tight">
-                  {approval.name}
-                </h3>
-                <p className="text-muted-foreground text-sm leading-tight">
-                  {approval.country}
-                </p>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Search and Filter */}
       <section className="py-12 bg-background border-b">
@@ -449,6 +353,9 @@ const Products = () => {
                     <Button variant="outline" className="flex-1">
                       Learn More
                     </Button>
+                    <Button variant="secondary" className="flex-1">
+                      Request a Sample
+                    </Button>
                     <Button
                       variant="outline"
                       size="sm"
@@ -462,6 +369,124 @@ const Products = () => {
               ))}
             </div>
           )}
+        </div>
+      </section>
+
+      {/* Product Pipeline Section */}
+      <section className="py-12 bg-accent">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
+              Our Product Pipeline
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              We are committed to innovation and are constantly working on developing new and improved treatments for a variety of diseases.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <Card className="p-6 hover-lift">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 bg-background rounded-lg flex items-center justify-center mr-4 shadow-sm">
+                  <ColoredIcon Icon={Brain} color="indigo" size={24} />
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-foreground mb-1">
+                    Alzheimer's Disease
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    Phase III Clinical Trials
+                  </p>
+                </div>
+              </div>
+              <p className="text-muted-foreground leading-relaxed">
+                Our lead candidate for Alzheimer's disease is a novel amyloid-beta targeting agent that has shown promising results in early-stage clinical trials.
+              </p>
+            </Card>
+            <Card className="p-6 hover-lift">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 bg-background rounded-lg flex items-center justify-center mr-4 shadow-sm">
+                  <ColoredIcon Icon={Shield} color="emerald" size={24} />
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-foreground mb-1">
+                    Cancer Immunotherapy
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    Phase II Clinical Trials
+                  </p>
+                </div>
+              </div>
+              <p className="text-muted-foreground leading-relaxed">
+                We are developing a portfolio of next-generation cancer immunotherapies that are designed to harness the power of the immune system to fight cancer.
+              </p>
+            </Card>
+            <Card className="p-6 hover-lift">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 bg-background rounded-lg flex items-center justify-center mr-4 shadow-sm">
+                  <ColoredIcon Icon={Bone} color="amber" size={24} />
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-foreground mb-1">
+                    Osteoarthritis
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    Phase I Clinical Trials
+                  </p>
+                </div>
+              </div>
+              <p className="text-muted-foreground leading-relaxed">
+                Our novel regenerative therapy for osteoarthritis is designed to repair damaged cartilage and restore joint function.
+              </p>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Regulatory Approvals */}
+      <section className="py-12 bg-accent">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
+              Regulatory Approvals & Certifications
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Our products meet the highest international standards with
+              approvals from leading regulatory authorities worldwide.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+            {regulatoryApprovals.map((approval, index) => (
+              <Card
+                key={index}
+                className="p-4 text-center hover-lift aspect-square flex flex-col justify-center"
+              >
+                <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mx-auto mb-3 shadow-sm">
+                  <ColoredIcon
+                    Icon={approval.icon}
+                    color={
+                      approval.name.includes("FDA")
+                        ? "primary"
+                        : approval.name.includes("EMA")
+                          ? "sky"
+                          : approval.name.includes("WHO")
+                            ? "emerald"
+                            : approval.name.includes("ISO")
+                              ? "violet"
+                              : "success"
+                    }
+                    size={24}
+                  />
+                </div>
+                <h3 className="text-sm font-bold text-foreground mb-2 leading-tight">
+                  {approval.name}
+                </h3>
+                <p className="text-muted-foreground text-sm leading-tight">
+                  {approval.country}
+                </p>
+              </Card>
+            ))}
+          </div>
         </div>
       </section>
 
