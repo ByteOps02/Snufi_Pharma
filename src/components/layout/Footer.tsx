@@ -119,6 +119,14 @@ const Footer = () => {
               </li>
               <li>
                 <button
+                  onClick={() => handleNavigation("/careers")}
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                >
+                  Careers
+                </button>
+              </li>
+              <li>
+                <button
                   onClick={() => handleNavigation("/contact")}
                   className="text-sm text-muted-foreground hover:text-primary transition-colors"
                 >
