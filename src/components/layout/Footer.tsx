@@ -1,5 +1,5 @@
 import React from "react";
-import { Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
+import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram } from "react-icons/fa6";
 import { Button } from "@/components/ui/button";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -13,22 +13,22 @@ const Footer = () => {
 
   const socialLinks = [
     {
-      icon: Facebook,
+      icon: FaFacebook,
       href: "https://facebook.com/snufipharma",
       label: "Facebook",
     },
     {
-      icon: Twitter,
+      icon: FaTwitter,
       href: "https://twitter.com/snufipharma",
       label: "Twitter",
     },
     {
-      icon: Linkedin,
+      icon: FaLinkedin,
       href: "https://linkedin.com/company/snufi-pharmaceutical",
       label: "LinkedIn",
     },
     {
-      icon: Instagram,
+      icon: FaInstagram,
       href: "https://instagram.com/snufipharma",
       label: "Instagram",
     },
