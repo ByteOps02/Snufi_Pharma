@@ -23,6 +23,7 @@ const Navigation = () => {
     { name: "About Us", path: "/about" },
     { name: "Products", path: "/products" },
     { name: "Services", path: "/services" },
+    { name: "Blog", path: "/blog" },
     { name: "Careers", path: "/careers" },
     { name: "Contact", path: "/contact" },
   ];
@@ -38,9 +39,9 @@ const Navigation = () => {
   return (
     <nav
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-smooth",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out",
         isScrolled
-          ? "bg-background/95 backdrop-blur-md shadow-md"
+          ? "bg-background/95 backdrop-blur-md shadow-md border-b border-border/50"
           : "bg-transparent",
       )}
     >

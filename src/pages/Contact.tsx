@@ -15,6 +15,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import axios from "axios";
+import { motion } from "framer-motion";
 
 const Contact = () => {
   useEffect(() => {
@@ -149,24 +150,74 @@ const Contact = () => {
     },
   ];
 
+  const sectionVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, scale: 0.9 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut",
+      },
+    },
+  };
+
   return (
-    <div className="flex flex-col">
-      <section className="py-12 bg-gradient-subtle">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      className="flex flex-col"
+    >
+      <motion.section
+        variants={sectionVariants}
+        initial="hidden"
+        animate="visible"
+        className="py-12 bg-gradient-subtle"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-3xl md:text-4xl font-bold text-foreground mb-4"
+            >
               Contact Us
-            </h1>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed"
+            >
               Get in touch with our team of pharmaceutical experts. We're here
               to answer your questions and discuss how we can support your
               healthcare needs.
-            </p>
+            </motion.p>
           </div>
         </div>
-      </section>
+      </motion.section>
 
-      <section className="py-12">
+      <motion.section
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        className="py-12"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-3 gap-8">
             <div className="lg:col-span-2">
@@ -299,54 +350,61 @@ const Contact = () => {
                       later.
                     </p>
                   )}
-                  
                 </form>
               </Card>
             </div>
 
             <div className="space-y-6">
               {contactInfo.map((info, index) => (
-                <Card key={index} className="p-6">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center flex-shrink-0 shadow-sm">
-                      <ColoredIcon
-                        Icon={info.icon}
-                        size={20}
-                        color={
-                          info.title === "Headquarters"
-                            ? "emerald"
-                            : info.title === "Phone"
+                <motion.div key={index} variants={cardVariants}>
+                  <Card className="p-6 h-full">
+                    <div className="flex items-start space-x-4">
+                      <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center flex-shrink-0 shadow-sm">
+                        <ColoredIcon
+                          Icon={info.icon}
+                          size={20}
+                          color={
+                            info.title === "Headquarters"
+                              ? "emerald"
+                              : info.title === "Phone"
                               ? "sky"
                               : info.title === "Email"
-                                ? "violet"
-                                : "amber"
-                        }
-                      />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-foreground mb-2">
-                        {info.title}
-                      </h3>
-                      <div className="space-y-1">
-                        {info.details.map((detail, detailIndex) => (
-                          <p
-                            key={detailIndex}
-                            className="text-sm text-muted-foreground"
-                          >
-                            {detail}
-                          </p>
-                        ))}
+                              ? "violet"
+                              : "amber"
+                          }
+                        />
+                      </div>
+                      <div>
+                        <h3 className="font-semibold text-foreground mb-2">
+                          {info.title}
+                        </h3>
+                        <div className="space-y-1">
+                          {info.details.map((detail, detailIndex) => (
+                            <p
+                              key={detailIndex}
+                              className="text-sm text-muted-foreground"
+                            >
+                              {detail}
+                            </p>
+                          ))}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </Card>
+                  </Card>
+                </motion.div>
               ))}
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
-      <section className="py-12 bg-accent">
+      <motion.section
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        className="py-12 bg-accent"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
@@ -360,38 +418,50 @@ const Contact = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {offices.map((office, index) => (
-              <Card
+              <motion.div
                 key={index}
-                className="p-6 text-center hover-lift transition-transform"
+                custom={index}
+                variants={cardVariants}
+                whileHover={{ scale: 1.02, y: -2 }}
+                transition={{ duration: 0.3 }}
               >
-                <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mx-auto mb-4 shadow-sm">
-                  <ColoredIcon Icon={Building} size={24} color="violet" />
-                </div>
-                <h3 className="text-lg font-bold text-foreground mb-2">
-                  {office.city}
-                </h3>
-                <p className="text-primary font-medium mb-3">{office.type}</p>
-                <p className="text-sm text-muted-foreground mb-3">
-                  {office.address}
-                </p>
-                <p className="text-sm font-medium text-foreground">
-                  {office.phone}
-                </p>
-              </Card>
+                <Card className="p-6 text-center hover-lift transition-transform h-full">
+                  <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mx-auto mb-4 shadow-sm">
+                    <ColoredIcon Icon={Building} size={24} color="violet" />
+                  </div>
+                  <h3 className="text-lg font-bold text-foreground mb-2">
+                    {office.city}
+                  </h3>
+                  <p className="text-primary font-medium mb-3">{office.type}</p>
+                  <p className="text-sm text-muted-foreground mb-3">
+                    {office.address}
+                  </p>
+                  <p className="text-sm font-medium text-foreground">
+                    {office.phone}
+                  </p>
+                </Card>
+              </motion.div>
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* FAQ Section */}
-      <section className="py-12">
+      <motion.section
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        className="py-12"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
               Frequently Asked Questions
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Find answers to common questions about our products, services, and company.
+              Find answers to common questions about our products, services, and
+              company.
             </p>
           </div>
           <div className="max-w-3xl mx-auto">
@@ -400,26 +470,41 @@ const Contact = () => {
                 What types of pharmaceutical products do you offer?
               </h3>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                We offer a wide range of pharmaceutical products across various therapeutic areas, including cardiovascular, neurology, orthology, and immunology. Our products are available in various forms, such as tablets, capsules, and injections.
+                We offer a wide range of pharmaceutical products across various
+                therapeutic areas, including cardiovascular, neurology,
+                orthology, and immunology. Our products are available in various
+                forms, such as tablets, capsules, and injections.
               </p>
               <h3 className="text-xl font-semibold text-foreground mb-4">
                 What types of pharmaceutical services do you offer?
               </h3>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                We offer a comprehensive range of pharmaceutical services, including research and development, contract manufacturing, regulatory affairs, and supply chain solutions. We provide end-to-end support to our clients, from drug discovery to commercialization.
+                We offer a comprehensive range of pharmaceutical services,
+                including research and development, contract manufacturing,
+                regulatory affairs, and supply chain solutions. We provide
+                end-to-end support to our clients, from drug discovery to
+                commercialization.
               </p>
               <h3 className="text-xl font-semibold text-foreground mb-4">
                 How can I partner with Snufi Pharmaceutical?
               </h3>
               <p className="text-muted-foreground leading-relaxed">
-                We are always open to new partnership opportunities. Please contact us to discuss your proposal, and our business development team will get in touch with you.
+                We are always open to new partnership opportunities. Please
+                contact us to discuss your proposal, and our business
+                development team will get in touch with you.
               </p>
             </Card>
           </div>
         </div>
-      </section>
+      </motion.section>
 
-      <section className="py-12">
+      <motion.section
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        className="py-12"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
@@ -436,16 +521,16 @@ const Contact = () => {
             >
               <GoogleMap
                 mapContainerStyle={{ height: "400px", width: "100%" }}
-                center={{ lat: 22.6430, lng: 72.7762 }}
+                center={{ lat: 22.643, lng: 72.7762 }}
                 zoom={13}
               >
-                <Marker position={{ lat: 22.6430, lng: 72.7762 }} />
+                <Marker position={{ lat: 22.643, lng: 72.7762 }} />
               </GoogleMap>
             </LoadScript>
           </div>
         </div>
-      </section>
-    </div>
+      </motion.section>
+    </motion.div>
   );
 };
 

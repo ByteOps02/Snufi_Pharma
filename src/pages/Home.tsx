@@ -21,9 +21,11 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 import { ColoredIcon } from "@/components/ui/colored-icon";
 import heroImage from "@/assets/hero-pharmaceutical.jpg";
+import { blogPosts } from "@/lib/blog";
 
 const Home = () => {
   // Scroll to top when component mounts
@@ -106,35 +108,6 @@ const Home = () => {
         "Working with Snufi has transformed our orthopedic treatment protocols. Their precision orthopedic medications offer hope to our patients.",
       rating: 5,
       avatar: "ER",
-    },
-  ];
-
-  const latestNews = [
-    {
-      title:
-        "Snufi Pharmaceutical Receives FDA Approval for New Cardiovascular Drug",
-      date: "2025-09-15",
-      category: "Regulatory",
-      excerpt:
-        "CardioMax Pro receives FDA approval for treating hypertension, marking a significant milestone in cardiovascular care.",
-      readTime: "3 min read",
-    },
-    {
-      title:
-        "Partnership with Leading Research Institute for Alzheimer's Treatment",
-      date: "2025-08-21",
-      category: "Partnership",
-      excerpt:
-        "Collaborative research initiative aims to develop breakthrough treatments for neurodegenerative diseases.",
-      readTime: "5 min read",
-    },
-    {
-      title: "Sustainability Initiative: Carbon-Neutral Manufacturing by 2027",
-      date: "2025-08-05",
-      category: "Sustainability",
-      excerpt:
-        "Snufi commits to achieving carbon-neutral manufacturing operations across all facilities worldwide.",
-      readTime: "4 min read",
     },
   ];
 
@@ -231,32 +204,83 @@ const Home = () => {
     },
   ];
 
+  const sectionVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, scale: 0.9 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut",
+      },
+    },
+  };
+
+  const latestPosts = blogPosts.slice(0, 3);
+
   return (
-    <div className="flex flex-col">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      className="flex flex-col"
+    >
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center bg-gradient-hero overflow-hidden">
-        <div className="absolute inset-0">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          className="absolute inset-0"
+        >
           <img
             src={heroImage}
             alt="Modern pharmaceutical laboratory"
             className="w-full h-full object-cover mix-blend-overlay opacity-30"
           />
           <div className="absolute inset-0 bg-gradient-hero opacity-80" />
-        </div>
+        </motion.div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight"
+            >
               Advancing
               <span className="block text-secondary-light">Healthcare</span>
               Innovation
-            </h1>
-            <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed">
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed"
+            >
               Snufi Pharmaceutical is dedicated to developing innovative
               medicines that improve lives worldwide. With over a decade of
               excellence, we continue to push the boundaries of medical science.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="flex flex-col sm:flex-row gap-4"
+            >
               <Button
                 size="lg"
                 variant="secondary"
@@ -274,31 +298,47 @@ const Home = () => {
               >
                 Learn More
               </Button>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
       {/* Stats Section */}
-      <section className="py-12 bg-accent">
+      <motion.section
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        className="py-12 bg-accent"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {stats.map((stat, index) => (
-              <div key={index} className="text-center">
+              <motion.div
+                key={index}
+                variants={cardVariants}
+                className="text-center"
+              >
                 <div className="text-3xl md:text-4xl font-bold text-primary mb-2">
                   {stat.number}
                 </div>
                 <div className="text-muted-foreground font-medium">
                   {stat.label}
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Features Section */}
-      <section className="py-12">
+      <motion.section
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        className="py-12"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
@@ -312,36 +352,49 @@ const Home = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map((feature, index) => (
-              <Card key={index} className="p-6 hover-lift">
-                <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mb-4 shadow-sm">
-                  <ColoredIcon
-                    Icon={feature.icon}
-                    color={
-                      index === 0
-                        ? "sky"
-                        : index === 1
+              <motion.div
+                key={index}
+                variants={cardVariants}
+                whileHover={{ scale: 1.02, y: -2 }}
+                transition={{ duration: 0.3 }}
+              >
+                <Card className="p-6 hover-lift h-full">
+                  <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mb-4 shadow-sm">
+                    <ColoredIcon
+                      Icon={feature.icon}
+                      color={
+                        index === 0
+                          ? "sky"
+                          : index === 1
                           ? "emerald"
                           : index === 2
-                            ? "rose"
-                            : "violet"
-                    }
-                    size={24}
-                  />
-                </div>
-                <h3 className="text-xl font-semibold text-foreground mb-3">
-                  {feature.title}
-                </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  {feature.description}
-                </p>
-              </Card>
+                          ? "rose"
+                          : "violet"
+                      }
+                      size={24}
+                    />
+                  </div>
+                  <h3 className="text-xl font-semibold text-foreground mb-3">
+                    {feature.title}
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {feature.description}
+                  </p>
+                </Card>
+              </motion.div>
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Therapeutic Areas Preview */}
-      <section className="py-12 bg-accent">
+      <motion.section
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        className="py-12 bg-accent"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
@@ -355,44 +408,58 @@ const Home = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {therapeuticAreas.map((area, index) => (
-              <Card key={index} className="p-6 text-center hover-lift flex flex-col">
-                <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm">
-                  <ColoredIcon
-                    Icon={area.icon}
-                    color={
-                      area.name === "Cardiovascular"
-                        ? "rose"
-                        : area.name === "Neurological"
+              <motion.div
+                key={index}
+                custom={index}
+                variants={cardVariants}
+                whileHover={{ scale: 1.02, y: -2 }}
+                transition={{ duration: 0.3 }}
+              >
+                <Card className="p-6 text-center hover-lift flex flex-col h-full">
+                  <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm">
+                    <ColoredIcon
+                      Icon={area.icon}
+                      color={
+                        area.name === "Cardiovascular"
+                          ? "rose"
+                          : area.name === "Neurological"
                           ? "indigo"
                           : area.name === "Orthology"
-                            ? "amber"
-                            : "emerald"
-                    }
-                    size={32}
-                  />
-                </div>
-                <h3 className="text-xl font-bold text-foreground mb-2">
-                  {area.name}
-                </h3>
-                <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
-                  {area.description}
-                </p>
-                <div className="space-y-2 mt-auto">
-                  <div className="text-2xl font-bold text-primary">
-                    {area.productCount}+ Products
+                          ? "amber"
+                          : "emerald"
+                      }
+                      size={32}
+                    />
                   </div>
-                  <div className="text-xs text-muted-foreground">
-                    Key: {area.keyProducts.join(", ")}
+                  <h3 className="text-xl font-bold text-foreground mb-2">
+                    {area.name}
+                  </h3>
+                  <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
+                    {area.description}
+                  </p>
+                  <div className="space-y-2 mt-auto">
+                    <div className="text-2xl font-bold text-primary">
+                      {area.productCount}+ Products
+                    </div>
+                    <div className="text-xs text-muted-foreground">
+                      Key: {area.keyProducts.join(", ")}
+                    </div>
                   </div>
-                </div>
-              </Card>
+                </Card>
+              </motion.div>
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Customer Testimonials */}
-      <section className="py-12 bg-background">
+      <motion.section
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        className="py-12 bg-background"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
@@ -406,43 +473,57 @@ const Home = () => {
 
           <div className="grid md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
-              <Card key={index} className="p-6 hover-lift">
-                <div className="flex items-center mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className="w-5 h-5 text-yellow-400 fill-current"
-                    />
-                  ))}
-                </div>
-                <Quote className="w-8 h-8 text-primary mb-4" />
-                <p className="text-muted-foreground mb-6 leading-relaxed">
-                  "{testimonial.content}"
-                </p>
-                <div className="flex items-center space-x-3">
-                  <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center text-primary-foreground font-bold">
-                    {testimonial.avatar}
+              <motion.div
+                key={index}
+                custom={index}
+                variants={cardVariants}
+                whileHover={{ scale: 1.02, y: -2 }}
+                transition={{ duration: 0.3 }}
+              >
+                <Card className="p-6 hover-lift h-full">
+                  <div className="flex items-center mb-4">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <Star
+                        key={i}
+                        className="w-5 h-5 text-yellow-400 fill-current"
+                      />
+                    ))}
                   </div>
-                  <div>
-                    <h4 className="font-semibold text-foreground">
-                      {testimonial.name}
-                    </h4>
-                    <p className="text-sm text-muted-foreground">
-                      {testimonial.title}
-                    </p>
-                    <p className="text-sm text-primary">
-                      {testimonial.company}
-                    </p>
+                  <Quote className="w-8 h-8 text-primary mb-4" />
+                  <p className="text-muted-foreground mb-6 leading-relaxed">
+                    "{testimonial.content}"
+                  </p>
+                  <div className="flex items-center space-x-3">
+                    <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center text-primary-foreground font-bold">
+                      {testimonial.avatar}
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-foreground">
+                        {testimonial.name}
+                      </h4>
+                      <p className="text-sm text-muted-foreground">
+                        {testimonial.title}
+                      </p>
+                      <p className="text-sm text-primary">
+                        {testimonial.company}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </Card>
+                </Card>
+              </motion.div>
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Latest News & Updates */}
-      <section className="py-12 bg-accent">
+      <motion.section
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        className="py-12 bg-accent"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
@@ -454,47 +535,61 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-4 gap-8">
-            {[
-              {
-                title: "Sunfi Pharmaceuticals Rebrands to Snufi Pharma",
-                date: "2025-09-16",
-                category: "Company News",
-                excerpt:
-                  "We are excited to announce our strategic rebranding from Sunfi Pharmaceuticals to Snufi Pharma, reflecting our evolution and commitment to innovation in the pharmaceutical industry.",
-                readTime: "2 min read",
-              },
-              ...latestNews,
-            ].map((news, index) => (
-              <Card key={index} className="p-6 hover-lift flex flex-col">
-                <div className="flex items-center justify-between mb-4">
-                  <span className="px-3 py-1 bg-primary/10 text-primary text-xs font-medium rounded-full">
-                    {news.category}
-                  </span>
-                  <div className="flex items-center text-sm text-muted-foreground">
-                    <Calendar className="w-4 h-4 mr-1" />
-                    {new Date(news.date).toLocaleDateString()}
-                  </div>
-                </div>
-                <h3 className="text-lg font-bold text-foreground mb-3 leading-tight">
-                  {news.title}
-                </h3>
-                <p className="text-muted-foreground mb-4 text-sm leading-relaxed flex-grow">
-                  {news.excerpt}
-                </p>
-                <div className="mt-auto pt-4">
-                  <span className="text-xs text-muted-foreground">
-                    {news.readTime}
-                  </span>
-                </div>
-              </Card>
+          <div className="grid md:grid-cols-3 gap-8">
+            {latestPosts.map((post, index) => (
+              <motion.div
+                key={index}
+                custom={index}
+                variants={cardVariants}
+                whileHover={{ scale: 1.02, y: -2 }}
+                transition={{ duration: 0.3 }}
+              >
+                <Link to={`/blog/${post.id}`}>
+                  <Card className="p-6 hover-lift flex flex-col h-full">
+                    <div className="flex items-center justify-between mb-4">
+                      <span className="px-3 py-1 bg-primary/10 text-primary text-xs font-medium rounded-full">
+                        {post.category}
+                      </span>
+                      <div className="flex items-center text-sm text-muted-foreground">
+                        <Calendar className="w-4 h-4 mr-1" />
+                        {new Date(post.date).toLocaleDateString()}
+                      </div>
+                    </div>
+                    <h3 className="text-lg font-bold text-foreground mb-3 leading-tight">
+                      {post.title}
+                    </h3>
+                    <p className="text-muted-foreground mb-4 text-sm leading-relaxed flex-grow">
+                      {post.excerpt}
+                    </p>
+                    <div className="mt-auto pt-4">
+                      <span className="text-xs text-muted-foreground">
+                        {post.readTime}
+                      </span>
+                    </div>
+                  </Card>
+                </Link>
+              </motion.div>
             ))}
           </div>
+          <div className="text-center mt-12">
+            <Button asChild size="lg" className="text-lg px-8 py-4">
+              <Link to="/blog">
+                View All News
+                <ArrowRight className="ml-2" size={20} />
+              </Link>
+            </Button>
+          </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Awards & Recognition */}
-      <section className="py-12 bg-background">
+      <motion.section
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        className="py-12 bg-background"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
@@ -508,40 +603,54 @@ const Home = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {awards.map((award, index) => (
-              <Card key={index} className="p-6 text-center hover-lift">
-                <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mx-auto mb-4 shadow-sm">
-                  <ColoredIcon
-                    Icon={award.icon}
-                    color={
-                      index === 0
-                        ? "amber"
-                        : index === 1
+              <motion.div
+                key={index}
+                custom={index}
+                variants={cardVariants}
+                whileHover={{ scale: 1.02, y: -2 }}
+                transition={{ duration: 0.3 }}
+              >
+                <Card className="p-6 text-center hover-lift h-full">
+                  <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mx-auto mb-4 shadow-sm">
+                    <ColoredIcon
+                      Icon={award.icon}
+                      color={
+                        index === 0
+                          ? "amber"
+                          : index === 1
                           ? "sky"
                           : index === 2
-                            ? "emerald"
-                            : "primary"
-                    }
-                    size={24}
-                  />
-                </div>
-                <h3 className="text-lg font-bold text-foreground mb-2">
-                  {award.title}
-                </h3>
-                <p className="text-sm text-muted-foreground mb-2">
-                  {award.organization}
-                </p>
-                <p className="text-xs text-muted-foreground mb-2">
-                  {award.description}
-                </p>
-                <span className="text-primary font-semibold">{award.year}</span>
-              </Card>
+                          ? "emerald"
+                          : "primary"
+                      }
+                      size={24}
+                    />
+                  </div>
+                  <h3 className="text-lg font-bold text-foreground mb-2">
+                    {award.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground mb-2">
+                    {award.organization}
+                  </p>
+                  <p className="text-xs text-muted-foreground mb-2">
+                    {award.description}
+                  </p>
+                  <span className="text-primary font-semibold">{award.year}</span>
+                </Card>
+              </motion.div>
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Sustainability & CSR */}
-      <section className="py-12 bg-background">
+      <motion.section
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        className="py-12 bg-background"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
@@ -555,50 +664,64 @@ const Home = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {sustainabilityInitiatives.map((initiative, index) => (
-              <Card key={index} className="p-6 hover-lift">
-                <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mx-auto mb-4 shadow-sm">
-                  <ColoredIcon
-                    Icon={initiative.icon}
-                    color={
-                      index === 0
-                        ? "emerald"
-                        : index === 1
+              <motion.div
+                key={index}
+                custom={index}
+                variants={cardVariants}
+                whileHover={{ scale: 1.02, y: -2 }}
+                transition={{ duration: 0.3 }}
+              >
+                <Card className="p-6 hover-lift h-full">
+                  <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mx-auto mb-4 shadow-sm">
+                    <ColoredIcon
+                      Icon={initiative.icon}
+                      color={
+                        index === 0
+                          ? "emerald"
+                          : index === 1
                           ? "sky"
                           : index === 2
-                            ? "violet"
-                            : "amber"
-                    }
-                    size={24}
-                  />
-                </div>
-                <h3 className="text-lg font-bold text-foreground mb-3">
-                  {initiative.title}
-                </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-                  {initiative.description}
-                </p>
-                <div className="space-y-2">
-                  <div className="flex justify-between text-sm">
-                    <span>Progress</span>
-                    <span className="font-semibold">
-                      {initiative.progress}%
-                    </span>
+                          ? "violet"
+                          : "amber"
+                      }
+                      size={24}
+                    />
                   </div>
-                  <div className="w-full bg-gray-200 rounded-full h-2">
-                    <div
-                      className="bg-gradient-primary h-2 rounded-full transition-all duration-300"
-                      style={{ width: `${initiative.progress}%` }}
-                    ></div>
+                  <h3 className="text-lg font-bold text-foreground mb-3">
+                    {initiative.title}
+                  </h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                    {initiative.description}
+                  </p>
+                  <div className="space-y-2">
+                    <div className="flex justify-between text-sm">
+                      <span>Progress</span>
+                      <span className="font-semibold">
+                        {initiative.progress}%
+                      </span>
+                    </div>
+                    <div className="w-full bg-gray-200 rounded-full h-2">
+                      <div
+                        className="bg-gradient-primary h-2 rounded-full transition-all duration-300"
+                        style={{ width: `${initiative.progress}%` }}
+                      ></div>
+                    </div>
                   </div>
-                </div>
-              </Card>
+                </Card>
+              </motion.div>
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Community Engagement Section */}
-      <section className="py-12 bg-accent">
+      <motion.section
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        className="py-12 bg-accent"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
@@ -609,45 +732,69 @@ const Home = () => {
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Card className="p-6 hover-lift">
-              <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mb-4 shadow-sm">
-                <ColoredIcon Icon={Heart} color="rose" size={24} />
-              </div>
-              <h3 className="text-xl font-semibold text-foreground mb-3">
-                Health Check-up Camps
-              </h3>
-              <p className="text-muted-foreground leading-relaxed">
-                We regularly organize free health check-up camps in rural and underserved areas to provide access to basic healthcare services.
-              </p>
-            </Card>
-            <Card className="p-6 hover-lift">
-              <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mb-4 shadow-sm">
-                <ColoredIcon Icon={Users} color="violet" size={24} />
-              </div>
-              <h3 className="text-xl font-semibold text-foreground mb-3">
-                Disease Awareness Programs
-              </h3>
-              <p className="text-muted-foreground leading-relaxed">
-                We conduct awareness programs to educate people about various diseases, their prevention, and treatment options.
-              </p>
-            </Card>
-            <Card className="p-6 hover-lift">
-              <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mb-4 shadow-sm">
-                <ColoredIcon Icon={Globe} color="sky" size={24} />
-              </div>
-              <h3 className="text-xl font-semibold text-foreground mb-3">
-                Global Health Initiatives
-              </h3>
-              <p className="text-muted-foreground leading-relaxed">
-                We partner with global health organizations to support initiatives that aim to improve health outcomes in developing countries.
-              </p>
-            </Card>
+            <motion.div
+              variants={cardVariants}
+              whileHover={{ scale: 1.02, y: -2 }}
+              transition={{ duration: 0.3 }}
+            >
+              <Card className="p-6 hover-lift h-full">
+                <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mb-4 shadow-sm">
+                  <ColoredIcon Icon={Heart} color="rose" size={24} />
+                </div>
+                <h3 className="text-xl font-semibold text-foreground mb-3">
+                  Health Check-up Camps
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  We regularly organize free health check-up camps in rural and underserved areas to provide access to basic healthcare services.
+                </p>
+              </Card>
+            </motion.div>
+            <motion.div
+              variants={cardVariants}
+              whileHover={{ scale: 1.02, y: -2 }}
+              transition={{ duration: 0.3 }}
+            >
+              <Card className="p-6 hover-lift h-full">
+                <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mb-4 shadow-sm">
+                  <ColoredIcon Icon={Users} color="violet" size={24} />
+                </div>
+                <h3 className="text-xl font-semibold text-foreground mb-3">
+                  Disease Awareness Programs
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  We conduct awareness programs to educate people about various diseases, their prevention, and treatment options.
+                </p>
+              </Card>
+            </motion.div>
+            <motion.div
+              variants={cardVariants}
+              whileHover={{ scale: 1.02, y: -2 }}
+              transition={{ duration: 0.3 }}
+            >
+              <Card className="p-6 hover-lift h-full">
+                <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mb-4 shadow-sm">
+                  <ColoredIcon Icon={Globe} color="sky" size={24} />
+                </div>
+                <h3 className="text-xl font-semibold text-foreground mb-3">
+                  Global Health Initiatives
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  We partner with global health organizations to support initiatives that aim to improve health outcomes in developing countries.
+                </p>
+              </Card>
+            </motion.div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Join Our Team Section */}
-      <section className="py-12 bg-background">
+      <motion.section
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        className="py-12 bg-background"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
             Join Our Team
@@ -664,10 +811,16 @@ const Home = () => {
             <ArrowRight className="ml-2" size={20} />
           </Button>
         </div>
-      </section>
+      </motion.section>
 
       {/* CTA Section */}
-      <section className="py-12 bg-gradient-subtle">
+      <motion.section
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        className="py-12 bg-gradient-subtle"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
             Ready to Partner With Us?
@@ -685,8 +838,8 @@ const Home = () => {
             <ChevronRight className="ml-2" size={20} />
           </Button>
         </div>
-      </section>
-    </div>
+      </motion.section>
+    </motion.div>
   );
 };
 
