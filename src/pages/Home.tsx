@@ -396,7 +396,7 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
             <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
-              What Our Partners Say
+              Medical Professionals Trust Snufi
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Trusted by healthcare professionals and institutions worldwide for
