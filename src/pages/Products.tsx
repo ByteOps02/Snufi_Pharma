@@ -347,7 +347,7 @@ const Products = () => {
                     transition={{ duration: 0.3 }}
                     whileHover={{ scale: 1.02, y: -2 }}
                   >
-                    <Card className="p-6 hover-lift">
+                    <Card className="p-6">
                       <div className="flex items-start justify-between mb-4">
                         <div className="flex-1">
                           <h3 className="text-xl font-bold text-foreground mb-2">
@@ -438,8 +438,8 @@ const Products = () => {
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <motion.div variants={cardVariants} whileHover={{ scale: 1.02, y: -2 }}>
-              <Card className="p-6 hover-lift">
+            <motion.div variants={cardVariants} whileHover={{ scale: 1.02, y: -2 }} className="h-full">
+              <Card className="p-6 h-full flex flex-col">
                 <div className="flex items-center mb-4">
                   <div className="w-12 h-12 bg-background rounded-lg flex items-center justify-center mr-4 shadow-sm">
                     <ColoredIcon Icon={Brain} color="indigo" size={24} />
@@ -453,15 +453,15 @@ const Products = () => {
                     </p>
                   </div>
                 </div>
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-muted-foreground leading-relaxed flex-grow">
                   Our lead candidate for Alzheimer's disease is a novel
                   amyloid-beta targeting agent that has shown promising results
                   in early-stage clinical trials.
                 </p>
               </Card>
             </motion.div>
-            <motion.div variants={cardVariants} whileHover={{ scale: 1.02, y: -2 }}>
-              <Card className="p-6 hover-lift">
+            <motion.div variants={cardVariants} whileHover={{ scale: 1.02, y: -2 }} className="h-full">
+              <Card className="p-6 h-full flex flex-col">
                 <div className="flex items-center mb-4">
                   <div className="w-12 h-12 bg-background rounded-lg flex items-center justify-center mr-4 shadow-sm">
                     <ColoredIcon Icon={Shield} color="emerald" size={24} />
@@ -475,15 +475,15 @@ const Products = () => {
                     </p>
                   </div>
                 </div>
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-muted-foreground leading-relaxed flex-grow">
                   We are developing a portfolio of next-generation cancer
                   immunotherapies that are designed to harness the power of the
                   immune system to fight cancer.
                 </p>
               </Card>
             </motion.div>
-            <motion.div variants={cardVariants} whileHover={{ scale: 1.02, y: -2 }}>
-              <Card className="p-6 hover-lift">
+            <motion.div variants={cardVariants} whileHover={{ scale: 1.02, y: -2 }} className="h-full">
+              <Card className="p-6 h-full flex flex-col">
                 <div className="flex items-center mb-4">
                   <div className="w-12 h-12 bg-background rounded-lg flex items-center justify-center mr-4 shadow-sm">
                     <ColoredIcon Icon={Bone} color="amber" size={24} />
@@ -497,7 +497,7 @@ const Products = () => {
                     </p>
                   </div>
                 </div>
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-muted-foreground leading-relaxed flex-grow">
                   Our novel regenerative therapy for osteoarthritis is designed
                   to repair damaged cartilage and restore joint function.
                 </p>
@@ -535,7 +535,7 @@ const Products = () => {
                 whileHover={{ scale: 1.02, y: -2 }}
                 transition={{ duration: 0.3 }}
               >
-                <Card className="p-4 text-center hover-lift aspect-square flex flex-col justify-center">
+                <Card className="p-4 text-center aspect-square flex flex-col justify-center">
                   <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mx-auto mb-3 shadow-sm">
                     <ColoredIcon
                       Icon={approval.icon}
@@ -595,7 +595,7 @@ const Products = () => {
                 whileHover={{ scale: 1.02, y: -2 }}
                 transition={{ duration: 0.3 }}
               >
-                <Card className="p-5 text-center hover-lift">
+                <Card className="p-5 text-center">
                   <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mx-auto mb-3 shadow-sm">
                     <ColoredIcon
                       Icon={standard.icon}

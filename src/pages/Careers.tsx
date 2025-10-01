@@ -135,7 +135,7 @@ const Careers = () => {
                 whileHover={{ scale: 1.02, y: -2 }}
                 transition={{ duration: 0.3 }}
               >
-                <Card className="p-6 hover-lift flex flex-col md:flex-row justify-between items-center">
+                <Card className="p-6 flex flex-col md:flex-row justify-between items-center">
                   <div>
                     <h3 className="text-xl font-bold text-foreground mb-2">
                       {job.title}
@@ -187,7 +187,7 @@ const Careers = () => {
               whileHover={{ scale: 1.02, y: -2 }}
               transition={{ duration: 0.3 }}
             >
-              <Card className="p-6 hover-lift">
+              <Card className="p-6">
                 <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mb-4 shadow-sm">
                   <ColoredIcon Icon={benefit.icon} color={index === 0 ? "rose" : index === 1 ? "sky" : "amber"} size={24} />
                 </div>
@@ -223,7 +223,7 @@ const Careers = () => {
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             <motion.div variants={cardVariants} whileHover={{ scale: 1.02, y: -2 }}>
-              <Card className="p-6 text-center hover-lift">
+              <Card className="p-6 text-center">
                 <img src="/placeholder.svg" alt="Team collaboration" className="rounded-lg shadow-md w-full h-48 object-cover mb-4" />
                 <h3 className="text-xl font-semibold text-foreground mb-3">
                   Collaboration
@@ -235,7 +235,7 @@ const Careers = () => {
               </Card>
             </motion.div>
             <motion.div variants={cardVariants} whileHover={{ scale: 1.02, y: -2 }}>
-              <Card className="p-6 text-center hover-lift">
+              <Card className="p-6 text-center">
                 <img src="/placeholder.svg" alt="Innovative research lab" className="rounded-lg shadow-md w-full h-48 object-cover mb-4" />
                 <h3 className="text-xl font-semibold text-foreground mb-3">
                   Innovation
@@ -247,7 +247,7 @@ const Careers = () => {
               </Card>
             </motion.div>
             <motion.div variants={cardVariants} whileHover={{ scale: 1.02, y: -2 }}>
-              <Card className="p-6 text-center hover-lift">
+              <Card className="p-6 text-center">
                 <img src="/placeholder.svg" alt="Company event" className="rounded-lg shadow-md w-full h-48 object-cover mb-4" />
                 <h3 className="text-xl font-semibold text-foreground mb-3">
                   Well-being

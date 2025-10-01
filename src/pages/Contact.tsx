@@ -425,7 +425,7 @@ const Contact = () => {
                 whileHover={{ scale: 1.02, y: -2 }}
                 transition={{ duration: 0.3 }}
               >
-                <Card className="p-6 text-center hover-lift transition-transform">
+                <Card className="p-6 text-center transition-transform h-full flex flex-col">
                   <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mx-auto mb-4 shadow-sm">
                     <ColoredIcon Icon={Building} size={24} color="violet" />
                   </div>
@@ -433,7 +433,7 @@ const Contact = () => {
                     {office.city}
                   </h3>
                   <p className="text-primary font-medium mb-3">{office.type}</p>
-                  <p className="text-sm text-muted-foreground mb-3">
+                  <p className="text-sm text-muted-foreground mb-3 flex-grow">
                     {office.address}
                   </p>
                   <p className="text-sm font-medium text-foreground">

@@ -358,7 +358,7 @@ const Home = () => {
                 whileHover={{ scale: 1.02, y: -2 }}
                 transition={{ duration: 0.3 }}
               >
-                <Card className="p-6 hover-lift">
+                <Card className="p-6">
                   <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mb-4 shadow-sm">
                     <ColoredIcon
                       Icon={feature.icon}
@@ -415,7 +415,7 @@ const Home = () => {
                 whileHover={{ scale: 1.02, y: -2 }}
                 transition={{ duration: 0.3 }}
               >
-                <Card className="p-6 text-center hover-lift flex flex-col">
+                <Card className="p-6 text-center flex flex-col h-full">
                   <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm">
                     <ColoredIcon
                       Icon={area.icon}
@@ -480,7 +480,7 @@ const Home = () => {
                               whileHover={{ scale: 1.02, y: -2 }}
                               transition={{ duration: 0.3 }}
                             >
-                              <Card className="p-6 hover-lift">
+                              <Card className="p-6">
                                 <div className="flex items-center mb-4">
                                   {[...Array(testimonial.rating)].map((_, i) => (
                                     <Star
@@ -543,8 +543,8 @@ const Home = () => {
                 whileHover={{ scale: 1.02, y: -2 }}
                 transition={{ duration: 0.3 }}
               >
-                <Link to={`/blog/${post.id}`}>
-                  <Card className="p-6 hover-lift flex flex-col">
+                <Link to={`/blog/${post.id}`} className="h-full block">
+                  <Card className="p-6 flex flex-col h-full">
                     <div className="flex items-center justify-between mb-4">
                       <span className="px-3 py-1 bg-primary/10 text-primary text-xs font-medium rounded-full">
                         {post.category}
@@ -609,7 +609,7 @@ const Home = () => {
                 whileHover={{ scale: 1.02, y: -2 }}
                 transition={{ duration: 0.3 }}
               >
-                <Card className="p-6 text-center hover-lift">
+                <Card className="p-6 text-center h-full flex flex-col">
                   <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mx-auto mb-4 shadow-sm">
                     <ColoredIcon
                       Icon={award.icon}
@@ -631,7 +631,7 @@ const Home = () => {
                   <p className="text-sm text-muted-foreground mb-2">
                     {award.organization}
                   </p>
-                  <p className="text-xs text-muted-foreground mb-2">
+                  <p className="text-xs text-muted-foreground mb-2 flex-grow">
                     {award.description}
                   </p>
                   <span className="text-primary font-semibold">{award.year}</span>
@@ -670,7 +670,7 @@ const Home = () => {
                 whileHover={{ scale: 1.02, y: -2 }}
                 transition={{ duration: 0.3 }}
               >
-                <Card className="p-6 hover-lift">
+                <Card className="p-6 h-full flex flex-col">
                   <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mx-auto mb-4 shadow-sm">
                     <ColoredIcon
                       Icon={initiative.icon}
@@ -689,7 +689,7 @@ const Home = () => {
                   <h3 className="text-lg font-bold text-foreground mb-3">
                     {initiative.title}
                   </h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-4 flex-grow">
                     {initiative.description}
                   </p>
                   <div className="space-y-2">
@@ -736,7 +736,7 @@ const Home = () => {
               whileHover={{ scale: 1.02, y: -2 }}
               transition={{ duration: 0.3 }}
             >
-              <Card className="p-6 hover-lift">
+              <Card className="p-6">
                 <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mb-4 shadow-sm">
                   <ColoredIcon Icon={Heart} color="rose" size={24} />
                 </div>
@@ -753,7 +753,7 @@ const Home = () => {
               whileHover={{ scale: 1.02, y: -2 }}
               transition={{ duration: 0.3 }}
             >
-              <Card className="p-6 hover-lift">
+              <Card className="p-6">
                 <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mb-4 shadow-sm">
                   <ColoredIcon Icon={Users} color="violet" size={24} />
                 </div>
@@ -770,7 +770,7 @@ const Home = () => {
               whileHover={{ scale: 1.02, y: -2 }}
               transition={{ duration: 0.3 }}
             >
-              <Card className="p-6 hover-lift">
+              <Card className="p-6">
                 <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mb-4 shadow-sm">
                   <ColoredIcon Icon={Globe} color="sky" size={24} />
                 </div>
