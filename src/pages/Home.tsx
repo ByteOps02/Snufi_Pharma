@@ -248,7 +248,7 @@ const Home = () => {
           <img
             src={heroImage}
             alt="Modern pharmaceutical laboratory"
-            className="w-full h-full object-cover mix-blend-overlay opacity-30"
+            className="w-full h-full object-cover opacity-40"
           />
           <div className="absolute inset-0 bg-gradient-hero opacity-80" />
         </motion.div>
@@ -358,7 +358,7 @@ const Home = () => {
                 whileHover={{ scale: 1.02, y: -2 }}
                 transition={{ duration: 0.3 }}
               >
-                <Card className="p-6 hover-lift h-full">
+                <Card className="p-6 hover-lift">
                   <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mb-4 shadow-sm">
                     <ColoredIcon
                       Icon={feature.icon}
@@ -415,7 +415,7 @@ const Home = () => {
                 whileHover={{ scale: 1.02, y: -2 }}
                 transition={{ duration: 0.3 }}
               >
-                <Card className="p-6 text-center hover-lift flex flex-col h-full">
+                <Card className="p-6 text-center hover-lift flex flex-col">
                   <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm">
                     <ColoredIcon
                       Icon={area.icon}
@@ -473,45 +473,44 @@ const Home = () => {
 
           <div className="grid md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
-              <motion.div
-                key={index}
-                custom={index}
-                variants={cardVariants}
-                whileHover={{ scale: 1.02, y: -2 }}
-                transition={{ duration: 0.3 }}
-              >
-                <Card className="p-6 hover-lift h-full">
-                  <div className="flex items-center mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star
-                        key={i}
-                        className="w-5 h-5 text-yellow-400 fill-current"
-                      />
-                    ))}
-                  </div>
-                  <Quote className="w-8 h-8 text-primary mb-4" />
-                  <p className="text-muted-foreground mb-6 leading-relaxed">
-                    "{testimonial.content}"
-                  </p>
-                  <div className="flex items-center space-x-3">
-                    <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center text-primary-foreground font-bold">
-                      {testimonial.avatar}
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-foreground">
-                        {testimonial.name}
-                      </h4>
-                      <p className="text-sm text-muted-foreground">
-                        {testimonial.title}
-                      </p>
-                      <p className="text-sm text-primary">
-                        {testimonial.company}
-                      </p>
-                    </div>
-                  </div>
-                </Card>
-              </motion.div>
-            ))}
+                              <motion.div
+                              key={index}
+                              custom={index}
+                              variants={cardVariants}
+                              whileHover={{ scale: 1.02, y: -2 }}
+                              transition={{ duration: 0.3 }}
+                            >
+                              <Card className="p-6 hover-lift">
+                                <div className="flex items-center mb-4">
+                                  {[...Array(testimonial.rating)].map((_, i) => (
+                                    <Star
+                                      key={i}
+                                      className="w-5 h-5 text-yellow-400 fill-current"
+                                    />
+                                  ))}
+                                </div>
+                                <Quote className="w-8 h-8 text-primary mb-4" />
+                                <p className="text-muted-foreground mb-6 leading-relaxed">
+                                  "{testimonial.content}"
+                                </p>
+                                <div className="flex items-center space-x-3">
+                                  <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center text-primary-foreground font-bold">
+                                    {testimonial.avatar}
+                                  </div>
+                                  <div>
+                                    <h4 className="font-semibold text-foreground">
+                                      {testimonial.name}
+                                    </h4>
+                                    <p className="text-sm text-muted-foreground">
+                                      {testimonial.title}
+                                    </p>
+                                    <p className="text-sm text-primary">
+                                      {testimonial.company}
+                                    </p>
+                                  </div>
+                                </div>
+                              </Card>
+                            </motion.div>            ))}
           </div>
         </div>
       </motion.section>
@@ -545,7 +544,7 @@ const Home = () => {
                 transition={{ duration: 0.3 }}
               >
                 <Link to={`/blog/${post.id}`}>
-                  <Card className="p-6 hover-lift flex flex-col h-full">
+                  <Card className="p-6 hover-lift flex flex-col">
                     <div className="flex items-center justify-between mb-4">
                       <span className="px-3 py-1 bg-primary/10 text-primary text-xs font-medium rounded-full">
                         {post.category}
@@ -610,7 +609,7 @@ const Home = () => {
                 whileHover={{ scale: 1.02, y: -2 }}
                 transition={{ duration: 0.3 }}
               >
-                <Card className="p-6 text-center hover-lift h-full">
+                <Card className="p-6 text-center hover-lift">
                   <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mx-auto mb-4 shadow-sm">
                     <ColoredIcon
                       Icon={award.icon}
@@ -671,7 +670,7 @@ const Home = () => {
                 whileHover={{ scale: 1.02, y: -2 }}
                 transition={{ duration: 0.3 }}
               >
-                <Card className="p-6 hover-lift h-full">
+                <Card className="p-6 hover-lift">
                   <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mx-auto mb-4 shadow-sm">
                     <ColoredIcon
                       Icon={initiative.icon}
@@ -737,7 +736,7 @@ const Home = () => {
               whileHover={{ scale: 1.02, y: -2 }}
               transition={{ duration: 0.3 }}
             >
-              <Card className="p-6 hover-lift h-full">
+              <Card className="p-6 hover-lift">
                 <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mb-4 shadow-sm">
                   <ColoredIcon Icon={Heart} color="rose" size={24} />
                 </div>
@@ -754,7 +753,7 @@ const Home = () => {
               whileHover={{ scale: 1.02, y: -2 }}
               transition={{ duration: 0.3 }}
             >
-              <Card className="p-6 hover-lift h-full">
+              <Card className="p-6 hover-lift">
                 <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mb-4 shadow-sm">
                   <ColoredIcon Icon={Users} color="violet" size={24} />
                 </div>
@@ -771,7 +770,7 @@ const Home = () => {
               whileHover={{ scale: 1.02, y: -2 }}
               transition={{ duration: 0.3 }}
             >
-              <Card className="p-6 hover-lift h-full">
+              <Card className="p-6 hover-lift">
                 <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mb-4 shadow-sm">
                   <ColoredIcon Icon={Globe} color="sky" size={24} />
                 </div>

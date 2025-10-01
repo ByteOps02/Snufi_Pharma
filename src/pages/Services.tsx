@@ -13,6 +13,9 @@ import { Card } from "@/components/ui/card";
 import { ColoredIcon } from "@/components/ui/colored-icon";
 import { motion } from "framer-motion";
 
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import GetStartedForm from "@/components/forms/GetStartedForm";
+
 const Services = () => {
   const services = [
     {
@@ -206,7 +209,7 @@ const Services = () => {
                 whileHover={{ scale: 1.02, y: -2 }}
                 transition={{ duration: 0.3 }}
               >
-                <Card className="p-6 hover-lift h-full">
+                <Card className="p-6 hover-lift">
                   <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mb-4 shadow-sm">
                     <ColoredIcon
                       Icon={service.icon}
@@ -392,7 +395,7 @@ const Services = () => {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <motion.div variants={cardVariants} whileHover={{ scale: 1.02, y: -2 }}>
-              <Card className="p-6 hover-lift h-full">
+              <Card className="p-6 hover-lift">
                 <h3 className="text-xl font-semibold text-foreground mb-3">
                   Accelerating Drug Development for a Biotech Startup
                 </h3>
@@ -465,7 +468,7 @@ const Services = () => {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <motion.div variants={cardVariants} whileHover={{ scale: 1.02, y: -2 }}>
-              <Card className="p-6 hover-lift h-full">
+              <Card className="p-6 hover-lift">
                 <p className="text-muted-foreground leading-relaxed mb-4">
                   "Snufi Pharmaceutical has been an invaluable partner in our
                   drug development efforts. Their expertise and dedication have
@@ -487,7 +490,7 @@ const Services = () => {
               </Card>
             </motion.div>
             <motion.div variants={cardVariants} whileHover={{ scale: 1.02, y: -2 }}>
-              <Card className="p-6 hover-lift h-full">
+              <Card className="p-6 hover-lift">
                 <p className="text-muted-foreground leading-relaxed mb-4">
                   "The team at Snufi Pharmaceutical is professional,
                   knowledgeable, and responsive. They have been a true partner
@@ -509,7 +512,7 @@ const Services = () => {
               </Card>
             </motion.div>
             <motion.div variants={cardVariants} whileHover={{ scale: 1.02, y: -2 }}>
-              <Card className="p-6 hover-lift h-full">
+              <Card className="p-6 hover-lift">
                 <p className="text-muted-foreground leading-relaxed mb-4">
                   "Snufi Pharmaceutical has helped us optimize our supply chain
                   and reduce costs. Their expertise in cold chain management
@@ -550,10 +553,20 @@ const Services = () => {
             Let's discuss how our pharmaceutical services can accelerate your
             development timeline and ensure regulatory success.
           </p>
-          <Button size="lg" className="text-lg px-8 py-4">
-            Get Started Today
-            <ArrowRight className="ml-2" size={20} />
-          </Button>
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button size="lg" className="text-lg px-8 py-4">
+                Get Started Today
+                <ArrowRight className="ml-2" size={20} />
+              </Button>
+            </DialogTrigger>
+            <DialogContent>
+              <DialogHeader>
+                <DialogTitle>Get Started with Snufi</DialogTitle>
+              </DialogHeader>
+              <GetStartedForm />
+            </DialogContent>
+          </Dialog>
         </div>
       </motion.section>
     </motion.div>

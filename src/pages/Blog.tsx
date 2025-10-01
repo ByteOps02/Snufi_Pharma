@@ -19,7 +19,7 @@ const Blog = () => {
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {blogPosts.map((post) => (
           <Link to={`/blog/${post.id}`} key={post.id}>
-            <Card className="p-6 hover-lift h-full flex flex-col">
+            <Card className="p-6 hover-lift flex flex-col">
               <div className="flex items-center justify-between mb-4">
                 <span className="px-3 py-1 bg-primary/10 text-primary text-xs font-medium rounded-full">
                   {post.category}

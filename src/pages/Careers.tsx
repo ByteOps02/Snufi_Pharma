@@ -126,7 +126,7 @@ const Careers = () => {
           <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
             Open Positions
           </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="space-y-4">
             {jobOpenings.map((job, index) => (
               <motion.div
                 key={index}
@@ -135,16 +135,18 @@ const Careers = () => {
                 whileHover={{ scale: 1.02, y: -2 }}
                 transition={{ duration: 0.3 }}
               >
-                <Card className="p-6 hover-lift h-full">
-                  <h3 className="text-2xl font-bold text-foreground mb-4">
-                    {job.title}
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed mb-4">
-                    {job.location} | {job.department}
-                  </p>
+                <Card className="p-6 hover-lift flex flex-col md:flex-row justify-between items-center">
+                  <div>
+                    <h3 className="text-xl font-bold text-foreground mb-2">
+                      {job.title}
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      <span className="font-semibold">{job.department}</span> | {job.location}
+                    </p>
+                  </div>
                   <Dialog>
                     <DialogTrigger asChild>
-                      <Button>Apply Now</Button>
+                      <Button className="mt-4 md:mt-0">Apply Now</Button>
                     </DialogTrigger>
                     <DialogContent>
                       <DialogHeader>
@@ -160,7 +162,7 @@ const Careers = () => {
         </div>
       </motion.section>
 
-      {/* Benefits */}
+      {/* Why Join Us? */}
       <motion.section
         variants={sectionVariants}
         initial="hidden"
@@ -169,40 +171,34 @@ const Careers = () => {
         className="py-12 bg-accent"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
-            Why Join Us?
-          </h2>
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
+              Why Join Us?
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              We offer a collaborative, innovative, and supportive environment where you can grow your career and make a difference.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
             {benefits.map((benefit, index) => (
-              <motion.div
-                key={index}
-                custom={index}
-                variants={cardVariants}
-                whileHover={{ scale: 1.02, y: -2 }}
-                transition={{ duration: 0.3 }}
-              >
-                <Card className="p-8 text-center hover-lift h-full">
-                  <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm">
-                    <ColoredIcon
-                      Icon={benefit.icon}
-                      color={
-                        benefit.title === "Health & Wellness"
-                          ? "violet"
-                          : benefit.title === "Professional Growth"
-                          ? "sky"
-                          : "amber"
-                      }
-                      size={32}
-                    />
-                  </div>
-                  <h3 className="text-2xl font-bold text-foreground mb-4">
-                    {benefit.title}
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {benefit.description}
-                  </p>
-                </Card>
-              </motion.div>
+            <motion.div
+              key={index}
+              variants={cardVariants}
+              whileHover={{ scale: 1.02, y: -2 }}
+              transition={{ duration: 0.3 }}
+            >
+              <Card className="p-6 hover-lift">
+                <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mb-4 shadow-sm">
+                  <ColoredIcon Icon={benefit.icon} color={index === 0 ? "rose" : index === 1 ? "sky" : "amber"} size={24} />
+                </div>
+                <h3 className="text-xl font-semibold text-foreground mb-3">
+                  {benefit.title}
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  {benefit.description}
+                </p>
+              </Card>
+            </motion.div>
             ))}
           </div>
         </div>
@@ -217,16 +213,19 @@ const Careers = () => {
         className="py-12"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">
-            Life at Snufi
-          </h2>
+          <div className="text-center mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
+              Life at Snufi
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              We foster a culture of collaboration, innovation, and well-being.
+            </p>
+          </div>
           <div className="grid md:grid-cols-3 gap-8">
             <motion.div variants={cardVariants} whileHover={{ scale: 1.02, y: -2 }}>
-              <Card className="p-6 text-center hover-lift h-full">
-                <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm">
-                  <ColoredIcon Icon={Users} color="violet" size={32} />
-                </div>
-                <h3 className="text-2xl font-bold text-foreground mb-4">
+              <Card className="p-6 text-center hover-lift">
+                <img src="/placeholder.svg" alt="Team collaboration" className="rounded-lg shadow-md w-full h-48 object-cover mb-4" />
+                <h3 className="text-xl font-semibold text-foreground mb-3">
                   Collaboration
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
@@ -236,11 +235,9 @@ const Careers = () => {
               </Card>
             </motion.div>
             <motion.div variants={cardVariants} whileHover={{ scale: 1.02, y: -2 }}>
-              <Card className="p-6 text-center hover-lift h-full">
-                <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm">
-                  <ColoredIcon Icon={Zap} color="sky" size={32} />
-                </div>
-                <h3 className="text-2xl font-bold text-foreground mb-4">
+              <Card className="p-6 text-center hover-lift">
+                <img src="/placeholder.svg" alt="Innovative research lab" className="rounded-lg shadow-md w-full h-48 object-cover mb-4" />
+                <h3 className="text-xl font-semibold text-foreground mb-3">
                   Innovation
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
@@ -250,11 +247,9 @@ const Careers = () => {
               </Card>
             </motion.div>
             <motion.div variants={cardVariants} whileHover={{ scale: 1.02, y: -2 }}>
-              <Card className="p-6 text-center hover-lift h-full">
-                <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm">
-                  <ColoredIcon Icon={Heart} color="rose" size={32} />
-                </div>
-                <h3 className="text-2xl font-bold text-foreground mb-4">
+              <Card className="p-6 text-center hover-lift">
+                <img src="/placeholder.svg" alt="Company event" className="rounded-lg shadow-md w-full h-48 object-cover mb-4" />
+                <h3 className="text-xl font-semibold text-foreground mb-3">
                   Well-being
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
@@ -273,7 +268,7 @@ const Careers = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
-        className="py-12"
+        className="py-12 bg-accent"
       >
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6">

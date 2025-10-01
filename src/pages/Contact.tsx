@@ -357,7 +357,7 @@ const Contact = () => {
             <div className="space-y-6">
               {contactInfo.map((info, index) => (
                 <motion.div key={index} variants={cardVariants}>
-                  <Card className="p-6 h-full">
+                  <Card className="p-6">
                     <div className="flex items-start space-x-4">
                       <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center flex-shrink-0 shadow-sm">
                         <ColoredIcon
@@ -425,7 +425,7 @@ const Contact = () => {
                 whileHover={{ scale: 1.02, y: -2 }}
                 transition={{ duration: 0.3 }}
               >
-                <Card className="p-6 text-center hover-lift transition-transform h-full">
+                <Card className="p-6 text-center hover-lift transition-transform">
                   <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mx-auto mb-4 shadow-sm">
                     <ColoredIcon Icon={Building} size={24} color="violet" />
                   </div>

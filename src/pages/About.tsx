@@ -143,7 +143,7 @@ const About = () => {
                 whileHover={{ scale: 1.02, y: -2 }}
                 transition={{ duration: 0.3 }}
               >
-                <Card className="p-6 text-center hover-lift h-full">
+                <Card className="p-6 text-center hover-lift">
                   <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm">
                     <ColoredIcon
                       Icon={value.icon}
@@ -326,7 +326,7 @@ const About = () => {
               whileHover={{ scale: 1.02, y: -2 }}
               transition={{ duration: 0.3 }}
             >
-              <Card className="p-6 hover-lift h-full">
+              <Card className="p-6 hover-lift">
                 <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mb-4 shadow-sm">
                   <ColoredIcon Icon={Globe} color="emerald" size={24} />
                 </div>

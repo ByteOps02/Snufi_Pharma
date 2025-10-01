@@ -18,6 +18,9 @@ import { Input } from "@/components/ui/input";
 import { ColoredIcon } from "@/components/ui/colored-icon";
 import { motion, AnimatePresence } from "framer-motion";
 
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import MedicalAffairsForm from "@/components/forms/MedicalAffairsForm";
+
 const Products = () => {
   // Scroll to top when component mounts
   useEffect(() => {
@@ -344,7 +347,7 @@ const Products = () => {
                     transition={{ duration: 0.3 }}
                     whileHover={{ scale: 1.02, y: -2 }}
                   >
-                    <Card className="p-6 hover-lift h-full">
+                    <Card className="p-6 hover-lift">
                       <div className="flex items-start justify-between mb-4">
                         <div className="flex-1">
                           <h3 className="text-xl font-bold text-foreground mb-2">
@@ -436,7 +439,7 @@ const Products = () => {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <motion.div variants={cardVariants} whileHover={{ scale: 1.02, y: -2 }}>
-              <Card className="p-6 hover-lift h-full">
+              <Card className="p-6 hover-lift">
                 <div className="flex items-center mb-4">
                   <div className="w-12 h-12 bg-background rounded-lg flex items-center justify-center mr-4 shadow-sm">
                     <ColoredIcon Icon={Brain} color="indigo" size={24} />
@@ -458,7 +461,7 @@ const Products = () => {
               </Card>
             </motion.div>
             <motion.div variants={cardVariants} whileHover={{ scale: 1.02, y: -2 }}>
-              <Card className="p-6 hover-lift h-full">
+              <Card className="p-6 hover-lift">
                 <div className="flex items-center mb-4">
                   <div className="w-12 h-12 bg-background rounded-lg flex items-center justify-center mr-4 shadow-sm">
                     <ColoredIcon Icon={Shield} color="emerald" size={24} />
@@ -480,7 +483,7 @@ const Products = () => {
               </Card>
             </motion.div>
             <motion.div variants={cardVariants} whileHover={{ scale: 1.02, y: -2 }}>
-              <Card className="p-6 hover-lift h-full">
+              <Card className="p-6 hover-lift">
                 <div className="flex items-center mb-4">
                   <div className="w-12 h-12 bg-background rounded-lg flex items-center justify-center mr-4 shadow-sm">
                     <ColoredIcon Icon={Bone} color="amber" size={24} />
@@ -532,7 +535,7 @@ const Products = () => {
                 whileHover={{ scale: 1.02, y: -2 }}
                 transition={{ duration: 0.3 }}
               >
-                <Card className="p-4 text-center hover-lift aspect-square flex flex-col justify-center h-full">
+                <Card className="p-4 text-center hover-lift aspect-square flex flex-col justify-center">
                   <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mx-auto mb-3 shadow-sm">
                     <ColoredIcon
                       Icon={approval.icon}
@@ -592,7 +595,7 @@ const Products = () => {
                 whileHover={{ scale: 1.02, y: -2 }}
                 transition={{ duration: 0.3 }}
               >
-                <Card className="p-5 text-center hover-lift h-full">
+                <Card className="p-5 text-center hover-lift">
                   <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mx-auto mb-3 shadow-sm">
                     <ColoredIcon
                       Icon={standard.icon}
@@ -638,9 +641,19 @@ const Products = () => {
             information, clinical data, and support for healthcare
             professionals.
           </p>
-          <Button size="lg" className="text-lg px-8 py-4">
-            Contact Medical Affairs
-          </Button>
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button size="lg" className="text-lg px-8 py-4">
+                Contact Medical Affairs
+              </Button>
+            </DialogTrigger>
+            <DialogContent>
+              <DialogHeader>
+                <DialogTitle>Contact Medical Affairs</DialogTitle>
+              </DialogHeader>
+              <MedicalAffairsForm />
+            </DialogContent>
+          </Dialog>
         </div>
       </motion.section>
     </motion.div>
