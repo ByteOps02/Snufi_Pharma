@@ -13,6 +13,8 @@ import Contact from "./pages/Contact";
 import Careers from "./pages/Careers";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
+import ClinicalTrials from "./pages/ClinicalTrials";
+import HealthcareProfessionals from "./pages/HealthcareProfessionals";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -49,6 +51,14 @@ const router = createBrowserRouter([
   {
     path: "/blog/:id",
     element: <Layout><BlogPost /></Layout>,
+  },
+  {
+    path: "/clinical-trials",
+    element: <Layout><ClinicalTrials /></Layout>,
+  },
+  {
+    path: "/healthcare-professionals",
+    element: <Layout><HealthcareProfessionals /></Layout>,
   },
   {
     path: "*",

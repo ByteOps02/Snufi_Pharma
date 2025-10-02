@@ -83,7 +83,15 @@ export const Features = () => {
               transition={{ duration: 0.3 }}
             >
               <Card className="p-6">
-                <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mb-4 shadow-sm">
+                <div className={`w-12 h-12 rounded-lg flex items-center justify-center mb-4 shadow-sm ${
+                  index === 0
+                    ? "bg-sky-100 dark:bg-sky-900/20"
+                    : index === 1
+                    ? "bg-emerald-100 dark:bg-emerald-900/20"
+                    : index === 2
+                    ? "bg-rose-100 dark:bg-rose-900/20"
+                    : "bg-violet-100 dark:bg-violet-900/20"
+                }`}>
                   <ColoredIcon
                     Icon={feature.icon}
                     color={

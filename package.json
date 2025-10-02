@@ -10,7 +10,9 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "format": "prettier --write .",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "server": "cd server && npm start",
+    "server:dev": "cd server && node index.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

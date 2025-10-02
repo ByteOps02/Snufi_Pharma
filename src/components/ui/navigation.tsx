@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "./button";
@@ -24,6 +24,8 @@ const Navigation = () => {
     { name: "About Us", path: "/about" },
     { name: "Products", path: "/products" },
     { name: "Services", path: "/services" },
+    { name: "Clinical Trials", path: "/clinical-trials" },
+    { name: "Healthcare Pros", path: "/healthcare-professionals" },
     { name: "Blog", path: "/blog" },
     { name: "Careers", path: "/careers" },
     { name: "Contact", path: "/contact" },
@@ -46,12 +48,12 @@ const Navigation = () => {
           : "bg-transparent",
       )}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link
             to="/"
-            className="flex items-center space-x-2"
+            className="flex items-center space-x-3 flex-shrink-0 mr-8"
             onClick={handleNavClick}
           >
             <div className="w-10 h-10 bg-gradient-primary rounded-lg flex items-center justify-center">
@@ -60,24 +62,24 @@ const Navigation = () => {
               </span>
             </div>
             <div className="flex flex-col">
-              <div className="text-xl font-bold text-gradient-primary">
+              <div className="text-xl font-bold text-primary dark:text-white">
                 Snufi Pharmaceutical®
               </div>
-              <div className="text-xs text-gradient-primary -mt-1 font-medium">
+              <div className="text-xs text-primary/80 dark:text-white/80 -mt-1 font-medium">
                 Known for cure
               </div>
             </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8 relative">
+          <div className="hidden lg:flex items-center space-x-6 relative">
             {navItems.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
                 onClick={handleNavClick}
                 className={cn(
-                  "relative py-2 px-1 text-sm font-medium transition-smooth z-10",
+                  "relative py-2 px-2 text-sm font-medium transition-smooth z-10 whitespace-nowrap",
                   isActive(item.path)
                     ? "text-primary"
                     : "text-foreground hover:text-primary",
@@ -99,7 +101,7 @@ const Navigation = () => {
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <Button
               variant="ghost"
               size="sm"
@@ -113,7 +115,7 @@ const Navigation = () => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 bg-background/95 backdrop-blur-md rounded-lg mt-2 shadow-lg">
               {navItems.map((item) => (
                 <Link

@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import {
   Search,
-  Filter,
   Pill,
   Heart,
   Brain,
@@ -10,19 +9,20 @@ import {
   Download,
   Award,
   CheckCircle,
-  Globe,
+  Globe
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
+import { Badge } from "@/components/ui/badge";
 import { ColoredIcon } from "@/components/ui/colored-icon";
 import { motion, AnimatePresence } from "framer-motion";
 
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import MedicalAffairsForm from "@/components/forms/MedicalAffairsForm";
 
 const Products = () => {
-  // Scroll to top when component mounts
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -31,11 +31,11 @@ const Products = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const categories = [
-    { id: "all", name: "All Products", icon: Pill },
-    { id: "cardiovascular", name: "Cardiovascular", icon: Heart },
-    { id: "neurological", name: "Neurological", icon: Brain },
-    { id: "orthology", name: "Orthology", icon: Bone },
-    { id: "immunology", name: "Immunology", icon: Shield },
+    { id: "all", name: "All Products", icon: Pill, iconColor: "text-gray-500" },
+    { id: "cardiovascular", name: "Cardiovascular", icon: Heart, iconColor: "text-red-500" },
+    { id: "neurological", name: "Neurological", icon: Brain, iconColor: "text-purple-500" },
+    { id: "orthology", name: "Orthology", icon: Bone, iconColor: "text-orange-500" },
+    { id: "immunology", name: "Immunology", icon: Shield, iconColor: "text-blue-500" },
   ];
 
   const products = [
@@ -43,619 +43,400 @@ const Products = () => {
       id: 1,
       name: "CardioMax Pro",
       category: "cardiovascular",
-      description:
-        "Advanced cardiovascular medication for hypertension management with proven efficacy and minimal side effects.",
+      description: "Advanced cardiovascular medication for hypertension management with proven efficacy and minimal side effects.",
       strength: "10mg, 20mg, 40mg",
       form: "Tablets",
       indication: "Hypertension, Heart Failure",
       status: "Available",
+      approvalDate: "2023-03-15",
+      patients: "50,000+"
     },
     {
       id: 2,
       name: "NeuroGuard",
       category: "neurological",
-      description:
-        "Innovative neurological treatment for cognitive enhancement and neuroprotection in aging populations.",
+      description: "Innovative neurological treatment for cognitive enhancement and neuroprotection in aging populations.",
       strength: "5mg, 10mg",
       form: "Capsules",
       indication: "Cognitive Decline, Dementia",
       status: "Available",
+      approvalDate: "2023-01-20",
+      patients: "25,000+"
     },
     {
       id: 3,
       name: "ImmunoShield",
       category: "immunology",
-      description:
-        "Cutting-edge immunomodulator designed to enhance immune system response and autoimmune condition management.",
+      description: "Cutting-edge immunomodulator designed to enhance immune system response and autoimmune condition management.",
       strength: "25mg, 50mg",
       form: "Injection",
       indication: "Autoimmune Disorders",
       status: "Clinical Trial",
+      approvalDate: "Expected 2024",
+      patients: "1,200+"
     },
     {
       id: 4,
       name: "OrthoJoint",
       category: "orthology",
-      description:
-        "Precision orthology medication targeting specific joint pathways with a personalized treatment approach.",
+      description: "Precision orthology medication targeting specific joint pathways with a personalized treatment approach.",
       strength: "100mg, 200mg",
       form: "Tablets",
       indication: "Various Joint Disorders",
       status: "Available",
+      approvalDate: "2022-11-10",
+      patients: "35,000+"
     },
     {
       id: 5,
       name: "CardioFlow",
       category: "cardiovascular",
-      description:
-        "Next-generation anticoagulant with improved safety profile and reduced bleeding risk.",
+      description: "Next-generation anticoagulant with improved safety profile and reduced bleeding risk.",
       strength: "2.5mg, 5mg",
       form: "Tablets",
       indication: "Atrial Fibrillation, DVT",
       status: "Available",
+      approvalDate: "2023-06-05",
+      patients: "40,000+"
     },
     {
       id: 6,
       name: "NeuroBalance",
       category: "neurological",
-      description:
-        "Advanced treatment for movement disorders with enhanced patient quality of life outcomes.",
+      description: "Advanced treatment for movement disorders with enhanced patient quality of life outcomes.",
       strength: "0.5mg, 1mg, 2mg",
       form: "Extended Release Tablets",
       indication: "Parkinson's Disease",
       status: "Available",
-    },
-    {
-      id: 7,
-      name: "JointFlex",
-      category: "orthology",
-      description:
-        "A powerful anti-inflammatory drug for joint pain relief and improved mobility.",
-      strength: "200mg, 400mg",
-      form: "Capsules",
-      indication: "Arthritis, Joint Pain",
-      status: "Available",
-    },
-    {
-      id: 8,
-      name: "CartilageCare",
-      category: "orthology",
-      description:
-        "A regenerative therapy to repair and restore damaged cartilage in joints.",
-      strength: "N/A",
-      form: "Injection",
-      indication: "Cartilage Repair",
-      status: "Clinical Trial",
-    },
+      approvalDate: "2023-04-12",
+      patients: "15,000+"
+    }
   ];
 
   const filteredProducts = products.filter((product) => {
-    const matchesCategory =
-      selectedCategory === "all" || product.category === selectedCategory;
-    const matchesSearch =
+    const matchesCategory = selectedCategory === "all" || product.category === selectedCategory;
+    const matchesSearch = 
       product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      product.description.toLowerCase().includes(searchTerm.toLowerCase());
+      product.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      product.indication.toLowerCase().includes(searchTerm.toLowerCase());
     return matchesCategory && matchesSearch;
   });
 
   const getStatusColor = (status: string) => {
     switch (status) {
       case "Available":
-        return "text-green-600 bg-green-100";
+        return "bg-green-100 dark:bg-green-900/20 text-green-700 dark:text-green-400 border-green-200 dark:border-green-800";
       case "Clinical Trial":
-        return "text-yellow-600 bg-yellow-100";
+        return "bg-yellow-100 dark:bg-yellow-900/20 text-yellow-700 dark:text-yellow-400 border-yellow-200 dark:border-yellow-800";
       case "Development":
-        return "text-blue-600 bg-blue-100";
+        return "bg-blue-100 dark:bg-blue-900/20 text-blue-700 dark:text-blue-400 border-blue-200 dark:border-blue-800";
       default:
-        return "text-muted-foreground bg-muted";
+        return "bg-muted text-muted-foreground border-border";
     }
   };
 
-  const regulatoryApprovals = [
-    { name: "FDA Approved", country: "United States", icon: Award },
-    { name: "EMA Approved", country: "European Union", icon: Award },
-    { name: "CDSCO Approved", country: "India", icon: Award },
-    { name: "WHO Prequalified", country: "Global", icon: Globe },
-    { name: "ISO 9001:2015", country: "Quality Management", icon: CheckCircle },
-    { name: "GMP Certified", country: "Manufacturing", icon: CheckCircle },
-  ];
 
   const qualityStandards = [
     {
-      title: "Manufacturing Excellence",
-      description:
-        "State-of-the-art facilities with automated production lines and real-time quality monitoring",
-      icon: CheckCircle,
-    },
-    {
-      title: "Regulatory Compliance",
-      description:
-        "Full compliance with international regulatory standards including FDA, EMA, and WHO guidelines",
+      title: "FDA Approved",
+      description: "All products meet stringent FDA safety and efficacy standards",
       icon: Award,
+      color: "bg-blue-500/10 text-blue-600"
     },
     {
-      title: "Quality Control",
-      description:
-        "Rigorous testing protocols with 99.9% quality assurance and zero tolerance for defects",
+      title: "GMP Certified",
+      description: "Manufactured in Good Manufacturing Practice certified facilities",
+      icon: CheckCircle,
+      color: "bg-green-500/10 text-green-600"
+    },
+    {
+      title: "ISO Compliant",
+      description: "Quality management systems certified to ISO 9001:2015",
       icon: Shield,
+      color: "bg-purple-500/10 text-purple-600"
     },
     {
-      title: "Research & Development",
-      description:
-        "Continuous innovation with 15% of revenue invested in R&D and cutting-edge research facilities",
-      icon: Bone,
-    },
+      title: "Global Standards",
+      description: "Meets international regulatory requirements worldwide",
+      icon: Globe,
+      color: "bg-orange-500/10 text-orange-600"
+    }
   ];
-
-  const sectionVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut",
-      },
-    },
-  };
-
-  const cardVariants = {
-    hidden: { opacity: 0, scale: 0.9 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 0.5,
-        ease: "easeOut",
-      },
-    },
-  };
 
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="flex flex-col"
+      className="min-h-screen bg-gradient-to-br from-background to-muted/20"
     >
       {/* Hero Section */}
-      <motion.section
-        variants={sectionVariants}
-        initial="hidden"
-        animate="visible"
-        className="py-12 bg-gradient-subtle"
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-3xl md:text-4xl font-bold text-foreground mb-4"
-            >
+      <section className="py-20 bg-gradient-to-br from-primary/10 to-secondary/10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="mb-8"
+          >
+            <Badge variant="secondary" className="mb-4">
               Our Product Portfolio
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed"
-            >
-              Discover our comprehensive range of innovative pharmaceutical
-              solutions designed to address critical healthcare needs across
-              multiple therapeutic areas.
-            </motion.p>
-          </div>
+            </Badge>
+            <h1 className="text-4xl md:text-5xl font-bold text-primary mb-6">
+              Innovative Pharmaceutical Solutions
+            </h1>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              Discover our comprehensive range of FDA-approved medications designed to improve patient outcomes 
+              across multiple therapeutic areas.
+            </p>
+          </motion.div>
         </div>
-      </motion.section>
+      </section>
 
-      {/* Search and Filter */}
-      <motion.section
-        variants={sectionVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-        className="py-12 bg-background border-b"
-      >
+
+      {/* Search and Filter Section */}
+      <section className="py-8 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row gap-6 items-center">
-            {/* Search */}
-            <div className="relative flex-1 max-w-md">
-              <Search
-                className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground"
-                size={20}
-              />
+          <div className="space-y-6">
+            <div className="relative max-w-md">
+              <Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
               <Input
-                type="text"
                 placeholder="Search products..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-10"
+                className="pl-10 rounded-full"
               />
             </div>
 
-            {/* Category Filter */}
             <div className="flex flex-wrap gap-2">
               {categories.map((category) => (
-                <motion.div
+                <Button
                   key={category.id}
-                  whileHover={{ scale: 1.02, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
+                  variant="outline"
+                  onClick={() => setSelectedCategory(category.id)}
+                  className={`rounded-full px-4 py-2 text-sm border transition-all ${
+                    selectedCategory === category.id 
+                      ? "bg-primary border-primary text-primary-foreground hover:bg-primary/90" 
+                      : "border-border text-foreground hover:bg-muted hover:border-muted-foreground"
+                  }`}
                 >
-                  <Button
-                    variant={
-                      selectedCategory === category.id ? "default" : "outline"
-                    }
-                    size="sm"
-                    onClick={() => setSelectedCategory(category.id)}
-                    className="flex items-center gap-2"
-                  >
-                    <ColoredIcon
-                      Icon={category.icon}
-                      size={16}
-                      color={
-                        category.id === "all"
-                          ? "primary"
-                          : category.id === "cardiovascular"
-                          ? "rose"
-                          : category.id === "neurological"
-                          ? "indigo"
-                          : category.id === "orthology"
-                          ? "amber"
-                          : "emerald"
-                      }
-                    />
-                    {category.name}
-                  </Button>
-                </motion.div>
+                  {category.id === "cardiovascular" ? (
+                    <Heart className={`h-3 w-3 mr-1.5 ${
+                      selectedCategory === category.id 
+                        ? "fill-current text-white" 
+                        : `fill-current ${category.iconColor}`
+                    }`} />
+                  ) : (
+                    <category.icon className={`h-3 w-3 mr-1.5 ${
+                      selectedCategory === category.id 
+                        ? "text-white" 
+                        : category.iconColor
+                    }`} />
+                  )}
+                  {category.name}
+                </Button>
               ))}
             </div>
           </div>
         </div>
-      </motion.section>
+      </section>
 
       {/* Products Grid */}
-      <motion.section
-        variants={sectionVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
-        className="py-12"
-      >
+      <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-8">
+            <h2 className="text-2xl font-bold text-primary mb-2">
+              {filteredProducts.length} Product{filteredProducts.length !== 1 ? 's' : ''} Found
+            </h2>
+            <p className="text-muted-foreground">
+              {selectedCategory === "all" ? "All therapeutic areas" : categories.find(c => c.id === selectedCategory)?.name}
+            </p>
+          </div>
+
           <AnimatePresence>
-            {filteredProducts.length === 0 ? (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                className="text-center py-12"
-              >
-                <p className="text-xl text-muted-foreground">
-                  No products found matching your criteria.
-                </p>
-              </motion.div>
-            ) : (
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {filteredProducts.map((product, index) => (
-                  <motion.div
-                    key={product.id}
-                    layout
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.8 }}
-                    transition={{ duration: 0.3 }}
-                    whileHover={{ scale: 1.02, y: -2 }}
-                  >
-                    <Card className="p-6">
-                      <div className="flex items-start justify-between mb-4">
-                        <div className="flex-1">
-                          <h3 className="text-xl font-bold text-foreground mb-2">
-                            {product.name}
-                          </h3>
-                          <span
-                            className={`inline-block px-3 py-1 rounded-full text-xs font-medium ${getStatusColor(
-                              product.status,
-                            )}`}
-                          >
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {filteredProducts.map((product, index) => (
+                <motion.div
+                  key={product.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  layout
+                >
+                  <Card className="p-6 h-full hover:shadow-lg transition-all duration-300 border border-border rounded-lg">
+                    <div className="space-y-4">
+                      <div className="flex items-start justify-between">
+                        <div>
+                          <h3 className="text-xl font-semibold text-foreground mb-2">{product.name}</h3>
+                          <Badge className={`${getStatusColor(product.status)} border text-xs px-2 py-1 rounded-full`}>
                             {product.status}
-                          </span>
+                          </Badge>
                         </div>
                       </div>
 
-                      <p className="text-muted-foreground mb-6 leading-relaxed">
+                      <p className="text-muted-foreground text-sm leading-relaxed">
                         {product.description}
                       </p>
 
-                      <div className="space-y-3 mb-6">
+                      <div className="space-y-2 text-sm">
                         <div className="flex justify-between">
-                          <span className="text-sm font-medium text-foreground">
-                            Strength:
-                          </span>
-                          <span className="text-sm text-muted-foreground">
-                            {product.strength}
-                          </span>
+                          <span className="font-medium text-foreground">Strength:</span>
+                          <span className="text-muted-foreground">{product.strength}</span>
                         </div>
                         <div className="flex justify-between">
-                          <span className="text-sm font-medium text-foreground">
-                            Form:
-                          </span>
-                          <span className="text-sm text-muted-foreground">
-                            {product.form}
-                          </span>
+                          <span className="font-medium text-foreground">Form:</span>
+                          <span className="text-muted-foreground">{product.form}</span>
                         </div>
                         <div className="flex justify-between">
-                          <span className="text-sm font-medium text-foreground">
-                            Indication:
-                          </span>
-                          <span className="text-sm text-muted-foreground">
-                            {product.indication}
-                          </span>
+                          <span className="font-medium text-foreground">Indication:</span>
+                          <span className="text-muted-foreground">{product.indication}</span>
                         </div>
                       </div>
 
-                      <div className="flex gap-2">
-                        <Button variant="outline" className="flex-1">
+                      <div className="flex gap-2 pt-4">
+                        <Button size="sm" className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-md px-4 py-2 text-xs">
                           Learn More
                         </Button>
-                        <Button variant="secondary" className="flex-1">
+                        <Button size="sm" className="bg-secondary hover:bg-secondary/90 text-secondary-foreground rounded-md px-4 py-2 text-xs">
                           Request a Sample
                         </Button>
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          className="px-3"
-                          title="Download Product Image"
-                        >
-                          <Download size={16} />
-                        </Button>
+                        <TooltipProvider>
+                          <Tooltip>
+                            <TooltipTrigger asChild>
+                              <Button size="sm" variant="outline" className="border-border text-muted-foreground hover:bg-muted rounded-md px-2 py-2">
+                                <Download className="h-4 w-4" />
+                              </Button>
+                            </TooltipTrigger>
+                            <TooltipContent>
+                              <p>Download Product Image</p>
+                            </TooltipContent>
+                          </Tooltip>
+                        </TooltipProvider>
                       </div>
-                    </Card>
-                  </motion.div>
-                ))}
-              </div>
-            )}
+                    </div>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
           </AnimatePresence>
-        </div>
-      </motion.section>
 
-      {/* Product Pipeline Section */}
-      <motion.section
-        variants={sectionVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-        className="py-12 bg-accent"
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
-              Our Product Pipeline
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              We are committed to innovation and are constantly working on
-              developing new and improved treatments for a variety of diseases.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <motion.div variants={cardVariants} whileHover={{ scale: 1.02, y: -2 }} className="h-full">
-              <Card className="p-6 h-full flex flex-col">
-                <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 bg-background rounded-lg flex items-center justify-center mr-4 shadow-sm">
-                    <ColoredIcon Icon={Brain} color="indigo" size={24} />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-foreground mb-1">
-                      Alzheimer's Disease
-                    </h3>
-                    <p className="text-sm text-muted-foreground">
-                      Phase III Clinical Trials
-                    </p>
-                  </div>
-                </div>
-                <p className="text-muted-foreground leading-relaxed flex-grow">
-                  Our lead candidate for Alzheimer's disease is a novel
-                  amyloid-beta targeting agent that has shown promising results
-                  in early-stage clinical trials.
-                </p>
-              </Card>
+          {filteredProducts.length === 0 && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="text-center py-12"
+            >
+              <Pill className="h-16 w-16 text-muted-foreground mx-auto mb-4" />
+              <h3 className="text-lg font-semibold mb-2">No products found</h3>
+              <p className="text-muted-foreground">
+                Try adjusting your search terms or category filters
+              </p>
             </motion.div>
-            <motion.div variants={cardVariants} whileHover={{ scale: 1.02, y: -2 }} className="h-full">
-              <Card className="p-6 h-full flex flex-col">
-                <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 bg-background rounded-lg flex items-center justify-center mr-4 shadow-sm">
-                    <ColoredIcon Icon={Shield} color="emerald" size={24} />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-foreground mb-1">
-                      Cancer Immunotherapy
-                    </h3>
-                    <p className="text-sm text-muted-foreground">
-                      Phase II Clinical Trials
-                    </p>
-                  </div>
-                </div>
-                <p className="text-muted-foreground leading-relaxed flex-grow">
-                  We are developing a portfolio of next-generation cancer
-                  immunotherapies that are designed to harness the power of the
-                  immune system to fight cancer.
-                </p>
-              </Card>
-            </motion.div>
-            <motion.div variants={cardVariants} whileHover={{ scale: 1.02, y: -2 }} className="h-full">
-              <Card className="p-6 h-full flex flex-col">
-                <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 bg-background rounded-lg flex items-center justify-center mr-4 shadow-sm">
-                    <ColoredIcon Icon={Bone} color="amber" size={24} />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-foreground mb-1">
-                      Osteoarthritis
-                    </h3>
-                    <p className="text-sm text-muted-foreground">
-                      Phase I Clinical Trials
-                    </p>
-                  </div>
-                </div>
-                <p className="text-muted-foreground leading-relaxed flex-grow">
-                  Our novel regenerative therapy for osteoarthritis is designed
-                  to repair damaged cartilage and restore joint function.
-                </p>
-              </Card>
-            </motion.div>
-          </div>
+          )}
         </div>
-      </motion.section>
+      </section>
 
-      {/* Regulatory Approvals */}
-      <motion.section
-        variants={sectionVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
-        className="py-12 bg-accent"
-      >
+      {/* Quality Standards Section */}
+      <section className="py-16 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-              Regulatory Approvals & Certifications
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
+              Quality & Compliance
             </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Our products meet the highest international standards with
-              approvals from leading regulatory authorities worldwide.
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Our commitment to the highest standards of pharmaceutical excellence
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-            {regulatoryApprovals.map((approval, index) => (
-              <motion.div
-                key={index}
-                custom={index}
-                variants={cardVariants}
-                whileHover={{ scale: 1.02, y: -2 }}
-                transition={{ duration: 0.3 }}
-              >
-                <Card className="p-4 text-center aspect-square flex flex-col justify-center">
-                  <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mx-auto mb-3 shadow-sm">
-                    <ColoredIcon
-                      Icon={approval.icon}
-                      color={
-                        approval.name.includes("FDA")
-                          ? "primary"
-                          : approval.name.includes("EMA")
-                          ? "sky"
-                          : approval.name.includes("WHO")
-                          ? "emerald"
-                          : approval.name.includes("ISO")
-                          ? "violet"
-                          : "success"
-                      }
-                      size={24}
-                    />
-                  </div>
-                  <h3 className="text-sm font-bold text-foreground mb-2 leading-tight">
-                    {approval.name}
-                  </h3>
-                  <p className="text-muted-foreground text-sm leading-tight">
-                    {approval.country}
-                  </p>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </motion.section>
-
-      {/* Quality Assurance & Manufacturing */}
-      <motion.section
-        variants={sectionVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-        className="py-12 bg-accent"
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
-              Quality Assurance & Manufacturing Excellence
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Our commitment to quality is reflected in our state-of-the-art
-              manufacturing facilities and rigorous quality control processes
-              that ensure the highest standards.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {qualityStandards.map((standard, index) => (
               <motion.div
-                key={index}
-                custom={index}
-                variants={cardVariants}
-                whileHover={{ scale: 1.02, y: -2 }}
-                transition={{ duration: 0.3 }}
+                key={standard.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
               >
-                <Card className="p-5 text-center">
-                  <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mx-auto mb-3 shadow-sm">
+                <Card className="p-6 text-center h-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                  <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm ${
+                    standard.title === "FDA Approved"
+                      ? "bg-sky-100 dark:bg-sky-900/20"
+                      : standard.title === "GMP Certified"
+                      ? "bg-emerald-100 dark:bg-emerald-900/20"
+                      : standard.title === "ISO Compliant"
+                      ? "bg-violet-100 dark:bg-violet-900/20"
+                      : "bg-amber-100 dark:bg-amber-900/20"
+                  }`}>
                     <ColoredIcon
                       Icon={standard.icon}
                       color={
-                        index === 0
-                          ? "success"
-                          : index === 1
-                          ? "primary"
-                          : index === 2
+                        standard.title === "FDA Approved"
+                          ? "sky"
+                          : standard.title === "GMP Certified"
                           ? "emerald"
+                          : standard.title === "ISO Compliant"
+                          ? "violet"
                           : "amber"
                       }
-                      size={24}
+                      size={32}
                     />
                   </div>
-                  <h3 className="text-lg font-bold text-foreground mb-2">
-                    {standard.title}
-                  </h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
-                    {standard.description}
-                  </p>
+                  <h3 className="font-semibold mb-2">{standard.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{standard.description}</p>
                 </Card>
               </motion.div>
             ))}
           </div>
         </div>
-      </motion.section>
+      </section>
 
       {/* CTA Section */}
-      <motion.section
-        variants={sectionVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-        className="py-12 bg-accent"
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
-            Need More Information?
-          </h2>
-          <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">
-            Our medical affairs team is ready to provide detailed product
-            information, clinical data, and support for healthcare
-            professionals.
-          </p>
-          <Dialog>
-            <DialogTrigger asChild>
-              <Button size="lg" className="text-lg px-8 py-4">
-                Contact Medical Affairs
-              </Button>
-            </DialogTrigger>
-            <DialogContent>
-              <DialogHeader>
-                <DialogTitle>Contact Medical Affairs</DialogTitle>
-              </DialogHeader>
-              <MedicalAffairsForm />
-            </DialogContent>
-          </Dialog>
+      <section className="py-16">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <Card className="p-8 bg-gradient-to-r from-primary/5 to-secondary/5 border-primary/20">
+              <h2 className="text-2xl font-bold text-primary mb-4">
+                Need More Information?
+              </h2>
+              <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
+                Our medical affairs team is here to provide detailed product information, 
+                clinical data, and support for healthcare professionals.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <Button size="lg">
+                      Contact Medical Affairs
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent className="max-w-md">
+                    <DialogHeader>
+                      <DialogTitle>Medical Affairs Contact</DialogTitle>
+                    </DialogHeader>
+                    <MedicalAffairsForm />
+                  </DialogContent>
+                </Dialog>
+                <Button size="lg" variant="outline">
+                  <Download className="h-4 w-4 mr-2" />
+                  Download Product Catalog
+                </Button>
+              </div>
+            </Card>
+          </motion.div>
         </div>
-      </motion.section>
+      </section>
     </motion.div>
   );
 };

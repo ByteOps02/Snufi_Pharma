@@ -92,7 +92,15 @@ export const TherapeuticAreas = () => {
               transition={{ duration: 0.3 }}
             >
               <Card className="p-6 text-center flex flex-col h-full">
-                <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm">
+                <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm ${
+                  area.name === "Cardiovascular"
+                    ? "bg-rose-100 dark:bg-rose-900/20"
+                    : area.name === "Neurological"
+                    ? "bg-indigo-100 dark:bg-indigo-900/20"
+                    : area.name === "Orthology"
+                    ? "bg-amber-100 dark:bg-amber-900/20"
+                    : "bg-emerald-100 dark:bg-emerald-900/20"
+                }`}>
                   <ColoredIcon
                     Icon={area.icon}
                     color={

@@ -1,380 +1,369 @@
-import React from "react";
-import { Target, Eye, Award, Users, Building, Globe } from "lucide-react";
+import { useEffect } from "react";
+import { Target, Eye, Award, Users, Building, Globe, Shield, Heart } from "lucide-react";
 import { Card } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { ColoredIcon } from "@/components/ui/colored-icon";
 import { motion } from "framer-motion";
 
 const About = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const values = [
     {
       icon: Target,
       title: "Our Mission",
-      description:
-        "To develop and deliver innovative pharmaceutical solutions that improve the quality of life for patients worldwide.",
+      description: "To develop and deliver innovative pharmaceutical solutions that improve the quality of life for patients worldwide.",
+      color: "bg-blue-500/10 text-blue-600"
     },
     {
       icon: Eye,
-      title: "Our Vision",
-      description:
-        "To be a leading global pharmaceutical company recognized for excellence in research, development, and patient care.",
+      title: "Our Vision", 
+      description: "To be a leading global pharmaceutical company recognized for excellence in research, development, and patient care.",
+      color: "bg-green-500/10 text-green-600"
     },
     {
       icon: Award,
       title: "Quality Excellence",
-      description:
-        "Maintaining the highest standards of quality and safety in all our pharmaceutical products and processes.",
-    },
+      description: "Maintaining the highest standards of quality and safety in all our pharmaceutical products and processes.",
+      color: "bg-purple-500/10 text-purple-600"
+    }
   ];
+
 
   const milestones = [
-    {
-      year: 2016,
-      event:
-        "Company founded as Sunfi Pharmaceuticals with a mission to revolutionize patient care.",
-    },
-    {
-      year: 2017,
-      event:
-        "Established our first R&D center, focusing on innovative drug discovery.",
-    },
-    {
-      year: 2018,
-      event:
-        "Successfully launched our flagship cardiovascular medication, Corstelin®.",
-    },
-    {
-      year: 2019,
-      event:
-        "Achieved international expansion, entering markets in Europe and Asia.",
-    },
-    {
-      year: 2020,
-      event:
-        "Commissioned a state-of-the-art, FDA-approved manufacturing plant.",
-    },
-    {
-      year: 2021,
-      event:
-        'Received the "Innovator of the Year" award in the pharmaceutical industry.',
-    },
-    {
-      year: 2025,
-      event:
-        "Rebranded to Snufi to reflect our evolving vision and broader portfolio.",
-    },
+    { year: 2016, event: "Company founded as Snufi Pharmaceuticals with a mission to revolutionize patient care." },
+    { year: 2017, event: "Established our first R&D center, focusing on innovative drug discovery." },
+    { year: 2018, event: "Successfully launched our flagship cardiovascular medication, Corstelin®." },
+    { year: 2019, event: "Achieved international expansion, entering markets in Europe and Asia." },
+    { year: 2020, event: "Commissioned a state-of-the-art, FDA-approved manufacturing plant." },
+    { year: 2021, event: 'Received the "Innovator of the Year" award in the pharmaceutical industry.' },
+    { year: 2025, event: "Rebranded to Snufi to reflect our evolving vision and broader portfolio." }
   ];
 
-  const sectionVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut",
-      },
+  const commitments = [
+    {
+      icon: Globe,
+      title: "Environmental Stewardship",
+      description: "We are committed to reducing our carbon footprint, conserving water, and minimizing waste across all our operations.",
+      color: "bg-green-500/10 text-green-600"
     },
-  };
-
-  const cardVariants = {
-    hidden: { opacity: 0, scale: 0.9 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 0.5,
-        ease: "easeOut",
-      },
+    {
+      icon: Heart,
+      title: "Social Responsibility", 
+      description: "We are dedicated to improving access to healthcare, supporting education, and promoting diversity and inclusion in our workforce.",
+      color: "bg-red-500/10 text-red-600"
     },
-  };
+    {
+      icon: Shield,
+      title: "Ethical Governance",
+      description: "We are committed to upholding the highest ethical standards in all our business practices, ensuring transparency and accountability.",
+      color: "bg-blue-500/10 text-blue-600"
+    }
+  ];
 
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="flex flex-col"
+      className="min-h-screen bg-gradient-to-br from-background to-muted/20"
     >
       {/* Hero Section */}
-      <motion.section
-        variants={sectionVariants}
-        initial="hidden"
-        animate="visible"
-        className="py-12 bg-gradient-subtle"
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-3xl md:text-4xl font-bold text-foreground mb-4"
-            >
-              About Snufi Pharmaceutical®
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed"
-            >
-              For over five decades, we have been at the forefront of
-              pharmaceutical innovation, dedicated to developing life-changing
-              medicines that make a real difference in people's lives.
-            </motion.p>
-          </div>
+      <section className="relative py-20 bg-gradient-to-br from-primary/10 to-secondary/10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="mb-8"
+          >
+            <Badge variant="secondary" className="mb-4">
+              About Snufi Pharmaceutical
+            </Badge>
+            <h1 className="text-4xl md:text-5xl font-bold text-primary mb-6">
+              Advancing Healthcare Innovation
+            </h1>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              For over a decade, Snufi Pharmaceutical has been at the forefront of medical innovation, 
+              developing life-changing therapies and advancing the future of healthcare.
+            </p>
+          </motion.div>
         </div>
-      </motion.section>
+      </section>
 
-      {/* Mission, Vision, Values */}
-      <motion.section
-        variants={sectionVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-        className="py-12"
-      >
+
+      {/* Values Section */}
+      <section className="py-16 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-3 gap-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
+              Our Core Values
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              The principles that guide everything we do
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {values.map((value, index) => (
               <motion.div
-                key={index}
-                variants={cardVariants}
-                whileHover={{ scale: 1.02, y: -2 }}
-                transition={{ duration: 0.3 }}
+                key={value.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+                viewport={{ once: true }}
               >
-                <Card className="p-6 text-center">
-                  <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm">
+                <Card className="p-8 h-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                  <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 shadow-sm ${
+                    value.title === "Our Mission"
+                      ? "bg-sky-100 dark:bg-sky-900/20"
+                      : value.title === "Our Vision"
+                      ? "bg-emerald-100 dark:bg-emerald-900/20"
+                      : "bg-violet-100 dark:bg-violet-900/20"
+                  }`}>
                     <ColoredIcon
                       Icon={value.icon}
                       color={
                         value.title === "Our Mission"
-                          ? "violet"
-                          : value.title === "Our Vision"
                           ? "sky"
-                          : "amber"
+                          : value.title === "Our Vision"
+                          ? "emerald"
+                          : "violet"
                       }
                       size={32}
                     />
                   </div>
-                  <h3 className="text-2xl font-bold text-foreground mb-4">
-                    {value.title}
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {value.description}
-                  </p>
+                  <h3 className="text-xl font-semibold mb-4">{value.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed">{value.description}</p>
                 </Card>
               </motion.div>
             ))}
           </div>
         </div>
-      </motion.section>
+      </section>
 
-      {/* Company Story */}
-      <motion.section
-        variants={sectionVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
-        className="py-12 bg-accent"
-      >
+      {/* Our Story & Journey Section */}
+      <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-8 items-center">
-            <div>
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            {/* Our Story */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
                 Our Story
               </h2>
-              <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                Founded in 2016 with a simple yet powerful mission: to improve
-                healthcare through innovative pharmaceutical solutions. What
-                started as a small research-focused company has grown into a
-                global leader in pharmaceutical development and manufacturing.
-              </p>
-              <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                Today, Snufi Pharmaceutical® operates in over 3 countries, with
-                state-of-the-art research facilities, manufacturing plants, and
-                a dedicated team of over 5,000 professionals worldwide.
-              </p>
+              <div className="space-y-4 text-muted-foreground leading-relaxed">
+                <p>
+                  Founded in 2016 with a simple yet powerful mission: to improve 
+                  healthcare through innovative pharmaceutical solutions. What started as a 
+                  small research-focused company has grown into a global leader in 
+                  pharmaceutical development and manufacturing.
+                </p>
+                <p>
+                  Today, Snufi Pharmaceutical® operates in over 3 countries, with state-of-
+                  the-art research facilities, manufacturing plants, and a dedicated team of 
+                  over 5,000 professionals worldwide.
+                </p>
+              </div>
+
+              {/* Stats */}
               <div className="grid grid-cols-3 gap-6 mt-8">
                 <div className="text-center">
-                  <ColoredIcon
-                    Icon={Building}
-                    color="emerald"
-                    size={32}
-                    className="mx-auto mb-2"
-                  />
+                  <div className="w-16 h-16 bg-emerald-100 dark:bg-emerald-900/20 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm">
+                    <ColoredIcon
+                      Icon={Building}
+                      color="emerald"
+                      size={24}
+                    />
+                  </div>
                   <div className="text-2xl font-bold text-primary">10+</div>
                   <div className="text-sm text-muted-foreground">Years</div>
                 </div>
                 <div className="text-center">
-                  <ColoredIcon
-                    Icon={Users}
-                    color="indigo"
-                    size={32}
-                    className="mx-auto mb-2"
-                  />
+                  <div className="w-16 h-16 bg-sky-100 dark:bg-sky-900/20 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm">
+                    <ColoredIcon
+                      Icon={Users}
+                      color="sky"
+                      size={24}
+                    />
+                  </div>
                   <div className="text-2xl font-bold text-primary">5000+</div>
                   <div className="text-sm text-muted-foreground">Employees</div>
                 </div>
                 <div className="text-center">
-                  <ColoredIcon
-                    Icon={Globe}
-                    color="sky"
-                    size={32}
-                    className="mx-auto mb-2"
-                  />
+                  <div className="w-16 h-16 bg-violet-100 dark:bg-violet-900/20 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm">
+                    <ColoredIcon
+                      Icon={Globe}
+                      color="violet"
+                      size={24}
+                    />
+                  </div>
                   <div className="text-2xl font-bold text-primary">3+</div>
                   <div className="text-sm text-muted-foreground">Countries</div>
                 </div>
               </div>
-            </div>
+            </motion.div>
+
+            {/* Key Milestones */}
             <motion.div
-              variants={cardVariants}
-              className="bg-gradient-primary rounded-2xl p-1"
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
             >
-              <div className="bg-background rounded-xl p-8">
-                <h3 className="text-2xl font-bold text-foreground mb-6">
-                  Key Milestones
-                </h3>
+              <Card className="p-6 border-2 border-primary/20">
+                <h3 className="text-xl font-bold text-foreground mb-6">Key Milestones</h3>
                 <div className="space-y-4">
                   {milestones.map((milestone, index) => (
                     <motion.div
-                      key={index}
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true, amount: 0.5 }}
-                      transition={{ duration: 0.5, delay: index * 0.1 }}
-                      className="flex items-start space-x-4"
+                      key={milestone.year}
+                      initial={{ opacity: 0, y: 10 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4, delay: index * 0.1 }}
+                      viewport={{ once: true }}
+                      className="flex gap-4"
                     >
-                      <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
-                        <span className="text-primary font-semibold text-sm">
+                      <div className="flex-shrink-0">
+                        <div className="w-12 h-8 bg-primary text-primary-foreground rounded text-sm font-bold flex items-center justify-center">
                           {milestone.year}
-                        </span>
+                        </div>
                       </div>
-                      <p className="text-muted-foreground leading-relaxed pt-2">
-                        {milestone.event}
-                      </p>
+                      <div className="flex-1">
+                        <p className="text-sm text-muted-foreground leading-relaxed">
+                          {milestone.event}
+                        </p>
+                      </div>
                     </motion.div>
                   ))}
                 </div>
-              </div>
+              </Card>
             </motion.div>
           </div>
         </div>
-      </motion.section>
+      </section>
 
-      {/* Leadership Message */}
-      <motion.section
-        variants={sectionVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-        className="py-12"
-      >
+      {/* Leadership Section */}
+      <section className="py-16 bg-muted/30">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6">
-            A Message from Our Leadership
-          </h2>
-          <blockquote className="text-lg text-muted-foreground leading-relaxed italic mb-6">
-            "At Snufi Pharmaceutical®, we believe that every breakthrough in
-            medicine brings us closer to a healthier world. Our commitment to
-            innovation, quality, and patient care drives everything we do, and
-            we're proud to continue this mission for generations to come."
-          </blockquote>
-          <div className="text-foreground font-semibold">
-            Saroj, CEO & Founder
-          </div>
-          <blockquote className="text-lg text-muted-foreground leading-relaxed italic mt-8 mb-6">
-            "Our focus on research and development is unwavering. We are
-            dedicated to pushing the boundaries of science to create therapies
-            that address unmet medical needs and improve patient outcomes."
-          </blockquote>
-          <div className="text-foreground font-semibold">
-            Bhagwat Charan Bhargava, Chief Scientific Officer
-          </div>
-          <blockquote className="text-lg text-muted-foreground leading-relaxed italic mt-8 mb-6">
-            "Operational excellence and a commitment to quality are the
-            cornerstones of our manufacturing processes. We strive to deliver
-            safe and effective medicines to patients around the globe."
-          </blockquote>
-          <div className="text-foreground font-semibold">
-            Sumit Kumar Upadhyay, Chief Operating Officer
-          </div>
-        </div>
-      </motion.section>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-8">
+              A Message from Our Leadership
+            </h2>
+          </motion.div>
 
-      {/* Our Commitment to Sustainability Section */}
-      <motion.section
-        variants={sectionVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-        className="py-12 bg-accent"
-      >
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="space-y-12"
+          >
+            {/* CEO Message */}
+            <div className="space-y-4">
+              <blockquote className="text-lg text-muted-foreground leading-relaxed italic">
+                "At Snufi Pharmaceutical®, we believe that every breakthrough in medicine brings us closer to a healthier world. Our commitment to innovation, quality, and patient care drives everything we do, and we're proud to continue this mission for generations to come."
+              </blockquote>
+              <div className="text-primary font-semibold">
+                Saroj, CEO & Founder
+              </div>
+            </div>
+
+            {/* CSO Message */}
+            <div className="space-y-4">
+              <blockquote className="text-lg text-muted-foreground leading-relaxed italic">
+                "Our focus on research and development is unwavering. We are dedicated to pushing the boundaries of science to create therapies that address unmet medical needs and improve patient outcomes."
+              </blockquote>
+              <div className="text-primary font-semibold">
+                Bhagwat Charan Bhargava, Chief Scientific Officer
+              </div>
+            </div>
+
+            {/* COO Message */}
+            <div className="space-y-4">
+              <blockquote className="text-lg text-muted-foreground leading-relaxed italic">
+                "Operational excellence and a commitment to quality are the cornerstones of our manufacturing processes. We strive to deliver safe and effective medicines to patients around the globe."
+              </blockquote>
+              <div className="text-primary font-semibold">
+                Sumit Kumar Upadhyay, Chief Operating Officer
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Sustainability Section */}
+      <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
               Our Commitment to Sustainability
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              We are dedicated to operating in a sustainable and socially responsible manner, minimizing our environmental impact and contributing to the well-being of our communities.
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              We are dedicated to operating in a sustainable and socially responsible manner
             </p>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <motion.div
-              variants={cardVariants}
-              whileHover={{ scale: 1.02, y: -2 }}
-              transition={{ duration: 0.3 }}
-            >
-              <Card className="p-6 h-full">
-                <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mb-4 shadow-sm">
-                  <ColoredIcon Icon={Globe} color="emerald" size={24} />
-                </div>
-                <h3 className="text-xl font-semibold text-foreground mb-3">
-                  Environmental Stewardship
-                </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  We are committed to reducing our carbon footprint, conserving water, and minimizing waste across all our operations.
-                </p>
-              </Card>
-            </motion.div>
-            <motion.div
-              variants={cardVariants}
-              whileHover={{ scale: 1.02, y: -2 }}
-              transition={{ duration: 0.3 }}
-            >
-              <Card className="p-6 h-full">
-                <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mb-4 shadow-sm">
-                  <ColoredIcon Icon={Users} color="violet" size={24} />
-                </div>
-                <h3 className="text-xl font-semibold text-foreground mb-3">
-                  Social Responsibility
-                </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  We are dedicated to improving access to healthcare, supporting education, and promoting diversity and inclusion in our workforce.
-                </p>
-              </Card>
-            </motion.div>
-            <motion.div
-              variants={cardVariants}
-              whileHover={{ scale: 1.02, y: -2 }}
-              transition={{ duration: 0.3 }}
-            >
-              <Card className="p-6 h-full">
-                <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mb-4 shadow-sm">
-                  <ColoredIcon Icon={Award} color="amber" size={24} />
-                </div>
-                <h3 className="text-xl font-semibold text-foreground mb-3">
-                  Ethical Governance
-                </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  We are committed to upholding the highest ethical standards in all our business practices, ensuring transparency and accountability.
-                </p>
-              </Card>
-            </motion.div>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {commitments.map((commitment, index) => (
+              <motion.div
+                key={commitment.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+                viewport={{ once: true }}
+              >
+                <Card className="p-8 h-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                  <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 shadow-sm ${
+                    commitment.title === "Environmental Stewardship"
+                      ? "bg-emerald-100 dark:bg-emerald-900/20"
+                      : commitment.title === "Social Responsibility"
+                      ? "bg-rose-100 dark:bg-rose-900/20"
+                      : "bg-sky-100 dark:bg-sky-900/20"
+                  }`}>
+                    <ColoredIcon
+                      Icon={commitment.icon}
+                      color={
+                        commitment.title === "Environmental Stewardship"
+                          ? "emerald"
+                          : commitment.title === "Social Responsibility"
+                          ? "rose"
+                          : "sky"
+                      }
+                      size={32}
+                    />
+                  </div>
+                  <h3 className="text-xl font-semibold mb-4">{commitment.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed">{commitment.description}</p>
+                </Card>
+              </motion.div>
+            ))}
           </div>
         </div>
-      </motion.section>
+      </section>
     </motion.div>
   );
 };

@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { MapPin, Phone, Mail, Clock, Send, Building } from "lucide-react";
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 import { Button } from "@/components/ui/button";
-import { ColoredIcon } from "@/components/ui/colored-icon";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import { ColoredIcon } from "@/components/ui/colored-icon";
 import {
   Select,
   SelectContent,
@@ -330,15 +330,12 @@ const Contact = () => {
                     />
                   </div>
 
-                  <Button type="submit" size="lg" className="w-full md:w-auto">
-                    Send Message
-                    <ColoredIcon
-                      Icon={Send}
-                      color="primary"
-                      size={16}
-                      className="ml-2"
-                    />
-                  </Button>
+                  <div className="flex flex-col md:flex-row gap-4">
+                    <Button type="submit" size="lg" className="w-full md:w-auto" disabled={isSubmitting}>
+                      {isSubmitting ? "Sending..." : "Send Message"}
+                      <Send className="ml-2 h-4 w-4" />
+                    </Button>
+                  </div>
                   {submitStatus === "success" && (
                     <p className="text-green-600 mt-4">
                       Thank you for your message! We'll get back to you shortly.
@@ -359,10 +356,17 @@ const Contact = () => {
                 <motion.div key={index} variants={cardVariants}>
                   <Card className="p-6">
                     <div className="flex items-start space-x-4">
-                      <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center flex-shrink-0 shadow-sm">
+                      <div className={`w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-sm ${
+                        info.title === "Headquarters"
+                          ? "bg-emerald-100 dark:bg-emerald-900/20"
+                          : info.title === "Phone"
+                          ? "bg-sky-100 dark:bg-sky-900/20"
+                          : info.title === "Email"
+                          ? "bg-violet-100 dark:bg-violet-900/20"
+                          : "bg-amber-100 dark:bg-amber-900/20"
+                      }`}>
                         <ColoredIcon
                           Icon={info.icon}
-                          size={20}
                           color={
                             info.title === "Headquarters"
                               ? "emerald"
@@ -372,6 +376,7 @@ const Contact = () => {
                               ? "violet"
                               : "amber"
                           }
+                          size={24}
                         />
                       </div>
                       <div>
@@ -426,8 +431,28 @@ const Contact = () => {
                 transition={{ duration: 0.3 }}
               >
                 <Card className="p-6 text-center transition-transform h-full flex flex-col">
-                  <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mx-auto mb-4 shadow-sm">
-                    <ColoredIcon Icon={Building} size={24} color="violet" />
+                  <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm ${
+                    office.type === "Headquarters"
+                      ? "bg-emerald-100 dark:bg-emerald-900/20"
+                      : office.type === "R&D Center"
+                      ? "bg-sky-100 dark:bg-sky-900/20"
+                      : office.type === "Manufacturing"
+                      ? "bg-amber-100 dark:bg-amber-900/20"
+                      : "bg-violet-100 dark:bg-violet-900/20"
+                  }`}>
+                    <ColoredIcon
+                      Icon={Building}
+                      color={
+                        office.type === "Headquarters"
+                          ? "emerald"
+                          : office.type === "R&D Center"
+                          ? "sky"
+                          : office.type === "Manufacturing"
+                          ? "amber"
+                          : "violet"
+                      }
+                      size={32}
+                    />
                   </div>
                   <h3 className="text-lg font-bold text-foreground mb-2">
                     {office.city}
