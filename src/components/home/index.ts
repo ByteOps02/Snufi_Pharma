@@ -9,4 +9,3 @@ export * from './Sustainability';
 export * from './Community';
 export * from './Careers';
 export * from './CTA';
-export * from './ModernPharmaFeatures';

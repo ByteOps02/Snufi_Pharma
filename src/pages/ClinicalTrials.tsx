@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { motion } from "framer-motion";
-import { ClinicalTrialFinder } from "@/components/modern-pharma";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ColoredIcon } from "@/components/ui/colored-icon";
@@ -111,15 +110,6 @@ const ClinicalTrials = () => {
               <div className="text-sm text-muted-foreground">{stat.description}</div>
             </Card>
           ))}
-        </motion.div>
-
-        {/* Clinical Trial Finder */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-        >
-          <ClinicalTrialFinder />
         </motion.div>
 
         {/* Additional Information */}

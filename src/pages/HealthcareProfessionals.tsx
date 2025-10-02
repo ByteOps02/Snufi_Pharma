@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { motion } from "framer-motion";
-import { HealthcareProfessionalPortal } from "@/components/modern-pharma";
 
 const HealthcareProfessionals = () => {
   useEffect(() => {
@@ -33,14 +32,6 @@ const HealthcareProfessionals = () => {
             Access exclusive medical resources, clinical data, and continuing education programs
           </motion.p>
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-        >
-          <HealthcareProfessionalPortal />
-        </motion.div>
       </div>
     </motion.div>
   );
