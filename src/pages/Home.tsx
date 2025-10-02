@@ -5,7 +5,6 @@ import {
   Stats,
   Features,
   TherapeuticAreas,
-  ModernPharmaFeatures,
   Testimonials,
   LatestNews,
   Awards,
@@ -31,7 +30,6 @@ const Home = () => {
       <Hero />
       <Stats />
       <Features />
-      <ModernPharmaFeatures />
       <TherapeuticAreas />
       <Testimonials />
       <LatestNews />
