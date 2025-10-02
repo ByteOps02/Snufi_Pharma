@@ -3,7 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ThemeProvider } from "@/components/theme-provider";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./components/layout/Layout";
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -14,9 +14,47 @@ import Careers from "./pages/Careers";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import NotFound from "./pages/NotFound";
-import ScrollToTop from "./components/layout/ScrollToTop";
 
 const queryClient = new QueryClient();
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout><Home /></Layout>,
+  },
+  {
+    path: "/about",
+    element: <Layout><About /></Layout>,
+  },
+  {
+    path: "/products",
+    element: <Layout><Products /></Layout>,
+  },
+  {
+    path: "/services",
+    element: <Layout><Services /></Layout>,
+  },
+  {
+    path: "/contact",
+    element: <Layout><Contact /></Layout>,
+  },
+  {
+    path: "/careers",
+    element: <Layout><Careers /></Layout>,
+  },
+  {
+    path: "/blog",
+    element: <Layout><Blog /></Layout>,
+  },
+  {
+    path: "/blog/:id",
+    element: <Layout><BlogPost /></Layout>,
+  },
+  {
+    path: "*",
+    element: <Layout><NotFound /></Layout>,
+  },
+]);
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -24,23 +62,7 @@ const App = () => (
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <BrowserRouter>
-          <ScrollToTop />
-          <Layout>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/products" element={<Products />} />
-              <Route path="/services" element={<Services />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/careers" element={<Careers />} />
-              <Route path="/blog" element={<Blog />} />
-              <Route path="/blog/:id" element={<BlogPost />} />
-              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </Layout>
-        </BrowserRouter>
+        <RouterProvider router={router} />
       </TooltipProvider>
     </ThemeProvider>
   </QueryClientProvider>

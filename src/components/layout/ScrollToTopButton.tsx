@@ -3,7 +3,7 @@ import { ArrowUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { AnimatePresence, motion } from "framer-motion";
 
-const ScrollToTop = () => {
+const ScrollToTopButton = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   const toggleVisibility = () => {
@@ -51,4 +51,4 @@ const ScrollToTop = () => {
   );
 };
 
-export default ScrollToTop;
+export default ScrollToTopButton;
