@@ -537,38 +537,7 @@ const Services = () => {
         </div>
       </motion.section>
 
-      {/* CTA Section */}
-      <motion.section
-        variants={sectionVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-        className="py-12 bg-gradient-subtle"
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
-            Ready to Start Your Project?
-          </h2>
-          <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">
-            Let's discuss how our pharmaceutical services can accelerate your
-            development timeline and ensure regulatory success.
-          </p>
-          <Dialog>
-            <DialogTrigger asChild>
-              <Button size="lg" className="text-lg px-8 py-4">
-                Get Started Today
-                <ArrowRight className="ml-2" size={20} />
-              </Button>
-            </DialogTrigger>
-            <DialogContent>
-              <DialogHeader>
-                <DialogTitle>Get Started with Snufi</DialogTitle>
-              </DialogHeader>
-              <GetStartedForm />
-            </DialogContent>
-          </Dialog>
-        </div>
-      </motion.section>
+
     </motion.div>
   );
 };

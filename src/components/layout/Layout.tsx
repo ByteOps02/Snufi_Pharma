@@ -2,6 +2,7 @@ import React from "react";
 import Navigation from "@/components/ui/navigation";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import Footer from "./Footer";
+import ScrollToTop from "./ScrollToTop";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -13,6 +14,7 @@ const Layout = ({ children }: LayoutProps) => {
       <Navigation />
       <main className="pt-16 flex-grow">{children}</main>
       <Footer />
+      <ScrollToTop />
       <SpeedInsights />
     </div>
   );

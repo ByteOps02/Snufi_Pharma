@@ -4,6 +4,7 @@ import { Menu, X } from "lucide-react";
 import { Button } from "./button";
 import { cn } from "@/lib/utils";
 import { ThemeToggle } from "./theme-toggle";
+import { motion } from "framer-motion";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -69,14 +70,14 @@ const Navigation = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-8 relative">
             {navItems.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
                 onClick={handleNavClick}
                 className={cn(
-                  "relative py-2 px-1 text-sm font-medium transition-smooth",
+                  "relative py-2 px-1 text-sm font-medium transition-smooth z-10",
                   isActive(item.path)
                     ? "text-primary"
                     : "text-foreground hover:text-primary",
@@ -84,7 +85,13 @@ const Navigation = () => {
               >
                 {item.name}
                 {isActive(item.path) && (
-                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-primary rounded-full" />
+                  <motion.div
+                    layoutId="active-link"
+                    className="absolute bottom-0 left-0 right-0 h-full bg-primary/10 rounded-md -z-10"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                  />
                 )}
               </Link>
             ))}

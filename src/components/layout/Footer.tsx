@@ -1,14 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram } from "react-icons/fa6";
 import { Button } from "@/components/ui/button";
 import { Link, useNavigate } from "react-router-dom";
+import { Input } from "@/components/ui/input";
 
 const Footer = () => {
   const navigate = useNavigate();
+  const [email, setEmail] = useState("");
 
   const handleNavigation = (path: string) => {
     navigate(path);
     window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const handleNewsletterSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("Newsletter subscription:", email);
+    setEmail("");
   };
 
   const socialLinks = [
@@ -58,7 +66,7 @@ const Footer = () => {
               Committed to advancing healthcare through innovation and
               excellence in pharmaceutical manufacturing.
             </p>
-            <div className="flex space-x-4">
+            <div className="flex space-x-4 mb-6">
               {socialLinks.map((social, index) => (
                 <Button
                   key={index}
@@ -77,6 +85,21 @@ const Footer = () => {
                   </a>
                 </Button>
               ))}
+            </div>
+            <div>
+              <h4 className="text-sm font-semibold text-foreground mb-4">
+                Subscribe to our Newsletter
+              </h4>
+              <form onSubmit={handleNewsletterSubmit} className="flex gap-2 max-w-sm">
+                <Input
+                  type="email"
+                  placeholder="Enter your email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+                <Button type="submit">Subscribe</Button>
+              </form>
             </div>
           </div>
 
