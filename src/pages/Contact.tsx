@@ -503,9 +503,9 @@ const Contact = () => {
         initial="hidden"
         animate="visible"
         transition={{ delay: 1.2 }}
-        className="mb-16"
+        className="mb-16 pt-12"
       >
-        <h2 className="text-3xl font-bold text-center text-primary mb-10">Frequently Asked Questions</h2>
+        <h2 className="text-3xl font-bold text-center text-foreground mb-10">Frequently Asked Questions</h2>
         <div className="max-w-3xl mx-auto space-y-4">
           {faqs.map((faq, index) => (
             <Card key={index} className="p-4">
