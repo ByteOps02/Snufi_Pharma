@@ -12,8 +12,6 @@ export function ThemeToggle() {
       onClick={() => {
         const newTheme = theme === "light" ? "dark" : "light";
         setTheme(newTheme);
-        // Clear stored theme after a short delay
-        setTimeout(() => localStorage.removeItem("vite-ui-theme"), 100);
       }}
       className="hover:bg-transparent"
     >

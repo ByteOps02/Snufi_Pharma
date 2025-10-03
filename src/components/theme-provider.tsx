@@ -27,8 +27,10 @@ export function ThemeProvider({
   ...props
 }: ThemeProviderProps) {
   const [theme, setTheme] = useState<Theme>(() => {
-    // Clear any previously stored theme preference
-    localStorage.removeItem(storageKey);
+    const storedTheme = localStorage.getItem(storageKey) as Theme | null;
+    if (storedTheme) {
+      return storedTheme;
+    }
     return defaultTheme;
   });
 

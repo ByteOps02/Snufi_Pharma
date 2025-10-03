@@ -10,8 +10,6 @@ import {
   Awards,
   Sustainability,
   Community,
-  // Careers,
-  // CTA,
 } from "@/components/home";
 
 const Home = () => {
@@ -36,8 +34,7 @@ const Home = () => {
       <Awards />
       <Sustainability />
       <Community />
-      {/* <Careers /> */}
-      {/* <CTA /> */}
+
     </motion.div>
   );
 };

@@ -11,7 +11,6 @@ import {
   Globe,
   Clock,
   CheckCircle,
-  Microscope,
   Factory,
   HeartHandshake,
   Target

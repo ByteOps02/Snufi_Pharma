@@ -1,4 +1,4 @@
-import { Shield, Heart, Brain, Users, Bone } from "lucide-react";
+import { Shield, Heart, Users, Bone } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import { ColoredIcon } from "@/components/ui/colored-icon";

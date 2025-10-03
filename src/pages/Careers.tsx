@@ -1,12 +1,12 @@
 import { useEffect } from "react";
-import { 
-  Briefcase, 
-  Coffee, 
-  Heart, 
-  Zap, 
-  Users, 
-  MapPin, 
-  Clock, 
+import {
+  Briefcase,
+  Coffee,
+  Heart,
+  Zap,
+  Users,
+  MapPin,
+  Clock,
   DollarSign,
   GraduationCap,
   Award,
@@ -14,8 +14,7 @@ import {
   Globe,
   TrendingUp,
   Search
-} from "lucide-react";
-import { Card } from "@/components/ui/card";
+} from "lucide-react";import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ColoredIcon } from "@/components/ui/colored-icon";
