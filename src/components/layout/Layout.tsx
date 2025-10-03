@@ -3,6 +3,7 @@ import Navigation from "@/components/ui/navigation";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import Footer from "./Footer";
 import ScrollToTopButton from "./ScrollToTopButton";
+import ScrollToTop from "./ScrollToTop";
 
 
 interface LayoutProps {
@@ -13,7 +14,7 @@ const Layout = ({ children }: LayoutProps) => {
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <Navigation />
-      
+      <ScrollToTop />
       <main className="pt-16 flex-grow">{children}</main>
       <Footer />
       <ScrollToTopButton />
