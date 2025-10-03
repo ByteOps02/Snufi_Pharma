@@ -41,6 +41,18 @@ const ClinicalTrials = () => {
     }
   ];
 
+  const sectionVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    },
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -48,37 +60,35 @@ const ClinicalTrials = () => {
       transition={{ duration: 0.5 }}
       className="min-h-screen bg-gradient-to-br from-background to-muted/20"
     >
-      <div className="container mx-auto px-4 py-16">
-        <div className="text-center mb-12">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl font-bold text-primary mb-4"
-          >
-            Clinical Trials
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8"
-          >
-            Advancing medical science through rigorous clinical research. Find trials that may be right for you.
-          </motion.p>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex flex-wrap justify-center gap-2"
-          >
-            <Badge variant="secondary" className="text-sm px-3 py-1">Phase I-IV Studies</Badge>
-            <Badge variant="secondary" className="text-sm px-3 py-1">FDA Approved Protocols</Badge>
-            <Badge variant="secondary" className="text-sm px-3 py-1">GCP Compliant</Badge>
-            <Badge variant="secondary" className="text-sm px-3 py-1">Patient-Centered</Badge>
-          </motion.div>
+      <motion.section
+        variants={sectionVariants}
+        initial="hidden"
+        animate="visible"
+        className="py-12 bg-gradient-subtle"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-3xl md:text-4xl font-bold text-foreground mb-4"
+            >
+              Clinical Trials
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed"
+            >
+              Advancing medical science through rigorous clinical research. Find trials that may be right for you.
+            </motion.p>
+          </div>
         </div>
+      </motion.section>
 
+      <div className="container mx-auto px-4 py-16">
         {/* Statistics Section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}

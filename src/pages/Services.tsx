@@ -177,6 +177,18 @@ const Services = () => {
     }
   ];
 
+  const sectionVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    },
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -184,28 +196,34 @@ const Services = () => {
       transition={{ duration: 0.5 }}
       className="min-h-screen bg-gradient-to-br from-background to-muted/20"
     >
-      {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-primary/10 to-secondary/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="mb-8"
-          >
-            <Badge variant="secondary" className="mb-4">
-              Comprehensive Services
-            </Badge>
-            <h1 className="text-4xl md:text-5xl font-bold text-primary mb-6">
-              End-to-End Pharmaceutical Services
-            </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+      <motion.section
+        variants={sectionVariants}
+        initial="hidden"
+        animate="visible"
+        className="py-12 bg-gradient-subtle"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-3xl md:text-4xl font-bold text-foreground mb-4"
+            >
+              Our Services
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed"
+            >
               From drug discovery to market access, we provide comprehensive pharmaceutical services 
               to accelerate your journey from concept to patient.
-            </p>
-          </motion.div>
+            </motion.p>
+          </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Capabilities Section */}
       <section className="py-16">
