@@ -92,7 +92,7 @@ export const TherapeuticAreas = () => {
               transition={{ duration: 0.3 }}
             >
               <Card className="p-6 text-center flex flex-col h-full">
-                <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm ${
+                <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm ${
                   area.name === "Cardiovascular"
                     ? "bg-rose-100 dark:bg-rose-900/20"
                     : area.name === "Neurological"
@@ -112,7 +112,7 @@ export const TherapeuticAreas = () => {
                         ? "amber"
                         : "emerald"
                     }
-                    size={32}
+                    size={24}
                   />
                 </div>
                 <h3 className="text-xl font-bold text-foreground mb-2">

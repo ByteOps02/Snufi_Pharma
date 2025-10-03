@@ -89,7 +89,7 @@ const ClinicalTrials = () => {
           {stats.map((stat, index) => (
             <Card key={index} className="p-6 text-center hover:shadow-lg transition-shadow">
               <div className="flex justify-center mb-4">
-                <div className={`w-16 h-16 rounded-2xl flex items-center justify-center shadow-sm ${
+                <div className={`w-12 h-12 rounded-2xl flex items-center justify-center shadow-sm ${
                   stat.color === "emerald"
                     ? "bg-emerald-100 dark:bg-emerald-900/20"
                     : stat.color === "amber"
@@ -101,7 +101,7 @@ const ClinicalTrials = () => {
                   <ColoredIcon
                     Icon={stat.icon}
                     color={stat.color}
-                    size={32}
+                    size={24}
                   />
                 </div>
               </div>

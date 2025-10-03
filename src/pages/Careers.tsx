@@ -229,7 +229,7 @@ const Careers = () => {
                 viewport={{ once: true }}
               >
                 <Card className="p-6 text-center hover:shadow-lg transition-shadow">
-                  <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm ${
+                  <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm ${
                     stat.label === "Open Positions"
                       ? "bg-sky-100 dark:bg-sky-900/20"
                       : stat.label === "Team Members"
@@ -249,7 +249,7 @@ const Careers = () => {
                           ? "violet"
                           : "amber"
                       }
-                      size={32}
+                      size={24}
                     />
                   </div>
                   <div className="text-3xl font-bold text-primary mb-2">{stat.value}</div>
@@ -414,7 +414,7 @@ const Careers = () => {
                 viewport={{ once: true }}
               >
                 <Card className="p-6 h-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                  <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-4 shadow-sm ${
+                  <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-4 shadow-sm ${
                     benefit.title === "Health & Wellness"
                       ? "bg-rose-100 dark:bg-rose-900/20"
                       : benefit.title === "Professional Growth"
@@ -434,7 +434,7 @@ const Careers = () => {
                           ? "emerald"
                           : "violet"
                       }
-                      size={32}
+                      size={24}
                     />
                   </div>
                   <h3 className="text-xl font-semibold mb-3">{benefit.title}</h3>
@@ -475,7 +475,7 @@ const Careers = () => {
               >
                 <Card className="p-8 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                   <div className="flex items-start gap-4">
-                    <div className={`w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-sm ${
+                    <div className={`w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-sm ${
                       value.title === "Innovation"
                         ? "bg-sky-100 dark:bg-sky-900/20"
                         : value.title === "Collaboration"
@@ -495,7 +495,7 @@ const Careers = () => {
                             ? "violet"
                             : "amber"
                         }
-                        size={32}
+                        size={24}
                       />
                     </div>
                     <div>

@@ -1,4 +1,4 @@
-import { Heart, Users, Globe } from "lucide-react";
+import { HandHeart, Building, Handshake } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import { ColoredIcon } from "@/components/ui/colored-icon";
@@ -53,9 +53,11 @@ export const Community = () => {
             transition={{ duration: 0.3 }}
           >
             <Card className="p-6">
-              <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mb-4 shadow-sm">
-                <ColoredIcon Icon={Heart} color="rose" size={24} />
-              </div>
+              <div
+              className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-4 shadow-sm bg-rose-100 dark:bg-rose-900/20`}
+            >
+              <ColoredIcon Icon={HandHeart} color="rose" size={24} />
+            </div>
               <h3 className="text-xl font-semibold text-foreground mb-3">
                 Health Check-up Camps
               </h3>
@@ -71,8 +73,8 @@ export const Community = () => {
             transition={{ duration: 0.3 }}
           >
             <Card className="p-6">
-              <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mb-4 shadow-sm">
-                <ColoredIcon Icon={Users} color="violet" size={24} />
+              <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-4 shadow-sm bg-violet-100 dark:bg-violet-900/20">
+                <ColoredIcon Icon={Building} color="violet" size={24} />
               </div>
               <h3 className="text-xl font-semibold text-foreground mb-3">
                 Disease Awareness Programs
@@ -89,8 +91,8 @@ export const Community = () => {
             transition={{ duration: 0.3 }}
           >
             <Card className="p-6">
-              <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mb-4 shadow-sm">
-                <ColoredIcon Icon={Globe} color="sky" size={24} />
+              <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-4 shadow-sm bg-sky-100 dark:bg-sky-900/20">
+                <ColoredIcon Icon={Handshake} color="sky" size={24} />
               </div>
               <h3 className="text-xl font-semibold text-foreground mb-3">
                 Global Health Initiatives

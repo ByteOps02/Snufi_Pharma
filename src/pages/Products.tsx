@@ -365,7 +365,7 @@ const Products = () => {
                 viewport={{ once: true }}
               >
                 <Card className="p-6 text-center h-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                  <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm ${
+                  <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm ${
                     standard.title === "FDA Approved"
                       ? "bg-sky-100 dark:bg-sky-900/20"
                       : standard.title === "GMP Certified"
@@ -385,7 +385,7 @@ const Products = () => {
                           ? "violet"
                           : "amber"
                       }
-                      size={32}
+                      size={24}
                     />
                   </div>
                   <h3 className="font-semibold mb-2">{standard.title}</h3>

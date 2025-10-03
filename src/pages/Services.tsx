@@ -220,7 +220,7 @@ const Services = () => {
                 viewport={{ once: true }}
               >
                 <Card className="p-6 text-center hover:shadow-lg transition-shadow">
-                  <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm ${
+                  <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm ${
                     capability.title === "Quality Assurance"
                       ? "bg-sky-100 dark:bg-sky-900/20"
                       : capability.title === "Global Reach"
@@ -240,7 +240,7 @@ const Services = () => {
                           ? "violet"
                           : "amber"
                       }
-                      size={32}
+                      size={24}
                     />
                   </div>
                   <h3 className="font-semibold mb-2">{capability.title}</h3>
@@ -283,7 +283,7 @@ const Services = () => {
                   <div className="space-y-6">
                     <div className="flex items-start justify-between">
                       <div className="flex items-center gap-4">
-                        <div className={`w-16 h-16 rounded-2xl flex items-center justify-center shadow-sm ${
+                        <div className={`w-12 h-12 rounded-2xl flex items-center justify-center shadow-sm ${
                           service.title === "Research & Development"
                             ? "bg-sky-100 dark:bg-sky-900/20"
                             : service.title === "Contract Manufacturing"
@@ -303,7 +303,7 @@ const Services = () => {
                                 ? "violet"
                                 : "amber"
                             }
-                            size={32}
+                            size={24}
                           />
                         </div>
                         <div>
@@ -389,7 +389,7 @@ const Services = () => {
                   <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold">
                     {step.step}
                   </div>
-                  <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm ${
+                  <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm ${
                     step.step === "01"
                       ? "bg-sky-100 dark:bg-sky-900/20"
                       : step.step === "02"
@@ -409,7 +409,7 @@ const Services = () => {
                           ? "violet"
                           : "amber"
                       }
-                      size={32}
+                      size={24}
                     />
                   </div>
                   <h3 className="font-semibold mb-2">{step.title}</h3>

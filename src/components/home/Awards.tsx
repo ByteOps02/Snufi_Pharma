@@ -1,4 +1,4 @@
-import { Award, Star, CheckCircle, Leaf } from "lucide-react";
+import { Trophy, Medal, Ribbon, Gem } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import { ColoredIcon } from "@/components/ui/colored-icon";
@@ -10,7 +10,7 @@ const awards = [
     year: "2023",
     description:
       "Recognized for our outstanding contributions to the pharmaceutical industry and our commitment to innovation and excellence.",
-    icon: Award,
+    icon: Trophy,
   },
   {
     title: "Innovation in Medicine 2023",
@@ -18,7 +18,7 @@ const awards = [
     year: "2023",
     description:
       "Awarded for our groundbreaking research and development of new therapies that address unmet medical needs.",
-    icon: Star,
+    icon: Medal,
   },
   {
     title: "Best Manufacturing Practices 2022",
@@ -26,7 +26,7 @@ const awards = [
     year: "2022",
     description:
       "Honored for our state-of-the-art manufacturing facilities and our adherence to the highest quality standards.",
-    icon: CheckCircle,
+    icon: Ribbon,
   },
   {
     title: "Sustainability Leadership 2022",
@@ -34,7 +34,7 @@ const awards = [
     year: "2022",
     description:
       "Acknowledged for our commitment to environmental sustainability and our efforts to reduce our carbon footprint.",
-    icon: Leaf,
+    icon: Gem,
   },
 ];
 
@@ -92,7 +92,17 @@ export const Awards = () => {
               transition={{ duration: 0.3 }}
             >
               <Card className="p-6 text-center h-full flex flex-col">
-                <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mx-auto mb-4 shadow-sm">
+                <div
+                  className={`w-12 h-12 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm ${
+                    index === 0
+                      ? "bg-amber-100 dark:bg-amber-900/20"
+                      : index === 1
+                      ? "bg-sky-100 dark:bg-sky-900/20"
+                      : index === 2
+                      ? "bg-emerald-100 dark:bg-emerald-900/20"
+                      : "bg-green-100 dark:bg-green-900/20"
+                  }`}
+                >
                   <ColoredIcon
                     Icon={award.icon}
                     color={
@@ -102,7 +112,7 @@ export const Awards = () => {
                         ? "sky"
                         : index === 2
                         ? "emerald"
-                        : "primary"
+                        : "green"
                     }
                     size={24}
                   />

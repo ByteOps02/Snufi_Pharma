@@ -1,4 +1,4 @@
-import { Leaf, Globe, Target, Zap } from "lucide-react";
+import { Recycle, Factory, Mountain, Wind } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import { ColoredIcon } from "@/components/ui/colored-icon";
@@ -9,26 +9,26 @@ const sustainabilityInitiatives = [
     description:
       "Achieving net-zero carbon emissions across all production facilities",
     progress: 75,
-    icon: Leaf,
+    icon: Recycle,
   },
   {
     title: "Water Conservation",
     description:
       "Implementing advanced water recycling systems in manufacturing",
     progress: 90,
-    icon: Globe,
+    icon: Factory,
   },
   {
     title: "Waste Reduction",
     description: "Zero waste to landfill initiative across all operations",
     progress: 85,
-    icon: Target,
+    icon: Mountain,
   },
   {
     title: "Renewable Energy",
     description: "Transitioning to 100% renewable energy sources",
     progress: 60,
-    icon: Zap,
+    icon: Wind,
   },
 ];
 
@@ -56,7 +56,7 @@ const cardVariants = {
   },
 };
 
-export const Sustainability = () => {
+const Sustainability = () => {
   return (
     <motion.section
       variants={sectionVariants}
@@ -86,7 +86,17 @@ export const Sustainability = () => {
               transition={{ duration: 0.3 }}
             >
               <Card className="p-6 h-full flex flex-col">
-                <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center mx-auto mb-4 shadow-sm">
+                <div
+                  className={`w-12 h-12 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm ${
+                    index === 0
+                      ? "bg-emerald-100 dark:bg-emerald-900/20"
+                      : index === 1
+                      ? "bg-sky-100 dark:bg-sky-900/20"
+                      : index === 2
+                      ? "bg-violet-100 dark:bg-violet-900/20"
+                      : "bg-amber-100 dark:bg-amber-900/20"
+                  }`}
+                >
                   <ColoredIcon
                     Icon={initiative.icon}
                     color={
@@ -129,3 +139,5 @@ export const Sustainability = () => {
     </motion.section>
   );
 };
+
+export default Sustainability;

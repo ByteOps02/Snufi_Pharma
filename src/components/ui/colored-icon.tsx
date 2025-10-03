@@ -25,18 +25,18 @@ interface ColoredIconProps {
 }
 
 const colorClasses: Record<IconColor, string> = {
-  primary: "[color:hsl(var(--icon-primary))]",
-  secondary: "[color:hsl(var(--icon-secondary))]",
-  success: "[color:hsl(var(--icon-success))]",
-  warning: "[color:hsl(var(--icon-warning))]",
-  info: "[color:hsl(var(--icon-info))]",
-  error: "[color:hsl(var(--icon-error))]",
-  violet: "[color:hsl(var(--icon-violet))]",
-  emerald: "[color:hsl(var(--icon-emerald))]",
-  amber: "[color:hsl(var(--icon-amber))]",
-  sky: "[color:hsl(var(--icon-sky))]",
-  rose: "[color:hsl(var(--icon-rose))]",
-  indigo: "[color:hsl(var(--icon-indigo))]",
+  primary: "text-icon-primary",
+  secondary: "text-icon-secondary",
+  success: "text-icon-success",
+  warning: "text-icon-warning",
+  info: "text-icon-info",
+  error: "text-icon-error",
+  violet: "text-icon-violet",
+  emerald: "text-icon-emerald",
+  amber: "text-icon-amber",
+  sky: "text-icon-sky",
+  rose: "text-icon-rose",
+  indigo: "text-icon-indigo",
 };
 
 const ColoredIcon = ({

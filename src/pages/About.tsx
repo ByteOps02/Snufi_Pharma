@@ -122,7 +122,7 @@ const About = () => {
                 viewport={{ once: true }}
               >
                 <Card className="p-8 h-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                  <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 shadow-sm ${
+                  <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-6 shadow-sm ${
                     value.title === "Our Mission"
                       ? "bg-sky-100 dark:bg-sky-900/20"
                       : value.title === "Our Vision"
@@ -138,7 +138,7 @@ const About = () => {
                           ? "emerald"
                           : "violet"
                       }
-                      size={32}
+                      size={24}
                     />
                   </div>
                   <h3 className="text-xl font-semibold mb-4">{value.title}</h3>
@@ -181,7 +181,7 @@ const About = () => {
               {/* Stats */}
               <div className="grid grid-cols-3 gap-6 mt-8">
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-emerald-100 dark:bg-emerald-900/20 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm">
+                  <div className="w-12 h-12 bg-emerald-100 dark:bg-emerald-900/20 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm">
                     <ColoredIcon
                       Icon={Building}
                       color="emerald"
@@ -192,7 +192,7 @@ const About = () => {
                   <div className="text-sm text-muted-foreground">Years</div>
                 </div>
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-sky-100 dark:bg-sky-900/20 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm">
+                  <div className="w-12 h-12 bg-sky-100 dark:bg-sky-900/20 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm">
                     <ColoredIcon
                       Icon={Users}
                       color="sky"
@@ -203,7 +203,7 @@ const About = () => {
                   <div className="text-sm text-muted-foreground">Employees</div>
                 </div>
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-violet-100 dark:bg-violet-900/20 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm">
+                  <div className="w-12 h-12 bg-violet-100 dark:bg-violet-900/20 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm">
                     <ColoredIcon
                       Icon={Globe}
                       color="violet"
@@ -337,7 +337,7 @@ const About = () => {
                 viewport={{ once: true }}
               >
                 <Card className="p-8 h-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                  <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 shadow-sm ${
+                  <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-6 shadow-sm ${
                     commitment.title === "Environmental Stewardship"
                       ? "bg-emerald-100 dark:bg-emerald-900/20"
                       : commitment.title === "Social Responsibility"
@@ -353,7 +353,7 @@ const About = () => {
                           ? "rose"
                           : "sky"
                       }
-                      size={32}
+                      size={24}
                     />
                   </div>
                   <h3 className="text-xl font-semibold mb-4">{commitment.title}</h3>

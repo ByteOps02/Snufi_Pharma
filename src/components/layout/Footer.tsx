@@ -160,7 +160,7 @@ const Footer = () => {
                   <ColoredIcon
                     Icon={MapPin}
                     color="emerald"
-                    size={16}
+                    size={24}
                   />
                 </div>
                 <div className="text-sm text-muted-foreground">
@@ -173,7 +173,7 @@ const Footer = () => {
                   <ColoredIcon
                     Icon={Mail}
                     color="sky"
-                    size={16}
+                    size={24}
                   />
                 </div>
                 <div className="text-sm text-muted-foreground">
@@ -185,7 +185,7 @@ const Footer = () => {
                   <ColoredIcon
                     Icon={Phone}
                     color="violet"
-                    size={16}
+                    size={24}
                   />
                 </div>
                 <div className="text-sm text-muted-foreground">

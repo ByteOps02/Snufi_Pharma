@@ -356,7 +356,7 @@ const Contact = () => {
                 <motion.div key={index} variants={cardVariants}>
                   <Card className="p-6">
                     <div className="flex items-start space-x-4">
-                      <div className={`w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-sm ${
+                      <div className={`w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-sm ${
                         info.title === "Headquarters"
                           ? "bg-emerald-100 dark:bg-emerald-900/20"
                           : info.title === "Phone"
@@ -431,7 +431,7 @@ const Contact = () => {
                 transition={{ duration: 0.3 }}
               >
                 <Card className="p-6 text-center transition-transform h-full flex flex-col">
-                  <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm ${
+                  <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm ${
                     office.type === "Headquarters"
                       ? "bg-emerald-100 dark:bg-emerald-900/20"
                       : office.type === "R&D Center"
@@ -451,7 +451,7 @@ const Contact = () => {
                           ? "amber"
                           : "violet"
                       }
-                      size={32}
+                      size={24}
                     />
                   </div>
                   <h3 className="text-lg font-bold text-foreground mb-2">
