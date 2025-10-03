@@ -109,12 +109,12 @@ const GetStartedForm = () => {
         Submit Request
       </Button>
       {submitStatus === "success" && (
-        <p className="text-green-600 mt-4">
+        <p className="text-success mt-4">
           Thank you for your interest! We'll be in touch shortly.
         </p>
       )}
       {submitStatus === "error" && (
-        <p className="text-red-600 mt-4">
+        <p className="text-destructive mt-4">
           We're sorry, but something went wrong. Please try again later.
         </p>
       )}

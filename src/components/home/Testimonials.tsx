@@ -109,7 +109,7 @@ export const Testimonials = () => {
                     <p className="text-sm text-muted-foreground">
                       {testimonial.title}
                     </p>
-                    <p className="text-sm text-primary">
+                    <p className="text-sm text-foreground">
                       {testimonial.company}
                     </p>
                   </div>

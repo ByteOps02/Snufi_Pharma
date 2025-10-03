@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import { MapPin, Phone, Mail, Clock, Send, Building } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Send, Building, ChevronDown } from "lucide-react";
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
@@ -15,7 +15,8 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import axios from "axios";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 const Contact = () => {
   useEffect(() => {
@@ -77,6 +78,31 @@ const Contact = () => {
       setIsSubmitting(false);
     }
   };
+
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+
+  const faqs = [
+    {
+      question: "What types of pharmaceutical products do you offer?",
+      answer: "We offer a wide range of pharmaceutical products across various therapeutic areas, including cardiovascular, neurology, orthology, and immunology. Our products are available in various forms, such as tablets, capsules, and injections."
+    },
+    {
+      question: "What types of pharmaceutical services do you offer?",
+      answer: "We offer a comprehensive range of pharmaceutical services, including research and development, contract manufacturing, regulatory affairs, and supply chain solutions. We provide end-to-end support to our clients, from drug discovery to commercialization."
+    },
+    {
+      question: "How can I partner with Snufi Pharmaceutical?",
+      answer: "We are always open to new partnership opportunities. Please contact us to discuss your proposal, and our business development team will get in touch with you."
+    },
+    {
+      question: "Where are your headquarters located?",
+      answer: "Our headquarters are located in Ahmedabad, Gujarat, India. You can find our full address and a map on this page."
+    },
+    {
+      question: "How can I get technical support for your products?",
+      answer: "For technical support, please use the inquiry form above and select 'Technical Support' as your inquiry type, or email us directly at support@snufipharma.com."
+    },
+  ];
 
   const contactInfo = [
     {
@@ -219,9 +245,9 @@ const Contact = () => {
         className="py-12"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-3 gap-8">
+          <div className="grid lg:grid-cols-3 gap-8 items-start">
             <div className="lg:col-span-2">
-              <Card className="p-8">
+              <Card className="p-12 h-full flex flex-col">
                 <h2 className="text-2xl font-bold text-foreground mb-6">
                   Send us a Message
                 </h2>
@@ -326,7 +352,7 @@ const Contact = () => {
                       value={formData.message}
                       onChange={handleInputChange}
                       placeholder="Please describe your inquiry in detail..."
-                      rows={6}
+                      rows={12}
                     />
                   </div>
 
@@ -457,7 +483,7 @@ const Contact = () => {
                   <h3 className="text-lg font-bold text-foreground mb-2">
                     {office.city}
                   </h3>
-                  <p className="text-primary font-medium mb-3">{office.type}</p>
+                  <p className="text-foreground font-medium mb-3">{office.type}</p>
                   <p className="text-sm text-muted-foreground mb-3 flex-grow">
                     {office.address}
                   </p>
@@ -475,51 +501,38 @@ const Contact = () => {
       <motion.section
         variants={sectionVariants}
         initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-        className="py-12"
+        animate="visible"
+        transition={{ delay: 1.2 }}
+        className="mb-16"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
-              Frequently Asked Questions
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Find answers to common questions about our products, services, and
-              company.
-            </p>
-          </div>
-          <div className="max-w-3xl mx-auto">
-            <Card className="p-6">
-              <h3 className="text-xl font-semibold text-foreground mb-4">
-                What types of pharmaceutical products do you offer?
-              </h3>
-              <p className="text-muted-foreground leading-relaxed mb-6">
-                We offer a wide range of pharmaceutical products across various
-                therapeutic areas, including cardiovascular, neurology,
-                orthology, and immunology. Our products are available in various
-                forms, such as tablets, capsules, and injections.
-              </p>
-              <h3 className="text-xl font-semibold text-foreground mb-4">
-                What types of pharmaceutical services do you offer?
-              </h3>
-              <p className="text-muted-foreground leading-relaxed mb-6">
-                We offer a comprehensive range of pharmaceutical services,
-                including research and development, contract manufacturing,
-                regulatory affairs, and supply chain solutions. We provide
-                end-to-end support to our clients, from drug discovery to
-                commercialization.
-              </p>
-              <h3 className="text-xl font-semibold text-foreground mb-4">
-                How can I partner with Snufi Pharmaceutical?
-              </h3>
-              <p className="text-muted-foreground leading-relaxed">
-                We are always open to new partnership opportunities. Please
-                contact us to discuss your proposal, and our business
-                development team will get in touch with you.
-              </p>
+        <h2 className="text-3xl font-bold text-center text-primary mb-10">Frequently Asked Questions</h2>
+        <div className="max-w-3xl mx-auto space-y-4">
+          {faqs.map((faq, index) => (
+            <Card key={index} className="p-4">
+              <div
+                className="flex justify-between items-center cursor-pointer font-semibold text-lg"
+                onClick={() => setOpenFaq(openFaq === index ? null : index)}
+              >
+                {faq.question}
+                <ChevronDown
+                  className={cn("h-5 w-5 transition-transform", openFaq === index ? "rotate-180" : "")}
+                />
+              </div>
+              <AnimatePresence>
+                {openFaq === index && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.3, ease: "easeOut" }}
+                    className="mt-2 text-muted-foreground"
+                  >
+                    {faq.answer}
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </Card>
-          </div>
+          ))}
         </div>
       </motion.section>
 

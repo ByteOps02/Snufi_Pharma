@@ -270,7 +270,7 @@ const Careers = () => {
                       size={24}
                     />
                   </div>
-                  <div className="text-3xl font-bold text-primary mb-2">{stat.value}</div>
+                  <div className="text-3xl font-bold text-foreground mb-2">{stat.value}</div>
                   <div className="text-muted-foreground">{stat.label}</div>
                 </Card>
               </motion.div>
@@ -311,7 +311,7 @@ const Careers = () => {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
               Open Positions
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -332,7 +332,7 @@ const Careers = () => {
                   <div className="space-y-4">
                     <div className="flex items-start justify-between">
                       <div className="flex-1">
-                        <h3 className="text-xl font-semibold text-primary mb-2">{job.title}</h3>
+                        <h3 className="text-xl font-semibold text-foreground mb-2">{job.title}</h3>
                         <div className="flex flex-wrap gap-2 mb-3">
                           <Badge variant="secondary">{job.department}</Badge>
                           <Badge variant="outline">{job.type}</Badge>
@@ -414,7 +414,7 @@ const Careers = () => {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
               Why Choose Snufi Pharma?
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -474,7 +474,7 @@ const Careers = () => {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
               Our Culture & Values
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -538,7 +538,7 @@ const Careers = () => {
             viewport={{ once: true }}
           >
             <Card className="p-8 bg-gradient-to-r from-primary/5 to-secondary/5 border-primary/20">
-              <h2 className="text-2xl font-bold text-primary mb-4">
+              <h2 className="text-2xl font-bold text-foreground mb-4">
                 Ready to Make a Difference?
               </h2>
               <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">

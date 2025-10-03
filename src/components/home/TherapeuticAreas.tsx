@@ -122,7 +122,7 @@ export const TherapeuticAreas = () => {
                   {area.description}
                 </p>
                 <div className="space-y-2 mt-auto">
-                  <div className="text-2xl font-bold text-primary">
+                  <div className="text-2xl font-bold text-foreground">
                     {area.productCount}+ Products
                   </div>
                   <div className="text-xs text-muted-foreground">

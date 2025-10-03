@@ -96,13 +96,13 @@ const MedicalAffairsForm = () => {
         Send Message
       </Button>
       {submitStatus === "success" && (
-        <p className="text-green-600 mt-4">
+        <p className="text-success mt-4">
           Thank you for your message! Our Medical Affairs team will get back to
           you shortly.
         </p>
       )}
       {submitStatus === "error" && (
-        <p className="text-red-600 mt-4">
+        <p className="text-destructive mt-4">
           We're sorry, but something went wrong. Please try again later.
         </p>
       )}

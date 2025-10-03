@@ -122,7 +122,7 @@ const About = () => {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
               Our Core Values
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -206,7 +206,7 @@ const About = () => {
                       size={24}
                     />
                   </div>
-                  <div className="text-2xl font-bold text-primary">10+</div>
+                  <div className="text-2xl font-bold text-foreground">10+</div>
                   <div className="text-sm text-muted-foreground">Years</div>
                 </div>
                 <div className="text-center">
@@ -217,7 +217,7 @@ const About = () => {
                       size={24}
                     />
                   </div>
-                  <div className="text-2xl font-bold text-primary">5000+</div>
+                  <div className="text-2xl font-bold text-foreground">5000+</div>
                   <div className="text-sm text-muted-foreground">Employees</div>
                 </div>
                 <div className="text-center">
@@ -228,7 +228,7 @@ const About = () => {
                       size={24}
                     />
                   </div>
-                  <div className="text-2xl font-bold text-primary">3+</div>
+                  <div className="text-2xl font-bold text-foreground">3+</div>
                   <div className="text-sm text-muted-foreground">Countries</div>
                 </div>
               </div>
@@ -282,7 +282,7 @@ const About = () => {
             viewport={{ once: true }}
             className="mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-8">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-8">
               A Message from Our Leadership
             </h2>
           </motion.div>
@@ -299,7 +299,7 @@ const About = () => {
               <blockquote className="text-lg text-muted-foreground leading-relaxed italic">
                 "At Snufi Pharmaceutical®, we believe that every breakthrough in medicine brings us closer to a healthier world. Our commitment to innovation, quality, and patient care drives everything we do, and we're proud to continue this mission for generations to come."
               </blockquote>
-              <div className="text-primary font-semibold">
+              <div className="text-foreground font-semibold">
                 Saroj, CEO & Founder
               </div>
             </div>
@@ -309,7 +309,7 @@ const About = () => {
               <blockquote className="text-lg text-muted-foreground leading-relaxed italic">
                 "Our focus on research and development is unwavering. We are dedicated to pushing the boundaries of science to create therapies that address unmet medical needs and improve patient outcomes."
               </blockquote>
-              <div className="text-primary font-semibold">
+              <div className="text-foreground font-semibold">
                 Bhagwat Charan Bhargava, Chief Scientific Officer
               </div>
             </div>
@@ -319,7 +319,7 @@ const About = () => {
               <blockquote className="text-lg text-muted-foreground leading-relaxed italic">
                 "Operational excellence and a commitment to quality are the cornerstones of our manufacturing processes. We strive to deliver safe and effective medicines to patients around the globe."
               </blockquote>
-              <div className="text-primary font-semibold">
+              <div className="text-foreground font-semibold">
                 Sumit Kumar Upadhyay, Chief Operating Officer
               </div>
             </div>
@@ -337,7 +337,7 @@ const About = () => {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
               Our Commitment to Sustainability
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">

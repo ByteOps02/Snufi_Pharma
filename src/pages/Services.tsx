@@ -24,6 +24,7 @@ import { motion } from "framer-motion";
 
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import GetStartedForm from "@/components/forms/GetStartedForm";
+import { cn } from "@/lib/utils";
 
 const Services = () => {
   useEffect(() => {
@@ -128,25 +129,29 @@ const Services = () => {
       icon: Globe,
       title: "Global Reach",
       description: "Operations across 25+ countries with local expertise and global standards",
-      color: "bg-blue-500/10 text-blue-600"
+      bgColor: "bg-blue-100 dark:bg-blue-900/20",
+      iconColor: "sky" as const // Changed from blue to sky
     },
     {
       icon: Award,
       title: "Quality Excellence",
       description: "ISO 9001:2015 certified with 99.9% quality assurance rate",
-      color: "bg-green-500/10 text-green-600"
+      bgColor: "bg-green-100 dark:bg-green-900/20",
+      iconColor: "emerald" as const // Changed from green to emerald
     },
     {
       icon: Clock,
       title: "Rapid Delivery",
       description: "Accelerated timelines with 30% faster development cycles",
-      color: "bg-purple-500/10 text-purple-600"
+      bgColor: "bg-purple-100 dark:bg-purple-900/20",
+      iconColor: "violet" as const // Changed from purple to violet
     },
     {
       icon: Users,
       title: "Expert Team",
       description: "500+ scientists and regulatory experts with decades of experience",
-      color: "bg-orange-500/10 text-orange-600"
+      bgColor: "bg-orange-100 dark:bg-orange-900/20",
+      iconColor: "amber" as const // Changed from orange to amber
     }
   ];
 
@@ -237,27 +242,11 @@ const Services = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className="p-6 text-center hover:shadow-lg transition-shadow">
-                  <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm ${
-                    capability.title === "Quality Assurance"
-                      ? "bg-sky-100 dark:bg-sky-900/20"
-                      : capability.title === "Global Reach"
-                      ? "bg-emerald-100 dark:bg-emerald-900/20"
-                      : capability.title === "24/7 Support"
-                      ? "bg-violet-100 dark:bg-violet-900/20"
-                      : "bg-amber-100 dark:bg-amber-900/20"
-                  }`}>
+                <Card className="p-6 text-center h-full flex flex-col hover:shadow-lg transition-shadow">
+                  <div className={cn("w-12 h-12 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm", capability.bgColor)}>
                     <ColoredIcon
                       Icon={capability.icon}
-                      color={
-                        capability.title === "Quality Assurance"
-                          ? "sky"
-                          : capability.title === "Global Reach"
-                          ? "emerald"
-                          : capability.title === "24/7 Support"
-                          ? "violet"
-                          : "amber"
-                      }
+                      color={capability.iconColor}
                       size={24}
                     />
                   </div>
@@ -280,7 +269,7 @@ const Services = () => {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
               Our Service Portfolio
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -297,8 +286,8 @@ const Services = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className="p-8 h-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                  <div className="space-y-6">
+                <Card className="p-8 h-full flex flex-col hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                  <div className="space-y-6 flex-grow">
                     <div className="flex items-start justify-between">
                       <div className="flex items-center gap-4">
                         <div className={`w-12 h-12 rounded-2xl flex items-center justify-center shadow-sm ${
@@ -327,7 +316,7 @@ const Services = () => {
                         <div>
                           <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
                           <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                            <span className="font-bold text-primary">{service.stats.value}</span>
+                            <span className="font-bold text-foreground">{service.stats.value}</span>
                             <span>{service.stats.label}</span>
                           </div>
                         </div>
@@ -385,7 +374,7 @@ const Services = () => {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
               Our Process
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -454,7 +443,7 @@ const Services = () => {
             viewport={{ once: true }}
           >
             <Card className="p-8 bg-gradient-to-r from-primary/5 to-secondary/5 border-primary/20">
-              <h2 className="text-2xl font-bold text-primary mb-4">
+              <h2 className="text-2xl font-bold text-foreground mb-4">
                 Ready to Accelerate Your Pharmaceutical Journey?
               </h2>
               <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">

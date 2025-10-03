@@ -48,7 +48,7 @@ export const Stats = () => {
               variants={cardVariants}
               className="text-center"
             >
-              <div className="text-3xl md:text-4xl font-bold text-primary mb-2">
+              <div className="text-3xl md:text-4xl font-bold text-foreground mb-2">
                 {stat.number}
               </div>
               <div className="text-muted-foreground font-medium">

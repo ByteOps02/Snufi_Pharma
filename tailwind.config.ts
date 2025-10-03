@@ -90,6 +90,9 @@ export default {
           indigo: "hsl(var(--icon-indigo))",
         },
       },
+      fontFamily: {
+        sans: ["Inter", "sans-serif"],
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
