@@ -260,7 +260,7 @@ const Products = () => {
       </section>
 
       {/* Products Grid */}
-      <section className="py-16">
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-8">
             <h2 className="text-2xl font-bold text-foreground mb-2">
@@ -356,7 +356,7 @@ const Products = () => {
       </section>
 
       {/* Quality Standards Section */}
-      <section className="py-16 bg-muted/30">
+      <section className="py-20 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -416,7 +416,7 @@ const Products = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16">
+      <section className="py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

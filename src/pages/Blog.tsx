@@ -1,11 +1,30 @@
-import React from "react";
+import React, { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { blogPosts } from "@/lib/blog";
 import { Card } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { Calendar, Clock } from "lucide-react";
 import { motion } from "framer-motion";
 
 const Blog = () => {
+  const [selectedTag, setSelectedTag] = useState<string | null>(null);
+
+  const tags = useMemo(() => {
+    const allTags = blogPosts.flatMap((post) => post.tags);
+    return ["All", ...Array.from(new Set(allTags))];
+  }, []);
+
+  const filteredPosts = useMemo(() => {
+    if (!selectedTag || selectedTag === "All") {
+      return blogPosts;
+    }
+    return blogPosts.filter((post) => post.tags.includes(selectedTag));
+  }, [selectedTag]);
+
+  const handleTagClick = (tag: string) => {
+    setSelectedTag(tag);
+  };
+
   const cardVariants = {
     hidden: { opacity: 0, scale: 0.9 },
     visible: {
@@ -54,15 +73,27 @@ const Blog = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed"
             >
-              Stay up-to-date with the latest news, insights, and developments from
-              Snufi Pharmaceutical.
+              Stay up-to-date with the latest news, insights, and developments
+              from Snufi Pharmaceutical.
             </motion.p>
           </div>
         </div>
       </motion.section>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div className="flex flex-wrap justify-center gap-2 mb-8">
+          {tags.map((tag) => (
+            <Badge
+              key={tag}
+              variant={selectedTag === tag ? "default" : "secondary"}
+              onClick={() => handleTagClick(tag)}
+              className="cursor-pointer text-sm px-3 py-1"
+            >
+              {tag}
+            </Badge>
+          ))}
+        </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {blogPosts.map((post, index) => (
+          {filteredPosts.map((post, index) => (
             <motion.div
               key={post.id}
               variants={cardVariants}

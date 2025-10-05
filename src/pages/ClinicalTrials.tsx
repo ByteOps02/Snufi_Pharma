@@ -170,208 +170,206 @@ const ClinicalTrials = () => {
         </div>
       </motion.section>
 
-      <div className="container mx-auto px-4 py-16">
-        {/* Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16"
-        >
-          {stats.map((stat, index) => (
-            <Card
-              key={index}
-              className="p-6 text-center hover:shadow-lg transition-shadow"
-            >
-              <div className="flex justify-center mb-4">
-                <div
-                  className={`w-12 h-12 rounded-2xl flex items-center justify-center shadow-sm ${
-                    stat.color === "emerald"
-                      ? "bg-emerald-100 dark:bg-emerald-900/20"
-                      : stat.color === "amber"
-                      ? "bg-amber-100 dark:bg-amber-900/20"
-                      : stat.color === "sky"
-                      ? "bg-sky-100 dark:bg-sky-900/20"
-                      : "bg-violet-100 dark:bg-violet-900/20"
-                  }`}
-                >
-                  <ColoredIcon Icon={stat.icon} color={stat.color} size={24} />
+      {/* Stats Section */}
+      <motion.section
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        className="py-20"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {stats.map((stat, index) => (
+              <Card
+                key={index}
+                className="p-6 text-center hover:shadow-lg transition-shadow h-full"
+              >
+                <div className="flex justify-center mb-4">
+                  <div
+                    className={`w-12 h-12 rounded-2xl flex items-center justify-center shadow-sm ${
+                      stat.color === "emerald"
+                        ? "bg-emerald-100 dark:bg-emerald-900/20"
+                        : stat.color === "amber"
+                        ? "bg-amber-100 dark:bg-amber-900/20"
+                        : stat.color === "sky"
+                        ? "bg-sky-100 dark:bg-sky-900/20"
+                        : "bg-violet-100 dark:bg-violet-900/20"
+                    }`}
+                  >
+                    <ColoredIcon Icon={stat.icon} color={stat.color} size={24} />
+                  </div>
                 </div>
-              </div>
-              <div className="text-3xl font-bold text-foreground mb-2">
-                {stat.value}
-              </div>
-              <div className="font-semibold mb-1">{stat.label}</div>
-              <div className="text-sm text-muted-foreground">
-                {stat.description}
-              </div>
-            </Card>
-          ))}
-        </motion.div>
+                <div className="text-3xl font-bold text-foreground mb-2">
+                  {stat.value}
+                </div>
+                <div className="font-semibold mb-1">{stat.label}</div>
+                <div className="text-sm text-muted-foreground">
+                  {stat.description}
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </motion.section>
 
-        {/* Trials */}
-        <motion.section
-          variants={sectionVariants}
-          initial="hidden"
-          animate="visible"
-          transition={{ delay: 0.8 }}
-          className="mb-16"
-        >
-          <h2 className="text-3xl font-bold text-center text-primary mb-10">
-            Our Current Clinical Trials
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {currentTrials.map((trial, index) => (
+      {/* Trials Section */}
+      <motion.section
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        className="py-20 bg-muted/30"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Our Current Clinical Trials
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Explore our ongoing research initiatives driving medical innovation.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {currentTrials.map((trial) => (
               <motion.div
                 key={trial.id}
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6}}
+                viewport={{ once: true }}
                 whileHover={{ scale: 1.02, y: -2 }}
               >
-                <Card className="flex flex-col h-full">
-                  <CardHeader>
-                    <CardTitle className="text-xl font-semibold mb-2">
+                <Card className="flex flex-col h-full p-8">
+                  <div className="flex-grow">
+                    <Badge
+                      variant={trial.status === "Recruiting" ? "default" : "secondary"}
+                      className="mb-4"
+                    >
+                      {trial.status}
+                    </Badge>
+                    <h3 className="text-xl font-bold text-foreground mb-3">
                       {trial.title}
-                    </CardTitle>
-                    <CardDescription className="text-sm text-muted-foreground flex items-center">
-                      <FlaskConical className="w-4 h-4 mr-2" />
-                      {trial.therapeuticArea}
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent className="flex-grow">
-                    <p className="text-sm text-foreground mb-4">
+                    </h3>
+                    <p className="text-muted-foreground mb-6">
                       {trial.description}
                     </p>
-                    <div className="space-y-2 text-sm">
-                      <div className="flex items-center">
-                        <Badge variant="secondary" className="mr-2">
-                          <CalendarDays className="w-3 h-3 mr-1" /> Start Date:
-                        </Badge>{" "}
-                        {trial.startDate}
+                    <div className="space-y-3 text-sm">
+                      <div className="flex items-center text-muted-foreground">
+                        <FlaskConical className="w-4 h-4 mr-2 text-primary" />
+                        <span className="font-medium text-foreground mr-2">Therapeutic Area:</span>
+                        {trial.therapeuticArea}
                       </div>
-                      <div className="flex items-center">
-                        <Badge variant="secondary" className="mr-2">
-                          <MapPin className="w-3 h-3 mr-1" /> Location:
-                        </Badge>{" "}
+                      <div className="flex items-center text-muted-foreground">
+                        <MapPin className="w-4 h-4 mr-2 text-primary" />
+                        <span className="font-medium text-foreground mr-2">Location:</span>
                         {trial.location}
                       </div>
-                      <div className="flex items-center">
-                        <Badge variant="secondary" className="mr-2">
-                          <Stethoscope className="w-3 h-3 mr-1" /> Status:
-                        </Badge>{" "}
-                        <Badge
-                          variant={
-                            trial.status === "Recruiting" ? "default" : "outline"
-                          }
-                        >
-                          {trial.status}
-                        </Badge>
+                      <div className="flex items-center text-muted-foreground">
+                        <CalendarDays className="w-4 h-4 mr-2 text-primary" />
+                        <span className="font-medium text-foreground mr-2">Start Date:</span>
+                        {trial.startDate}
                       </div>
                     </div>
-                  </CardContent>
-                  <div className="p-6 pt-0">
-                    <Button className="w-full">Learn More</Button>
+                  </div>
+                  <div className="mt-6 pt-6 border-t border-border">
+                    <Button className="w-full" size="lg">
+                      Learn More & View Eligibility
+                    </Button>
                   </div>
                 </Card>
               </motion.div>
             ))}
           </div>
-          <div className="text-center mt-10">
+          <div className="text-center mt-12">
             <Button variant="outline" size="lg">
               View All Trials
             </Button>
           </div>
-        </motion.section>
+        </div>
+      </motion.section>
 
-        {/* How to Participate */}
-        <motion.section
-          variants={sectionVariants}
-          initial="hidden"
-          animate="visible"
-          transition={{ delay: 1.0 }}
-          className="mb-16"
-        >
-          <h2 className="text-3xl font-bold text-center text-primary mb-10">
-            How to Participate
-          </h2>
+      {/* How to Participate Section */}
+      <motion.section
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        className="py-20"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              How to Participate
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Joining a clinical trial is a significant decision. Here’s how you can start.
+            </p>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="p-6 text-center">
-              <CardHeader>
-                <ColoredIcon
-                  Icon={Users}
-                  color="sky"
-                  size={48}
-                  className="mx-auto mb-4"
-                />
-                <CardTitle>1. Understand Eligibility</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground text-sm">
-                  Review the specific criteria for each trial to see if you
-                  qualify.
-                </p>
-              </CardContent>
+            <Card className="p-8 text-center">
+              <ColoredIcon
+                Icon={Users}
+                color="sky"
+                size={48}
+                className="mx-auto mb-6"
+              />
+              <h3 className="text-xl font-bold mb-2">1. Understand Eligibility</h3>
+              <p className="text-muted-foreground">
+                Review the specific criteria for each trial to see if you qualify.
+              </p>
             </Card>
-            <Card className="p-6 text-center">
-              <CardHeader>
-                <ColoredIcon
-                  Icon={Stethoscope}
-                  color="emerald"
-                  size={48}
-                  className="mx-auto mb-4"
-                />
-                <CardTitle>2. Consult Your Doctor</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground text-sm">
-                  Discuss clinical trial participation with your healthcare
-                  provider.
-                </p>
-              </CardContent>
+            <Card className="p-8 text-center">
+              <ColoredIcon
+                Icon={Stethoscope}
+                color="emerald"
+                size={48}
+                className="mx-auto mb-6"
+              />
+              <h3 className="text-xl font-bold mb-2">2. Consult Your Doctor</h3>
+              <p className="text-muted-foreground">
+                Discuss clinical trial participation with your healthcare provider.
+              </p>
             </Card>
-            <Card className="p-6 text-center">
-              <CardHeader>
-                <ColoredIcon
-                  Icon={MapPin}
-                  color="amber"
-                  size={48}
-                  className="mx-auto mb-4"
-                />
-                <CardTitle>3. Contact Us</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground text-sm">
-                  Reach out to our research team for more information or to
-                  express interest.
-                </p>
-              </CardContent>
+            <Card className="p-8 text-center">
+              <ColoredIcon
+                Icon={MapPin}
+                color="amber"
+                size={48}
+                className="mx-auto mb-6"
+              />
+              <h3 className="text-xl font-bold mb-2">3. Contact Us</h3>
+              <p className="text-muted-foreground">
+                Reach out to our research team for more information.
+              </p>
             </Card>
           </div>
-          <div className="text-center mt-10">
+          <div className="text-center mt-12">
             <Button size="lg">Contact Our Research Team</Button>
           </div>
-        </motion.section>
+        </div>
+      </motion.section>
 
-        {/* FAQ */}
-        <motion.section
-          variants={sectionVariants}
-          initial="hidden"
-          animate="visible"
-          transition={{ delay: 1.2 }}
-          className="mb-16"
-        >
-          <h2 className="text-3xl font-bold text-center text-primary mb-10">
-            Frequently Asked Questions
-          </h2>
-          <div className="max-w-3xl mx-auto space-y-4">
+      {/* FAQ Section */}
+      <motion.section
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        className="py-20 bg-muted/30"
+      >
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Frequently Asked Questions
+            </h2>
+          </div>
+          <div className="space-y-4">
             {faqs.map((faq, index) => (
               <Card key={index} className="p-4">
                 <div
                   className="flex justify-between items-center cursor-pointer font-semibold text-lg"
-                  onClick={() =>
-                    setOpenFaq(openFaq === index ? null : index)
-                  }
+                  onClick={() => setOpenFaq(openFaq === index ? null : index)}
                 >
                   {faq.question}
                   <ChevronDown
@@ -383,61 +381,65 @@ const ClinicalTrials = () => {
                 </div>
                 <AnimatePresence>
                   {openFaq === index && (
-                    <motion.div
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: "auto" }}
-                      exit={{ opacity: 0, height: 0 }}
-                      transition={{ duration: 0.3, ease: "easeOut" }}
-                      className="mt-2 text-muted-foreground"
-                    >
-                      {faq.answer}
-                    </motion.div>
-                  )}
+                                      <motion.div
+                                        initial={{ opacity: 0, height: 0 }}
+                                        animate={{ opacity: 1, height: "auto" }}
+                                        exit={{ opacity: 0, height: 0 }}
+                                        transition={{ duration: 0.3, ease: "easeOut" }}
+                                        className="overflow-hidden"
+                                      >
+                                        <div className="pt-4 mt-4 border-t text-muted-foreground">
+                                          {faq.answer}
+                                        </div>
+                                      </motion.div>                  )}
                 </AnimatePresence>
               </Card>
             ))}
           </div>
-        </motion.section>
+        </div>
+      </motion.section>
 
-        {/* Why Participate */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 1.0 }}
-          className="mt-16"
-        >
+      {/* Why Participate Section */}
+      <motion.section
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        className="py-20"
+      >
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <Card className="p-8 bg-gradient-to-r from-primary/5 to-secondary/5">
             <div className="text-center space-y-4">
-              <h2 className="text-2xl font-bold text-foreground">
+              <h2 className="text-3xl font-bold text-foreground">
                 Why Participate in Clinical Trials?
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                Your participation can make a significant impact on the future of medicine.
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-6">
                 <div className="space-y-2">
-                  <h3 className="font-semibold">Access to New Treatments</h3>
-                  <p className="text-sm text-muted-foreground">
-                    Get early access to potentially breakthrough therapies before
-                    they're widely available.
+                  <h3 className="font-semibold text-lg">Access to New Treatments</h3>
+                  <p className="text-muted-foreground">
+                    Get early access to potentially breakthrough therapies.
                   </p>
                 </div>
                 <div className="space-y-2">
-                  <h3 className="font-semibold">Expert Medical Care</h3>
-                  <p className="text-sm text-muted-foreground">
-                    Receive close monitoring and care from leading medical
-                    professionals and research teams.
+                  <h3 className="font-semibold text-lg">Expert Medical Care</h3>
+                  <p className="text-muted-foreground">
+                    Receive close monitoring from leading medical professionals.
                   </p>
                 </div>
                 <div className="space-y-2">
-                  <h3 className="font-semibold">Advance Medical Science</h3>
-                  <p className="text-sm text-muted-foreground">
-                    Contribute to medical research that may help future patients
-                    with similar conditions.
+                  <h3 className="font-semibold text-lg">Advance Medical Science</h3>
+                  <p className="text-muted-foreground">
+                    Contribute to research that may help future patients.
                   </p>
                 </div>
               </div>
             </div>
           </Card>
-        </motion.div>
-      </div>
+        </div>
+      </motion.section>
     </motion.div>
   );
 };

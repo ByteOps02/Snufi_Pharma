@@ -3,6 +3,7 @@ export interface Post {
   title: string;
   date: string;
   category: string;
+  tags: string[];
   excerpt: string;
   readTime: string;
   content: string;
@@ -14,6 +15,7 @@ export const blogPosts: Post[] = [
     title: "Sunfi Pharmaceuticals Rebrands to Snufi Pharma",
     date: "2025-09-16",
     category: "Company News",
+    tags: ["Branding", "Corporate"],
     excerpt:
       "We are excited to announce our strategic rebranding from Sunfi Pharmaceuticals to Snufi Pharma, reflecting our evolution and commitment to innovation in the pharmaceutical industry.",
     readTime: "2 min read",
@@ -37,6 +39,7 @@ export const blogPosts: Post[] = [
       "Snufi Pharmaceutical Receives FDA Approval for New Cardiovascular Drug",
     date: "2025-09-15",
     category: "Regulatory",
+    tags: ["FDA", "Cardiology", "Product"],
     excerpt:
       "CardioMax Pro receives FDA approval for treating hypertension, marking a significant milestone in cardiovascular care.",
     readTime: "3 min read",
@@ -57,6 +60,7 @@ export const blogPosts: Post[] = [
       "Partnership with Leading Research Institute for Alzheimer's Treatment",
     date: "2025-08-21",
     category: "Partnership",
+    tags: ["R&D", "Neurology", "Partnership"],
     excerpt:
       "Collaborative research initiative aims to develop breakthrough treatments for neurodegenerative diseases.",
     readTime: "5 min read",
@@ -76,6 +80,7 @@ export const blogPosts: Post[] = [
     title: "Sustainability Initiative: Carbon-Neutral Manufacturing by 2027",
     date: "2025-08-05",
     category: "Sustainability",
+    tags: ["Sustainability", "Corporate"],
     excerpt:
       "Snufi commits to achieving carbon-neutral manufacturing operations across all facilities worldwide.",
     readTime: "4 min read",

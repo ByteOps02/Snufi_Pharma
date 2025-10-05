@@ -125,16 +125,23 @@ const HealthcareProfessionals = () => {
         </div>
       </motion.section>
 
-      <div className="container mx-auto px-4 py-16">
-        {/* Resources Section */}
-        <motion.section
-          variants={sectionVariants}
-          initial="hidden"
-          animate="visible"
-          transition={{ delay: 0.6 }}
-          className="mb-16"
-        >
-          <h2 className="text-3xl font-bold text-center text-primary mb-10">Resources for Healthcare Professionals</h2>
+      {/* Resources Section */}
+      <motion.section
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        className="py-20"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Clinical & Scientific Resources
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Access our library of clinical data, publications, and product information.
+            </p>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {resources.map((resource) => (
               <Card key={resource.id} className="flex flex-col h-full p-6">
@@ -145,62 +152,82 @@ const HealthcareProfessionals = () => {
                 <CardContent className="flex-grow p-0 mb-4">
                   <p className="text-sm text-muted-foreground">{resource.description}</p>
                 </CardContent>
-                <Button asChild className="w-full">
+                <Button asChild className="w-full mt-auto">
                   <a href={resource.link} target="_blank" rel="noopener noreferrer">Download</a>
                 </Button>
               </Card>
             ))}
           </div>
-        </motion.section>
+        </div>
+      </motion.section>
 
-        {/* Medical Information Request Section */}
-        <motion.section
-          variants={sectionVariants}
-          initial="hidden"
-          animate="visible"
-          transition={{ delay: 0.8 }}
-          className="mb-16"
-        >
-          <h2 className="text-3xl font-bold text-center text-primary mb-10">Medical Information Request</h2>
-          <Card className="max-w-3xl mx-auto p-8">
-            <p className="text-muted-foreground mb-6 text-center">
-              Our medical information team is available to answer your specific questions about our products.
-              Please fill out the form below or contact us directly.
+      {/* Medical Information Request Section */}
+      <motion.section
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        className="py-20 bg-muted/30"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="pr-8">
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                Medical Information Request
+              </h2>
+              <p className="text-xl text-muted-foreground mb-6">
+                Our dedicated medical information team is available to answer your specific questions about our products, clinical data, and research.
+              </p>
+              <p className="text-muted-foreground">
+                Please fill out the form to submit your inquiry, and one of our specialists will get back to you promptly. For urgent requests, please contact us directly.
+              </p>
+            </div>
+            <Card className="p-8">
+              <h3 className="text-2xl font-bold text-center mb-6">Submit Your Inquiry</h3>
+              <form className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <Label htmlFor="name">Full Name</Label>
+                    <Input id="name" placeholder="John Doe" />
+                  </div>
+                  <div>
+                    <Label htmlFor="email">Email</Label>
+                    <Input id="email" type="email" placeholder="john.doe@example.com" />
+                  </div>
+                </div>
+                <div>
+                  <Label htmlFor="profession">Profession</Label>
+                  <Input id="profession" placeholder="e.g., Physician, Pharmacist" />
+                </div>
+                <div>
+                  <Label htmlFor="question">Your Question</Label>
+                  <Textarea id="question" placeholder="Type your question here..." rows={5} />
+                </div>
+                <Button type="submit" className="w-full" size="lg">Submit Request</Button>
+              </form>
+            </Card>
+          </div>
+        </div>
+      </motion.section>
+
+      {/* CME & Events Section */}
+      <motion.section
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        className="py-20"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Continuing Medical Education & Events
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Stay informed with our latest webinars, symposiums, and educational events.
             </p>
-            <form className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <Label htmlFor="name">Full Name</Label>
-                  <Input id="name" placeholder="John Doe" />
-                </div>
-                <div>
-                  <Label htmlFor="email">Email</Label>
-                  <Input id="email" type="email" placeholder="john.doe@example.com" />
-                </div>
-              </div>
-              <div>
-                <Label htmlFor="profession">Profession</Label>
-                <Input id="profession" placeholder="e.g., Physician, Pharmacist" />
-              </div>
-              <div>
-                <Label htmlFor="question">Your Question</Label>
-                <Textarea id="question" placeholder="Type your question here..." rows={5} />
-              </div>
-              <Button type="submit" className="w-full">Submit Request</Button>
-            </form>
-          </Card>
-        </motion.section>
-
-        {/* CME & Events Section */}
-        <motion.section
-          variants={sectionVariants}
-          initial="hidden"
-          animate="visible"
-          transition={{ delay: 1.0 }}
-          className="mb-16"
-        >
-          <h2 className="text-3xl font-bold text-center text-primary mb-10">CME & Events</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {events.map((event) => (
               <Card key={event.id} className="flex flex-col h-full p-6">
                 <CardHeader className="flex-row items-center space-x-4 p-0 mb-4">
@@ -211,34 +238,47 @@ const HealthcareProfessionals = () => {
                   <p className="text-sm text-muted-foreground mb-2">{event.description}</p>
                   <p className="text-sm font-medium text-primary"><Calendar className="inline-block w-4 h-4 mr-1" /> {event.date}</p>
                 </CardContent>
-                <Button asChild variant="outline" className="w-full">
+                <Button asChild variant="outline" className="w-full mt-auto">
                   <a href={event.link} target="_blank" rel="noopener noreferrer">Learn More</a>
                 </Button>
               </Card>
             ))}
           </div>
-        </motion.section>
+        </div>
+      </motion.section>
 
-        {/* Our Therapeutic Areas Section */}
-        <motion.section
-          variants={sectionVariants}
-          initial="hidden"
-          animate="visible"
-          transition={{ delay: 1.2 }}
-          className="mb-16"
-        >
-          <h2 className="text-3xl font-bold text-center text-primary mb-10">Our Therapeutic Areas</h2>
+      {/* Our Therapeutic Areas Section */}
+      <motion.section
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        className="py-20 bg-muted/30"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Focus on Therapeutic Areas
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Our research and development efforts are concentrated in key areas of unmet medical need.
+            </p>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {therapeuticAreas.map((area, index) => (
               <Card key={index} className="p-6 text-center">
-                <area.icon className="w-12 h-12 text-primary mx-auto mb-4" />
+                <div className="flex justify-center mb-4">
+                  <div className="w-16 h-16 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl flex items-center justify-center">
+                    <area.icon className="w-8 h-8 text-primary" />
+                  </div>
+                </div>
                 <CardTitle className="text-xl font-semibold mb-2">{area.name}</CardTitle>
                 <CardDescription className="text-sm text-muted-foreground">{area.description}</CardDescription>
               </Card>
             ))}
           </div>
-        </motion.section>
-      </div>
+        </div>
+      </motion.section>
     </motion.div>
   );
 };

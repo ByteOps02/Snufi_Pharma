@@ -1,6 +1,6 @@
-import React from "react";
 import { Post } from "@/lib/blog";
-import { ArrowLeft, Calendar, Clock } from "lucide-react";
+import { Calendar, Clock, ArrowLeft } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
 
 interface BlogPostLayoutProps {
@@ -14,30 +14,33 @@ const BlogPostLayout = ({ post, children }: BlogPostLayoutProps) => {
       <div className="mb-8">
         <Link
           to="/blog"
-          className="inline-flex items-center text-sm font-medium text-primary hover:text-primary-dark"
+          className="inline-flex items-center text-sm text-muted-foreground hover:text-foreground transition-colors"
         >
-          <ArrowLeft className="mr-2" size={16} />
-          Back to Blog
+          <ArrowLeft className="w-4 h-4 mr-2" />
+          Back to all articles
         </Link>
       </div>
       <article>
-        <header className="mb-8">
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+        <header className="mb-8 text-center">
+          <div className="flex justify-center items-center gap-4 mb-4">
+            <Badge variant="secondary">{post.category}</Badge>
+            <div className="flex items-center gap-2">
+              {post.tags.map((tag) => (
+                <Badge key={tag}>{tag}</Badge>
+              ))}
+            </div>
+          </div>
+          <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
             {post.title}
           </h1>
-          <div className="flex items-center space-x-4 text-muted-foreground text-sm">
+          <div className="flex justify-center items-center space-x-4 text-muted-foreground text-sm">
             <div className="flex items-center">
-              <Calendar className="mr-2" size={16} />
-              <span>{new Date(post.date).toLocaleDateString()}</span>
+              <Calendar className="w-4 h-4 mr-1" />
+              {new Date(post.date).toLocaleDateString()}
             </div>
             <div className="flex items-center">
-              <Clock className="mr-2" size={16} />
-              <span>{post.readTime}</span>
-            </div>
-            <div>
-              <span className="px-3 py-1 bg-primary/10 text-primary text-xs font-medium rounded-full">
-                {post.category}
-              </span>
+              <Clock className="w-4 h-4 mr-1" />
+              {post.readTime}
             </div>
           </div>
         </header>
