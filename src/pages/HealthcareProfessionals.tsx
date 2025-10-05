@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import { ColoredIcon } from "@/components/ui/colored-icon";
 import { FileText, Calendar, FlaskConical, Heart, Brain, Shield } from "lucide-react";
 
 const HealthcareProfessionals = () => {
@@ -72,21 +73,25 @@ const HealthcareProfessionals = () => {
       name: "Oncology",
       description: "Dedicated to developing innovative treatments for various cancers.",
       icon: FlaskConical,
+      color: "sky" as const,
     },
     {
       name: "Cardiology",
       description: "Pioneering solutions for cardiovascular health and disease prevention.",
       icon: Heart,
+      color: "rose" as const,
     },
     {
       name: "Neurology",
       description: "Advancing therapies for neurological disorders, including rare conditions.",
       icon: Brain,
+      color: "indigo" as const,
     },
     {
       name: "Immunology",
       description: "Researching novel approaches to treat autoimmune and inflammatory diseases.",
       icon: Shield,
+      color: "emerald" as const,
     },
   ];
 
@@ -268,8 +273,18 @@ const HealthcareProfessionals = () => {
             {therapeuticAreas.map((area, index) => (
               <Card key={index} className="p-6 text-center">
                 <div className="flex justify-center mb-4">
-                  <div className="w-16 h-16 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl flex items-center justify-center">
-                    <area.icon className="w-8 h-8 text-primary" />
+                  <div
+                    className={`w-16 h-16 rounded-2xl flex items-center justify-center shadow-sm ${
+                      area.color === "sky"
+                        ? "bg-sky-100 dark:bg-sky-900/20"
+                        : area.color === "rose"
+                        ? "bg-rose-100 dark:bg-rose-900/20"
+                        : area.color === "indigo"
+                        ? "bg-indigo-100 dark:bg-indigo-900/20"
+                        : "bg-emerald-100 dark:bg-emerald-900/20"
+                    }`}
+                  >
+                    <ColoredIcon Icon={area.icon} color={area.color} size={32} />
                   </div>
                 </div>
                 <CardTitle className="text-xl font-semibold mb-2">{area.name}</CardTitle>
