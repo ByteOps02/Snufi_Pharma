@@ -7,5 +7,3 @@ export * from './LatestNews';
 export * from './Awards';
 export { default as Sustainability } from './Sustainability';
 export * from './Community';
-export * from './Careers';
-export * from './CTA';
