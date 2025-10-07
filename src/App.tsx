@@ -68,7 +68,7 @@ const router = createBrowserRouter([
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <ThemeProvider storageKey="snufi-theme">
+    <ThemeProvider storageKey="snufi-pharma-theme">
       <TooltipProvider>
         <Toaster />
         <Sonner />
