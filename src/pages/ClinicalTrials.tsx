@@ -307,45 +307,115 @@ const ClinicalTrials = () => {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="p-8 text-center">
-              <ColoredIcon
-                Icon={Users}
-                color="sky"
-                size={48}
-                className="mx-auto mb-6"
-              />
-              <h3 className="text-xl font-bold mb-2">1. Understand Eligibility</h3>
-              <p className="text-muted-foreground">
-                Review the specific criteria for each trial to see if you qualify.
-              </p>
-            </Card>
-            <Card className="p-8 text-center">
-              <ColoredIcon
-                Icon={Stethoscope}
-                color="emerald"
-                size={48}
-                className="mx-auto mb-6"
-              />
-              <h3 className="text-xl font-bold mb-2">2. Consult Your Doctor</h3>
-              <p className="text-muted-foreground">
-                Discuss clinical trial participation with your healthcare provider.
-              </p>
-            </Card>
-            <Card className="p-8 text-center">
-              <ColoredIcon
-                Icon={MapPin}
-                color="amber"
-                size={48}
-                className="mx-auto mb-6"
-              />
-              <h3 className="text-xl font-bold mb-2">3. Contact Us</h3>
-              <p className="text-muted-foreground">
-                Reach out to our research team for more information.
-              </p>
-            </Card>
+            {[
+              {
+                icon: Users,
+                color: "sky",
+                title: "1. Understand Eligibility",
+                description: "Review the specific criteria for each trial to see if you qualify.",
+              },
+              {
+                icon: Stethoscope,
+                color: "emerald",
+                title: "2. Consult Your Doctor",
+                description: "Discuss clinical trial participation with your healthcare provider.",
+              },
+              {
+                icon: MapPin,
+                color: "amber",
+                title: "3. Contact Us",
+                description: "Reach out to our research team for more information.",
+              },
+            ].map((step, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ scale: 1.02, y: -2, transition: { duration: 0.3 } }}
+                className="h-full"
+              >
+                <Card className="p-8 text-center h-full transition-shadow hover:shadow-xl">
+                  <ColoredIcon
+                    Icon={step.icon}
+                    color={step.color as "sky" | "emerald" | "amber"}
+                    size={48}
+                    className="mx-auto mb-6"
+                  />
+                  <h3 className="text-xl font-bold mb-2">{step.title}</h3>
+                  <p className="text-muted-foreground">{step.description}</p>
+                </Card>
+              </motion.div>
+            ))}
           </div>
           <div className="text-center mt-12">
             <Button size="lg">Contact Our Research Team</Button>
+          </div>
+        </div>
+      </motion.section>
+
+      {/* Featured Trial Section */}
+      <motion.section
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        className="py-20 bg-gradient-to-r from-primary/5 to-secondary/5"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <Badge variant="outline" className="mb-4 text-base">Featured Trial</Badge>
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                Advancing Alzheimer's Research: The SNF-004 Study
+              </h2>
+              <p className="text-lg text-muted-foreground mb-6">
+                We are actively seeking participants for a groundbreaking Phase 2 clinical trial evaluating SNF-004, a novel therapy designed to slow the progression of early-stage Alzheimer's disease. This study represents a new hope in the fight against this devastating condition.
+              </p>
+              <div className="space-y-4 mb-8">
+                <div className="flex items-start">
+                  <div className="w-6 h-6 rounded-full bg-emerald-500 flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+                    <FlaskConical className="w-4 h-4 text-white" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold">Novel Mechanism</h4>
+                    <p className="text-muted-foreground">SNF-004 targets a unique pathway believed to be critical in the early stages of Alzheimer's.</p>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <div className="w-6 h-6 rounded-full bg-sky-500 flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+                    <Users className="w-4 h-4 text-white" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold">Who Can Participate?</h4>
+                    <p className="text-muted-foreground">Individuals aged 55-80 with a diagnosis of mild cognitive impairment or early-stage Alzheimer's disease.</p>
+                  </div>
+                </div>
+              </div>
+              <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
+                Check Your Eligibility
+              </Button>
+            </div>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
+              className="hidden lg:block"
+            >
+              <Card className="p-8 bg-background/50 shadow-lg">
+                <CardHeader>
+                  <CardTitle>SNF-004 Trial Overview</CardTitle>
+                  <CardDescription>Key details of the study.</CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <p><strong>Phase:</strong> 2</p>
+                  <p><strong>Condition:</strong> Early-Stage Alzheimer's Disease</p>
+                  <p><strong>Duration:</strong> 24-month treatment period</p>
+                  <p><strong>Primary Outcome:</strong> Change in cognitive function scores</p>
+                  <p><strong>Locations:</strong> Major research centers across North America and Europe</p>
+                </CardContent>
+              </Card>
+            </motion.div>
           </div>
         </div>
       </motion.section>

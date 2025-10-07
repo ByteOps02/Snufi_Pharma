@@ -4,18 +4,20 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ThemeProvider } from "@/components/theme-provider";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { lazy, Suspense } from "react";
 import Layout from "./components/layout/Layout";
-import Home from "./pages/Home";
-import About from "./pages/About";
-import Products from "./pages/Products";
-import Services from "./pages/Services";
-import Contact from "./pages/Contact";
-import Careers from "./pages/Careers";
-import Blog from "./pages/Blog";
-import BlogPost from "./pages/BlogPost";
-import ClinicalTrials from "./pages/ClinicalTrials";
-import HealthcareProfessionals from "./pages/HealthcareProfessionals";
-import NotFound from "./pages/NotFound";
+
+const Home = lazy(() => import("./pages/Home"));
+const About = lazy(() => import("./pages/About"));
+const Products = lazy(() => import("./pages/Products"));
+const Services = lazy(() => import("./pages/Services"));
+const Contact = lazy(() => import("./pages/Contact"));
+const Careers = lazy(() => import("./pages/Careers"));
+const Blog = lazy(() => import("./pages/Blog"));
+const BlogPost = lazy(() => import("./pages/BlogPost"));
+const ClinicalTrials = lazy(() => import("./pages/ClinicalTrials"));
+const HealthcareProfessionals = lazy(() => import("./pages/HealthcareProfessionals"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
 
@@ -72,7 +74,9 @@ const App = () => (
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <RouterProvider router={router} />
+        <Suspense fallback={<div>Loading...</div>}>
+          <RouterProvider router={router} />
+        </Suspense>
       </TooltipProvider>
     </ThemeProvider>
   </QueryClientProvider>
