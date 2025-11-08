@@ -415,46 +415,7 @@ const Products = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <Card className="p-8 bg-gradient-to-r from-primary/5 to-secondary/5 border-primary/20">
-              <h2 className="text-2xl font-bold text-foreground mb-4">
-                Need More Information?
-              </h2>
-              <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-                Our medical affairs team is here to provide detailed product information, 
-                clinical data, and support for healthcare professionals.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Dialog>
-                  <DialogTrigger asChild>
-                    <Button size="lg">
-                      Contact Medical Affairs
-                    </Button>
-                  </DialogTrigger>
-                  <DialogContent className="max-w-md">
-                    <DialogHeader>
-                      <DialogTitle>Medical Affairs Contact</DialogTitle>
-                    </DialogHeader>
-                    <MedicalAffairsForm />
-                  </DialogContent>
-                </Dialog>
-                <Button size="lg" variant="outline">
-                  <Download className="h-4 w-4 mr-2" />
-                  Download Product Catalog
-                </Button>
-              </div>
-            </Card>
-          </motion.div>
-        </div>
-      </section>
+
     </motion.div>
   );
 };
