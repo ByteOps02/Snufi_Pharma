@@ -4,6 +4,7 @@ import { SpeedInsights } from "@vercel/speed-insights/react";
 import Footer from "./Footer";
 import ScrollToTopButton from "./ScrollToTopButton";
 import ScrollToTop from "./ScrollToTop";
+import { ChatWidget } from "@/components/ui/chat-widget";
 
 
 interface LayoutProps {
@@ -18,6 +19,7 @@ const Layout = ({ children }: LayoutProps) => {
       <main className="pt-16 flex-grow">{children}</main>
       <Footer />
       <ScrollToTopButton />
+      <ChatWidget />
       <SpeedInsights />
     </div>
   );

@@ -11,6 +11,11 @@ import {
   Sustainability,
   Community,
 } from "@/components/home";
+import VideoShowcase from "@/components/home/VideoShowcase";
+import InteractiveTimeline from "@/components/home/InteractiveTimeline";
+import NewsletterSection from "@/components/home/NewsletterSection";
+import PatientResources from "@/components/home/PatientResources";
+import TrustedPartners from "@/components/home/TrustedPartners";
 
 const Home = () => {
   // Scroll to top when component mounts
@@ -29,12 +34,16 @@ const Home = () => {
       <Stats />
       <Features />
       <TherapeuticAreas />
+      <VideoShowcase />
       <Testimonials />
+      <TrustedPartners />
+      <InteractiveTimeline />
       <LatestNews />
       <Awards />
       <Sustainability />
+      <PatientResources />
       <Community />
-
+      <NewsletterSection />
     </motion.div>
   );
 };

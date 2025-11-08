@@ -7,3 +7,8 @@ export * from './LatestNews';
 export * from './Awards';
 export { default as Sustainability } from './Sustainability';
 export * from './Community';
+export { default as VideoShowcase } from './VideoShowcase';
+export { default as InteractiveTimeline } from './InteractiveTimeline';
+export { default as NewsletterSection } from './NewsletterSection';
+export { default as PatientResources } from './PatientResources';
+export { default as TrustedPartners } from './TrustedPartners';
