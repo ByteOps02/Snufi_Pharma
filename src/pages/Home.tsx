@@ -37,11 +37,9 @@ const Home = () => {
       <VideoShowcase />
       <Testimonials />
       <TrustedPartners />
-      <InteractiveTimeline />
       <LatestNews />
       <Awards />
       <Sustainability />
-      <PatientResources />
       <Community />
       <NewsletterSection />
     </motion.div>

@@ -25,7 +25,7 @@ export const Hero = () => {
   };
 
   return (
-    <section ref={ref} className="relative min-h-screen flex items-center bg-gradient-hero overflow-hidden">
+    <section ref={ref} className="relative min-h-screen flex items-center bg-primary overflow-hidden">
       <motion.div
         style={{ y, opacity }}
         className="absolute inset-0"
@@ -35,7 +35,7 @@ export const Hero = () => {
           alt="Modern pharmaceutical laboratory"
           className="w-full h-full object-cover opacity-30"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
+
       </motion.div>
 
       <div className="absolute inset-0 overflow-hidden pointer-events-none">

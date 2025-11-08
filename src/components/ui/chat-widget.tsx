@@ -117,14 +117,14 @@ export const ChatWidget = () => {
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-gradient-to-br from-primary to-primary-dark text-white rounded-full shadow-2xl flex items-center justify-center hover:shadow-3xl transition-shadow"
+        className="fixed bottom-4 right-16 z-50 w-10 h-10 bg-gradient-to-br from-primary to-primary-dark text-white rounded-full shadow-2xl flex items-center justify-center hover:shadow-3xl transition-shadow"
       >
         {isOpen ? <X className="h-6 w-6" /> : <MessageCircle className="h-6 w-6" />}
         {!isOpen && (
           <motion.div
             animate={{ scale: [1, 1.2, 1] }}
             transition={{ duration: 2, repeat: Infinity }}
-            className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full ring-2 ring-white"
+            className="absolute -top-1 -right-1 w-2 h-2 bg-green-500 rounded-full ring-1 ring-white"
           />
         )}
       </motion.button>

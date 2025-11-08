@@ -99,7 +99,7 @@ export const Testimonials = () => {
                   "{testimonial.content}"
                 </p>
                 <div className="flex items-center space-x-3">
-                  <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center text-primary-foreground font-bold">
+                  <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-primary-foreground font-bold">
                     {testimonial.avatar}
                   </div>
                   <div>
