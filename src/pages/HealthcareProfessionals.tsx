@@ -7,23 +7,14 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { ColoredIcon } from "@/components/ui/colored-icon";
 import { FileText, Calendar, FlaskConical, Heart, Brain, Shield } from "lucide-react";
+import { cardVariants, cardHoverVariants, sectionVariants } from "@/lib/animations";
 
 const HealthcareProfessionals = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const sectionVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut",
-      },
-    },
-  };
+  // Using centralized sectionVariants from @/lib/animations for consistency
 
   const resources = [
     {

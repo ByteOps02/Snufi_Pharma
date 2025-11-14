@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/select";
 import axios from "axios";
 import { motion, AnimatePresence } from "framer-motion";
+import { cardVariants, cardHoverVariants, sectionVariants } from "@/lib/animations";
 import { cn } from "@/lib/utils";
 
 const Contact = () => {
@@ -176,29 +177,7 @@ const Contact = () => {
     },
   ];
 
-  const sectionVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut",
-      },
-    },
-  };
-
-  const cardVariants = {
-    hidden: { opacity: 0, scale: 0.9 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 0.5,
-        ease: "easeOut",
-      },
-    },
-  };
+  // Using centralized sectionVariants from @/lib/animations for consistency
 
   return (
     <motion.div

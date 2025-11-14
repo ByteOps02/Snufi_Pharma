@@ -21,6 +21,7 @@ import {
   ChevronDown,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { cardVariants, cardHoverVariants, sectionVariants } from "@/lib/animations";
 import { cn } from "@/lib/utils";
 
 const ClinicalTrials = () => {
@@ -122,18 +123,7 @@ const ClinicalTrials = () => {
     },
   ];
 
-  // ✅ FIX: Explicitly typed as Variants
-  const sectionVariants: Variants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut",
-      },
-    },
-  };
+  // Using centralized sectionVariants from @/lib/animations for consistency
 
   return (
     <motion.div
@@ -470,46 +460,7 @@ const ClinicalTrials = () => {
       </motion.section>
 
       {/* Why Participate Section */}
-      <motion.section
-        variants={sectionVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
-        className="py-20"
-      >
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Card className="p-8 bg-gradient-to-r from-primary/5 to-secondary/5">
-            <div className="text-center space-y-4">
-              <h2 className="text-3xl font-bold text-foreground">
-                Why Participate in Clinical Trials?
-              </h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
-                Your participation can make a significant impact on the future of medicine.
-              </p>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-6">
-                <div className="space-y-2">
-                  <h3 className="font-semibold text-lg">Access to New Treatments</h3>
-                  <p className="text-muted-foreground">
-                    Get early access to potentially breakthrough therapies.
-                  </p>
-                </div>
-                <div className="space-y-2">
-                  <h3 className="font-semibold text-lg">Expert Medical Care</h3>
-                  <p className="text-muted-foreground">
-                    Receive close monitoring from leading medical professionals.
-                  </p>
-                </div>
-                <div className="space-y-2">
-                  <h3 className="font-semibold text-lg">Advance Medical Science</h3>
-                  <p className="text-muted-foreground">
-                    Contribute to research that may help future patients.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </Card>
-        </div>
-      </motion.section>
+      {/* 'Why Participate' section removed per request */}
     </motion.div>
   );
 };

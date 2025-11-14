@@ -4,6 +4,7 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ColoredIcon } from "@/components/ui/colored-icon";
 import { motion } from "framer-motion";
+import { cardVariants, cardHoverVariants, sectionVariants } from "@/lib/animations";
 
 const About = () => {
   useEffect(() => {
@@ -63,17 +64,7 @@ const About = () => {
     }
   ];
 
-  const sectionVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut",
-      },
-    },
-  };
+  // Using centralized sectionVariants from @/lib/animations for consistency
 
   return (
     <motion.div

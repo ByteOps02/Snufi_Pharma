@@ -17,7 +17,7 @@ import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { ColoredIcon } from "@/components/ui/colored-icon";
 import { motion, AnimatePresence } from "framer-motion";
-
+import { cardVariants, cardHoverVariants, sectionVariants } from "@/lib/animations";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import MedicalAffairsForm from "@/components/forms/MedicalAffairsForm";
@@ -163,17 +163,7 @@ const Products = () => {
     }
   ];
 
-  const sectionVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut",
-      },
-    },
-  };
+  // Using centralized sectionVariants from @/lib/animations for consistency
 
   return (
     <motion.div
@@ -282,7 +272,8 @@ const Products = () => {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   layout
                 >
-                  <Card className="p-6 h-full hover:shadow-lg transition-all duration-300 border border-border rounded-lg">
+                <motion.div whileHover={cardHoverVariants.hover}>
+                  <Card className="p-6 h-full hover:shadow-lg transition-shadow border border-border rounded-lg">
                     <div className="space-y-4">
                       <div className="flex items-start justify-between">
                         <div>
@@ -334,6 +325,7 @@ const Products = () => {
                       </div>
                     </div>
                   </Card>
+                </motion.div>
                 </motion.div>
               ))}
             </div>

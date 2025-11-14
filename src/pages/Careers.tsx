@@ -22,6 +22,7 @@ import { Input } from "@/components/ui/input";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import ApplyNowForm from "@/components/forms/ApplyNowForm";
 import { motion } from "framer-motion";
+import { cardVariants, cardHoverVariants, sectionVariants } from "@/lib/animations";
 
 const Careers = () => {
   useEffect(() => {
@@ -185,17 +186,7 @@ const Careers = () => {
     }
   ];
 
-  const sectionVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut",
-      },
-    },
-  };
+  // Using centralized sectionVariants from @/lib/animations for consistency
 
   return (
     <motion.div
@@ -326,8 +317,9 @@ const Careers = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
+                whileHover={cardHoverVariants.hover}
               >
-                <Card className="p-6 h-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                <Card className="p-6 h-full hover:shadow-lg transition-shadow">
                   <div className="space-y-4">
                     <div className="flex items-start justify-between">
                       <div className="flex-1">
@@ -429,8 +421,9 @@ const Careers = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
+                whileHover={cardHoverVariants.hover}
               >
-                <Card className="p-6 h-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                <Card className="p-6 h-full hover:shadow-lg transition-shadow">
                   <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-4 shadow-sm ${
                     benefit.title === "Health & Wellness"
                       ? "bg-rose-100 dark:bg-rose-900/20"
@@ -489,8 +482,9 @@ const Careers = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
+                whileHover={cardHoverVariants.hover}
               >
-                <Card className="p-8 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                <Card className="p-8 hover:shadow-lg transition-shadow">
                   <div className="flex items-start gap-4">
                     <div className={`w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-sm ${
                       value.title === "Innovation"
@@ -528,36 +522,7 @@ const Careers = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-muted/30">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <Card className="p-8 bg-gradient-to-r from-primary/5 to-secondary/5 border-primary/20">
-              <h2 className="text-2xl font-bold text-foreground mb-4">
-                Ready to Make a Difference?
-              </h2>
-              <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-                Join our mission to develop life-changing medicines and advance healthcare innovation. 
-                If you're passionate about making a positive impact, we'd love to hear from you.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg">
-                  <Briefcase className="h-4 w-4 mr-2" />
-                  View All Openings
-                </Button>
-                <Button size="lg" variant="outline">
-                  <Users className="h-4 w-4 mr-2" />
-                  Meet Our Team
-                </Button>
-              </div>
-            </Card>
-          </motion.div>
-        </div>
-      </section>
+      {/* CTA section removed per request */}
     </motion.div>
   );
 };

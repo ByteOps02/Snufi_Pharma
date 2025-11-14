@@ -20,7 +20,7 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ColoredIcon } from "@/components/ui/colored-icon";
 import { motion } from "framer-motion";
-
+import { cardVariants, cardHoverVariants, sectionVariants } from "@/lib/animations";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import GetStartedForm from "@/components/forms/GetStartedForm";
 import { cn } from "@/lib/utils";
@@ -181,17 +181,7 @@ const Services = () => {
     }
   ];
 
-  const sectionVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut",
-      },
-    },
-  };
+  // Using centralized sectionVariants from @/lib/animations for consistency
 
   return (
     <motion.div
@@ -284,8 +274,9 @@ const Services = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
+                whileHover={cardHoverVariants.hover}
               >
-                <Card className="p-8 h-full flex flex-col hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                <Card className="p-8 h-full flex flex-col hover:shadow-lg transition-shadow">
                   <div className="space-y-6 flex-grow">
                     <div className="flex items-start justify-between">
                       <div className="flex items-center gap-4">

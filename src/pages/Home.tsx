@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, lazy, Suspense } from "react";
 import { motion } from "framer-motion";
 import {
   Hero,
@@ -11,11 +11,18 @@ import {
   Sustainability,
   Community,
 } from "@/components/home";
-import VideoShowcase from "@/components/home/VideoShowcase";
-import InteractiveTimeline from "@/components/home/InteractiveTimeline";
-import NewsletterSection from "@/components/home/NewsletterSection";
-import PatientResources from "@/components/home/PatientResources";
-import TrustedPartners from "@/components/home/TrustedPartners";
+
+// Lazy load heavy components
+const VideoShowcase = lazy(() => import("@/components/home/VideoShowcase"));
+const InteractiveTimeline = lazy(() => import("@/components/home/InteractiveTimeline"));
+const NewsletterSection = lazy(() => import("@/components/home/NewsletterSection"));
+const PatientResources = lazy(() => import("@/components/home/PatientResources"));
+const TrustedPartners = lazy(() => import("@/components/home/TrustedPartners"));
+
+// Loading skeleton component
+const SkeletonLoader = () => (
+  <div className="w-full h-64 bg-muted animate-pulse rounded-lg" />
+);
 
 const Home = () => {
   // Scroll to top when component mounts
@@ -34,14 +41,22 @@ const Home = () => {
       <Stats />
       <Features />
       <TherapeuticAreas />
-      <VideoShowcase />
+      <Suspense fallback={<SkeletonLoader />}>
+        <VideoShowcase />
+      </Suspense>
       <Testimonials />
-      <TrustedPartners />
+      <Suspense fallback={<SkeletonLoader />}>
+        <TrustedPartners />
+      </Suspense>
       <LatestNews />
       <Awards />
-      <Sustainability />
+      <Suspense fallback={<SkeletonLoader />}>
+        <Sustainability />
+      </Suspense>
       <Community />
-      <NewsletterSection />
+      <Suspense fallback={<SkeletonLoader />}>
+        <NewsletterSection />
+      </Suspense>
     </motion.div>
   );
 };
