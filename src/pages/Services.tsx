@@ -23,7 +23,6 @@ import { motion } from "framer-motion";
 import { cardVariants, cardHoverVariants, sectionVariants } from "@/lib/animations";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import GetStartedForm from "@/components/forms/GetStartedForm";
-import { cn } from "@/lib/utils";
 
 const Services = () => {
   useEffect(() => {
@@ -232,7 +231,7 @@ const Services = () => {
                 viewport={{ once: true }}
               >
                 <Card className="p-6 text-center h-full flex flex-col hover:shadow-lg transition-shadow">
-                  <div className={cn("w-12 h-12 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm", capability.bgColor)}>
+                  <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm ${capability.bgColor}`}>
                     <ColoredIcon
                       Icon={capability.icon}
                       color={capability.iconColor}

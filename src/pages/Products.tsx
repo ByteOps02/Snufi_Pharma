@@ -20,7 +20,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { cardVariants, cardHoverVariants, sectionVariants } from "@/lib/animations";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
-import MedicalAffairsForm from "@/components/forms/MedicalAffairsForm";
 
 const Products = () => {
   useEffect(() => {
