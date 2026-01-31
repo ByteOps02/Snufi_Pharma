@@ -30,29 +30,7 @@ const features = [
   },
 ];
 
-const sectionVariants = {
-  hidden: { opacity: 0, y: 50 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: "easeOut",
-    },
-  },
-};
-
-const cardVariants = {
-  hidden: { opacity: 0, scale: 0.9 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: {
-      duration: 0.5,
-      ease: "easeOut",
-    },
-  },
-};
+import { cardVariants, sectionVariants } from "@/lib/animations";
 
 export const Features = () => {
   return (
@@ -79,29 +57,27 @@ export const Features = () => {
             <motion.div
               key={index}
               variants={cardVariants}
-              whileHover={{ scale: 1.02, y: -2 }}
               transition={{ duration: 0.3 }}
             >
               <Card className="p-6">
-                <div className={`w-12 h-12 rounded-lg flex items-center justify-center mb-4 shadow-sm ${
-                  index === 0
-                    ? "bg-sky-100 dark:bg-sky-900/20"
-                    : index === 1
+                <div className={`w-12 h-12 rounded-lg flex items-center justify-center mb-4 shadow-sm ${index === 0
+                  ? "bg-sky-100 dark:bg-sky-900/20"
+                  : index === 1
                     ? "bg-emerald-100 dark:bg-emerald-900/20"
                     : index === 2
-                    ? "bg-rose-100 dark:bg-rose-900/20"
-                    : "bg-violet-100 dark:bg-violet-900/20"
-                }`}>
+                      ? "bg-rose-100 dark:bg-rose-900/20"
+                      : "bg-violet-100 dark:bg-violet-900/20"
+                  }`}>
                   <ColoredIcon
                     Icon={feature.icon}
                     color={
                       index === 0
                         ? "sky"
                         : index === 1
-                        ? "emerald"
-                        : index === 2
-                        ? "rose"
-                        : "violet"
+                          ? "emerald"
+                          : index === 2
+                            ? "rose"
+                            : "violet"
                     }
                     size={24}
                   />

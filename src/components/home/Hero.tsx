@@ -64,7 +64,7 @@ export const Hero = () => {
         <div className="max-w-3xl">
           <motion.div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
             <Sparkles className="h-4 w-4 text-secondary-light" />
-            <span className="text-sm text-white/90">Pioneering Pharmaceutical Excellence Since 2016</span>
+            <span className="text-sm text-white/90">Leading Pharmaceutical Manufacturer in India Since 2016</span>
           </motion.div>
 
           <motion.h1
@@ -84,8 +84,8 @@ export const Hero = () => {
             className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed"
           >
             Snufi Pharmaceutical is dedicated to developing innovative
-            medicines that improve lives worldwide. With over a decade of
-            excellence, we continue to push the boundaries of medical science.
+            medicines that improve lives worldwide. Operating from our state-of-the-art
+            manufacturing facilities in India, we deliver quality healthcare solutions globally.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}

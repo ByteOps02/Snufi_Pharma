@@ -1,13 +1,14 @@
 import { motion } from "framer-motion";
 
+
 const TrustedPartners = () => {
   const partners = [
-    { name: "Johns Hopkins Medicine", logo: "JH" },
-    { name: "Mayo Clinic", logo: "MC" },
-    { name: "Cleveland Clinic", logo: "CC" },
-    { name: "Massachusetts General Hospital", logo: "MGH" },
-    { name: "Stanford Health Care", logo: "SHC" },
-    { name: "UCSF Medical Center", logo: "UCSF" },
+    { name: "AIIMS", logo: "AIIMS" },
+    { name: "Apollo Hospitals", logo: "AH" },
+    { name: "Tata Memorial Centre", logo: "TMC" },
+    { name: "Fortis Healthcare", logo: "FH" },
+    { name: "Medanta - The Medicity", logo: "MED" },
+    { name: "NIMHANS", logo: "NIM" },
   ];
 
   return (
@@ -36,7 +37,6 @@ const TrustedPartners = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              whileHover={{ scale: 1.05, y: -5 }}
               className="flex items-center justify-center"
             >
               <div className="group cursor-pointer">

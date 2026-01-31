@@ -11,13 +11,14 @@ import {
   CheckCircle,
   Globe
 } from "lucide-react";
+import { SEOHead } from "@/components/common/SEOHead";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { ColoredIcon } from "@/components/ui/colored-icon";
 import { motion, AnimatePresence } from "framer-motion";
-import { cardVariants, cardHoverVariants, sectionVariants } from "@/lib/animations";
+import { sectionVariants } from "@/lib/animations";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
@@ -114,7 +115,7 @@ const Products = () => {
 
   const filteredProducts = products.filter((product) => {
     const matchesCategory = selectedCategory === "all" || product.category === selectedCategory;
-    const matchesSearch = 
+    const matchesSearch =
       product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       product.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
       product.indication.toLowerCase().includes(searchTerm.toLowerCase());
@@ -177,6 +178,11 @@ const Products = () => {
         animate="visible"
         className="py-12 bg-gradient-subtle"
       >
+        <SEOHead
+          title="Products"
+          description="Explore our comprehensive range of FDA-approved pharmaceutical products including cardiovascular, neurological, and immunological treatments."
+          keywords="pharmaceutical products, medicines, drugs, cardiovascular, neurology, Snufi Pharma products"
+        />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <motion.h1
@@ -193,16 +199,25 @@ const Products = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed"
             >
-              Discover our comprehensive range of FDA-approved medications designed to improve patient outcomes 
+              Discover our comprehensive range of FDA-approved medications designed to improve patient outcomes
               across multiple therapeutic areas.
             </motion.p>
           </div>
         </div>
       </motion.section>
 
+      {/* Brochure Download CTA */}
+      <section className="bg-primary/5 py-4 border-b border-primary/10" >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-end">
+          <Button variant="outline" className="gap-2">
+            <Download className="w-4 h-4" />
+            Download Product Brochure (PDF)
+          </Button>
+        </div>
+      </section >
 
       {/* Search and Filter Section */}
-      <section className="py-8 bg-background">
+      <section className="py-8 bg-background" >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="space-y-6">
             <div className="relative max-w-md">
@@ -221,24 +236,21 @@ const Products = () => {
                   key={category.id}
                   variant="outline"
                   onClick={() => setSelectedCategory(category.id)}
-                  className={`rounded-full px-4 py-2 text-sm border transition-all ${
-                    selectedCategory === category.id 
-                      ? "bg-primary border-primary text-primary-foreground hover:bg-primary/90" 
-                      : "border-border text-foreground hover:bg-muted hover:border-muted-foreground"
-                  }`}
+                  className={`rounded-full px-4 py-2 text-sm border transition-all ${selectedCategory === category.id
+                    ? "bg-primary border-primary text-primary-foreground hover:bg-primary/90"
+                    : "border-border text-foreground hover:bg-muted hover:border-muted-foreground"
+                    }`}
                 >
                   {category.id === "cardiovascular" ? (
-                    <Heart className={`h-3 w-3 mr-1.5 ${
-                      selectedCategory === category.id 
-                        ? "fill-current text-white" 
-                        : `fill-current ${category.iconColor}`
-                    }`} />
+                    <Heart className={`h-3 w-3 mr-1.5 ${selectedCategory === category.id
+                      ? "fill-current text-white"
+                      : `fill-current ${category.iconColor}`
+                      }`} />
                   ) : (
-                    <category.icon className={`h-3 w-3 mr-1.5 ${
-                      selectedCategory === category.id 
-                        ? "text-white" 
-                        : category.iconColor
-                    }`} />
+                    <category.icon className={`h-3 w-3 mr-1.5 ${selectedCategory === category.id
+                      ? "text-white"
+                      : category.iconColor
+                      }`} />
                   )}
                   {category.name}
                 </Button>
@@ -246,10 +258,10 @@ const Products = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section >
 
       {/* Products Grid */}
-      <section className="py-20">
+      < section className="py-20" >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-8">
             <h2 className="text-2xl font-bold text-foreground mb-2">
@@ -271,60 +283,60 @@ const Products = () => {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   layout
                 >
-                <motion.div whileHover={cardHoverVariants.hover}>
-                  <Card className="p-6 h-full hover:shadow-lg transition-shadow border border-border rounded-lg">
-                    <div className="space-y-4">
-                      <div className="flex items-start justify-between">
-                        <div>
-                          <h3 className="text-xl font-semibold text-foreground mb-2">{product.name}</h3>
-                          <Badge className={`${getStatusColor(product.status)} border text-xs px-2 py-1 rounded-full`}>
-                            {product.status}
-                          </Badge>
+                  <motion.div>
+                    <Card className="p-6 h-full border border-border rounded-lg">
+                      <div className="space-y-4">
+                        <div className="flex items-start justify-between">
+                          <div>
+                            <h3 className="text-xl font-semibold text-foreground mb-2">{product.name}</h3>
+                            <Badge className={`${getStatusColor(product.status)} border text-xs px-2 py-1 rounded-full`}>
+                              {product.status}
+                            </Badge>
+                          </div>
+                        </div>
+
+                        <p className="text-muted-foreground text-sm leading-relaxed">
+                          {product.description}
+                        </p>
+
+                        <div className="space-y-2 text-sm">
+                          <div className="flex justify-between">
+                            <span className="font-medium text-foreground">Strength:</span>
+                            <span className="text-muted-foreground">{product.strength}</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="font-medium text-foreground">Form:</span>
+                            <span className="text-muted-foreground">{product.form}</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="font-medium text-foreground">Indication:</span>
+                            <span className="text-muted-foreground">{product.indication}</span>
+                          </div>
+                        </div>
+
+                        <div className="flex gap-2 pt-4">
+                          <Button size="sm" className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-md px-4 py-2 text-xs">
+                            Learn More
+                          </Button>
+                          <Button size="sm" className="bg-secondary hover:bg-secondary/90 text-secondary-foreground rounded-md px-4 py-2 text-xs">
+                            Request a Sample
+                          </Button>
+                          <TooltipProvider>
+                            <Tooltip>
+                              <TooltipTrigger asChild>
+                                <Button size="sm" variant="outline" className="border-border text-muted-foreground hover:bg-muted rounded-md px-2 py-2">
+                                  <Download className="h-4 w-4" />
+                                </Button>
+                              </TooltipTrigger>
+                              <TooltipContent>
+                                <p>Download Product Image</p>
+                              </TooltipContent>
+                            </Tooltip>
+                          </TooltipProvider>
                         </div>
                       </div>
-
-                      <p className="text-muted-foreground text-sm leading-relaxed">
-                        {product.description}
-                      </p>
-
-                      <div className="space-y-2 text-sm">
-                        <div className="flex justify-between">
-                          <span className="font-medium text-foreground">Strength:</span>
-                          <span className="text-muted-foreground">{product.strength}</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span className="font-medium text-foreground">Form:</span>
-                          <span className="text-muted-foreground">{product.form}</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span className="font-medium text-foreground">Indication:</span>
-                          <span className="text-muted-foreground">{product.indication}</span>
-                        </div>
-                      </div>
-
-                      <div className="flex gap-2 pt-4">
-                        <Button size="sm" className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-md px-4 py-2 text-xs">
-                          Learn More
-                        </Button>
-                        <Button size="sm" className="bg-secondary hover:bg-secondary/90 text-secondary-foreground rounded-md px-4 py-2 text-xs">
-                          Request a Sample
-                        </Button>
-                        <TooltipProvider>
-                          <Tooltip>
-                            <TooltipTrigger asChild>
-                              <Button size="sm" variant="outline" className="border-border text-muted-foreground hover:bg-muted rounded-md px-2 py-2">
-                                <Download className="h-4 w-4" />
-                              </Button>
-                            </TooltipTrigger>
-                            <TooltipContent>
-                              <p>Download Product Image</p>
-                            </TooltipContent>
-                          </Tooltip>
-                        </TooltipProvider>
-                      </div>
-                    </div>
-                  </Card>
-                </motion.div>
+                    </Card>
+                  </motion.div>
                 </motion.div>
               ))}
             </div>
@@ -344,10 +356,10 @@ const Products = () => {
             </motion.div>
           )}
         </div>
-      </section>
+      </section >
 
       {/* Quality Standards Section */}
-      <section className="py-20 bg-muted/30">
+      < section className="py-20 bg-muted/30" >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -373,26 +385,25 @@ const Products = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className="p-6 text-center h-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                  <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm ${
-                    standard.title === "FDA Approved"
-                      ? "bg-sky-100 dark:bg-sky-900/20"
-                      : standard.title === "GMP Certified"
+                <Card className="p-6 text-center h-full">
+                  <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm ${standard.title === "FDA Approved"
+                    ? "bg-sky-100 dark:bg-sky-900/20"
+                    : standard.title === "GMP Certified"
                       ? "bg-emerald-100 dark:bg-emerald-900/20"
                       : standard.title === "ISO Compliant"
-                      ? "bg-violet-100 dark:bg-violet-900/20"
-                      : "bg-amber-100 dark:bg-amber-900/20"
-                  }`}>
+                        ? "bg-violet-100 dark:bg-violet-900/20"
+                        : "bg-amber-100 dark:bg-amber-900/20"
+                    }`}>
                     <ColoredIcon
                       Icon={standard.icon}
                       color={
                         standard.title === "FDA Approved"
                           ? "sky"
                           : standard.title === "GMP Certified"
-                          ? "emerald"
-                          : standard.title === "ISO Compliant"
-                          ? "violet"
-                          : "amber"
+                            ? "emerald"
+                            : standard.title === "ISO Compliant"
+                              ? "violet"
+                              : "amber"
                       }
                       size={24}
                     />
@@ -404,10 +415,10 @@ const Products = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section >
 
 
-    </motion.div>
+    </motion.div >
   );
 };
 

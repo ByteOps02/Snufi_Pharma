@@ -38,29 +38,7 @@ const therapeuticAreas = [
   },
 ];
 
-const sectionVariants = {
-  hidden: { opacity: 0, y: 50 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: "easeOut",
-    },
-  },
-};
-
-const cardVariants = {
-  hidden: { opacity: 0, scale: 0.9 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: {
-      duration: 0.5,
-      ease: "easeOut",
-    },
-  },
-};
+import { cardVariants, sectionVariants } from "@/lib/animations";
 
 export const TherapeuticAreas = () => {
   return (
@@ -88,29 +66,27 @@ export const TherapeuticAreas = () => {
               key={index}
               custom={index}
               variants={cardVariants}
-              whileHover={{ scale: 1.02, y: -2 }}
               transition={{ duration: 0.3 }}
             >
               <Card className="p-6 text-center flex flex-col h-full">
-                <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm ${
-                  area.name === "Cardiovascular"
-                    ? "bg-rose-100 dark:bg-rose-900/20"
-                    : area.name === "Neurological"
+                <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm ${area.name === "Cardiovascular"
+                  ? "bg-rose-100 dark:bg-rose-900/20"
+                  : area.name === "Neurological"
                     ? "bg-indigo-100 dark:bg-indigo-900/20"
                     : area.name === "Orthology"
-                    ? "bg-amber-100 dark:bg-amber-900/20"
-                    : "bg-emerald-100 dark:bg-emerald-900/20"
-                }`}>
+                      ? "bg-amber-100 dark:bg-amber-900/20"
+                      : "bg-emerald-100 dark:bg-emerald-900/20"
+                  }`}>
                   <ColoredIcon
                     Icon={area.icon}
                     color={
                       area.name === "Cardiovascular"
                         ? "rose"
                         : area.name === "Neurological"
-                        ? "indigo"
-                        : area.name === "Orthology"
-                        ? "amber"
-                        : "emerald"
+                          ? "indigo"
+                          : area.name === "Orthology"
+                            ? "amber"
+                            : "emerald"
                     }
                     size={24}
                   />

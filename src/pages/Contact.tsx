@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { MapPin, Phone, Mail, Clock, Send, Building, ChevronDown } from "lucide-react";
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
@@ -16,7 +16,7 @@ import {
 } from "@/components/ui/select";
 import axios from "axios";
 import { motion, AnimatePresence } from "framer-motion";
-import { cardVariants, cardHoverVariants, sectionVariants } from "@/lib/animations";
+import { cardVariants, sectionVariants } from "@/lib/animations";
 import { cn } from "@/lib/utils";
 
 const Contact = () => {
@@ -361,25 +361,24 @@ const Contact = () => {
                 <motion.div key={index} variants={cardVariants}>
                   <Card className="p-6">
                     <div className="flex items-start space-x-4">
-                      <div className={`w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-sm ${
-                        info.title === "Headquarters"
-                          ? "bg-emerald-100 dark:bg-emerald-900/20"
-                          : info.title === "Phone"
+                      <div className={`w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-sm ${info.title === "Headquarters"
+                        ? "bg-emerald-100 dark:bg-emerald-900/20"
+                        : info.title === "Phone"
                           ? "bg-sky-100 dark:bg-sky-900/20"
                           : info.title === "Email"
-                          ? "bg-violet-100 dark:bg-violet-900/20"
-                          : "bg-amber-100 dark:bg-amber-900/20"
-                      }`}>
+                            ? "bg-violet-100 dark:bg-violet-900/20"
+                            : "bg-amber-100 dark:bg-amber-900/20"
+                        }`}>
                         <ColoredIcon
                           Icon={info.icon}
                           color={
                             info.title === "Headquarters"
                               ? "emerald"
                               : info.title === "Phone"
-                              ? "sky"
-                              : info.title === "Email"
-                              ? "violet"
-                              : "amber"
+                                ? "sky"
+                                : info.title === "Email"
+                                  ? "violet"
+                                  : "amber"
                           }
                           size={24}
                         />
@@ -432,29 +431,27 @@ const Contact = () => {
                 key={index}
                 custom={index}
                 variants={cardVariants}
-                whileHover={{ scale: 1.02, y: -2 }}
                 transition={{ duration: 0.3 }}
               >
-                <Card className="p-6 text-center transition-transform h-full flex flex-col">
-                  <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm ${
-                    office.type === "Headquarters"
-                      ? "bg-emerald-100 dark:bg-emerald-900/20"
-                      : office.type === "R&D Center"
+                <Card className="p-6 text-center h-full flex flex-col">
+                  <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm ${office.type === "Headquarters"
+                    ? "bg-emerald-100 dark:bg-emerald-900/20"
+                    : office.type === "R&D Center"
                       ? "bg-sky-100 dark:bg-sky-900/20"
                       : office.type === "Manufacturing"
-                      ? "bg-amber-100 dark:bg-amber-900/20"
-                      : "bg-violet-100 dark:bg-violet-900/20"
-                  }`}>
+                        ? "bg-amber-100 dark:bg-amber-900/20"
+                        : "bg-violet-100 dark:bg-violet-900/20"
+                    }`}>
                     <ColoredIcon
                       Icon={Building}
                       color={
                         office.type === "Headquarters"
                           ? "emerald"
                           : office.type === "R&D Center"
-                          ? "sky"
-                          : office.type === "Manufacturing"
-                          ? "amber"
-                          : "violet"
+                            ? "sky"
+                            : office.type === "Manufacturing"
+                              ? "amber"
+                              : "violet"
                       }
                       size={24}
                     />
@@ -487,30 +484,32 @@ const Contact = () => {
         <h2 className="text-3xl font-bold text-center text-foreground mb-10">Frequently Asked Questions</h2>
         <div className="max-w-3xl mx-auto space-y-4">
           {faqs.map((faq, index) => (
-            <Card key={index} className="p-4">
-              <div
-                className="flex justify-between items-center cursor-pointer font-semibold text-lg"
-                onClick={() => setOpenFaq(openFaq === index ? null : index)}
-              >
-                {faq.question}
-                <ChevronDown
-                  className={cn("h-5 w-5 transition-transform", openFaq === index ? "rotate-180" : "")}
-                />
-              </div>
-              <AnimatePresence>
-                {openFaq === index && (
-                  <motion.div
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: "auto" }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.3, ease: "easeOut" }}
-                    className="mt-2 text-muted-foreground"
-                  >
-                    {faq.answer}
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </Card>
+            <motion.div key={index}>
+              <Card className="p-4">
+                <div
+                  className="flex justify-between items-center cursor-pointer font-semibold text-lg"
+                  onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                >
+                  {faq.question}
+                  <ChevronDown
+                    className={cn("h-5 w-5 transition-transform", openFaq === index ? "rotate-180" : "")}
+                  />
+                </div>
+                <AnimatePresence>
+                  {openFaq === index && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.3, ease: "easeOut" }}
+                      className="mt-2 text-muted-foreground"
+                    >
+                      {faq.answer}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </Card>
+            </motion.div>
           ))}
         </div>
       </motion.section>

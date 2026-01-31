@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import {
-  Briefcase,
   Coffee,
   Heart,
   Zap,
@@ -14,7 +13,7 @@ import {
   Globe,
   TrendingUp,
   Search
-} from "lucide-react";import { Card } from "@/components/ui/card";
+} from "lucide-react"; import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ColoredIcon } from "@/components/ui/colored-icon";
@@ -22,7 +21,8 @@ import { Input } from "@/components/ui/input";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import ApplyNowForm from "@/components/forms/ApplyNowForm";
 import { motion } from "framer-motion";
-import { cardVariants, cardHoverVariants, sectionVariants } from "@/lib/animations";
+import { sectionVariants } from "@/lib/animations";
+import { SEOHead } from "@/components/common/SEOHead";
 
 const Careers = () => {
   useEffect(() => {
@@ -33,11 +33,11 @@ const Careers = () => {
     {
       id: 1,
       title: "Senior Research Scientist",
-      location: "New York, NY",
+      location: "Mumbai, Maharashtra",
       department: "Research & Development",
       type: "Full-time",
       experience: "5+ years",
-      salary: "$120,000 - $150,000",
+      salary: "₹18,00,000 - ₹25,00,000",
       description: "Lead innovative drug discovery programs and manage cross-functional research teams.",
       requirements: ["PhD in Chemistry/Biology", "Drug discovery experience", "Leadership skills"],
       posted: "2 days ago"
@@ -45,11 +45,11 @@ const Careers = () => {
     {
       id: 2,
       title: "Clinical Trial Manager",
-      location: "London, UK",
+      location: "Hyderabad, Telangana",
       department: "Clinical Operations",
       type: "Full-time",
       experience: "3+ years",
-      salary: "£65,000 - £85,000",
+      salary: "₹15,00,000 - ₹20,00,000",
       description: "Oversee Phase II/III clinical trials and ensure regulatory compliance.",
       requirements: ["Clinical research experience", "GCP certification", "Project management"],
       posted: "1 week ago"
@@ -57,11 +57,11 @@ const Careers = () => {
     {
       id: 3,
       title: "Regulatory Affairs Specialist",
-      location: "Washington, D.C.",
+      location: "New Delhi, Delhi",
       department: "Regulatory Affairs",
       type: "Full-time",
       experience: "2+ years",
-      salary: "$90,000 - $110,000",
+      salary: "₹12,00,000 - ₹18,00,000",
       description: "Support regulatory submissions and maintain compliance with FDA requirements.",
       requirements: ["Regulatory experience", "FDA knowledge", "Attention to detail"],
       posted: "3 days ago"
@@ -69,11 +69,11 @@ const Careers = () => {
     {
       id: 4,
       title: "Quality Control Analyst",
-      location: "San Francisco, CA",
+      location: "Ahmedabad, Gujarat",
       department: "Quality Assurance",
       type: "Full-time",
       experience: "1+ years",
-      salary: "$70,000 - $85,000",
+      salary: "₹6,00,000 - ₹9,00,000",
       description: "Perform analytical testing and ensure product quality standards.",
       requirements: ["Analytical chemistry", "GMP knowledge", "Laboratory experience"],
       posted: "5 days ago"
@@ -85,7 +85,7 @@ const Careers = () => {
       department: "Digital Innovation",
       type: "Full-time",
       experience: "4+ years",
-      salary: "$130,000 - $160,000",
+      salary: "₹20,00,000 - ₹30,00,000",
       description: "Drive development of digital health solutions and patient engagement platforms.",
       requirements: ["Product management", "Healthcare technology", "Agile methodology"],
       posted: "1 day ago"
@@ -93,11 +93,11 @@ const Careers = () => {
     {
       id: 6,
       title: "Pharmacovigilance Associate",
-      location: "Boston, MA",
+      location: "Bangalore, Karnataka",
       department: "Safety & Risk Management",
       type: "Full-time",
       experience: "2+ years",
-      salary: "$80,000 - $95,000",
+      salary: "₹10,00,000 - ₹15,00,000",
       description: "Monitor drug safety and manage adverse event reporting systems.",
       requirements: ["Pharmacovigilance experience", "Medical writing", "Database management"],
       posted: "4 days ago"
@@ -195,6 +195,11 @@ const Careers = () => {
       transition={{ duration: 0.5 }}
       className="min-h-screen bg-gradient-to-br from-background to-muted/20"
     >
+      <SEOHead
+        title="Careers"
+        description="Join Snufi Pharmaceutical's team of innovators. Explore career opportunities in Research, Clinical Operations, and more across India."
+        keywords="pharmaceutical careers, jobs, hiring, India, research scientist, clinical trials, Snufi Pharma careers"
+      />
       <motion.section
         variants={sectionVariants}
         initial="hidden"
@@ -217,7 +222,7 @@ const Careers = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed"
             >
-              Join a team of passionate professionals dedicated to developing life-changing medicines 
+              Join a team of passionate professionals dedicated to developing life-changing medicines
               and advancing pharmaceutical innovation worldwide.
             </motion.p>
           </div>
@@ -236,26 +241,25 @@ const Careers = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className="p-6 text-center hover:shadow-lg transition-shadow">
-                  <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm ${
-                    stat.label === "Open Positions"
-                      ? "bg-sky-100 dark:bg-sky-900/20"
-                      : stat.label === "Team Members"
+                <Card className="p-6 text-center">
+                  <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm ${stat.label === "Open Positions"
+                    ? "bg-sky-100 dark:bg-sky-900/20"
+                    : stat.label === "Team Members"
                       ? "bg-emerald-100 dark:bg-emerald-900/20"
                       : stat.label === "Countries"
-                      ? "bg-violet-100 dark:bg-violet-900/20"
-                      : "bg-amber-100 dark:bg-amber-900/20"
-                  }`}>
+                        ? "bg-violet-100 dark:bg-violet-900/20"
+                        : "bg-amber-100 dark:bg-amber-900/20"
+                    }`}>
                     <ColoredIcon
                       Icon={stat.icon}
                       color={
                         stat.label === "Open Positions"
                           ? "sky"
                           : stat.label === "Team Members"
-                          ? "emerald"
-                          : stat.label === "Countries"
-                          ? "violet"
-                          : "amber"
+                            ? "emerald"
+                            : stat.label === "Countries"
+                              ? "violet"
+                              : "amber"
                       }
                       size={24}
                     />
@@ -317,9 +321,9 @@ const Careers = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                whileHover={cardHoverVariants.hover}
+
               >
-                <Card className="p-6 h-full hover:shadow-lg transition-shadow">
+                <Card className="p-6 h-full">
                   <div className="space-y-4">
                     <div className="flex items-start justify-between">
                       <div className="flex-1">
@@ -421,28 +425,27 @@ const Careers = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                whileHover={cardHoverVariants.hover}
+
               >
-                <Card className="p-6 h-full hover:shadow-lg transition-shadow">
-                  <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-4 shadow-sm ${
-                    benefit.title === "Health & Wellness"
-                      ? "bg-rose-100 dark:bg-rose-900/20"
-                      : benefit.title === "Professional Growth"
+                <Card className="p-6 h-full">
+                  <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-4 shadow-sm ${benefit.title === "Health & Wellness"
+                    ? "bg-rose-100 dark:bg-rose-900/20"
+                    : benefit.title === "Professional Growth"
                       ? "bg-sky-100 dark:bg-sky-900/20"
                       : benefit.title === "Work-Life Balance"
-                      ? "bg-emerald-100 dark:bg-emerald-900/20"
-                      : "bg-violet-100 dark:bg-violet-900/20"
-                  }`}>
+                        ? "bg-emerald-100 dark:bg-emerald-900/20"
+                        : "bg-violet-100 dark:bg-violet-900/20"
+                    }`}>
                     <ColoredIcon
                       Icon={benefit.icon}
                       color={
                         benefit.title === "Health & Wellness"
                           ? "rose"
                           : benefit.title === "Professional Growth"
-                          ? "sky"
-                          : benefit.title === "Work-Life Balance"
-                          ? "emerald"
-                          : "violet"
+                            ? "sky"
+                            : benefit.title === "Work-Life Balance"
+                              ? "emerald"
+                              : "violet"
                       }
                       size={24}
                     />
@@ -478,33 +481,31 @@ const Careers = () => {
             {cultureValues.map((value, index) => (
               <motion.div
                 key={value.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                whileHover={cardHoverVariants.hover}
               >
-                <Card className="p-8 hover:shadow-lg transition-shadow">
+                <Card className="p-8">
                   <div className="flex items-start gap-4">
-                    <div className={`w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-sm ${
-                      value.title === "Innovation"
-                        ? "bg-sky-100 dark:bg-sky-900/20"
-                        : value.title === "Collaboration"
+                    <div className={`w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-sm ${value.title === "Innovation"
+                      ? "bg-sky-100 dark:bg-sky-900/20"
+                      : value.title === "Collaboration"
                         ? "bg-emerald-100 dark:bg-emerald-900/20"
                         : value.title === "Excellence"
-                        ? "bg-violet-100 dark:bg-violet-900/20"
-                        : "bg-amber-100 dark:bg-amber-900/20"
-                    }`}>
+                          ? "bg-violet-100 dark:bg-violet-900/20"
+                          : "bg-amber-100 dark:bg-amber-900/20"
+                      }`}>
                       <ColoredIcon
                         Icon={value.icon}
                         color={
                           value.title === "Innovation"
                             ? "sky"
                             : value.title === "Collaboration"
-                            ? "emerald"
-                            : value.title === "Excellence"
-                            ? "violet"
-                            : "amber"
+                              ? "emerald"
+                              : value.title === "Excellence"
+                                ? "violet"
+                                : "amber"
                         }
                         size={24}
                       />

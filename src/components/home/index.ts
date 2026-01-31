@@ -12,3 +12,4 @@ export { default as InteractiveTimeline } from './InteractiveTimeline';
 export { default as NewsletterSection } from './NewsletterSection';
 export { default as PatientResources } from './PatientResources';
 export { default as TrustedPartners } from './TrustedPartners';
+export * from './Certifications';

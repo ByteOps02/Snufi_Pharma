@@ -17,10 +17,10 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { ColoredIcon } from "@/components/ui/colored-icon";
 import { motion } from "framer-motion";
-import { cardVariants, cardHoverVariants, sectionVariants } from "@/lib/animations";
+import { sectionVariants } from "@/lib/animations";
+import { SEOHead } from "@/components/common/SEOHead";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import GetStartedForm from "@/components/forms/GetStartedForm";
 
@@ -36,7 +36,7 @@ const Services = () => {
       description: "Comprehensive R&D services from drug discovery to clinical trials, leveraging cutting-edge technology and scientific expertise.",
       features: [
         "Drug Discovery & Design",
-        "Preclinical Studies", 
+        "Preclinical Studies",
         "Clinical Trial Management",
         "Regulatory Submission Support",
         "Biomarker Development",
@@ -161,7 +161,7 @@ const Services = () => {
       icon: Phone
     },
     {
-      step: "02", 
+      step: "02",
       title: "Strategy Development",
       description: "Custom strategy and timeline development for your project",
       icon: Target
@@ -189,6 +189,11 @@ const Services = () => {
       transition={{ duration: 0.5 }}
       className="min-h-screen bg-gradient-to-br from-background to-muted/20"
     >
+      <SEOHead
+        title="Services"
+        description="Snufi Pharmaceutical offers comprehensive services including R&D, contract manufacturing, regulatory affairs, and supply chain solutions."
+        keywords="pharmaceutical services, R&D, contract manufacturing, regulatory affairs, supply chain, Snufi Pharma services"
+      />
       <motion.section
         variants={sectionVariants}
         initial="hidden"
@@ -211,7 +216,7 @@ const Services = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed"
             >
-              From drug discovery to market access, we provide comprehensive pharmaceutical services 
+              From drug discovery to market access, we provide comprehensive pharmaceutical services
               to accelerate your journey from concept to patient.
             </motion.p>
           </div>
@@ -230,7 +235,7 @@ const Services = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className="p-6 text-center h-full flex flex-col hover:shadow-lg transition-shadow">
+                <Card className="p-6 text-center h-full flex flex-col">
                   <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm ${capability.bgColor}`}>
                     <ColoredIcon
                       Icon={capability.icon}
@@ -273,31 +278,29 @@ const Services = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                whileHover={cardHoverVariants.hover}
               >
-                <Card className="p-8 h-full flex flex-col hover:shadow-lg transition-shadow">
+                <Card className="p-8 h-full flex flex-col">
                   <div className="space-y-6 flex-grow">
                     <div className="flex items-start justify-between">
                       <div className="flex items-center gap-4">
-                        <div className={`w-12 h-12 rounded-2xl flex items-center justify-center shadow-sm ${
-                          service.title === "Research & Development"
-                            ? "bg-sky-100 dark:bg-sky-900/20"
-                            : service.title === "Contract Manufacturing"
+                        <div className={`w-12 h-12 rounded-2xl flex items-center justify-center shadow-sm ${service.title === "Research & Development"
+                          ? "bg-sky-100 dark:bg-sky-900/20"
+                          : service.title === "Contract Manufacturing"
                             ? "bg-emerald-100 dark:bg-emerald-900/20"
                             : service.title === "Regulatory Affairs"
-                            ? "bg-violet-100 dark:bg-violet-900/20"
-                            : "bg-amber-100 dark:bg-amber-900/20"
-                        }`}>
+                              ? "bg-violet-100 dark:bg-violet-900/20"
+                              : "bg-amber-100 dark:bg-amber-900/20"
+                          }`}>
                           <ColoredIcon
                             Icon={service.icon}
                             color={
                               service.title === "Research & Development"
                                 ? "sky"
                                 : service.title === "Contract Manufacturing"
-                                ? "emerald"
-                                : service.title === "Regulatory Affairs"
-                                ? "violet"
-                                : "amber"
+                                  ? "emerald"
+                                  : service.title === "Regulatory Affairs"
+                                    ? "violet"
+                                    : "amber"
                             }
                             size={24}
                           />
@@ -374,36 +377,31 @@ const Services = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {processSteps.map((step, index) => (
               <motion.div
-                key={step.step}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="relative"
+                key={index}
+                custom={index}
               >
-                <Card className="p-6 text-center hover:shadow-lg transition-shadow">
+                <Card className="p-6 text-center">
                   <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold">
                     {step.step}
                   </div>
-                  <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm ${
-                    step.step === "01"
-                      ? "bg-sky-100 dark:bg-sky-900/20"
-                      : step.step === "02"
+                  <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm ${step.step === "01"
+                    ? "bg-sky-100 dark:bg-sky-900/20"
+                    : step.step === "02"
                       ? "bg-emerald-100 dark:bg-emerald-900/20"
                       : step.step === "03"
-                      ? "bg-violet-100 dark:bg-violet-900/20"
-                      : "bg-amber-100 dark:bg-amber-900/20"
-                  }`}>
+                        ? "bg-violet-100 dark:bg-violet-900/20"
+                        : "bg-amber-100 dark:bg-amber-900/20"
+                    }`}>
                     <ColoredIcon
                       Icon={step.icon}
                       color={
                         step.step === "01"
                           ? "sky"
                           : step.step === "02"
-                          ? "emerald"
-                          : step.step === "03"
-                          ? "violet"
-                          : "amber"
+                            ? "emerald"
+                            : step.step === "03"
+                              ? "violet"
+                              : "amber"
                       }
                       size={24}
                     />

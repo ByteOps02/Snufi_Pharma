@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Play, Award, Users, Building2, CheckCircle } from "lucide-react";
 import { useState } from "react";
 
+
 const VideoShowcase = () => {
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -115,7 +116,7 @@ const VideoShowcase = () => {
                   transition={{ duration: 0.4, delay: index * 0.1 }}
                   viewport={{ once: true }}
                 >
-                  <Card className="p-4 text-center hover:shadow-lg transition-shadow">
+                  <Card className="p-4 text-center">
                     <item.icon className="h-8 w-8 mx-auto mb-2 text-primary" />
                     <div className="text-xl font-bold text-foreground">{item.value}</div>
                     <div className="text-sm text-muted-foreground">{item.label}</div>

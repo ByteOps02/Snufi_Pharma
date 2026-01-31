@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram } from "react-icons/fa6";
+import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram, FaWhatsapp } from "react-icons/fa6";
+import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { Input } from "@/components/ui/input";
@@ -18,6 +19,9 @@ const Footer = () => {
   const handleNewsletterSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Newsletter subscription:", email);
+    toast.success("Subscribed successfully!", {
+      description: "Thank you for subscribing to our newsletter.",
+    });
     setEmail("");
   };
 
@@ -41,6 +45,11 @@ const Footer = () => {
       icon: FaInstagram,
       href: "https://instagram.com/snufipharma",
       label: "Instagram",
+    },
+    {
+      icon: FaWhatsapp,
+      href: "https://wa.me/917566724040",
+      label: "WhatsApp",
     },
   ];
 
@@ -90,24 +99,26 @@ const Footer = () => {
                   aria-label={social.label}
                   className="group"
                 >
-                  <div className={`w-10 h-10 rounded-xl flex items-center justify-center shadow-sm transition-all duration-300 group-hover:scale-110 ${
-                    social.label === "Facebook"
-                      ? "bg-blue-100 dark:bg-blue-900/20 group-hover:bg-blue-200 dark:group-hover:bg-blue-800/30"
-                      : social.label === "Twitter"
+                  <div className={`w-10 h-10 rounded-xl flex items-center justify-center shadow-sm transition-all duration-300 group-hover:scale-110 ${social.label === "Facebook"
+                    ? "bg-blue-100 dark:bg-blue-900/20 group-hover:bg-blue-200 dark:group-hover:bg-blue-800/30"
+                    : social.label === "Twitter"
                       ? "bg-sky-100 dark:bg-sky-900/20 group-hover:bg-sky-200 dark:group-hover:bg-sky-800/30"
                       : social.label === "LinkedIn"
-                      ? "bg-indigo-100 dark:bg-indigo-900/20 group-hover:bg-indigo-200 dark:group-hover:bg-indigo-800/30"
-                      : "bg-pink-100 dark:bg-pink-900/20 group-hover:bg-pink-200 dark:group-hover:bg-pink-800/30"
-                  }`}>
-                    <social.icon className={`h-5 w-5 ${
-                      social.label === "Facebook"
-                        ? "text-blue-600 dark:text-blue-400"
-                        : social.label === "Twitter"
+                        ? "bg-indigo-100 dark:bg-indigo-900/20 group-hover:bg-indigo-200 dark:group-hover:bg-indigo-800/30"
+                        : social.label === "Instagram"
+                          ? "bg-pink-100 dark:bg-pink-900/20 group-hover:bg-pink-200 dark:group-hover:bg-pink-800/30"
+                          : "bg-green-100 dark:bg-green-900/20 group-hover:bg-green-200 dark:group-hover:bg-green-800/30"
+                    }`}>
+                    <social.icon className={`h-5 w-5 ${social.label === "Facebook"
+                      ? "text-blue-600 dark:text-blue-400"
+                      : social.label === "Twitter"
                         ? "text-sky-600 dark:text-sky-400"
                         : social.label === "LinkedIn"
-                        ? "text-indigo-600 dark:text-indigo-400"
-                        : "text-pink-600 dark:text-pink-400"
-                    }`} />
+                          ? "text-indigo-600 dark:text-indigo-400"
+                          : social.label === "Instagram"
+                            ? "text-pink-600 dark:text-pink-400"
+                            : "text-green-600 dark:text-green-400"
+                      }`} />
                   </div>
                 </a>
               ))}

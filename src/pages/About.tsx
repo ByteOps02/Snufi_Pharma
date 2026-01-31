@@ -4,7 +4,8 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ColoredIcon } from "@/components/ui/colored-icon";
 import { motion } from "framer-motion";
-import { cardVariants, cardHoverVariants, sectionVariants } from "@/lib/animations";
+import { sectionVariants } from "@/lib/animations";
+import { SEOHead } from "@/components/common/SEOHead";
 
 const About = () => {
   useEffect(() => {
@@ -20,7 +21,7 @@ const About = () => {
     },
     {
       icon: Eye,
-      title: "Our Vision", 
+      title: "Our Vision",
       description: "To be a leading global pharmaceutical company recognized for excellence in research, development, and patient care.",
       color: "bg-green-500/10 text-green-600"
     },
@@ -52,7 +53,7 @@ const About = () => {
     },
     {
       icon: Heart,
-      title: "Social Responsibility", 
+      title: "Social Responsibility",
       description: "We are dedicated to improving access to healthcare, supporting education, and promoting diversity and inclusion in our workforce.",
       color: "bg-red-500/10 text-red-600"
     },
@@ -73,6 +74,11 @@ const About = () => {
       transition={{ duration: 0.5 }}
       className="min-h-screen bg-gradient-to-br from-background to-muted/20"
     >
+      <SEOHead
+        title="About Us"
+        description="Learn about Snufi Pharmaceutical's history, mission, and vision to improve global healthcare through innovation and quality excellence."
+        keywords="about Snufi Pharma, pharmaceutical company history, mission, vision, healthcare innovation"
+      />
       <motion.section
         variants={sectionVariants}
         initial="hidden"
@@ -95,7 +101,7 @@ const About = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed"
             >
-              For over a decade, Snufi Pharmaceutical has been at the forefront of medical innovation, 
+              For over a decade, Snufi Pharmaceutical has been at the forefront of medical innovation,
               developing life-changing therapies and advancing the future of healthcare.
             </motion.p>
           </div>
@@ -130,22 +136,21 @@ const About = () => {
                 transition={{ duration: 0.6, delay: index * 0.2 }}
                 viewport={{ once: true }}
               >
-                <Card className="p-8 h-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                  <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-6 shadow-sm ${
-                    value.title === "Our Mission"
-                      ? "bg-sky-100 dark:bg-sky-900/20"
-                      : value.title === "Our Vision"
+                <Card className="p-8 h-full">
+                  <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-6 shadow-sm ${value.title === "Our Mission"
+                    ? "bg-sky-100 dark:bg-sky-900/20"
+                    : value.title === "Our Vision"
                       ? "bg-emerald-100 dark:bg-emerald-900/20"
                       : "bg-violet-100 dark:bg-violet-900/20"
-                  }`}>
+                    }`}>
                     <ColoredIcon
                       Icon={value.icon}
                       color={
                         value.title === "Our Mission"
                           ? "sky"
                           : value.title === "Our Vision"
-                          ? "emerald"
-                          : "violet"
+                            ? "emerald"
+                            : "violet"
                       }
                       size={24}
                     />
@@ -162,7 +167,7 @@ const About = () => {
       {/* Our Story & Journey Section */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
+          <div className="grid lg:grid-cols-2 gap-16 items-start">
             {/* Our Story */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -173,54 +178,54 @@ const About = () => {
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
                 Our Story
               </h2>
-              <div className="space-y-4 text-muted-foreground leading-relaxed">
+              <div className="space-y-6 text-muted-foreground text-lg leading-relaxed mb-12">
                 <p>
-                  Founded in 2016 with a simple yet powerful mission: to improve 
-                  healthcare through innovative pharmaceutical solutions. What started as a 
-                  small research-focused company has grown into a global leader in 
+                  Founded in 2016 with a simple yet powerful mission: to improve
+                  healthcare through innovative pharmaceutical solutions. What started as a
+                  small research-focused company has grown into a global leader in
                   pharmaceutical development and manufacturing.
                 </p>
                 <p>
-                  Today, Snufi Pharmaceutical® operates in over 3 countries, with state-of-
-                  the-art research facilities, manufacturing plants, and a dedicated team of 
+                  Today, Snufi Pharmaceutical® operates in over 3 countries, with state-of-the-art
+                  research facilities, manufacturing plants, and a dedicated team of
                   over 5,000 professionals worldwide.
                 </p>
               </div>
 
               {/* Stats */}
-              <div className="grid grid-cols-3 gap-6 mt-8">
-                <div className="text-center">
-                  <div className="w-12 h-12 bg-emerald-100 dark:bg-emerald-900/20 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm">
+              <div className="grid grid-cols-3 gap-8">
+                <div className="text-center group">
+                  <div className="w-14 h-14 bg-emerald-100 dark:bg-emerald-900/30 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm transition-transform group-hover:scale-110 duration-300">
                     <ColoredIcon
                       Icon={Building}
                       color="emerald"
-                      size={24}
+                      size={28}
                     />
                   </div>
-                  <div className="text-2xl font-bold text-foreground">10+</div>
-                  <div className="text-sm text-muted-foreground">Years</div>
+                  <div className="text-3xl font-bold text-foreground mb-1">10+</div>
+                  <div className="text-sm font-medium text-muted-foreground">Years</div>
                 </div>
-                <div className="text-center">
-                  <div className="w-12 h-12 bg-sky-100 dark:bg-sky-900/20 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm">
+                <div className="text-center group">
+                  <div className="w-14 h-14 bg-sky-100 dark:bg-sky-900/30 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm transition-transform group-hover:scale-110 duration-300">
                     <ColoredIcon
                       Icon={Users}
                       color="sky"
-                      size={24}
+                      size={28}
                     />
                   </div>
-                  <div className="text-2xl font-bold text-foreground">5000+</div>
-                  <div className="text-sm text-muted-foreground">Employees</div>
+                  <div className="text-3xl font-bold text-foreground mb-1">5000+</div>
+                  <div className="text-sm font-medium text-muted-foreground">Employees</div>
                 </div>
-                <div className="text-center">
-                  <div className="w-12 h-12 bg-violet-100 dark:bg-violet-900/20 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm">
+                <div className="text-center group">
+                  <div className="w-14 h-14 bg-violet-100 dark:bg-violet-900/30 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm transition-transform group-hover:scale-110 duration-300">
                     <ColoredIcon
                       Icon={Globe}
                       color="violet"
-                      size={24}
+                      size={28}
                     />
                   </div>
-                  <div className="text-2xl font-bold text-foreground">3+</div>
-                  <div className="text-sm text-muted-foreground">Countries</div>
+                  <div className="text-3xl font-bold text-foreground mb-1">3+</div>
+                  <div className="text-sm font-medium text-muted-foreground">Countries</div>
                 </div>
               </div>
             </motion.div>
@@ -232,25 +237,30 @@ const About = () => {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <Card className="p-6 border-2 border-primary/20">
-                <h3 className="text-xl font-bold text-foreground mb-6">Key Milestones</h3>
-                <div className="space-y-4">
+              <Card className="p-8 border-rose-100 dark:border-rose-900/50 shadow-lg bg-card/50 backdrop-blur-sm">
+                <h3 className="text-2xl font-bold text-foreground mb-8">Key Milestones</h3>
+                <div className="space-y-8 relative">
+                  {/* Vertical Line */}
+                  <div className="absolute left-[26px] top-4 bottom-4 w-0.5 bg-border -z-10 hidden sm:block" />
+
                   {milestones.map((milestone, index) => (
                     <motion.div
                       key={milestone.year}
-                      initial={{ opacity: 0, y: 10 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.4, delay: index * 0.1 }}
+                      initial={{ opacity: 0, x: 20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.5, delay: index * 0.1 }}
                       viewport={{ once: true }}
-                      className="flex gap-4"
+                      className="flex flex-col sm:flex-row gap-4 sm:gap-6 items-start"
                     >
                       <div className="flex-shrink-0">
-                        <div className="w-12 h-8 bg-primary text-primary-foreground rounded text-sm font-bold flex items-center justify-center">
+                        <Badge
+                          className="px-3 py-1 text-sm font-bold bg-[#D34526] hover:bg-[#B83E22] text-white border-none rounded-md w-14 justify-center h-8 flex items-center shadow-md relative z-10"
+                        >
                           {milestone.year}
-                        </div>
+                        </Badge>
                       </div>
-                      <div className="flex-1">
-                        <p className="text-sm text-muted-foreground leading-relaxed">
+                      <div className="flex-1 pt-1">
+                        <p className="text-base text-muted-foreground leading-relaxed">
                           {milestone.event}
                         </p>
                       </div>
@@ -291,7 +301,7 @@ const About = () => {
                 "At Snufi Pharmaceutical®, we believe that every breakthrough in medicine brings us closer to a healthier world. Our commitment to innovation, quality, and patient care drives everything we do, and we're proud to continue this mission for generations to come."
               </blockquote>
               <div className="text-foreground font-semibold">
-                Saroj, CEO & Founder
+                Saroj, Managing Director & CEO
               </div>
             </div>
 
@@ -345,22 +355,21 @@ const About = () => {
                 transition={{ duration: 0.6, delay: index * 0.2 }}
                 viewport={{ once: true }}
               >
-                <Card className="p-8 h-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                  <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-6 shadow-sm ${
-                    commitment.title === "Environmental Stewardship"
-                      ? "bg-emerald-100 dark:bg-emerald-900/20"
-                      : commitment.title === "Social Responsibility"
+                <Card className="p-8 h-full">
+                  <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-6 shadow-sm ${commitment.title === "Environmental Stewardship"
+                    ? "bg-emerald-100 dark:bg-emerald-900/20"
+                    : commitment.title === "Social Responsibility"
                       ? "bg-rose-100 dark:bg-rose-900/20"
                       : "bg-sky-100 dark:bg-sky-900/20"
-                  }`}>
+                    }`}>
                     <ColoredIcon
                       Icon={commitment.icon}
                       color={
                         commitment.title === "Environmental Stewardship"
                           ? "emerald"
                           : commitment.title === "Social Responsibility"
-                          ? "rose"
-                          : "sky"
+                            ? "rose"
+                            : "sky"
                       }
                       size={24}
                     />

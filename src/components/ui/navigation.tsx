@@ -104,13 +104,15 @@ const Navigation = () => {
                 onClick={handleNavClick}
                 className={cn(
                   "relative py-2 px-1 text-sm font-medium transition-colors duration-200",
-                  isActive(item.path)
-                    ? "text-primary"
-                    : "text-gray-700 dark:text-gray-300 hover:text-primary",
+                  item.name === "Contact"
+                    ? "bg-primary text-primary-foreground hover:bg-primary/90 rounded-md px-4 py-2"
+                    : isActive(item.path)
+                      ? "text-primary"
+                      : "text-gray-700 dark:text-gray-300 hover:text-primary"
                 )}
               >
                 {item.name}
-                {isActive(item.path) && (
+                {isActive(item.path) && item.name !== "Contact" && (
                   <motion.div
                     layoutId="active-link-underline"
                     className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary rounded-full"
@@ -132,6 +134,7 @@ const Navigation = () => {
               size="sm"
               onClick={() => setIsOpen(!isOpen)}
               className="text-foreground ml-2"
+              aria-label="Toggle menu"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </Button>

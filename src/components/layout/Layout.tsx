@@ -7,6 +7,7 @@ import ScrollToTop from "./ScrollToTop";
 import { ChatWidget } from "@/components/ui/chat-widget";
 
 
+
 interface LayoutProps {
   children: React.ReactNode;
 }
@@ -20,6 +21,7 @@ const Layout = ({ children }: LayoutProps) => {
       <Footer />
       <ScrollToTopButton />
       <ChatWidget />
+
       <SpeedInsights />
     </div>
   );

@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { useState } from "react";
@@ -92,15 +93,13 @@ const InteractiveTimeline = () => {
             >
               <div className={`lg:w-1/2 ${index % 2 === 0 ? 'lg:pr-12' : 'lg:pl-12 lg:ml-auto'}`}>
                 <motion.div
-                  whileHover={{ scale: 1.02, y: -5 }}
                   transition={{ duration: 0.3 }}
                 >
                   <Card
-                    className={`p-6 cursor-pointer transition-all ${
-                      selectedYear === milestone.year
-                        ? 'ring-2 ring-primary shadow-2xl'
-                        : 'hover:shadow-xl'
-                    }`}
+                    className={`p-6 cursor-pointer transition-all ${selectedYear === milestone.year
+                      ? 'ring-2 ring-primary shadow-2xl'
+                      : 'hover:shadow-xl'
+                      }`}
                     onClick={() => setSelectedYear(selectedYear === milestone.year ? null : milestone.year)}
                   >
                     <div className={`flex items-center gap-4 ${index % 2 === 0 ? '' : 'lg:flex-row-reverse'}`}>

@@ -7,7 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { ColoredIcon } from "@/components/ui/colored-icon";
 import { FileText, Calendar, FlaskConical, Heart, Brain, Shield } from "lucide-react";
-import { cardVariants, cardHoverVariants, sectionVariants } from "@/lib/animations";
+import { cardVariants, sectionVariants } from "@/lib/animations";
 
 const HealthcareProfessionals = () => {
   useEffect(() => {
@@ -265,15 +265,14 @@ const HealthcareProfessionals = () => {
               <Card key={index} className="p-6 text-center">
                 <div className="flex justify-center mb-4">
                   <div
-                    className={`w-16 h-16 rounded-2xl flex items-center justify-center shadow-sm ${
-                      area.color === "sky"
+                    className={`w-16 h-16 rounded-2xl flex items-center justify-center shadow-sm ${area.color === "sky"
                         ? "bg-sky-100 dark:bg-sky-900/20"
                         : area.color === "rose"
-                        ? "bg-rose-100 dark:bg-rose-900/20"
-                        : area.color === "indigo"
-                        ? "bg-indigo-100 dark:bg-indigo-900/20"
-                        : "bg-emerald-100 dark:bg-emerald-900/20"
-                    }`}
+                          ? "bg-rose-100 dark:bg-rose-900/20"
+                          : area.color === "indigo"
+                            ? "bg-indigo-100 dark:bg-indigo-900/20"
+                            : "bg-emerald-100 dark:bg-emerald-900/20"
+                      }`}
                   >
                     <ColoredIcon Icon={area.icon} color={area.color} size={32} />
                   </div>

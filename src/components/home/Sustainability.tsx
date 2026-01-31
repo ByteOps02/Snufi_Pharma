@@ -32,29 +32,7 @@ const sustainabilityInitiatives = [
   },
 ];
 
-const sectionVariants = {
-  hidden: { opacity: 0, y: 50 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: "easeOut",
-    },
-  },
-};
-
-const cardVariants = {
-  hidden: { opacity: 0, scale: 0.9 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: {
-      duration: 0.5,
-      ease: "easeOut",
-    },
-  },
-};
+import { cardVariants, sectionVariants } from "@/lib/animations";
 
 const Sustainability = () => {
   return (
@@ -82,20 +60,18 @@ const Sustainability = () => {
               key={index}
               custom={index}
               variants={cardVariants}
-              whileHover={{ scale: 1.02, y: -2 }}
               transition={{ duration: 0.3 }}
             >
               <Card className="p-6 h-full flex flex-col">
                 <div
-                  className={`w-12 h-12 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm ${
-                    index === 0
-                      ? "bg-emerald-100 dark:bg-emerald-900/20"
-                      : index === 1
+                  className={`w-12 h-12 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm ${index === 0
+                    ? "bg-emerald-100 dark:bg-emerald-900/20"
+                    : index === 1
                       ? "bg-sky-100 dark:bg-sky-900/20"
                       : index === 2
-                      ? "bg-violet-100 dark:bg-violet-900/20"
-                      : "bg-amber-100 dark:bg-amber-900/20"
-                  }`}
+                        ? "bg-violet-100 dark:bg-violet-900/20"
+                        : "bg-amber-100 dark:bg-amber-900/20"
+                    }`}
                 >
                   <ColoredIcon
                     Icon={initiative.icon}
@@ -103,10 +79,10 @@ const Sustainability = () => {
                       index === 0
                         ? "emerald"
                         : index === 1
-                        ? "sky"
-                        : index === 2
-                        ? "violet"
-                        : "amber"
+                          ? "sky"
+                          : index === 2
+                            ? "violet"
+                            : "amber"
                     }
                     size={24}
                   />

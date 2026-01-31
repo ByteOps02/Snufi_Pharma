@@ -1,3 +1,5 @@
+import { Easing } from "framer-motion";
+
 /**
  * Centralized animation definitions for consistent, medium-level effects across the site
  */
@@ -10,7 +12,7 @@ export const cardVariants = {
     y: 0,
     transition: {
       duration: 0.4,
-      ease: "easeOut",
+      ease: "easeOut" as Easing,
     },
   },
 };
@@ -22,7 +24,7 @@ export const cardHoverVariants = {
     y: -4,
     transition: {
       duration: 0.3,
-      ease: "easeOut",
+      ease: "easeOut" as Easing,
     },
   },
 };
@@ -33,7 +35,7 @@ export const buttonHoverVariants = {
     scale: 1.05,
     transition: {
       duration: 0.2,
-      ease: "easeOut",
+      ease: "easeOut" as Easing,
     },
   },
   tap: {
@@ -49,7 +51,7 @@ export const sectionVariants = {
     y: 0,
     transition: {
       duration: 0.5,
-      ease: "easeOut",
+      ease: "easeOut" as Easing,
     },
   },
 };
@@ -81,7 +83,7 @@ export const badgeVariants = {
     scale: 1,
     transition: {
       duration: 0.3,
-      ease: "easeOut",
+      ease: "easeOut" as Easing,
     },
   },
 };
@@ -94,7 +96,7 @@ export const listItemVariants = {
     x: 0,
     transition: {
       duration: 0.3,
-      ease: "easeOut",
+      ease: "easeOut" as Easing,
     },
   },
 };
@@ -106,7 +108,7 @@ export const iconRotateVariants = {
     rotate: 0,
     transition: {
       duration: 0.4,
-      ease: "easeOut",
+      ease: "easeOut" as Easing,
     },
   },
 };

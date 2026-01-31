@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Calendar, Clock, ArrowUpDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import { cardVariants, sectionVariants } from "@/lib/animations";
 
 type SortOrder = 'newest' | 'oldest' | 'title';
 
@@ -27,7 +28,7 @@ const Blog = () => {
     if (selectedTag && selectedTag !== "All") {
       posts = posts.filter((post) => post.tags.includes(selectedTag));
     }
-    
+
     // Sort posts
     const sorted = [...posts].sort((a, b) => {
       switch (sortOrder) {
@@ -40,36 +41,12 @@ const Blog = () => {
           return new Date(b.date).getTime() - new Date(a.date).getTime();
       }
     });
-    
+
     return sorted;
   }, [selectedTag, sortOrder]);
 
   const handleTagClick = (tag: string) => {
     setSelectedTag(tag);
-  };
-
-  const cardVariants = {
-    hidden: { opacity: 0, scale: 0.9 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 0.5,
-        ease: "easeOut",
-      },
-    },
-  };
-
-  const sectionVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut",
-      },
-    },
   };
 
   // Prepare posts content separately to avoid complex JSX nesting
@@ -86,7 +63,6 @@ const Blog = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
-        whileHover={{ scale: 1.02, y: -2 }}
         transition={{ duration: 0.3 }}
         className="h-full"
       >
@@ -161,7 +137,7 @@ const Blog = () => {
               </Badge>
             ))}
           </div>
-          
+
           <div className="flex flex-wrap justify-center gap-2">
             <span className="text-sm font-medium text-muted-foreground">Sort by:</span>
             <Button

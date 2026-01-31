@@ -32,29 +32,7 @@ const testimonials = [
   },
 ];
 
-const sectionVariants = {
-  hidden: { opacity: 0, y: 50 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: "easeOut",
-    },
-  },
-};
-
-const cardVariants = {
-  hidden: { opacity: 0, scale: 0.9 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: {
-      duration: 0.5,
-      ease: "easeOut",
-    },
-  },
-};
+import { cardVariants, sectionVariants } from "@/lib/animations";
 
 export const Testimonials = () => {
   return (
@@ -82,7 +60,6 @@ export const Testimonials = () => {
               key={index}
               custom={index}
               variants={cardVariants}
-              whileHover={{ scale: 1.02, y: -2 }}
               transition={{ duration: 0.3 }}
             >
               <Card className="p-6">

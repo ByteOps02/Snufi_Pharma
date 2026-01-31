@@ -3,29 +3,7 @@ import { Card } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import { ColoredIcon } from "@/components/ui/colored-icon";
 
-const sectionVariants = {
-  hidden: { opacity: 0, y: 50 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: "easeOut",
-    },
-  },
-};
-
-const cardVariants = {
-  hidden: { opacity: 0, scale: 0.9 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: {
-      duration: 0.5,
-      ease: "easeOut",
-    },
-  },
-};
+import { cardVariants, sectionVariants } from "@/lib/animations";
 
 export const Community = () => {
   return (
@@ -49,27 +27,25 @@ export const Community = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           <motion.div
             variants={cardVariants}
-            whileHover={{ scale: 1.02, y: -2 }}
             transition={{ duration: 0.3 }}
           >
             <Card className="p-6">
               <div
-              className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-4 shadow-sm bg-rose-100 dark:bg-rose-900/20`}
-            >
-              <ColoredIcon Icon={HandHeart} color="rose" size={24} />
-            </div>
+                className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-4 shadow-sm bg-rose-100 dark:bg-rose-900/20`}
+              >
+                <ColoredIcon Icon={HandHeart} color="rose" size={24} />
+              </div>
               <h3 className="text-xl font-semibold text-foreground mb-3">
                 Health Check-up Camps
               </h3>
               <p className="text-muted-foreground leading-relaxed">
-                We regularly organize free health check-up camps in rural and
-                underserved areas to provide access to basic healthcare services.
+                We regularly organize free health check-up camps in rural India
+                and underserved areas to provide access to basic healthcare services.
               </p>
             </Card>
           </motion.div>
           <motion.div
             variants={cardVariants}
-            whileHover={{ scale: 1.02, y: -2 }}
             transition={{ duration: 0.3 }}
           >
             <Card className="p-6">
@@ -87,7 +63,6 @@ export const Community = () => {
           </motion.div>
           <motion.div
             variants={cardVariants}
-            whileHover={{ scale: 1.02, y: -2 }}
             transition={{ duration: 0.3 }}
           >
             <Card className="p-6">
@@ -98,9 +73,8 @@ export const Community = () => {
                 Global Health Initiatives
               </h3>
               <p className="text-muted-foreground leading-relaxed">
-                We partner with global health organizations to support
-                initiatives that aim to improve health outcomes in developing
-                countries.
+                Partnering with Indian government health missions (Ayushman Bharat)
+                to support affordable medication access across the country.
               </p>
             </Card>
           </motion.div>

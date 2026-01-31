@@ -5,29 +5,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { blogPosts } from "@/lib/blog";
 
-const sectionVariants = {
-  hidden: { opacity: 0, y: 50 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: "easeOut",
-    },
-  },
-};
-
-const cardVariants = {
-  hidden: { opacity: 0, scale: 0.9 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: {
-      duration: 0.5,
-      ease: "easeOut",
-    },
-  },
-};
+import { cardVariants, sectionVariants } from "@/lib/animations";
 
 const latestPosts = blogPosts.slice(0, 3);
 
@@ -57,7 +35,6 @@ export const LatestNews = () => {
               key={index}
               custom={index}
               variants={cardVariants}
-              whileHover={{ scale: 1.02, y: -2 }}
               transition={{ duration: 0.3 }}
             >
               <Link to={`/blog/${post.id}`} className="h-full block">

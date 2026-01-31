@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { BookOpen, FileText, Video, HelpCircle, Download, ArrowRight } from "lucide-react";
@@ -76,7 +77,7 @@ const PatientResources = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <Card className="p-6 h-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer group">
+              <Card className="p-6 h-full cursor-pointer group">
                 <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-4 shadow-sm ${resource.bgColor} group-hover:scale-110 transition-transform`}>
                   <ColoredIcon Icon={resource.icon} color={resource.color} size={24} />
                 </div>

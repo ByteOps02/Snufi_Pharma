@@ -21,7 +21,7 @@ import {
   ChevronDown,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { cardVariants, cardHoverVariants, sectionVariants } from "@/lib/animations";
+import { cardVariants, sectionVariants } from "@/lib/animations";
 import { cn } from "@/lib/utils";
 
 const ClinicalTrials = () => {
@@ -70,7 +70,7 @@ const ClinicalTrials = () => {
         "A randomized, double-blind, placebo-controlled study to evaluate the efficacy and safety of SNF-001 in patients with advanced solid tumors.",
       status: "Recruiting",
       therapeuticArea: "Oncology",
-      location: "Multiple Sites Worldwide",
+      location: "Tata Memorial Centre, Mumbai",
       startDate: "2024-03-15",
     },
     {
@@ -80,7 +80,7 @@ const ClinicalTrials = () => {
         "Investigating the safety and preliminary efficacy of SNF-002 in adults with moderate to severe rheumatoid arthritis.",
       status: "Active, Not Recruiting",
       therapeuticArea: "Immunology",
-      location: "North America, Europe",
+      location: "AIIMS, New Delhi",
       startDate: "2023-09-01",
     },
     {
@@ -90,7 +90,7 @@ const ClinicalTrials = () => {
         "First-in-human study to assess the safety, tolerability, and pharmacokinetics of SNF-003 in healthy volunteers and patients with a rare neurological condition.",
       status: "Completed",
       therapeuticArea: "Neurology",
-      location: "United States",
+      location: "NIMHANS, Bangalore",
       startDate: "2023-01-10",
     },
   ];
@@ -177,15 +177,14 @@ const ClinicalTrials = () => {
               >
                 <div className="flex justify-center mb-4">
                   <div
-                    className={`w-12 h-12 rounded-2xl flex items-center justify-center shadow-sm ${
-                      stat.color === "emerald"
-                        ? "bg-emerald-100 dark:bg-emerald-900/20"
-                        : stat.color === "amber"
+                    className={`w-12 h-12 rounded-2xl flex items-center justify-center shadow-sm ${stat.color === "emerald"
+                      ? "bg-emerald-100 dark:bg-emerald-900/20"
+                      : stat.color === "amber"
                         ? "bg-amber-100 dark:bg-amber-900/20"
                         : stat.color === "sky"
-                        ? "bg-sky-100 dark:bg-sky-900/20"
-                        : "bg-violet-100 dark:bg-violet-900/20"
-                    }`}
+                          ? "bg-sky-100 dark:bg-sky-900/20"
+                          : "bg-violet-100 dark:bg-violet-900/20"
+                      }`}
                   >
                     <ColoredIcon Icon={stat.icon} color={stat.color} size={24} />
                   </div>
@@ -226,9 +225,8 @@ const ClinicalTrials = () => {
                 key={trial.id}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6}}
+                transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
-                whileHover={{ scale: 1.02, y: -2 }}
               >
                 <Card className="flex flex-col h-full p-8">
                   <div className="flex-grow">
@@ -323,7 +321,6 @@ const ClinicalTrials = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                whileHover={{ scale: 1.02, y: -2, transition: { duration: 0.3 } }}
                 className="h-full"
               >
                 <Card className="p-8 text-center h-full transition-shadow hover:shadow-xl">
@@ -388,8 +385,6 @@ const ClinicalTrials = () => {
               </Button>
             </div>
             <motion.div
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3 }}
               className="hidden lg:block"
             >
               <Card className="p-8 bg-background/50 shadow-lg">
@@ -402,7 +397,7 @@ const ClinicalTrials = () => {
                   <p><strong>Condition:</strong> Early-Stage Alzheimer's Disease</p>
                   <p><strong>Duration:</strong> 24-month treatment period</p>
                   <p><strong>Primary Outcome:</strong> Change in cognitive function scores</p>
-                  <p><strong>Locations:</strong> Major research centers across North America and Europe</p>
+                  <p><strong>Locations:</strong> Major research centers across India (Mumbai, Delhi, Bangalore)</p>
                 </CardContent>
               </Card>
             </motion.div>
@@ -441,17 +436,17 @@ const ClinicalTrials = () => {
                 </div>
                 <AnimatePresence>
                   {openFaq === index && (
-                                      <motion.div
-                                        initial={{ opacity: 0, height: 0 }}
-                                        animate={{ opacity: 1, height: "auto" }}
-                                        exit={{ opacity: 0, height: 0 }}
-                                        transition={{ duration: 0.3, ease: "easeOut" }}
-                                        className="overflow-hidden"
-                                      >
-                                        <div className="pt-4 mt-4 border-t text-muted-foreground">
-                                          {faq.answer}
-                                        </div>
-                                      </motion.div>                  )}
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.3, ease: "easeOut" }}
+                      className="overflow-hidden"
+                    >
+                      <div className="pt-4 mt-4 border-t text-muted-foreground">
+                        {faq.answer}
+                      </div>
+                    </motion.div>)}
                 </AnimatePresence>
               </Card>
             ))}
