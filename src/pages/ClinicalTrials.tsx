@@ -166,7 +166,7 @@ const ClinicalTrials = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
-        className="py-20"
+        className="py-12 md:py-20"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -208,7 +208,7 @@ const ClinicalTrials = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
-        className="py-20 bg-muted/30"
+        className="py-12 md:py-20 bg-muted/30"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -283,7 +283,7 @@ const ClinicalTrials = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
-        className="py-20"
+        className="py-12 md:py-20"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -348,7 +348,7 @@ const ClinicalTrials = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
-        className="py-20 bg-gradient-to-r from-primary/5 to-secondary/5"
+        className="py-12 md:py-20 bg-gradient-to-r from-primary/5 to-secondary/5"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -411,7 +411,7 @@ const ClinicalTrials = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
-        className="py-20 bg-muted/30"
+        className="py-12 md:py-20 bg-muted/30"
       >
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">

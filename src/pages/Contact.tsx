@@ -221,7 +221,7 @@ const Contact = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
-        className="py-20"
+        className="py-12 md:py-20"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-3 gap-8 items-start">
@@ -412,7 +412,7 @@ const Contact = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
-        className="py-20 bg-accent"
+        className="py-12 md:py-20 bg-accent"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
@@ -479,7 +479,7 @@ const Contact = () => {
         initial="hidden"
         animate="visible"
         transition={{ delay: 1.2 }}
-        className="mb-16 pt-20"
+        className="mb-16 pt-12 md:pt-20"
       >
         <h2 className="text-3xl font-bold text-center text-foreground mb-10">Frequently Asked Questions</h2>
         <div className="max-w-3xl mx-auto space-y-4">
@@ -519,7 +519,7 @@ const Contact = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
-        className="py-20"
+        className="py-12 md:py-20"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">

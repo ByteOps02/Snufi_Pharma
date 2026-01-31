@@ -162,7 +162,7 @@ const Products = () => {
       </section >
 
       {/* Search and Filter Section */}
-      <section className="py-8 bg-background" >
+      <section className="py-6 md:py-8 bg-background" >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="space-y-6">
             <div className="relative max-w-md">
@@ -206,7 +206,7 @@ const Products = () => {
       </section >
 
       {/* Products Grid */}
-      < section className="py-20" >
+      < section className="py-12 md:py-20" >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-8">
             <h2 className="text-2xl font-bold text-foreground mb-2">
@@ -305,7 +305,7 @@ const Products = () => {
       </section >
 
       {/* Quality Standards Section */}
-      < section className="py-20 bg-muted/30" >
+      < section className="py-12 md:py-20 bg-muted/30" >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

@@ -127,7 +127,7 @@ const HealthcareProfessionals = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
-        className="py-20"
+        className="py-12 md:py-20"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -163,7 +163,7 @@ const HealthcareProfessionals = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
-        className="py-20 bg-muted/30"
+        className="py-12 md:py-20 bg-muted/30"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -212,7 +212,7 @@ const HealthcareProfessionals = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
-        className="py-20"
+        className="py-12 md:py-20"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -249,7 +249,7 @@ const HealthcareProfessionals = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
-        className="py-20 bg-muted/30"
+        className="py-12 md:py-20 bg-muted/30"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -266,12 +266,12 @@ const HealthcareProfessionals = () => {
                 <div className="flex justify-center mb-4">
                   <div
                     className={`w-16 h-16 rounded-2xl flex items-center justify-center shadow-sm ${area.color === "sky"
-                        ? "bg-sky-100 dark:bg-sky-900/20"
-                        : area.color === "rose"
-                          ? "bg-rose-100 dark:bg-rose-900/20"
-                          : area.color === "indigo"
-                            ? "bg-indigo-100 dark:bg-indigo-900/20"
-                            : "bg-emerald-100 dark:bg-emerald-900/20"
+                      ? "bg-sky-100 dark:bg-sky-900/20"
+                      : area.color === "rose"
+                        ? "bg-rose-100 dark:bg-rose-900/20"
+                        : area.color === "indigo"
+                          ? "bg-indigo-100 dark:bg-indigo-900/20"
+                          : "bg-emerald-100 dark:bg-emerald-900/20"
                       }`}
                   >
                     <ColoredIcon Icon={area.icon} color={area.color} size={32} />
