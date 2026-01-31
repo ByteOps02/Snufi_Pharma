@@ -5,6 +5,7 @@ import Footer from "./Footer";
 import ScrollToTopButton from "./ScrollToTopButton";
 import ScrollToTop from "./ScrollToTop";
 import { ChatWidget } from "@/components/ui/chat-widget";
+import { CookieConsent } from "@/components/common/CookieConsent";
 
 
 
@@ -21,7 +22,7 @@ const Layout = ({ children }: LayoutProps) => {
       <Footer />
       <ScrollToTopButton />
       <ChatWidget />
-
+      <CookieConsent />
       <SpeedInsights />
     </div>
   );
