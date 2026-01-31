@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import { useLocation } from "react-router-dom";
 import {
   Search,
   Pill,
@@ -21,11 +22,29 @@ import { motion, AnimatePresence } from "framer-motion";
 import { sectionVariants } from "@/lib/animations";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import { products } from "@/lib/products";
 
 const Products = () => {
+  const location = useLocation();
+
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+    if (location.hash) {
+      const id = location.hash.replace('#', '');
+      const element = document.getElementById(id);
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          // Highlight effect
+          element.classList.add('ring-2', 'ring-primary', 'ring-offset-2');
+          setTimeout(() => {
+            element.classList.remove('ring-2', 'ring-primary', 'ring-offset-2');
+          }, 2000);
+        }, 100);
+      }
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [location]);
 
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [searchTerm, setSearchTerm] = useState("");
@@ -38,80 +57,6 @@ const Products = () => {
     { id: "immunology", name: "Immunology", icon: Shield, iconColor: "text-blue-500" },
   ];
 
-  const products = [
-    {
-      id: 1,
-      name: "CardioMax Pro",
-      category: "cardiovascular",
-      description: "Advanced cardiovascular medication for hypertension management with proven efficacy and minimal side effects.",
-      strength: "10mg, 20mg, 40mg",
-      form: "Tablets",
-      indication: "Hypertension, Heart Failure",
-      status: "Available",
-      approvalDate: "2023-03-15",
-      patients: "50,000+"
-    },
-    {
-      id: 2,
-      name: "NeuroGuard",
-      category: "neurological",
-      description: "Innovative neurological treatment for cognitive enhancement and neuroprotection in aging populations.",
-      strength: "5mg, 10mg",
-      form: "Capsules",
-      indication: "Cognitive Decline, Dementia",
-      status: "Available",
-      approvalDate: "2023-01-20",
-      patients: "25,000+"
-    },
-    {
-      id: 3,
-      name: "ImmunoShield",
-      category: "immunology",
-      description: "Cutting-edge immunomodulator designed to enhance immune system response and autoimmune condition management.",
-      strength: "25mg, 50mg",
-      form: "Injection",
-      indication: "Autoimmune Disorders",
-      status: "Clinical Trial",
-      approvalDate: "Expected 2024",
-      patients: "1,200+"
-    },
-    {
-      id: 4,
-      name: "OrthoJoint",
-      category: "orthology",
-      description: "Precision orthology medication targeting specific joint pathways with a personalized treatment approach.",
-      strength: "100mg, 200mg",
-      form: "Tablets",
-      indication: "Various Joint Disorders",
-      status: "Available",
-      approvalDate: "2022-11-10",
-      patients: "35,000+"
-    },
-    {
-      id: 5,
-      name: "CardioFlow",
-      category: "cardiovascular",
-      description: "Next-generation anticoagulant with improved safety profile and reduced bleeding risk.",
-      strength: "2.5mg, 5mg",
-      form: "Tablets",
-      indication: "Atrial Fibrillation, DVT",
-      status: "Available",
-      approvalDate: "2023-06-05",
-      patients: "40,000+"
-    },
-    {
-      id: 6,
-      name: "NeuroBalance",
-      category: "neurological",
-      description: "Advanced treatment for movement disorders with enhanced patient quality of life outcomes.",
-      strength: "0.5mg, 1mg, 2mg",
-      form: "Extended Release Tablets",
-      indication: "Parkinson's Disease",
-      status: "Available",
-      approvalDate: "2023-04-12",
-      patients: "15,000+"
-    }
-  ];
 
   const filteredProducts = products.filter((product) => {
     const matchesCategory = selectedCategory === "all" || product.category === selectedCategory;
@@ -277,6 +222,7 @@ const Products = () => {
               {filteredProducts.map((product, index) => (
                 <motion.div
                   key={product.id}
+                  id={`product-${product.id}`}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
