@@ -4,12 +4,21 @@ import { Menu, X } from "lucide-react";
 import { Button } from "./button";
 import { cn } from "@/lib/utils";
 import { ThemeToggle } from "./theme-toggle";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
+import { SearchCommand } from "@/components/common/SearchCommand";
+import { Search } from "lucide-react";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [openSearch, setOpenSearch] = useState(false);
   const location = useLocation();
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -61,7 +70,7 @@ const Navigation = () => {
         damping: 30,
       },
     },
-  };
+  } as const;
 
   return (
     <nav
@@ -72,7 +81,7 @@ const Navigation = () => {
           : "bg-transparent",
       )}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-3">
           {/* Logo */}
           <Link
@@ -123,11 +132,35 @@ const Navigation = () => {
                 )}
               </Link>
             ))}
+          </div>
+
+          {/* Desktop Actions */}
+          <div className="hidden lg:flex items-center space-x-3">
+            <Button
+              variant="outline"
+              size="sm"
+              className="w-9 px-0 md:w-auto md:px-4 text-muted-foreground bg-muted/50 hover:bg-muted/80 border-0"
+              onClick={() => setOpenSearch(true)}
+            >
+              <Search className="h-4 w-4 md:mr-2" />
+              <span className="hidden md:inline-flex">Search...</span>
+              <kbd className="hidden md:inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground ml-2">
+                <span className="text-xs">⌘</span>K
+              </kbd>
+            </Button>
+
             <ThemeToggle />
           </div>
 
           {/* Mobile menu button */}
-          <div className="lg:hidden flex items-center">
+          <div className="lg:hidden flex items-center gap-2">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setOpenSearch(true)}
+            >
+              <Search className="h-5 w-5" />
+            </Button>
             <ThemeToggle />
             <Button
               variant="ghost"
@@ -172,6 +205,14 @@ const Navigation = () => {
           )}
         </AnimatePresence>
       </div>
+
+      {/* Scroll Progress Bar */}
+      <motion.div
+        className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary to-blue-500 origin-left"
+        style={{ scaleX }}
+      />
+
+      <SearchCommand open={openSearch} setOpen={setOpenSearch} />
     </nav>
   );
 };

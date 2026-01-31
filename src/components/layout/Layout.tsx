@@ -6,6 +6,7 @@ import ScrollToTopButton from "./ScrollToTopButton";
 import ScrollToTop from "./ScrollToTop";
 import { ChatWidget } from "@/components/ui/chat-widget";
 import { CookieConsent } from "@/components/common/CookieConsent";
+import { Breadcrumbs } from "@/components/common/Breadcrumbs";
 
 
 
@@ -18,7 +19,10 @@ const Layout = ({ children }: LayoutProps) => {
     <div className="min-h-screen bg-background flex flex-col">
       <Navigation />
       <ScrollToTop />
-      <main className="pt-16 flex-grow">{children}</main>
+      <main className="pt-16 flex-grow">
+        <Breadcrumbs />
+        {children}
+      </main>
       <Footer />
       <ScrollToTopButton />
       <ChatWidget />

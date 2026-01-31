@@ -36,12 +36,12 @@ const ScrollToTopButton = () => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 20 }}
           transition={{ duration: 0.3 }}
-          className="fixed bottom-4 right-4 z-50"
+          className="fixed bottom-24 right-5 z-40 md:right-8"
         >
           <Button
             size="icon"
             onClick={scrollToTop}
-            className="rounded-full shadow-lg"
+            className="rounded-full shadow-lg w-12 h-12"
           >
             <ArrowUp size={24} />
           </Button>
