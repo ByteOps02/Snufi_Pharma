@@ -86,7 +86,7 @@ const Navigation = () => {
           {/* Logo */}
           <Link
             to="/"
-            className="flex items-center space-x-3 flex-shrink-0"
+            className="flex items-center space-x-2 sm:space-x-3 min-w-0"
             onClick={handleNavClick}
           >
             <div className="w-10 h-10 bg-gradient-primary rounded-lg flex items-center justify-center">
@@ -94,11 +94,11 @@ const Navigation = () => {
                 S
               </span>
             </div>
-            <div className="flex flex-col">
-              <div className="text-lg font-bold text-primary dark:text-white">
+            <div className="flex flex-col min-w-0">
+              <div className="text-sm sm:text-lg font-bold text-primary dark:text-white leading-none sm:leading-tight">
                 Snufi Pharmaceutical®
               </div>
-              <div className="text-xs text-primary/80 dark:text-white/80 -mt-1 font-medium">
+              <div className="text-[10px] sm:text-xs text-primary/80 dark:text-white/80 font-medium">
                 Known for cure
               </div>
             </div>
@@ -153,7 +153,7 @@ const Navigation = () => {
           </div>
 
           {/* Mobile menu button */}
-          <div className="lg:hidden flex items-center gap-2">
+          <div className="lg:hidden flex items-center gap-2 flex-shrink-0">
             <Button
               variant="ghost"
               size="icon"
