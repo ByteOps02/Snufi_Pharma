@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence, Variants } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   Card,
   CardContent,
@@ -21,7 +21,7 @@ import {
   ChevronDown,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { cardVariants, sectionVariants } from "@/lib/animations";
+import { sectionVariants } from "@/lib/animations";
 import { cn } from "@/lib/utils";
 
 const ClinicalTrials = () => {
@@ -48,9 +48,9 @@ const ClinicalTrials = () => {
     },
     {
       icon: Globe,
-      value: "25",
-      label: "Countries",
-      description: "Global research network",
+      label: "States",
+      value: "15+",
+      description: "National research network",
       color: "sky" as const,
     },
     {
@@ -93,6 +93,33 @@ const ClinicalTrials = () => {
       location: "NIMHANS, Bangalore",
       startDate: "2023-01-10",
     },
+    {
+      id: 4,
+      title: "Phase 2 Study of OncoTarget-X",
+      description: "Evaluating safety and efficacy of OncoTarget-X in patients with metastatic solid tumors.",
+      status: "Recruiting",
+      therapeuticArea: "Oncology",
+      location: "Apollo Hospitals, Chennai",
+      startDate: "2024-01-20",
+    },
+    {
+      id: 5,
+      title: "Phase 1 Trial of NeuroRegen",
+      description: "Safety and tolerability study of NeuroRegen in early-stage Alzheimer's patients.",
+      status: "Recruiting",
+      therapeuticArea: "Neurology",
+      location: "NIMHANS, Bangalore",
+      startDate: "2024-02-15",
+    },
+    {
+      id: 6,
+      title: "Phase 3 Trial for GastroRelief-XR",
+      description: "Multi-center study comparing GastroRelief-XR with placebo in IBS-D patients.",
+      status: "Active, Not Recruiting",
+      therapeuticArea: "Gastroenterology",
+      location: "KEM Hospital, Mumbai",
+      startDate: "2023-11-10",
+    }
   ];
 
   const faqs = [

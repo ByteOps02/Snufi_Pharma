@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -7,7 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { ColoredIcon } from "@/components/ui/colored-icon";
 import { FileText, Calendar, FlaskConical, Heart, Brain, Shield } from "lucide-react";
-import { cardVariants, sectionVariants } from "@/lib/animations";
+import { sectionVariants } from "@/lib/animations";
 
 const HealthcareProfessionals = () => {
   useEffect(() => {
@@ -184,11 +184,11 @@ const HealthcareProfessionals = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <Label htmlFor="name">Full Name</Label>
-                    <Input id="name" placeholder="John Doe" />
+                    <Input id="name" placeholder="Dr. Rajesh Kumar" />
                   </div>
                   <div>
                     <Label htmlFor="email">Email</Label>
-                    <Input id="email" type="email" placeholder="john.doe@example.com" />
+                    <Input id="email" type="email" placeholder="rajesh.kumar@hospital.com" />
                   </div>
                 </div>
                 <div>

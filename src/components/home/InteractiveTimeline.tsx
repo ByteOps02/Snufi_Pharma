@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { useState } from "react";
-import { CheckCircle, Rocket, Award, Building, Globe, TrendingUp } from "lucide-react";
+import { CheckCircle, Rocket, Award, Building, TrendingUp, MapPin } from "lucide-react";
 
 const InteractiveTimeline = () => {
   const [selectedYear, setSelectedYear] = useState<number | null>(null);
@@ -22,13 +22,13 @@ const InteractiveTimeline = () => {
       title: "First Product Launch",
       description: "Successfully launched our flagship cardiovascular medication, Corstelin®, marking our entry into the pharmaceutical market.",
       icon: CheckCircle,
-      achievements: ["FDA Approval Received", "10,000+ Patients Treated", "Expanded to 3 Countries"],
+      achievements: ["CDSCO Approval Received", "10,000+ Patients Treated", "Expanded to 3 Countries"],
       color: "from-green-500 to-emerald-500",
     },
     {
       year: 2020,
       title: "Manufacturing Excellence",
-      description: "Commissioned a state-of-the-art, FDA-approved manufacturing plant with advanced automation.",
+      description: "Commissioned a state-of-the-art, CDSCO-approved manufacturing plant with advanced automation.",
       icon: Building,
       achievements: ["50,000 sq ft Facility", "ISO 9001:2015 Certified", "Production Capacity Doubled"],
       color: "from-purple-500 to-pink-500",
@@ -43,10 +43,10 @@ const InteractiveTimeline = () => {
     },
     {
       year: 2023,
-      title: "Global Expansion",
-      description: "Expanded operations to 25+ countries with strategic partnerships and new market entries.",
-      icon: Globe,
-      achievements: ["25+ Countries Coverage", "5 New Products Launched", "3,000+ Employees"],
+      title: "National Expansion",
+      description: "Expanded operations to 15+ states with strategic partnerships and new market entries.",
+      icon: MapPin,
+      achievements: ["15+ States Coverage", "5 New Products Launched", "5,000+ Employees"],
       color: "from-red-500 to-rose-500",
     },
     {
@@ -89,21 +89,21 @@ const InteractiveTimeline = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className={`relative mb-12 lg:mb-24 ${index % 2 === 0 ? 'lg:pr-1/2' : 'lg:pl-1/2 lg:text-right'}`}
+              className={`relative mb - 12 lg: mb - 24 ${index % 2 === 0 ? 'lg:pr-1/2' : 'lg:pl-1/2 lg:text-right'} `}
             >
-              <div className={`lg:w-1/2 ${index % 2 === 0 ? 'lg:pr-12' : 'lg:pl-12 lg:ml-auto'}`}>
+              <div className={`lg: w - 1 / 2 ${index % 2 === 0 ? 'lg:pr-12' : 'lg:pl-12 lg:ml-auto'} `}>
                 <motion.div
                   transition={{ duration: 0.3 }}
                 >
                   <Card
-                    className={`p-6 cursor-pointer transition-all ${selectedYear === milestone.year
+                    className={`p - 6 cursor - pointer transition - all ${selectedYear === milestone.year
                       ? 'ring-2 ring-primary shadow-2xl'
                       : 'hover:shadow-xl'
-                      }`}
+                      } `}
                     onClick={() => setSelectedYear(selectedYear === milestone.year ? null : milestone.year)}
                   >
-                    <div className={`flex items-center gap-4 ${index % 2 === 0 ? '' : 'lg:flex-row-reverse'}`}>
-                      <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${milestone.color} flex items-center justify-center flex-shrink-0 shadow-lg`}>
+                    <div className={`flex items - center gap - 4 ${index % 2 === 0 ? '' : 'lg:flex-row-reverse'} `}>
+                      <div className={`w - 16 h - 16 rounded - 2xl bg - gradient - to - br ${milestone.color} flex items - center justify - center flex - shrink - 0 shadow - lg`}>
                         <milestone.icon className="h-8 w-8 text-white" />
                       </div>
                       <div className="flex-grow">

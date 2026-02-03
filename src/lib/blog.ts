@@ -25,7 +25,7 @@ export const blogPosts: Post[] = [
 <p>Our new identity, Snufi Pharma, represents our core values of innovation, integrity, and patient-centricity. It reflects our evolution from a promising startup to a leading player in the pharmaceutical industry, known for our cutting-edge research and high-quality products.</p>
 
 <h2>Why the Change?</h2>
-<p>The decision to rebrand was driven by our desire to create a stronger, more unified brand that resonates with our global audience. The name Snufi is inspired by our mission to bring comfort and relief to patients, embodying the warmth and care that are at the heart of everything we do.</p>
+<p>The decision to rebrand was driven by our desire to create a stronger, more unified brand that resonates with our national audience. The name Snufi is inspired by our mission to bring comfort and relief to patients, embodying the warmth and care that are at the heart of everything we do.</p>
 
 <h2>What's Next?</h2>
 <p>As Snufi Pharma, we will continue to push the boundaries of medical science. Our focus remains on developing innovative treatments for a wide range of diseases, with a particular emphasis on cardiovascular, neurological, and orthopedic conditions. We are investing heavily in our research and development capabilities to bring new, life-changing medications to market.</p>
@@ -34,17 +34,17 @@ export const blogPosts: Post[] = [
 `,
   },
   {
-    id: "fda-approval-cardiomax",
+    id: "cdsco-approval-cardiomax",
     title:
-      "Snufi Pharmaceutical Receives FDA Approval for New Cardiovascular Drug",
+      "Snufi Pharmaceutical Receives CDSCO Approval for New Cardiovascular Drug",
     date: "2025-09-15",
     category: "Regulatory",
-    tags: ["FDA", "Cardiology", "Product"],
+    tags: ["CDSCO", "Cardiology", "Product"],
     excerpt:
-      "CardioMax Pro receives FDA approval for treating hypertension, marking a significant milestone in cardiovascular care.",
+      "CardioMax Pro receives CDSCO approval for treating hypertension, marking a significant milestone in cardiovascular care.",
     readTime: "3 min read",
     content: `
-<p>We are proud to announce that our new cardiovascular drug, CardioMax Pro, has received FDA approval for the treatment of hypertension. This is a landmark achievement for Snufi Pharma and a testament to our relentless pursuit of innovation in cardiovascular medicine.</p>
+<p>We are proud to announce that our new cardiovascular drug, CardioMax Pro, has received CDSCO approval for the treatment of hypertension. This is a landmark achievement for Snufi Pharma and a testament to our relentless pursuit of innovation in cardiovascular medicine.</p>
 
 <p>CardioMax Pro is a next-generation medication that offers a novel approach to managing high blood pressure. In clinical trials, it has demonstrated superior efficacy and a favorable safety profile compared to existing treatments. We believe that CardioMax Pro has the potential to transform the lives of millions of patients suffering from hypertension.</p>
 

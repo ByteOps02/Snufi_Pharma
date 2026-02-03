@@ -62,8 +62,8 @@ const Careers = () => {
       type: "Full-time",
       experience: "2+ years",
       salary: "₹12,00,000 - ₹18,00,000",
-      description: "Support regulatory submissions and maintain compliance with FDA requirements.",
-      requirements: ["Regulatory experience", "FDA knowledge", "Attention to detail"],
+      description: "Support regulatory submissions and maintain compliance with CDSCO requirements.",
+      requirements: ["Regulatory experience", "CDSCO knowledge", "Attention to detail"],
       posted: "3 days ago"
     },
     {
@@ -145,7 +145,7 @@ const Careers = () => {
 
   const companyStats = [
     { icon: Users, value: "5,000+", label: "Global Employees", color: "text-blue-600" },
-    { icon: Globe, value: "25+", label: "Countries", color: "text-green-600" },
+    { icon: MapPin, value: "15+", label: "States", color: "text-green-600" },
     { icon: Award, value: "50+", label: "Industry Awards", color: "text-purple-600" },
     { icon: TrendingUp, value: "15%", label: "Annual Growth", color: "text-orange-600" }
   ];

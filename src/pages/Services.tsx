@@ -8,12 +8,12 @@ import {
   Award,
   ArrowRight,
   Shield,
-  Globe,
   Clock,
   CheckCircle,
   Factory,
   HeartHandshake,
-  Target
+  Target,
+  MapPin
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -73,7 +73,12 @@ const Services = () => {
         "Regulatory Intelligence"
       ],
       color: "bg-purple-500/10 text-purple-600",
-      stats: { value: "25+", label: "Countries" }
+      stats: {
+        value: "15+",
+        label: "States Served",
+        icon: MapPin,
+        color: "text-blue-600"
+      }
     },
     {
       icon: Truck,
@@ -124,9 +129,9 @@ const Services = () => {
 
   const capabilities = [
     {
-      icon: Globe,
-      title: "Global Reach",
-      description: "Operations across 25+ countries with local expertise and global standards",
+      icon: MapPin,
+      title: "National Reach",
+      description: "Operations across 15+ states with local expertise and international standards",
       bgColor: "bg-blue-100 dark:bg-blue-900/20",
       iconColor: "sky" as const // Changed from blue to sky
     },

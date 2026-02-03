@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Target, Eye, Award, Users, Building, Globe, Shield, Heart } from "lucide-react";
+import { Target, Eye, Award, Users, Building, Globe, Shield, Heart, MapPin } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ColoredIcon } from "@/components/ui/colored-icon";
@@ -39,7 +39,7 @@ const About = () => {
     { year: 2017, event: "Established our first R&D center, focusing on innovative drug discovery." },
     { year: 2018, event: "Successfully launched our flagship cardiovascular medication, Corstelin®." },
     { year: 2019, event: "Achieved international expansion, entering markets in Europe and Asia." },
-    { year: 2020, event: "Commissioned a state-of-the-art, FDA-approved manufacturing plant." },
+    { year: 2020, event: "Commissioned a state-of-the-art, CDSCO-approved manufacturing plant." },
     { year: 2021, event: 'Received the "Innovator of the Year" award in the pharmaceutical industry.' },
     { year: 2025, event: "Rebranded to Snufi to reflect our evolving vision and broader portfolio." }
   ];
@@ -186,7 +186,7 @@ const About = () => {
                   pharmaceutical development and manufacturing.
                 </p>
                 <p>
-                  Today, Snufi Pharmaceutical® operates in over 3 countries, with state-of-the-art
+                  Today, Snufi Pharmaceutical® operates in over 15 states, with state-of-the-art
                   research facilities, manufacturing plants, and a dedicated team of
                   over 5,000 professionals worldwide.
                 </p>
@@ -219,13 +219,13 @@ const About = () => {
                 <div className="text-center group">
                   <div className="w-14 h-14 bg-violet-100 dark:bg-violet-900/30 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm transition-transform group-hover:scale-110 duration-300">
                     <ColoredIcon
-                      Icon={Globe}
+                      Icon={MapPin}
                       color="violet"
                       size={28}
                     />
                   </div>
-                  <div className="text-3xl font-bold text-foreground mb-1">3+</div>
-                  <div className="text-sm font-medium text-muted-foreground">Countries</div>
+                  <div className="text-3xl font-bold text-foreground mb-1">15+</div>
+                  <div className="text-sm font-medium text-muted-foreground">States</div>
                 </div>
               </div>
             </motion.div>

@@ -41,8 +41,8 @@ const Home = () => {
     >
       <SEOHead
         title="Home"
-        description="Snufi Pharmaceutical - Leading Indian manufacturer of high-quality pharmaceutical formulations. FDA & WHO-GMP certified facilities serving global healthcare needs."
-        keywords="pharmaceutical manufacturer India, FDA approved pharma company, WHO-GMP certified, Indian pharma exports, contract manufacturing India"
+        description="Snufi Pharmaceutical - Leading Indian manufacturer of high-quality pharmaceutical formulations. CDSCO & WHO-GMP certified facilities serving national healthcare needs."
+        keywords="pharmaceutical manufacturer India, CDSCO approved pharma company, WHO-GMP certified, pan-India pharmaceutical distribution, contract manufacturing India"
       />
       <Hero />
       <Certifications />

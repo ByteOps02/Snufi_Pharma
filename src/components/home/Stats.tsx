@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 const stats = [
   { number: "10+", label: "Years of Excellence" },
   { number: "25+", label: "Products Developed" },
-  { number: "3+", label: "Countries Served" },
+  { number: "15+", label: "States Served" },
   { number: "2M+", label: "Lives Improved" },
 ];
 

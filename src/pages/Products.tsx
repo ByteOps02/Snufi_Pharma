@@ -1,5 +1,4 @@
-import { useState, useEffect, useRef } from "react";
-import { useLocation } from "react-router-dom";
+import { useState } from "react";
 import {
   Search,
   Pill,
@@ -10,7 +9,13 @@ import {
   Download,
   Award,
   CheckCircle,
-  Globe
+  BookOpen,
+  Sparkles,
+  Activity,
+  Zap,
+  Wind,
+  Droplet,
+  FlaskConical
 } from "lucide-react";
 import { SEOHead } from "@/components/common/SEOHead";
 import { Button } from "@/components/ui/button";
@@ -25,41 +30,31 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/comp
 import { products } from "@/lib/products";
 
 const Products = () => {
-  const location = useLocation();
-
-  useEffect(() => {
-    if (location.hash) {
-      const id = location.hash.replace('#', '');
-      const element = document.getElementById(id);
-      if (element) {
-        setTimeout(() => {
-          element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          // Highlight effect
-          element.classList.add('ring-2', 'ring-primary', 'ring-offset-2');
-          setTimeout(() => {
-            element.classList.remove('ring-2', 'ring-primary', 'ring-offset-2');
-          }, 2000);
-        }, 100);
-      }
-    } else {
-      window.scrollTo(0, 0);
-    }
-  }, [location]);
-
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [searchTerm, setSearchTerm] = useState("");
 
   const categories = [
     { id: "all", name: "All Products", icon: Pill, iconColor: "text-gray-500" },
+    { id: "clinical_trials", name: "Clinical Trials", icon: FlaskConical, iconColor: "text-amber-500" },
     { id: "cardiovascular", name: "Cardiovascular", icon: Heart, iconColor: "text-red-500" },
     { id: "neurological", name: "Neurological", icon: Brain, iconColor: "text-purple-500" },
     { id: "orthology", name: "Orthology", icon: Bone, iconColor: "text-orange-500" },
     { id: "immunology", name: "Immunology", icon: Shield, iconColor: "text-blue-500" },
+    { id: "dermatology", name: "Dermatology", icon: Sparkles, iconColor: "text-pink-500" },
+    { id: "gastroenterology", name: "Gastroenterology", icon: Activity, iconColor: "text-emerald-500" },
+    { id: "pain management", name: "Pain Mgmt", icon: Zap, iconColor: "text-amber-500" },
+    { id: "respiratory", name: "Respiratory", icon: Wind, iconColor: "text-cyan-500" },
+    { id: "anti-diabetic", name: "Diabetes Care", icon: Droplet, iconColor: "text-red-600" },
   ];
 
 
   const filteredProducts = products.filter((product) => {
-    const matchesCategory = selectedCategory === "all" || product.category === selectedCategory;
+    let matchesCategory = selectedCategory === "all" || product.category === selectedCategory;
+
+    if (selectedCategory === "clinical_trials") {
+      matchesCategory = product.status === "Clinical Trial";
+    }
+
     const matchesSearch =
       product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       product.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -83,8 +78,8 @@ const Products = () => {
 
   const qualityStandards = [
     {
-      title: "FDA Approved",
-      description: "All products meet stringent FDA safety and efficacy standards",
+      title: "CDSCO Approved",
+      description: "All products meet stringent CDSCO safety and efficacy standards",
       icon: Award,
       color: "bg-blue-500/10 text-blue-600"
     },
@@ -101,9 +96,9 @@ const Products = () => {
       color: "bg-purple-500/10 text-purple-600"
     },
     {
-      title: "Global Standards",
-      description: "Meets international regulatory requirements worldwide",
-      icon: Globe,
+      title: "IPC Standards",
+      description: "Compliant with Indian Pharmacopoeia Commission quality standards",
+      icon: BookOpen,
       color: "bg-orange-500/10 text-orange-600"
     }
   ];
@@ -125,7 +120,7 @@ const Products = () => {
       >
         <SEOHead
           title="Products"
-          description="Explore our comprehensive range of FDA-approved pharmaceutical products including cardiovascular, neurological, and immunological treatments."
+          description="Explore our comprehensive range of CDSCO-approved pharmaceutical products including cardiovascular, neurological, and immunological treatments."
           keywords="pharmaceutical products, medicines, drugs, cardiovascular, neurology, Snufi Pharma products"
         />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -144,7 +139,7 @@ const Products = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed"
             >
-              Discover our comprehensive range of FDA-approved medications designed to improve patient outcomes
+              Discover our comprehensive range of CDSCO-approved medications designed to improve patient outcomes
               across multiple therapeutic areas.
             </motion.p>
           </div>
@@ -332,7 +327,7 @@ const Products = () => {
                 viewport={{ once: true }}
               >
                 <Card className="p-6 text-center h-full">
-                  <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm ${standard.title === "FDA Approved"
+                  <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-sm ${standard.title === "CDSCO Approved"
                     ? "bg-sky-100 dark:bg-sky-900/20"
                     : standard.title === "GMP Certified"
                       ? "bg-emerald-100 dark:bg-emerald-900/20"
@@ -343,7 +338,7 @@ const Products = () => {
                     <ColoredIcon
                       Icon={standard.icon}
                       color={
-                        standard.title === "FDA Approved"
+                        standard.title === "CDSCO Approved"
                           ? "sky"
                           : standard.title === "GMP Certified"
                             ? "emerald"

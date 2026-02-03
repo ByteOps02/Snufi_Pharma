@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { cardVariants } from "@/lib/animations";
-import { Award, CheckCircle, ShieldCheck, Globe } from "lucide-react";
+import { Award, CheckCircle, Globe, BookOpen, Microscope } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { ColoredIcon } from "@/components/ui/colored-icon";
 
@@ -17,17 +17,24 @@ const certifications = [
         description: "Quality Management System Certification",
         color: "sky" as const,
     },
-    {
-        name: "US FDA Compliant",
-        icon: ShieldCheck,
-        description: "Adhering to United States Food and Drug Administration standards",
-        color: "indigo" as const,
-    },
+
     {
         name: "CDSCO Approved",
         icon: Globe,
         description: "Central Drugs Standard Control Organization (India)",
         color: "amber" as const,
+    },
+    {
+        name: "IPC Compliant",
+        icon: BookOpen,
+        description: "Adhering to Indian Pharmacopoeia Commission Standards",
+        color: "indigo" as const,
+    },
+    {
+        name: "ICMR Recognized",
+        icon: Microscope,
+        description: "Recognized by Indian Council of Medical Research",
+        color: "rose" as const,
     },
 ];
 
